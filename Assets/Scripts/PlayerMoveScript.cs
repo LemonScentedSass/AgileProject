@@ -8,6 +8,7 @@ public class PlayerMoveScript : MonoBehaviour
     public float STOPDASHTIME = 0.5f;
     public float DASHMULTIPLIER = 5f;
     public float DASHCOOLDOWN = 3f;
+    public Rigidbody rb;
 
     public bool isDashing;
 
@@ -24,14 +25,17 @@ public class PlayerMoveScript : MonoBehaviour
     
     private bool CanDash = true;
     private Animator anim;
-    private Vector3 CameraVect;
     private Vector3 gravityVelocity;
     private Vector3 PlayerVect;
     private Vector3 orientation;
+    public float velocity;
+
+    public Transform defaultCam;
 
     // Start is called before the first frame update
     void Start()
     {
+        rb = GetComponent<Rigidbody>();
         anim = GetComponent<Animator>();
         controller = GetComponent<CharacterController>();
     }
@@ -39,9 +43,11 @@ public class PlayerMoveScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        velocity = controller.velocity.magnitude;
         //Adds Gravity
         gravityVelocity.y += gravity * Time.deltaTime;
         controller.Move(gravityVelocity * Time.deltaTime);
+        cameraController.Move(gravityVelocity * Time.deltaTime);
 
         Move();
         Dash();
@@ -63,7 +69,8 @@ public class PlayerMoveScript : MonoBehaviour
             //Make sure there is a playerbody set
             if (PlayerBody != null)
             { 
-                 PlayerBody.transform.LookAt((mouseLocation.transform.position + new Vector3(0f,0.5f,0f)), Vector3.up * 0.05f * Time.deltaTime);
+                //Player look at mouseLocation
+                 PlayerBody.transform.LookAt((mouseLocation.transform.position + new Vector3(mouseLocation.transform.position.x, 0f ,mouseLocation.transform.position.z)), Vector3.up * 0.05f * Time.deltaTime);
             }
         }
     }
@@ -73,6 +80,7 @@ public class PlayerMoveScript : MonoBehaviour
         //Checks for player's Input, if the player is dashing, and if player is able to dash
         if (Input.GetMouseButtonDown(1) && isDashing == false && CanDash == true)
         {
+            defaultCam = Camera.main.transform;
             isDashing = true;
         }
 
@@ -83,7 +91,7 @@ public class PlayerMoveScript : MonoBehaviour
 
             //Moves controller and camera
             controller.Move(orientation * PLAYERSPEED * DASHMULTIPLIER);
-            cameraController.Move(new Vector3(orientation.x, 0, orientation.z) * PLAYERSPEED * DASHMULTIPLIER);
+            cameraController.Move((orientation * PLAYERSPEED * DASHMULTIPLIER));
 
             //Stops the dash
             StartCoroutine(StopDashing(STOPDASHTIME));
@@ -137,7 +145,6 @@ public class PlayerMoveScript : MonoBehaviour
                 controller.Move(PlayerVect * PLAYERSPEED);
 
                 //Moves camera with player
-                CameraVect = Camera.main.transform.right * x;
                 cameraController.Move(PlayerVect * PLAYERSPEED);
             }
 
@@ -149,7 +156,6 @@ public class PlayerMoveScript : MonoBehaviour
                 controller.Move(PlayerVect * PLAYERSPEED);
 
                 //Moves camera with player
-                CameraVect = Camera.main.transform.forward * z;
                 cameraController.Move(PlayerVect * PLAYERSPEED);
 
             }
