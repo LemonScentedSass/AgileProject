@@ -70,7 +70,7 @@ public class PlayerMoveScript : MonoBehaviour
             if (PlayerBody != null)
             { 
                 //Player look at mouseLocation
-                 PlayerBody.transform.LookAt((mouseLocation.transform.position + new Vector3(mouseLocation.transform.position.x, 0f ,mouseLocation.transform.position.z)), Vector3.up * 0.05f * Time.deltaTime);
+                 PlayerBody.transform.LookAt(mouseLocation.transform.position + new Vector3(0,0.5f,0), Vector3.up * Time.deltaTime);
             }
         }
     }
