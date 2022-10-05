@@ -7,9 +7,8 @@ public class InputHandler : MonoBehaviour
 
       public Vector2 inputVector { get; private set; }
       public Vector3 mousePosition { get; private set; }
-      public bool zoomedIn { get; private set; }
 
-    public ZoomSwitch zs;
+      public ZoomSwitch zs;
 
       // Update is called once per frame
       void Update()
@@ -22,14 +21,7 @@ public class InputHandler : MonoBehaviour
             mousePosition = Input.mousePosition;
 
         // Camera Zoom
-            if (zoomedIn && Input.GetKeyDown(KeyCode.Z))
-                zoomedIn = false;
-            if (!zoomedIn && Input.GetKeyDown(KeyCode.Z))
-                zoomedIn = true;            
+        if (Input.GetKeyDown(KeyCode.Z))
+            zs.SwitchState();
       }
-
-    private void Start()
-    {
-        zoomedIn = true;
-    }
 }
