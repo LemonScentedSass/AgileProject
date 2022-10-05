@@ -15,9 +15,9 @@ public class ZoomSwitch : MonoBehaviour
     public void SwitchState()
     {
         if (zoomed)
-            anim.Play("Zoomed In");
-        else
             anim.Play("Zoomed Out");
+        else
+            anim.Play("Zoomed In");
 
         zoomed = !zoomed;
     }
