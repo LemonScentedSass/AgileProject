@@ -4,9 +4,12 @@ using UnityEngine;
 
 public class InputHandler : MonoBehaviour
 {
+
       public Vector2 inputVector { get; private set; }
       public Vector3 mousePosition { get; private set; }
       public bool zoomedIn { get; private set; }
+
+    public ZoomSwitch zs;
 
       // Update is called once per frame
       void Update()
