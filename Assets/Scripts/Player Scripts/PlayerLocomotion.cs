@@ -6,6 +6,7 @@ using UnityEngine;
 public class PlayerLocomotion : MonoBehaviour
 {
     private InputHandler input;
+    public Animator anim;
 
     [SerializeField] public Camera cam; // Camera Reference
     [SerializeField] public bool rotateTowardsMouse; // Enable or Disable Rotation Based on Mouse Input.
@@ -17,6 +18,7 @@ public class PlayerLocomotion : MonoBehaviour
     private void Awake()
     {
         input = GetComponent<InputHandler>(); // Grab input Component and assign to variable.
+        anim = GetComponentInChildren<Animator>(); // Grab animator and assign that shit.
     }
 
     // Update is called once per frame
@@ -31,26 +33,7 @@ public class PlayerLocomotion : MonoBehaviour
         else
             RotateTowardMouseVector(movementVector); // Rotate with mouse.
 
-        //Orientation of the player
-        orientation = mouseLocation.transform.position - gameObject.transform.position;
-        orientation = orientation.normalized;
-
-        //If z orientation is within range
-        if (orientation.z > 0.5  orientation.z < -0.5)
-        {
-            //Sets character animations
-            anim.SetFloat("veloX", x);
-            anim.SetFloat("veloY", z);
-        }
-
-        //If z orientation is within range, flip animator values
-        if (orientation.z < 0.5  orientation.z > -0.5)
-        {
-            //Sets flipped input to blend tree;
-            anim.SetFloat("veloY", x, 0.2f, Time.deltaTime);
-            anim.SetFloat("veloX", z, 0.2f, Time.deltaTime);
-        }
-        
+        //CalculateAnimation(targetVector);
     }
 
     // Rotate with Mouse Function
@@ -80,8 +63,32 @@ public class PlayerLocomotion : MonoBehaviour
         var speed = moveSpeed * Time.deltaTime; // Set speed scaled by Time.deltaTime.
 
         targetVector = Quaternion.Euler(0, cam.gameObject.transform.eulerAngles.y, 0) * targetVector; // Create target rotation vector using euler angles and multiply by our targetVector.
+        targetVector = Vector3.Normalize(targetVector);
         var targetPosition = transform.position + targetVector * speed; // targetPosition is where we want to be and at what speed we want to get there.
         transform.position = targetPosition; // set our transform to the targetPosition.
         return targetVector; // Return our movement vector.
     }
+
+    /*
+    private void CalculateAnimation(Vector3 targetVector)
+    {
+        Vector3 orientation = transform.forward - targetVector;
+        orientation = Vector3.Normalize(orientation);
+        
+        if (orientation.z > 0.5 || orientation.z < -0.5)
+        {
+            //Sets character animations
+            anim.SetFloat("veloX", targetVector.x);
+            anim.SetFloat("veloY", targetVector.z);
+        }
+
+        if (orientation.z < 0.5 || orientation.z > -0.5)
+        {
+            //Sets flipped input to blend tree;
+            anim.SetFloat("veloY", targetVector.x);
+            anim.SetFloat("veloX", targetVector.z);
+        }
+    
+    }
+    */
 }
