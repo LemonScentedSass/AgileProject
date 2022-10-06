@@ -18,31 +18,66 @@ public class PlayerLocomotion : MonoBehaviour
     [SerializeField] public float rotateSpeed; // Player Rotate Speed
 
     [Header("Dodge Settings")]
-    [SerializeField] public float dodgingSpeedMultiplier; // Multiplies by moveSpeed when dodging
+    [SerializeField] public float dodgeSpeed; // Dodge Speed
     [SerializeField] public float dodgeLengthTime; // Length of time the dodge will last
     [SerializeField] public float dodgeCooldown; // Length of time between dodges
     [SerializeField] public bool isDodging; // Self-explanatory
-    [SerializeField] public bool canDodge; // Whether or not the player is allowed to dodge
+    [SerializeField] public bool readyToDodge; // Whether or not the player is allowed to dodge
 
-    public enum PlayerState // List of states the player is able to be in
+    public enum PlayerState // List of states the player is able to be in, add to it as we add more functionality to the player
     {
         Moving,
         Dodging,
-        Attacking
     }
     public PlayerState state; // Controls the state the player is in
+
 
     private void Awake()
     {
         input = GetComponent<InputHandler>(); // Grab input Component and assign to variable.
         anim = GetComponentInChildren<Animator>(); // Grab animator and assign that shit.
+
+        readyToDodge = true;
     }
 
-    // Update is called once per frame
     void Update()
+    {
+        MyInput();
+        StateHandler();        
+    }
+
+    private void MyInput()
     {
         var targetVector = new Vector3(input.inputVector.x, 0, input.inputVector.y); // Create Target Vector based on our input vector from InputHandler script.
 
+        if (input.dodgeKey && readyToDodge)
+        {
+            readyToDodge = false;
+            Dodge(targetVector);
+        }
+        else
+        {
+            Movement(targetVector);
+        }
+    }
+
+    private void StateHandler()
+    {
+        // Mode - Dodging
+        if(isDodging)
+        {
+            state = PlayerState.Dodging;
+        }
+
+        // Mode - Moving
+        else
+        {
+            state = PlayerState.Moving;
+        }        
+    }
+
+    private void Movement(Vector3 targetVector)
+    {
         var movementVector = MoveTowardTarget(targetVector); // Generate movementVector by calling MoveTowardTarget which returns a movementVector.
 
         if (!rotateTowardsMouse) // If we are not rotating with mouse,
@@ -51,6 +86,22 @@ public class PlayerLocomotion : MonoBehaviour
             RotateTowardMouseVector(movementVector); // Rotate with mouse.
 
         CalculateAnimation(movementVector);
+    }
+
+    private void Dodge(Vector3 targetVector)
+    {
+
+    }
+
+    private Vector3 MoveTowardTarget(Vector3 targetVector)
+    {
+        var speed = moveSpeed * Time.deltaTime; // Set speed scaled by Time.deltaTime.
+
+        targetVector = Quaternion.Euler(0, cam.gameObject.transform.eulerAngles.y, 0) * targetVector; // Create target rotation vector using euler angles and multiply by our targetVector.
+        targetVector = Vector3.Normalize(targetVector);
+        var targetPosition = transform.position + targetVector * speed; // targetPosition is where we want to be and at what speed we want to get there.
+        transform.position = targetPosition; // set our transform to the targetPosition.
+        return targetVector; // Return our movement vector.
     }
 
     // Rotate with Mouse Function
@@ -73,18 +124,7 @@ public class PlayerLocomotion : MonoBehaviour
 
         var rotation = Quaternion.LookRotation(movementVector); // Calculate rotation degree
         transform.rotation = Quaternion.RotateTowards(transform.rotation, rotation, rotateSpeed); // Rotate player towards movement direction at a declared rotation speed.
-    }
-
-    private Vector3 MoveTowardTarget(Vector3 targetVector)
-    {
-        var speed = moveSpeed * Time.deltaTime; // Set speed scaled by Time.deltaTime.
-
-        targetVector = Quaternion.Euler(0, cam.gameObject.transform.eulerAngles.y, 0) * targetVector; // Create target rotation vector using euler angles and multiply by our targetVector.
-        targetVector = Vector3.Normalize(targetVector);
-        var targetPosition = transform.position + targetVector * speed; // targetPosition is where we want to be and at what speed we want to get there.
-        transform.position = targetPosition; // set our transform to the targetPosition.
-        return targetVector; // Return our movement vector.
-    }
+    }    
 
     private void CalculateAnimation(Vector3 movementVector)
     {
@@ -102,7 +142,6 @@ public class PlayerLocomotion : MonoBehaviour
             //If z orientation is within range
             if (orientation.z > 0.5 || orientation.z < -0.5)
             {
-                Debug.Log("Option 1");
                 //Sets character animations
                 anim.SetFloat("veloX", input.inputVector.x, 0.2f, Time.deltaTime);
                 anim.SetFloat("veloY", input.inputVector.y, 0.2f, Time.deltaTime);
@@ -111,16 +150,10 @@ public class PlayerLocomotion : MonoBehaviour
             //If z orientation is within range, flip animator values
             if (orientation.z < 0.5 && orientation.z > -0.5)
             {
-                Debug.Log("Option 2");
                 //Sets flipped input to blend tree;
                 anim.SetFloat("veloY", input.inputVector.x, 0.2f, Time.deltaTime);
                 anim.SetFloat("veloX", input.inputVector.y, 0.2f, Time.deltaTime);
             }
         }
-    }
-
-    private void Dash()
-    {
-
     }
 }
