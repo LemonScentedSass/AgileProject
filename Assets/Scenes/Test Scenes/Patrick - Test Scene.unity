@@ -555,6 +555,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 65b6c1e169b9b8b4db191ad8e2876c65, type: 3}
+--- !u!95 &1657843424 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 7525123391093089119, guid: ad38ac7a9dc21994a9538e9dd3eb3f7f, type: 3}
+  m_PrefabInstance: {fileID: 4108424648799897225}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1697892097
 GameObject:
   m_ObjectHideFlags: 0
@@ -709,6 +714,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4108424647984390139, guid: ad38ac7a9dc21994a9538e9dd3eb3f7f, type: 3}
+      propertyPath: anim
+      value: 
+      objectReference: {fileID: 1657843424}
+    - target: {fileID: 4108424647984390139, guid: ad38ac7a9dc21994a9538e9dd3eb3f7f, type: 3}
       propertyPath: Ground.m_Bits
       value: 8
       objectReference: {fileID: 0}
@@ -722,7 +731,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4108424647984390139, guid: ad38ac7a9dc21994a9538e9dd3eb3f7f, type: 3}
       propertyPath: dodgeSpeedMultiplier
-      value: 2
+      value: 1.2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ad38ac7a9dc21994a9538e9dd3eb3f7f, type: 3}

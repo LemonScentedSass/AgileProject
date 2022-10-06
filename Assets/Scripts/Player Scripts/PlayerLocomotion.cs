@@ -18,11 +18,15 @@ public class PlayerLocomotion : MonoBehaviour
     [SerializeField] public float rotateSpeed; // Player Rotate Speed
 
     [Header("Dodge Settings")]
+    //[Range(1.0f, 2.0f)]
     [SerializeField] public float dodgeSpeedMultiplier; // Amount to multiply the moveSpeed by
     [SerializeField] public float dodgeLengthTime; // Length of time the dodge will last
     [SerializeField] public float dodgeCooldown; // Length of time between dodges
     [SerializeField] public bool isDodging; // Self-explanatory
     [SerializeField] public bool readyToDodge; // Whether or not the player is allowed to dodge
+
+    private float startTime;
+
 
     public enum PlayerState // List of states the player is able to be in, add to it as we add more functionality to the player
     {
@@ -36,6 +40,12 @@ public class PlayerLocomotion : MonoBehaviour
     {
         input = GetComponent<InputHandler>(); // Grab input Component and assign to variable.
         anim = GetComponentInChildren<Animator>(); // Grab animator and assign that shit.
+
+        
+    }
+    private void Start()
+    {
+        startTime = Time.time;
 
         readyToDodge = true;
     }
@@ -53,6 +63,7 @@ public class PlayerLocomotion : MonoBehaviour
         if (input.dodgeKey && readyToDodge && !isDodging)
         {
             readyToDodge = false;
+            isDodging = true;
             Dodge(targetVector);
         }
         else if (!isDodging)
@@ -110,24 +121,42 @@ public class PlayerLocomotion : MonoBehaviour
 
     private void Dodge(Vector3 targetVector)
     {
-
-
         isDodging = true;
-        float tempDodgeLengthTime = dodgeLengthTime;
-        //Invoke(nameof(EndDodge), dodgeLengthTime);
 
         // First, snap rotate player so they face the direction of the targetVector
         var rotation = Quaternion.LookRotation(targetVector);
         transform.rotation = Quaternion.RotateTowards(transform.rotation, rotation, rotateSpeed * 1000);
 
-        var movementVector = DodgeTowardsTarget(targetVector, tempDodgeLengthTime);
+        // Next, find the distance from the player to where they will end up at the end of the dodge
+        // by multiplying targetVector by speed and time set in inspector
+        var speed = moveSpeed * dodgeSpeedMultiplier * Time.deltaTime;
+        var time = dodgeLengthTime * Time.deltaTime;
+        targetVector = Vector3.Normalize(targetVector);
 
-        
+        var finalVector = targetVector * speed * time;
+        var finalPosition = transform.position + targetVector * speed;
+
+        float t = (Time.time - startTime) / dodgeLengthTime;
+        transform.position = new Vector3(Mathf.SmoothStep(transform.position.x, finalPosition.x, t), 0, Mathf.SmoothStep(transform.position.z, finalPosition.z, t));
+
+        anim.Play("Dodge", 0);
+
+        Invoke(nameof(EndDodge), dodgeLengthTime);
     }
 
-    private Vector3 DodgeTowardsTarget(Vector3 targetVector, float timer)
+
+    /*
+    private Vector3 DodgeTowardsTarget(Vector3 targetVector)
     {
-        while (timer >= 0)
+        float timer = dodgeLengthTime;
+
+
+
+
+
+
+
+        while (timer > 0)
         {
             timer -= Time.deltaTime;
 
@@ -137,11 +166,14 @@ public class PlayerLocomotion : MonoBehaviour
             targetVector = Vector3.Normalize(targetVector);
             var targetPosition = transform.position + targetVector * speed; // targetPosition is where we want to be and at what speed we want to get there.
             transform.position = targetPosition; // set our transform to the targetPosition.
-
-
+        }
+        if (timer <= 0)
+        {
+            EndDodge();
         }
         return targetVector; // Return our movement vector.
     }
+    */
 
     private void EndDodge()
     {
@@ -182,29 +214,37 @@ public class PlayerLocomotion : MonoBehaviour
 
     private void CalculateAnimation(Vector3 movementVector)
     {
-        Ray ray = cam.ScreenPointToRay(input.mousePosition); // New ray from camera using mousePosition from InputHandler script
-
-        if (Physics.Raycast(ray, out RaycastHit hitInfo, 300f, Ground)) // If the ray hits a collider within 300 units with the Ground layermask
+        if (!isDodging)
         {
-            Vector3 target = hitInfo.point; // target created from the position of the RaycastHit
-            Vector3 orientation = target - transform.position; // orientation gets the difference from target to transform positions
-            orientation = orientation.normalized; // Normalizes this Vector3
+            Ray ray = cam.ScreenPointToRay(input.mousePosition); // New ray from camera using mousePosition from InputHandler script
 
-            //If z orientation is within range
-            if (orientation.z > 0.5 || orientation.z < -0.5)
+            if (Physics.Raycast(ray, out RaycastHit hitInfo, 300f, Ground)) // If the ray hits a collider within 300 units with the Ground layermask
             {
-                //Sets character animations
-                anim.SetFloat("veloX", input.inputVector.x, 0.2f, Time.deltaTime);
-                anim.SetFloat("veloY", input.inputVector.y, 0.2f, Time.deltaTime);
-            }
+                Vector3 target = hitInfo.point; // target created from the position of the RaycastHit
+                Vector3 orientation = target - transform.position; // orientation gets the difference from target to transform positions
+                orientation = orientation.normalized; // Normalizes this Vector3
 
-            //If z orientation is within range, flip animator values
-            if (orientation.z < 0.5 && orientation.z > -0.5)
-            {
-                //Sets flipped input to blend tree;
-                anim.SetFloat("veloY", input.inputVector.x, 0.2f, Time.deltaTime);
-                anim.SetFloat("veloX", input.inputVector.y, 0.2f, Time.deltaTime);
+                //If z orientation is within range
+                if (orientation.z > 0.5 || orientation.z < -0.5)
+                {
+                    //Sets character animations
+                    anim.SetFloat("veloX", input.inputVector.x, 0.2f, Time.deltaTime);
+                    anim.SetFloat("veloY", input.inputVector.y, 0.2f, Time.deltaTime);
+                }
+
+                //If z orientation is within range, flip animator values
+                if (orientation.z < 0.5 && orientation.z > -0.5)
+                {
+                    //Sets flipped input to blend tree;
+                    anim.SetFloat("veloY", input.inputVector.x, 0.2f, Time.deltaTime);
+                    anim.SetFloat("veloX", input.inputVector.y, 0.2f, Time.deltaTime);
+                }
             }
+        }
+        else
+        {
+            anim.SetFloat("veloX", 0, 0.2f, Time.deltaTime);
+            anim.SetFloat("veloY", 0, 0.2f, Time.deltaTime);
         }
     }
 }
