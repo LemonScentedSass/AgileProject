@@ -429,6 +429,9 @@ ModelImporter:
   - first:
       95: 9500000
     second: //RootNode
+  - first:
+      74: 104760074862029154
+    second: BasicMotions@Idle02 - Idle01 (1)
   externalObjects: {}
   materials:
     materialImportMode: 0
@@ -459,11 +462,11 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: BasicMotions@Idle02 - Idle01 (1)
-      takeName: BasicMotions@Idle02 - Idle01
+      name: BasicMotions@Idle02
+      takeName: BasicMotions@Idle02
       internalID: 0
       firstFrame: 0
-      lastFrame: 51
+      lastFrame: 86
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
