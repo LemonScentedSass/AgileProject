@@ -8,6 +8,8 @@ public class PlayerLocomotion : MonoBehaviour
     private InputHandler input;
     public Animator anim;
 
+    public LayerMask Ground;
+
     [SerializeField] public Camera cam; // Camera Reference
     [SerializeField] public bool rotateTowardsMouse; // Enable or Disable Rotation Based on Mouse Input.
 
@@ -28,7 +30,7 @@ public class PlayerLocomotion : MonoBehaviour
         Dodging,
         Attacking
     }
-    public PlayerState state; // 
+    public PlayerState state; // Controls the state the player is in
 
     private void Awake()
     {
@@ -86,29 +88,33 @@ public class PlayerLocomotion : MonoBehaviour
 
     private void CalculateAnimation(Vector3 movementVector)
     {
-        Ray ray = cam.ScreenPointToRay(input.mousePosition);
+        Ray ray = cam.ScreenPointToRay(input.mousePosition); // New ray from camera using mousePosition from InputHandler script
 
-        if (Physics.Raycast(ray, out RaycastHit hitInfo, maxDistance: 300f))
+        if (Physics.Raycast(ray, out RaycastHit hitInfo, 300f, Ground)) // If the ray hits a collider within 300 units with the Ground layermask
         {
-            Vector3 target = hitInfo.point;
-            Vector3 orientation = target - transform.position;
-            orientation = orientation.normalized;
+            Vector3 target = hitInfo.point; // target created from the position of the RaycastHit
+            Vector3 orientation = target - transform.position; // orientation gets the difference from target to transform positions
+            orientation = orientation.normalized; // Normalizes this Vector3
+
+            Debug.Log(input.inputVector);
 
 
             //If z orientation is within range
             if (orientation.z > 0.5 || orientation.z < -0.5)
             {
+                Debug.Log("Option 1");
                 //Sets character animations
-                anim.SetFloat("veloX", movementVector.x, 0.2f, Time.deltaTime);
-                anim.SetFloat("veloY", movementVector.z, 0.2f, Time.deltaTime);
+                anim.SetFloat("veloX", input.inputVector.x, 0.2f, Time.deltaTime);
+                anim.SetFloat("veloY", input.inputVector.y, 0.2f, Time.deltaTime);
             }
 
             //If z orientation is within range, flip animator values
-            if (orientation.z < 0.5 || orientation.z > -0.5)
+            if (orientation.z < 0.5 && orientation.z > -0.5)
             {
+                Debug.Log("Option 2");
                 //Sets flipped input to blend tree;
-                anim.SetFloat("veloY", movementVector.x, 0.2f, Time.deltaTime);
-                anim.SetFloat("veloX", movementVector.z, 0.2f, Time.deltaTime);
+                anim.SetFloat("veloY", input.inputVector.x, 0.2f, Time.deltaTime);
+                anim.SetFloat("veloX", input.inputVector.y, 0.2f, Time.deltaTime);
             }
         }
     }
