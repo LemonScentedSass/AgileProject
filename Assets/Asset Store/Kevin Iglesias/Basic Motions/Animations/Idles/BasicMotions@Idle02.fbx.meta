@@ -462,11 +462,11 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: BasicMotions@Idle02 - Idle01 (1)
-      takeName: BasicMotions@Idle02 - Idle01
+      name: BasicMotions@Idle02
+      takeName: BasicMotions@Idle02
       internalID: 0
       firstFrame: 0
-      lastFrame: 51
+      lastFrame: 86
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
