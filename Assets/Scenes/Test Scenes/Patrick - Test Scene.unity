@@ -712,5 +712,17 @@ PrefabInstance:
       propertyPath: Ground.m_Bits
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 4108424647984390139, guid: ad38ac7a9dc21994a9538e9dd3eb3f7f, type: 3}
+      propertyPath: dodgeCooldown
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4108424647984390139, guid: ad38ac7a9dc21994a9538e9dd3eb3f7f, type: 3}
+      propertyPath: dodgeLengthTime
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4108424647984390139, guid: ad38ac7a9dc21994a9538e9dd3eb3f7f, type: 3}
+      propertyPath: dodgeSpeedMultiplier
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ad38ac7a9dc21994a9538e9dd3eb3f7f, type: 3}
