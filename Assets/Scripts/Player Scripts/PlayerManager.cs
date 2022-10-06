@@ -5,16 +5,19 @@ using UnityEngine.UI;
 
 public class PlayerManager : MonoBehaviour
 {
-    [SerializeField]private float _curHealth;
-    [SerializeField]private float _maxHealth = 100f;
+    [SerializeField] private float _curHealth;
+    [SerializeField] private float _maxHealth = 100f;
 
     [SerializeField] private float _curStamina;
     [SerializeField] private float _maxStamina = 100f;
 
+    [SerializeField] private float potionHeal = 40f;
+    public float newHealth = 0;
+
     private float _MAXFILLAMOUNT = 0.9f;
 
-    public bool healthRegen;
-    public bool stamRegen;
+    public bool healthRegen = false;
+    public bool stamRegen = false;
 
     public Image healthbar;
     public Image staminabar;
@@ -61,7 +64,8 @@ public class PlayerManager : MonoBehaviour
         //Regens player health if health regen is true
         if (healthRegen == true)
         {
-            RegenHealth(0.0055f, 30f);
+
+            RegenHealth(0.0055f, potionHeal);
         }
     }
 
@@ -83,20 +87,20 @@ public class PlayerManager : MonoBehaviour
         //sets a regeneration amount to 0
         float _Regeneration = 0;
 
-        if(_Regeneration == 0)
+        if (_Regeneration == 0)
         {
             //if 0, regeneration = regen amount and current stamina
             _Regeneration = regenAmount + CurrentStamina;
         }
         //if regeneration is greater or equal to the max stamina set the regeneration to max stamina
-        if(_Regeneration >= MaxStamina)
+        if (_Regeneration >= MaxStamina)
         {
             _Regeneration = MaxStamina;
         }
 
         //Lerps Current stamina by regeneration amount
         CurrentStamina = Mathf.Lerp(CurrentStamina, _Regeneration, steps);
-          Debug.Log( "fill stamina");
+        Debug.Log("fill stamina");
 
         //if current stamina is close to regeneration
         if (CurrentStamina >= _Regeneration - 1)
@@ -108,7 +112,7 @@ public class PlayerManager : MonoBehaviour
         if (CurrentStamina == _Regeneration)
         {
             //and if current is greater or equal to max stamina
-            if(CurrentStamina >= MaxStamina)
+            if (CurrentStamina >= MaxStamina)
             {
                 CurrentStamina = MaxStamina;
             }
@@ -123,43 +127,46 @@ public class PlayerManager : MonoBehaviour
     //Regens player health. Requires the lerp step and healthamount
     public void RegenHealth(float steps, float regenAmount)
     {
-        //sets a regeneration amount to 0
-        float _PotionHeal = 0;
 
         //if amount = 0, make regeneration amount equal to regen amount and current health
-        if (_PotionHeal == 0)
+        if (newHealth == 0)
         {
-            _PotionHeal = regenAmount + CurrentHealth;
+            newHealth = regenAmount + CurrentHealth;
+            Debug.Log(newHealth);
         }
 
         //if the regeneration amount is greater than the max health
-        if(_PotionHeal >= MaxHealth)
+        if (newHealth >= MaxHealth)
         {
-            _PotionHeal = MaxHealth;
+            newHealth = MaxHealth;
         }
-      
+
         //Lerps Current health by regeneration amount
-        CurrentHealth = Mathf.Lerp(CurrentHealth, _PotionHeal, steps);
+        CurrentHealth = Mathf.Lerp(CurrentHealth, newHealth, steps);
         Debug.Log("fill health!");
 
         //if current health is close to potion heal just make it equal
-        if (CurrentHealth >= _PotionHeal - 1)
+        if (CurrentHealth >= newHealth - 1)
         {
-            CurrentHealth = _PotionHeal;
+            CurrentHealth = newHealth;
             Debug.Log("edging");
         }
 
         //if current health equals regeneration value
-        if(CurrentHealth == _PotionHeal)
+        if (CurrentHealth == newHealth)
         {
             //and if current health is greater or equal to max health
             if (CurrentHealth >= MaxHealth)
             {
                 CurrentHealth = MaxHealth;
             }
+            else
+            {
+                newHealth = 0;
+                //Turns off health regeneraton bool if current health is regenerated
+                healthRegen = false;
+            }
 
-            //Turns off health regeneraton bool if current health is regenerated
-            healthRegen = false;
         }
     }
 
