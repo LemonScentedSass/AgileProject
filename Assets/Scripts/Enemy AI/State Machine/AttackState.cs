@@ -33,7 +33,7 @@ namespace FSM
                   {
                         timerForNextAttack -= Time.deltaTime; // Update timer by -time.deltaTime
                   }
-                  else if (timerForNextAttack <= 0 && enemyManager.currentTarget.currentHealth > 0) // if the timer has run out AND the player (target) is still alive, preform another attack.
+                  else if (timerForNextAttack <= 0 && enemyManager.currentTarget.CurrentHealth > 0) // if the timer has run out AND the player (target) is still alive, preform another attack.
                   {
                         // *UPDATE TO ROOT MOVEMENT*
 
@@ -47,7 +47,7 @@ namespace FSM
                   {
                         return StateType.Pursue;
                   }
-                  else if (enemyManager.currentTarget.currentHealth <= 0)
+                  else if (enemyManager.currentTarget.CurrentHealth <= 0)
                   {
                         return StateType.Idle;
                   }
