@@ -708,5 +708,9 @@ PrefabInstance:
       propertyPath: m_ChildCameras.Array.size
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4108424647984390139, guid: ad38ac7a9dc21994a9538e9dd3eb3f7f, type: 3}
+      propertyPath: Ground.m_Bits
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ad38ac7a9dc21994a9538e9dd3eb3f7f, type: 3}
