@@ -15,6 +15,21 @@ public class PlayerLocomotion : MonoBehaviour
     [SerializeField] public float moveSpeed; // Player Move Speed
     [SerializeField] public float rotateSpeed; // Player Rotate Speed
 
+    [Header("Dodge Settings")]
+    [SerializeField] public float dodgingSpeedMultiplier; // Multiplies by moveSpeed when dodging
+    [SerializeField] public float dodgeLengthTime; // Length of time the dodge will last
+    [SerializeField] public float dodgeCooldown; // Length of time between dodges
+    [SerializeField] public bool isDodging; // Self-explanatory
+    [SerializeField] public bool canDodge; // Whether or not the player is allowed to dodge
+
+    public enum PlayerState // List of states the player is able to be in
+    {
+        Moving,
+        Dodging,
+        Attacking
+    }
+    public PlayerState state; // 
+
     private void Awake()
     {
         input = GetComponent<InputHandler>(); // Grab input Component and assign to variable.
@@ -69,7 +84,6 @@ public class PlayerLocomotion : MonoBehaviour
         return targetVector; // Return our movement vector.
     }
 
-
     private void CalculateAnimation(Vector3 movementVector)
     {
         Ray ray = cam.ScreenPointToRay(input.mousePosition);
@@ -97,5 +111,10 @@ public class PlayerLocomotion : MonoBehaviour
                 anim.SetFloat("veloX", movementVector.z, 0.2f, Time.deltaTime);
             }
         }
+    }
+
+    private void Dash()
+    {
+
     }
 }
