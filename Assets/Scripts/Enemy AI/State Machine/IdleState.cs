@@ -30,9 +30,9 @@ namespace FSM
 
                   for (int i = 0; i < colliders.Length; i++)
                   {
-                        PlayerStats playerStats = colliders[i].transform.GetComponent<PlayerStats>(); // Loop through each collision *ALLOWS FOR FURTHER DEVELOPMENT* and save the PlayerStats component. This component stores health and stamina information.
+                        PlayerManager playerManager = colliders[i].transform.GetComponent<PlayerManager>(); // Loop through each collision *ALLOWS FOR FURTHER DEVELOPMENT* and save the PlayerStats component. This component stores health and stamina information.
 
-                        if (playerStats != null)
+                        if (playerManager != null)
                         {
 
                               Vector3 targetDirection = colliders[i].transform.position; // Set agent's target direction equal to the "player" being found through playerStats component.
@@ -40,7 +40,7 @@ namespace FSM
 
                               if (viewableAngle > minimumDetectionAngle && viewableAngle < maximumDetectionAngle)
                               {
-                                    enemyManager.currentTarget = playerStats; // Assign the enemyManager scripts currentTarget variable equal to the playerStats component found in loop.  
+                                    enemyManager.currentTarget = playerManager; // Assign the enemyManager scripts currentTarget variable equal to the playerStats component found in loop.  
                               }
                         }
                   }
