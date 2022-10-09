@@ -12,6 +12,10 @@ public class MenuScript : MonoBehaviour
     public GameObject[] MenuImage;
     public bool menuON = false;
 
+    private int _skillPoints;
+
+    public int SkillPoints { get { return _skillPoints; } set { _skillPoints = value; } }
+
     public Image currentMenuIMAGE;
     public int currentMenuINT;
 
@@ -127,5 +131,11 @@ public class MenuScript : MonoBehaviour
     { 
         MenuImage[currentMenuINT].SetActive(true);
         MenuButton[currentMenuINT].SetActive(true);
+    }
+
+    public void OnXClick()
+    {
+        //play close menu animation
+        menuAnim.SetBool("open", false);
     }
 }
