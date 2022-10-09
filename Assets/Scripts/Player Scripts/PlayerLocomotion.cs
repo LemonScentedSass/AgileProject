@@ -23,6 +23,9 @@ public class PlayerLocomotion : MonoBehaviour
     [SerializeField] public float dodgeCooldown; // Length of time between dodges
     [SerializeField] public bool isDodging; // Self-explanatory
     [SerializeField] public bool readyToDodge; // Whether or not the player is allowed to dodge
+    private float dodgeSpeed;
+    private float dodgeFinalDistance;
+    private Vector3 dodgeFinalPosition;
 
     private float startTime;
 
@@ -42,8 +45,6 @@ public class PlayerLocomotion : MonoBehaviour
 
     private void Start()
     {
-        startTime = Time.time;
-
         readyToDodge = true;
     }
 
@@ -57,13 +58,17 @@ public class PlayerLocomotion : MonoBehaviour
     {
         var targetVector = new Vector3(input.inputVector.x, 0, input.inputVector.y); // Create Target Vector based on our input vector from InputHandler script.
 
-        if (input.dodgeKey && readyToDodge)
+        if (input.dodgeKey && readyToDodge && !isDodging)
         {
             readyToDodge = false;
-            isDodging = true;
+            Dodge(targetVector);
+            Invoke(nameof(EndDodge), dodgeLengthTime);
+        }
+        else if (isDodging)
+        {
             Dodge(targetVector);
         }
-        else
+        else if (!isDodging)
         {
             Movement(targetVector);
         }
@@ -78,7 +83,7 @@ public class PlayerLocomotion : MonoBehaviour
         }
 
         // Mode - Moving
-        else
+        else if (!isDodging)
         {
             state = PlayerState.Moving;
         }
@@ -98,26 +103,37 @@ public class PlayerLocomotion : MonoBehaviour
 
     private void Dodge(Vector3 targetVector)
     {
-        isDodging = true;
+        if (!isDodging)
+        {
+            startTime = Time.time;
 
-        var rotation = Quaternion.LookRotation(targetVector);
-        transform.rotation = Quaternion.RotateTowards(transform.rotation, rotation, rotateSpeed * 1000);
+            var rotation = Quaternion.LookRotation(targetVector);
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, rotation, rotateSpeed * 1000);
 
-        // Next, find the distance from the player to where they will end up at the end of the dodge
-        // by multiplying targetVector by speed and time set in inspector
-        var speed = moveSpeed * dodgeSpeedMultiplier * Time.deltaTime;
-        var time = dodgeLengthTime * Time.deltaTime;
-        targetVector = Vector3.Normalize(targetVector);
+            // Next, find the distance from the player to where they will end up at the end of the dodge
+            // by multiplying targetVector by speed and time set in inspector
+            dodgeSpeed = moveSpeed * dodgeSpeedMultiplier;
+            var time = dodgeLengthTime * Time.deltaTime;
+            targetVector = Vector3.Normalize(targetVector);
 
-        var finalVector = targetVector * speed * time;
-        var finalPosition = transform.position + targetVector * speed;
+            var finalVector = targetVector * dodgeSpeed * time;
+            dodgeFinalPosition = transform.position + targetVector * dodgeSpeed;
+            dodgeFinalDistance = Vector3.Distance(transform.position, dodgeFinalPosition);
+            Debug.Log("Final Distance: " + dodgeFinalDistance);
 
-        float t = (Time.time - startTime) / dodgeLengthTime;
-        transform.position = new Vector3(Mathf.SmoothStep(transform.position.x, finalPosition.x, t), 0, Mathf.SmoothStep(transform.position.z, finalPosition.z, t));
+            anim.SetTrigger("Dodging");
+        }
 
-        anim.Play("Dodge", 0);
+        isDodging = true;        
 
-        Invoke(nameof(EndDodge), dodgeLengthTime);
+        float distCovered = (Time.time - startTime) * dodgeSpeed;
+        float fractionOfDodge = distCovered / dodgeFinalDistance;
+        Debug.Log("frac of Dodge: " + fractionOfDodge);
+        transform.position = Vector3.Lerp(transform.position, dodgeFinalPosition, fractionOfDodge);
+
+        //anim.SetTrigger("Dodging");
+
+        //Invoke(nameof(EndDodge), dodgeLengthTime);
     }
 
     private void EndDodge()
