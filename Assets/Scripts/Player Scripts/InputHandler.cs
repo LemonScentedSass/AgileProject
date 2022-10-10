@@ -30,6 +30,6 @@ public class InputHandler : MonoBehaviour
         dodgeKey = Input.GetMouseButton(1);
 
         // Sword Swing
-        swordKey = Input.GetMouseButton(0);
+        swordKey = Input.GetMouseButtonDown(0);
     }
 }
