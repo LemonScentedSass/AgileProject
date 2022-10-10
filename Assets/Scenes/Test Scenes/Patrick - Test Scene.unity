@@ -834,6 +834,7 @@ GameObject:
   - component: {fileID: 1404885363}
   - component: {fileID: 1404885362}
   - component: {fileID: 1404885361}
+  - component: {fileID: 1404885364}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -874,7 +875,7 @@ MonoBehaviour:
   rotateTowardsMouse: 1
   moveSpeed: 5
   rotateSpeed: 15
-  dodgeSpeedMultiplier: 2
+  dodgeSpeedMultiplier: 1.5
   dodgeLengthTime: 0.7
   dodgeCooldown: 0.3
   isDodging: 0
@@ -897,6 +898,19 @@ Transform:
   m_Father: {fileID: 1916047897}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1404885364
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1404885360}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4227b78767b6b524daac715712d33000, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cooldownTime: 2
 --- !u!1 &1546234681
 GameObject:
   m_ObjectHideFlags: 0
@@ -1294,15 +1308,15 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2038629674}
-  m_LocalRotation: {x: -0.62860507, y: 0.0088727, z: -0.007180057, w: -0.77764094}
-  m_LocalPosition: {x: 0.047727093, y: 9.777857, z: -2.0955386}
+  m_LocalRotation: {x: 0.6427876, y: 0, z: 0, w: 0.7660445}
+  m_LocalPosition: {x: -0.047727086, y: 9.918301, z: -1.377426}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1759489824}
   m_Father: {fileID: 2077965388}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 80, y: 0, z: 0}
 --- !u!1 &2077965385
 GameObject:
   m_ObjectHideFlags: 0
