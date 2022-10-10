@@ -45,29 +45,34 @@ public class PlayerLocomotion : MonoBehaviour
 
     private void Start()
     {
-        readyToDodge = true;
+        readyToDodge = true; // Allows the player to dodge for the first time
     }
 
     void Update()
     {
-        MyInput();
-        StateHandler();
+        MyInput(); // Always holds the targetVector (combined hor. and vert. inputs) and handles the inputs of different abilities
+        StateHandler(); // Handles the various states the player can be in, and the transitions to and from each
     }
 
     private void MyInput()
     {
         var targetVector = new Vector3(input.inputVector.x, 0, input.inputVector.y); // Create Target Vector based on our input vector from InputHandler script.
 
+        // Calls Dodge() using the combined hor. and vert. inputs once per dodge attempt, and will end the dodge after a set amount of time
         if (input.dodgeKey && readyToDodge && !isDodging)
         {
             readyToDodge = false;
             Dodge(targetVector);
-            Invoke(nameof(EndDodge), dodgeLengthTime);
+            Invoke("EndDodge", dodgeLengthTime);
         }
+
+        // Calls Dodge() each subsequent frame until the dodge is finished executing
         else if (isDodging)
         {
             Dodge(targetVector);
         }
+
+        // Enables player movement in all cases EXCEPT FOR if the player is dodging
         else if (!isDodging)
         {
             Movement(targetVector);
@@ -113,14 +118,16 @@ public class PlayerLocomotion : MonoBehaviour
             // Next, find the distance from the player to where they will end up at the end of the dodge
             // by multiplying targetVector by speed and time set in inspector
             dodgeSpeed = moveSpeed * dodgeSpeedMultiplier;
-            var time = dodgeLengthTime * Time.deltaTime;
+            var time = dodgeLengthTime;
             targetVector = Vector3.Normalize(targetVector);
 
-            var finalVector = targetVector * dodgeSpeed * time;
-            dodgeFinalPosition = transform.position + targetVector * dodgeSpeed;
-            dodgeFinalDistance = Vector3.Distance(transform.position, dodgeFinalPosition);
+            //dodgeFinalPosition = transform.position + targetVector * dodgeSpeed;
+            dodgeFinalDistance = dodgeSpeed * time;
+            dodgeFinalPosition = transform.position + targetVector * dodgeSpeed * time;
+            //dodgeFinalDistance = Vector3.Distance(transform.position, dodgeFinalPosition);
             Debug.Log("Final Distance: " + dodgeFinalDistance);
 
+            anim.SetFloat("dodgeAnimSpeed", dodgeLengthTime * 1.867f + 0.1f);
             anim.SetTrigger("Dodging");
         }
 
@@ -130,10 +137,6 @@ public class PlayerLocomotion : MonoBehaviour
         float fractionOfDodge = distCovered / dodgeFinalDistance;
         Debug.Log("frac of Dodge: " + fractionOfDodge);
         transform.position = Vector3.Lerp(transform.position, dodgeFinalPosition, fractionOfDodge);
-
-        //anim.SetTrigger("Dodging");
-
-        //Invoke(nameof(EndDodge), dodgeLengthTime);
     }
 
     private void EndDodge()
@@ -190,9 +193,6 @@ public class PlayerLocomotion : MonoBehaviour
             Vector3 target = hitInfo.point; // target created from the position of the RaycastHit
             Vector3 orientation = target - transform.position; // orientation gets the difference from target to transform positions
             orientation = orientation.normalized; // Normalizes this Vector3
-
-            //Debug.Log(input.inputVector);
-
 
             //If z orientation is within range
             if (orientation.z > 0.5 || orientation.z < -0.5)

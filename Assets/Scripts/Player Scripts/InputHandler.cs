@@ -8,6 +8,7 @@ public class InputHandler : MonoBehaviour
     public Vector2 inputVector { get; private set; }
     public Vector3 mousePosition { get; private set; }
     public bool dodgeKey { get; private set; }
+    public bool swordKey { get; private set; }
 
     public ZoomSwitch zs;
 
@@ -27,5 +28,8 @@ public class InputHandler : MonoBehaviour
 
         // Dash
         dodgeKey = Input.GetMouseButton(1);
+
+        // Sword Swing
+        swordKey = Input.GetMouseButton(0);
     }
 }
