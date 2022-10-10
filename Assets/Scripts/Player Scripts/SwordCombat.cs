@@ -19,7 +19,6 @@ public class SwordCombat : MonoBehaviour
         input = GetComponent<InputHandler>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (anim.GetCurrentAnimatorStateInfo(1).normalizedTime > 0.7f
@@ -74,7 +73,7 @@ public class SwordCombat : MonoBehaviour
                     anim.SetBool("attack2", true);
                 }
 
-                if (noOfClicks >= 3 && anim.GetCurrentAnimatorStateInfo(1).normalizedTime > 0.7f
+                if (noOfClicks >= 3 && anim.GetCurrentAnimatorStateInfo(1).normalizedTime > 0.5f
                     && anim.GetCurrentAnimatorStateInfo(1).IsName("Attack 2"))
                 {
                     anim.SetBool("attack2", false);
@@ -82,10 +81,5 @@ public class SwordCombat : MonoBehaviour
                 }
             }
         }
-    }
-
-    public void Test()
-    {
-
     }
 }

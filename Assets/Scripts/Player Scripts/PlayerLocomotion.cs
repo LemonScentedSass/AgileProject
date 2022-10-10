@@ -27,6 +27,9 @@ public class PlayerLocomotion : MonoBehaviour
     private float dodgeFinalDistance;
     private Vector3 dodgeFinalPosition;
 
+    public bool isAttacking;
+    public bool canAttack;
+
     private float startTime;
 
     public enum PlayerState // List of states the player is able to be in, add to it as we add more functionality to the player
