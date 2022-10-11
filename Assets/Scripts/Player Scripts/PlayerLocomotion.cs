@@ -21,11 +21,14 @@ public class PlayerLocomotion : MonoBehaviour
     [SerializeField] public float dodgeSpeedMultiplier; // Dodge Speed
     [SerializeField] public float dodgeLengthTime; // Length of time the dodge will last
     [SerializeField] public float dodgeCooldown; // Length of time between dodges
+    [SerializeField] public float wallCheckDistance; // Distance from the player that, when met by a wall, will stop roll movement
+    [SerializeField] public LayerMask whatIsWall; // Layer for walls
     [SerializeField] public bool isDodging; // Self-explanatory
     [SerializeField] public bool readyToDodge; // Whether or not the player is allowed to dodge
-    private float dodgeSpeed;
     private float dodgeFinalDistance;
+    private float tempDodgeTime;
     private Vector3 dodgeFinalPosition;
+    private RaycastHit WallHit;
 
     public bool isAttacking;
     public bool canAttack;
@@ -66,9 +69,7 @@ public class PlayerLocomotion : MonoBehaviour
         {
             readyToDodge = false;
             Dodge(targetVector);
-            Invoke("EndDodge", dodgeLengthTime);
         }
-
         // Calls Dodge() each subsequent frame until the dodge is finished executing
         else if (isDodging)
         {
@@ -114,39 +115,96 @@ public class PlayerLocomotion : MonoBehaviour
         if (!isDodging)
         {
             startTime = Time.time;
+            tempDodgeTime = dodgeLengthTime;
 
             var rotation = Quaternion.LookRotation(targetVector);
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, rotation, rotateSpeed * 1000);
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, rotation, rotateSpeed * 5);
 
-            // Next, find the distance from the player to where they will end up at the end of the dodge
-            // by multiplying targetVector by speed and time set in inspector
-            dodgeSpeed = moveSpeed * dodgeSpeedMultiplier;
-            var time = dodgeLengthTime;
-            targetVector = Vector3.Normalize(targetVector);
-
-            //dodgeFinalPosition = transform.position + targetVector * dodgeSpeed;
-            dodgeFinalDistance = dodgeSpeed * time;
-            dodgeFinalPosition = transform.position + targetVector * dodgeSpeed * time;
-            //dodgeFinalDistance = Vector3.Distance(transform.position, dodgeFinalPosition);
-            Debug.Log("Final Distance: " + dodgeFinalDistance);
-
-            anim.SetFloat("dodgeAnimSpeed", dodgeLengthTime * 1.867f + 0.1f);
+            anim.SetFloat("dodgeAnimSpeed", dodgeLengthTime * 1.867f);
             anim.SetTrigger("Dodging");
         }
 
         isDodging = true;        
 
-        float distCovered = (Time.time - startTime) * dodgeSpeed;
-        float fractionOfDodge = distCovered / dodgeFinalDistance;
-        Debug.Log("frac of Dodge: " + fractionOfDodge);
-        transform.position = Vector3.Lerp(transform.position, dodgeFinalPosition, fractionOfDodge);
+        if (tempDodgeTime > 0)
+        {            
+            tempDodgeTime -= Time.deltaTime;
+            if (!HitWall())
+            {
+                var movementVector = DodgeTowardTarget(targetVector);
+            }
+            else if (HitWall() == true)
+            {
+                EndDodge();
+            }
+        }
+        else
+        {
+            EndDodge();
+        }
+
+        // Old rolling code I left in case I need it. Will delete at build time if still unused //
+        #region
+        //if (!isDodging)
+        //{
+        //    startTime = Time.time;
+
+        //    var rotation = Quaternion.LookRotation(targetVector);
+        //    transform.rotation = Quaternion.RotateTowards(transform.rotation, rotation, rotateSpeed * 1000);
+
+        //    // Next, find the distance from the player to where they will end up at the end of the dodge
+        //    // by multiplying targetVector by speed and time set in inspector
+        //    dodgeSpeed = moveSpeed * dodgeSpeedMultiplier;
+        //    var time = dodgeLengthTime;
+        //    targetVector = Vector3.Normalize(targetVector);
+
+        //    //dodgeFinalPosition = transform.position + targetVector * dodgeSpeed;
+        //    dodgeFinalDistance = dodgeSpeed * time;
+        //    dodgeFinalPosition = transform.position + targetVector * dodgeSpeed * time;
+        //    //dodgeFinalDistance = Vector3.Distance(transform.position, dodgeFinalPosition);
+        //    Debug.Log("Final Distance: " + dodgeFinalDistance);
+
+        //    anim.SetFloat("dodgeAnimSpeed", dodgeLengthTime * 1.867f + 0.1f);
+        //    anim.SetTrigger("Dodging");
+        //}
+
+        //isDodging = true;        
+
+        //float distCovered = (Time.time - startTime) * dodgeSpeed;
+        //float fractionOfDodge = distCovered / dodgeFinalDistance;
+        //Debug.Log("frac of Dodge: " + fractionOfDodge);
+        //transform.position = Vector3.Lerp(transform.position, dodgeFinalPosition, fractionOfDodge);
+        #endregion
+    }
+
+    private Vector3 DodgeTowardTarget(Vector3 targetVector)
+    {
+        var speed = moveSpeed * dodgeSpeedMultiplier * Time.deltaTime;
+
+        targetVector = Vector3.Normalize(targetVector);
+        var targetPosition = transform.position + targetVector * speed;
+        transform.position = targetPosition;        
+        return targetVector;
+    }
+
+    private bool HitWall()
+    {
+        if (Physics.Raycast(transform.position, transform.localEulerAngles, wallCheckDistance, whatIsWall))
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 
     private void EndDodge()
     {
-        Invoke(nameof(ResetDodge), dodgeCooldown);
         isDodging = false;
         readyToDodge = false;
+        anim.SetTrigger("quitDodging");
+        Invoke(nameof(ResetDodge), dodgeCooldown);        
     }
 
     private void ResetDodge()

@@ -27,7 +27,7 @@ public class InputHandler : MonoBehaviour
             zs.SwitchState();
 
         // Dash
-        dodgeKey = Input.GetMouseButton(1);
+        dodgeKey = Input.GetMouseButtonDown(1);
 
         // Sword Swing
         swordKey = Input.GetMouseButtonDown(0);
