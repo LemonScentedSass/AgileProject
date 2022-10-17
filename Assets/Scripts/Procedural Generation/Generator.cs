@@ -23,6 +23,12 @@ namespace MapGeneration
         [SerializeField] private TileBase _floorTile;
         [SerializeField] private TileBase _wallTile;
 
+        [SerializeField] private Tilemap _3Dtilemap;
+        [SerializeField] private TileBase _3DfloorTile;
+        [SerializeField] private TileBase _3DwallTile;
+
+        [SerializeField] private GameObject playerPrefab;
+
         private List<Room> _gizmoRooms = new List<Room>();
         private List<Edge> _gizmoEdges = new List<Edge>();
         private List<Edge> _gizmoMST = new List<Edge>();
@@ -210,13 +216,18 @@ namespace MapGeneration
                     Vector2 bottomRight = new Vector2(curRoom.Position.x + curRoom.GetWidth, curRoom.Position.y - curRoom.GetHeight);
 
                     MapVisualController.RectFill(curRoom.Position, curRoom.GetWidth, curRoom.GetHeight, _floorTile, _tilemap);
+                    MapVisualController.RectFill(curRoom.Position, curRoom.GetWidth, curRoom.GetHeight, _3DfloorTile, _3Dtilemap);
 
                     curWFCRooms.Add(curRoom);                    
 
                     MapVisualController.RectFill(topLeft, topRight, 1, _wallTile, _tilemap);
+                    MapVisualController.RectFill(topLeft, topRight, 1, _3DwallTile, _3Dtilemap);
                     MapVisualController.RectFill(topLeft, bottomLeft, 1, _wallTile, _tilemap);
+                    MapVisualController.RectFill(topLeft, bottomLeft, 1, _3DwallTile, _3Dtilemap);
                     MapVisualController.RectFill(bottomLeft, bottomRight, 1, _wallTile, _tilemap);
+                    MapVisualController.RectFill(bottomLeft, bottomRight, 1, _3DwallTile, _3Dtilemap);
                     MapVisualController.RectFill(bottomRight, topRight, 1, _wallTile, _tilemap);
+                    MapVisualController.RectFill(bottomRight, topRight, 1, _3DwallTile, _3Dtilemap);
 
                     /*
                     iteration++;
@@ -235,7 +246,9 @@ namespace MapGeneration
             {
                 Edge curEdge = corridors[i];
                 MapVisualController.RectFill(curEdge.GetPointA, curEdge.GetPointB, 1, _floorTile, _tilemap, true);
+                MapVisualController.RectFill(curEdge.GetPointA, curEdge.GetPointB, 1, _3DfloorTile, _3Dtilemap, true);
                 MapVisualController.RectFill(curEdge.GetPointA, curEdge.GetPointB, 2, _wallTile, _tilemap, false);
+                MapVisualController.RectFill(curEdge.GetPointA, curEdge.GetPointB, 2, _3DwallTile, _3Dtilemap, false);
 
                 /*
                 iteration++;
@@ -247,6 +260,8 @@ namespace MapGeneration
                 }
                 */
             }
+
+
 
             for (int i = 0; i < curWFCRooms.Count; i++)
             {
