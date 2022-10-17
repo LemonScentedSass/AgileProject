@@ -193,6 +193,7 @@ public class PlayerLocomotion : MonoBehaviour
     {
         if (Physics.Raycast(transform.position, transform.localEulerAngles, wallCheckDistance, whatIsWall))
         {
+            Debug.Log("Bonk");
             return true;
         }
         else
