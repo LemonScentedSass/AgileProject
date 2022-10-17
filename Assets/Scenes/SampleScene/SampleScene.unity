@@ -379,7 +379,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4e2722168675c340b5b76e8f5af6ad3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _tileset: {fileID: 0}
+  _tileset: {fileID: 11400000, guid: 7f32d74d6af134845b1f175f2e948a56, type: 2}
   _tilemap: {fileID: 1347300747}
 --- !u!114 &838691013
 MonoBehaviour:
@@ -628,7 +628,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1320963385}
   m_Layer: 0
-  m_Name: Mr. Smiley
+  m_Name: The DUDE
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
