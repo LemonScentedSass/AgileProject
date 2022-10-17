@@ -114,14 +114,16 @@ public class PlayerLocomotion : MonoBehaviour
     {
         if (!isDodging)
         {
+            anim.SetFloat("dodgeAnimSpeed", dodgeLengthTime * 1.867f);
+            anim.SetTrigger("Dodging");
+
             startTime = Time.time;
             tempDodgeTime = dodgeLengthTime;
 
             var rotation = Quaternion.LookRotation(targetVector);
             transform.rotation = Quaternion.RotateTowards(transform.rotation, rotation, rotateSpeed * 5);
 
-            anim.SetFloat("dodgeAnimSpeed", dodgeLengthTime * 1.867f);
-            anim.SetTrigger("Dodging");
+           
         }
 
         isDodging = true;        

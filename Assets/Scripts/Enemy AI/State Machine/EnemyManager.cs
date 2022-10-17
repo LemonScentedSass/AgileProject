@@ -2,10 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using PlayerManagerUI;
 
 public class EnemyManager : MonoBehaviour
 {
-      [SerializeField] public PlayerManager currentTarget; // Assigned automatically by each state script, do not change from inspector for game use but would be good for testing.
+      [SerializeField] public PlayerManagerUI.PlayerManager currentTarget; // Assigned automatically by each state script, do not change from inspector for game use but would be good for testing.
       [SerializeField] public LayerMask detectionLayer; // Layer selection for player detection. Use layer "Player". 
 
       [Header("AI Settings")] // Edit all of these from inspector. 

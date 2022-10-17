@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ButtonClick : MonoBehaviour
+public class MenuButtonClicks : MonoBehaviour
 {
     public Animator anim;
     public Image background;
