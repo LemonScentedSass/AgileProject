@@ -28,6 +28,7 @@ namespace MapGeneration
         [SerializeField] private TileBase _3DwallTile;
 
         [SerializeField] private GameObject playerPrefab;
+        [SerializeField] private Transform spawnLocation;
 
         private List<Room> _gizmoRooms = new List<Room>();
         private List<Edge> _gizmoEdges = new List<Edge>();

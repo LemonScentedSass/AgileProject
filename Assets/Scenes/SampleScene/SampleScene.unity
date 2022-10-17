@@ -515,14 +515,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _numberOfRooms:
-    _minValue: 20
-    _maxValue: 40
+    _minValue: 10
+    _maxValue: 15
   _roomSize:
     _minValue: 10
     _maxValue: 20
   _seperationRange:
-    _minValue: 20
-    _maxValue: 30
+    _minValue: 5
+    _maxValue: 15
   _refreshCounterMax: 50
   _cullingPercent: 0.5
   _superTriangleOffset: 50
@@ -534,6 +534,7 @@ MonoBehaviour:
   _3DfloorTile: {fileID: 11400000, guid: 368ee75c21bad0b46b079a444bf78338, type: 2}
   _3DwallTile: {fileID: 11400000, guid: 86b597d827b313e4fa52ce74f6763962, type: 2}
   playerPrefab: {fileID: 0}
+  spawnLocation: {fileID: 0}
 --- !u!4 &838691014
 Transform:
   m_ObjectHideFlags: 0
