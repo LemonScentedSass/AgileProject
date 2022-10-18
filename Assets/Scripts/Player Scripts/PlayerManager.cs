@@ -10,7 +10,7 @@ namespace PlayerManagerUI
     {
         public static PlayerManager pm;
 
-        [SerializeField] private float _playerLevel = 0;
+        [SerializeField] private float _playerLevel = 1;
         [SerializeField] private int _currentEXP = 0;
         [SerializeField] private int _maxEXP = 100;
 
@@ -106,6 +106,7 @@ namespace PlayerManagerUI
             staminaFILLAMOUNT = DamageConversion(CurrentStamina, MaxStamina);
             healthFILLAMOUNT = DamageConversion(CurrentHealth, MaxHealth);
             manaFillAMOUNT = DamageConversion(CurrentMana, MaxMana);
+
 
             DisplayStatConversion(); //Converts health, stamina, and mana into fillamount for health, stamina, and mana bars
             StatsCheck(); // Checks to make sure numbers dont go below or above 0 and 100
