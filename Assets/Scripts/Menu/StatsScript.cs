@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using PlayerManager;
+using GameManager;
 using TMPro;
 
 public class StatsScript : MonoBehaviour
@@ -24,19 +24,19 @@ public class StatsScript : MonoBehaviour
     {
         foreach (var EXPtext in EXP)
         {
-            EXPtext.text = "EXP: " + PlayerManager.PlayerManager.pm.CurrentEXP + "/" + PlayerManager.PlayerManager.pm.MaxEXP;
+            EXPtext.text = "EXP: " + GameManager.PlayerManager.pm.CurrentEXP + "/" + GameManager.PlayerManager.pm.MaxEXP;
         }
 
         foreach (var levelTXT in Level)
         {
-            levelTXT.text = "Level: " + PlayerManager.PlayerManager.pm.PlayerLevel;
+            levelTXT.text = "Level: " + GameManager.PlayerManager.pm.PlayerLevel;
         }
-        Health.text = "Health: " + PlayerManager.PlayerManager.pm.CurrentHealth + "/" + PlayerManager.PlayerManager.pm.MaxHealth;
-        Stamina.text = "Stamina: " + PlayerManager.PlayerManager.pm.CurrentStamina + "/" + PlayerManager.PlayerManager.pm.MaxStamina;
-        Mana.text = "Mana: " + PlayerManager.PlayerManager.pm.CurrentMana + "/" + PlayerManager.PlayerManager.pm.MaxMana;
-        AttackDamage.text = "Attack Damage: " + PlayerManager.PlayerManager.pm.MinAttack + "-" + PlayerManager.PlayerManager.pm.MaxAttack;
-        HealthPotion.text = "Heal: " + PlayerManager.PlayerManager.pm.HealthPotionHeal;
-        ManaPotion.text = "Mana Heal: " + PlayerManager.PlayerManager.pm.ManaPotionHeal;
+        Health.text = "Health: " + GameManager.PlayerManager.pm.CurrentHealth + "/" + GameManager.PlayerManager.pm.MaxHealth;
+        Stamina.text = "Stamina: " + GameManager.PlayerManager.pm.CurrentStamina + "/" + GameManager.PlayerManager.pm.MaxStamina;
+        Mana.text = "Mana: " + GameManager.PlayerManager.pm.CurrentMana + "/" + GameManager.PlayerManager.pm.MaxMana;
+        AttackDamage.text = "Attack Damage: " + GameManager.PlayerManager.pm.MinAttack + "-" + GameManager.PlayerManager.pm.MaxAttack;
+        HealthPotion.text = "Heal: " + GameManager.PlayerManager.pm.HealthPotionHeal;
+        ManaPotion.text = "Mana Heal: " + GameManager.PlayerManager.pm.ManaPotionHeal;
     }
    
 }

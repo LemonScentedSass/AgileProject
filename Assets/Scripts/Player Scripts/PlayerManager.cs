@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 
-namespace PlayerManager
+namespace GameManager
 {
     public class PlayerManager : MonoBehaviour
     {

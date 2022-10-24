@@ -165,13 +165,13 @@ public class ItemUse : MonoBehaviour
     {
         if(potionName == "Health")
         {
-            PlayerManager.PlayerManager.pm.healthRegen = true;
-            PlayerManager.PlayerManager.pm.HealthPotionAmount -= 1;
+            GameManager.PlayerManager.pm.healthRegen = true;
+            GameManager.PlayerManager.pm.HealthPotionAmount -= 1;
         }
         if(potionName == "Mana")
         {
-            PlayerManager.PlayerManager.pm.manaRegen = true;
-            PlayerManager.PlayerManager.pm.ManaPotionAmount -= 1;
+            GameManager.PlayerManager.pm.manaRegen = true;
+            GameManager.PlayerManager.pm.ManaPotionAmount -= 1;
         }
       
     }
