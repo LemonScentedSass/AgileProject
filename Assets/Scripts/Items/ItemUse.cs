@@ -5,10 +5,15 @@ using UnityEngine.UI;
 using TMPro;
 
 
-public class PotionUse : MonoBehaviour
+public class ItemUse : MonoBehaviour
 {
+    //Move, this is just an example
+    public float coolDown;
+
     public KeyCode HealthPotion = KeyCode.Alpha1;
     public KeyCode ManaPotion = KeyCode.Alpha2;
+    public KeyCode Item = KeyCode.Q;
+    public KeyCode Magic = KeyCode.E;
 
     //health potion
     public float HealthPotionCooldown = 5f;
@@ -50,9 +55,36 @@ public class PotionUse : MonoBehaviour
 
     }
 
+    public IEnumerator StartCoolDown(float duration)
+    {
+        float t = 0;
+
+        while(t < duration)
+        {
+            Debug.Log("trigger");
+            t += Time.deltaTime;
+            coolDown = t/duration;
+            yield return null;
+        }
+
+        coolDown = 0;
+    }
+
     // Update is called once per frame
     void Update()
     {
+        Debug.Log("Update");
+
+        if (Input.GetKeyDown(HealthPotion))
+        {
+            StartCoroutine(StartCoolDown(2));
+        }
+
+        healthcooldownImage.fillAmount = coolDown;
+
+
+
+        /*
         healthCooldownFILLAMOUNT = healthcooldownImage.fillAmount;
         healthPotionAmounTXT.text = "" + PlayerManagerUI.PlayerManager.pm.HealthPotionAmount;
 
@@ -126,19 +158,20 @@ public class PotionUse : MonoBehaviour
                 manacooldown = false;
             }
         }
+        */
     }
 
     private void UsePotion(string potionName)
     {
         if(potionName == "Health")
         {
-            PlayerManagerUI.PlayerManager.pm.healthRegen = true;
-            PlayerManagerUI.PlayerManager.pm.HealthPotionAmount -= 1;
+            PlayerManager.PlayerManager.pm.healthRegen = true;
+            PlayerManager.PlayerManager.pm.HealthPotionAmount -= 1;
         }
         if(potionName == "Mana")
         {
-            PlayerManagerUI.PlayerManager.pm.manaRegen = true;
-            PlayerManagerUI.PlayerManager.pm.ManaPotionAmount -= 1;
+            PlayerManager.PlayerManager.pm.manaRegen = true;
+            PlayerManager.PlayerManager.pm.ManaPotionAmount -= 1;
         }
       
     }
@@ -153,6 +186,7 @@ public class PotionUse : MonoBehaviour
                 healthfullTXT.enabled = false;
                 healthfull = false;
             }
+
         }
         if(potionName == "Mana")
         {
@@ -166,4 +200,8 @@ public class PotionUse : MonoBehaviour
       
 
     }
+
+
+
+
 }

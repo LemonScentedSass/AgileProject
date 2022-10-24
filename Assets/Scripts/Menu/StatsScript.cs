@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using PlayerManagerUI;
+using PlayerManager;
 using TMPro;
 
 public class StatsScript : MonoBehaviour
@@ -24,19 +24,19 @@ public class StatsScript : MonoBehaviour
     {
         foreach (var EXPtext in EXP)
         {
-            EXPtext.text = "EXP: " + PlayerManager.pm.CurrentEXP + "/" + PlayerManager.pm.MaxEXP;
+            EXPtext.text = "EXP: " + PlayerManager.PlayerManager.pm.CurrentEXP + "/" + PlayerManager.PlayerManager.pm.MaxEXP;
         }
 
         foreach (var levelTXT in Level)
         {
-            levelTXT.text = "Level: " + PlayerManager.pm.PlayerLevel;
+            levelTXT.text = "Level: " + PlayerManager.PlayerManager.pm.PlayerLevel;
         }
-        Health.text = "Health: " + PlayerManager.pm.CurrentHealth + "/" + PlayerManager.pm.MaxHealth;
-        Stamina.text = "Stamina: " + PlayerManager.pm.CurrentStamina + "/" + PlayerManager.pm.MaxStamina;
-        Mana.text = "Mana: " + PlayerManager.pm.CurrentMana + "/" + PlayerManager.pm.MaxMana;
-        AttackDamage.text = "Attack Damage: " + PlayerManager.pm.MinAttack + "-" + PlayerManager.pm.MaxAttack;
-        HealthPotion.text = "Heal: " + PlayerManager.pm.HealthPotionHeal;
-        ManaPotion.text = "Mana Heal: " + PlayerManager.pm.ManaPotionHeal;
+        Health.text = "Health: " + PlayerManager.PlayerManager.pm.CurrentHealth + "/" + PlayerManager.PlayerManager.pm.MaxHealth;
+        Stamina.text = "Stamina: " + PlayerManager.PlayerManager.pm.CurrentStamina + "/" + PlayerManager.PlayerManager.pm.MaxStamina;
+        Mana.text = "Mana: " + PlayerManager.PlayerManager.pm.CurrentMana + "/" + PlayerManager.PlayerManager.pm.MaxMana;
+        AttackDamage.text = "Attack Damage: " + PlayerManager.PlayerManager.pm.MinAttack + "-" + PlayerManager.PlayerManager.pm.MaxAttack;
+        HealthPotion.text = "Heal: " + PlayerManager.PlayerManager.pm.HealthPotionHeal;
+        ManaPotion.text = "Mana Heal: " + PlayerManager.PlayerManager.pm.ManaPotionHeal;
     }
    
 }

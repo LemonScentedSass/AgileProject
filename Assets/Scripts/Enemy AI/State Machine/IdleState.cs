@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using PlayerManagerUI;
+using PlayerManager;
 
 namespace FSM
 {
