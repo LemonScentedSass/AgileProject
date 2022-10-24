@@ -6,6 +6,8 @@ using CollisionHelper;
 using Delaunay;
 using UnityEngine.Tilemaps;
 using WFC;
+using LevelData;
+using MapGeneration;
 
 namespace MapGeneration
 {
@@ -26,9 +28,6 @@ namespace MapGeneration
         [SerializeField] private Tilemap _3Dtilemap;
         [SerializeField] private TileBase _3DfloorTile;
         [SerializeField] private TileBase _3DwallTile;
-
-        [SerializeField] private GameObject playerPrefab;
-        [SerializeField] private Transform spawnLocation;
 
         private List<Room> _gizmoRooms = new List<Room>();
         private List<Edge> _gizmoEdges = new List<Edge>();
@@ -195,9 +194,8 @@ namespace MapGeneration
             AddRandomEdges(edges, mst);
             List<Edge> corridors = CalculateCorridors(mst, rooms);
             StartCoroutine(DrawContent(rooms, corridors));
-            _gizmoMST = mst;
-
-
+            StartAndEnd.instance.FindStartAndEnd(rooms);
+            _gizmoMST = mst;            
         }
 
         private IEnumerator DrawContent(List<Room> rooms, List<Edge> corridors)
@@ -279,6 +277,7 @@ namespace MapGeneration
 
                 iteration++;
 
+                /*
                 if (iteration >= _refreshCounterMax)
                 {
                     iteration = 0;
@@ -291,6 +290,8 @@ namespace MapGeneration
                     Debug.Log("Did NOT Hit Refresh Max");
                     yield return null;
                 }
+                */
+                yield return null;
             }
         }
 
