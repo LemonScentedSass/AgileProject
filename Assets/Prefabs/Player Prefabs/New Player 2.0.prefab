@@ -2353,6 +2353,8 @@ GameObject:
   - component: {fileID: 6440061712961576243}
   - component: {fileID: 6440061712961576246}
   - component: {fileID: 6440061712961576247}
+  - component: {fileID: 769052386}
+  - component: {fileID: 769052387}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -2451,6 +2453,60 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 116
   m_CollisionDetection: 0
+--- !u!114 &769052386
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6440061712961576242}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2bb1bacb77722149a381a080a7653e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  level: 0
+  experience: 0
+  experienceToNextLevel: 0
+--- !u!114 &769052387
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6440061712961576242}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 950977d9e96b0334891fe10613012b70, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _playerLevel: 1
+  _currentEXP: 0
+  _maxEXP: 100
+  _curHealth: 0
+  _maxHealth: 100
+  _curStamina: 0
+  _maxStamina: 100
+  _curMana: 0
+  _maxMana: 100
+  _minAttack: 1
+  _maxAttack: 2
+  _healthPotionAmount: 0
+  _manaPotionAmount: 0
+  _healthPotionHeal: 40
+  _manaPotionHeal: 40
+  meatAmount: 0
+  newHealth: 0
+  newMana: 0
+  healthRegen: 0
+  stamRegen: 0
+  manaRegen: 0
+  healthbar: {fileID: 0}
+  staminabar: {fileID: 0}
+  manabar: {fileID: 0}
+  staminaFILLAMOUNT: 0
+  healthFILLAMOUNT: 0
+  manaFillAMOUNT: 0
 --- !u!1 &6440061713285793277
 GameObject:
   m_ObjectHideFlags: 0
@@ -3939,6 +3995,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 488156006972806278}
     m_Modifications:
     - target: {fileID: 696058966385884165, guid: b4cbf94dda63f074da42ceb35b955c22, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 696058966385884165, guid: b4cbf94dda63f074da42ceb35b955c22, type: 3}
       propertyPath: m_IsTrigger
       value: 1
       objectReference: {fileID: 0}
@@ -4008,6 +4068,37 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b4cbf94dda63f074da42ceb35b955c22, type: 3}
+--- !u!1 &4243903857026543869 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7186287135004782533, guid: b4cbf94dda63f074da42ceb35b955c22, type: 3}
+  m_PrefabInstance: {fileID: 6440061712699842360}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &1308134222
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4243903857026543869}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.44467005, y: 1.458548, z: 0.07788113}
+  m_Center: {x: 0.00037077596, y: 0.29212254, z: 0.0009596965}
+--- !u!114 &1308134221
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4243903857026543869}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d827e2c59d46e014a821d550232e64ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageAmount: 1
 --- !u!4 &4243903857026772189 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7186287135004881893, guid: b4cbf94dda63f074da42ceb35b955c22, type: 3}
