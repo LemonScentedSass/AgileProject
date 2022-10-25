@@ -2,7 +2,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class EnemyAI : MonoBehaviour
+public class EnemyAI : MonoBehaviour, IHittable
 {
       public NavMeshAgent agent;
       public Animator anim;
@@ -11,7 +11,7 @@ public class EnemyAI : MonoBehaviour
 
       public LayerMask whatIsGround, whatIsPlayer;
 
-      public float health;
+      public float health = 3;
 
       //Patroling
       public Vector3 walkPoint;
@@ -48,6 +48,15 @@ public class EnemyAI : MonoBehaviour
             if (!playerInSightRange && !playerInAttackRange) Patroling();
             if (playerInSightRange && !playerInAttackRange) ChasePlayer();
             if (playerInAttackRange && playerInSightRange) StartCoroutine(Attack());
+
+            if (health <= 0) Death();
+      }
+
+      private void Death()
+      {
+            var itemDropper = GetComponentInChildren<ResourceDropper>();
+            itemDropper.DropItem();
+            Destroy(gameObject);
       }
 
       private void Patroling()
@@ -122,5 +131,17 @@ public class EnemyAI : MonoBehaviour
             }
 
             yield return new WaitForSeconds(timeBetweenAttacks);
+      }
+
+      public void GetHit(int damage)
+      {
+            if (health > 0)
+            {
+                  health -= damage;
+                  if(health <= 0)
+                  {
+                        Death();
+                  }
+            }
       }
 }

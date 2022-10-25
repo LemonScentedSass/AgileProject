@@ -32,6 +32,8 @@ namespace GameManager
         [SerializeField] private float _healthPotionHeal = 40f;
         [SerializeField] private float _manaPotionHeal = 40f;
 
+        [SerializeField] private float meatAmount = 0;
+
         public float newHealth = 0;
         public float newMana = 0;
 
@@ -175,5 +177,26 @@ namespace GameManager
             }
         }
 
-    }
+            private void OnTriggerEnter(Collider other)
+            {
+                  if (other.gameObject.layer == LayerMask.NameToLayer("Resource"))
+                  {
+                        var resource = other.gameObject.GetComponent<Resources>();
+
+                        if(resource != null)
+                        {
+                              switch (resource.ResourceData.ResourceEnum)
+                              {
+                                    case ResourceTypeEnum.MonsterMeat:
+                                          meatAmount += resource.ResourceData.GetAmount();
+                                          resource.PickupResource();
+                                          break;
+                              }
+                        }
+                        
+
+                  }
+            }
+
+      }
 }
