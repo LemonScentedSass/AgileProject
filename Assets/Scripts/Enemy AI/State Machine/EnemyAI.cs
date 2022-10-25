@@ -57,6 +57,7 @@ public class EnemyAI : MonoBehaviour, IHittable
             var itemDropper = GetComponentInChildren<ResourceDropper>();
             itemDropper.DropItem();
             Destroy(gameObject);
+            LevelSystem.instance.AddExperience(30);
       }
 
       private void Patroling()

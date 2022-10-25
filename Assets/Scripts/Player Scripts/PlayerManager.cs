@@ -10,10 +10,6 @@ namespace GameManager
     {
         public static PlayerManager pm;
 
-        [SerializeField] private float _playerLevel = 1;
-        [SerializeField] private int _currentEXP = 0;
-        [SerializeField] private int _maxEXP = 100;
-
         [SerializeField] private float _curHealth;
         [SerializeField] private float _maxHealth = 100f;
 
@@ -177,6 +173,13 @@ namespace GameManager
             }
         }
 
+
+
+            /// <summary>
+            /// Used to detect pickups from mob drops, will be added to as we have more to pickup :D
+            /// Items dropped MUST be on the Resource layer in order to be detected.
+            /// </summary>
+            /// <param name="other"></param>
             private void OnTriggerEnter(Collider other)
             {
                   if (other.gameObject.layer == LayerMask.NameToLayer("Resource"))
