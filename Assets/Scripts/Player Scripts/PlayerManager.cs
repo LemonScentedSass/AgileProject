@@ -10,6 +10,10 @@ namespace GameManager
     {
         public static PlayerManager pm;
 
+        [SerializeField] private int _playerLevel = 1;
+        [SerializeField] private int _currentEXP = 0;
+        [SerializeField] private int _maxEXP = 100;
+
         [SerializeField] private float _curHealth;
         [SerializeField] private float _maxHealth = 100f;
 
@@ -47,7 +51,7 @@ namespace GameManager
         public float healthFILLAMOUNT;
         public float manaFillAMOUNT;
 
-        public float PlayerLevel { get { return _playerLevel; } set { _playerLevel = value; } }
+        public int PlayerLevel { get { return _playerLevel; } set { _playerLevel = value; } }
         public int CurrentEXP { get { return _currentEXP; } set { _currentEXP = value; } }
         public int MaxEXP { get { return _maxEXP; } set { _maxEXP = value; } }
 
