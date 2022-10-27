@@ -46,6 +46,7 @@ public class MenuButtonClicks : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape) && canCloseMenu == true && OptionMenu.activeSelf == false)
         {
             anim.SetBool("Menu", false);
+            
         }
         if (Input.GetKeyDown(KeyCode.Escape) && OptionMenu.activeSelf == true)
         {

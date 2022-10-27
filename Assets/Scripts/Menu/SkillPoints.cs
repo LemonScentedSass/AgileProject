@@ -78,7 +78,7 @@ public class SkillPoints : Selectable
                     return;
                 }
                 //if the raycast see the character skills truns selected bool false
-               if(result.gameObject.name == "CharacterSkills")
+               if(result.gameObject.name != "Unlock")
                {
                     _selected = false;
                }

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   doesComeBack: 0
   comeBackTime: 2
-  explodes: 1
+  explodes: 0
   explodeRadius: 2
   explosionTime: 1
   projectileObject: {fileID: 0}
