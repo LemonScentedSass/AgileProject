@@ -9,6 +9,8 @@ namespace GameManager
       public class PlayerManager : MonoBehaviour, IHittable
       {
             public static PlayerManager pm;
+            Animator anim;
+            PlayerLocomotion playerLoco;
 
             [Header("Player EXP Info")]
             [SerializeField] private int _playerLevel = 1;        
@@ -17,7 +19,7 @@ namespace GameManager
 
             [Header("Player Health / Stamina / Mana")]
             [SerializeField] private float _curHealth;
-            [SerializeField] private float _maxHealth = 100f;
+            [SerializeField] private float _maxHealth = 10f;
             [SerializeField] private float _curStamina;
             [SerializeField] private float _maxStamina = 100f;
             [SerializeField] private float _curMana;
@@ -81,6 +83,9 @@ namespace GameManager
 
             private void Awake()
             {
+                  anim = GetComponentInChildren<Animator>();
+                  playerLoco = GetComponent<PlayerLocomotion>();
+
                   if (PlayerManager.pm == null)
                   {
                         PlayerManager.pm = this;
@@ -115,6 +120,11 @@ namespace GameManager
 
                   DisplayStatConversion(); //Converts health, stamina, and mana into fillamount for health, stamina, and mana bars
                   StatsCheck(); // Checks to make sure numbers dont go below or above 0 and 100
+
+                  if(CurrentHealth <= 0)
+                  {
+                        Die();
+                  }
             }
 
 
@@ -219,6 +229,23 @@ namespace GameManager
                               isDead = true;                                         // dead bool = true
                         }
                   }
+            }
+
+
+            public void Die()
+            {
+                  anim.SetTrigger("isDead");
+                  playerLoco.canMove = false;
+                  Collider collider = GetComponent<Collider>();
+                  collider.enabled = false;
+              
+                  StartCoroutine(DestroyCoroutine());
+            }
+
+            IEnumerator DestroyCoroutine()
+            {
+                  yield return new WaitForSeconds(10f);
+                  gameObject.SetActive(false);
             }
       }
 }

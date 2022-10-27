@@ -22,6 +22,7 @@ public class StatsScript : MonoBehaviour
 
     private void UpdateStats()
     {
+
         foreach (var EXPtext in EXP)
         {
             EXPtext.text = "EXP: " + GameManager.PlayerManager.pm.CurrentEXP + "/" + GameManager.PlayerManager.pm.MaxEXP;

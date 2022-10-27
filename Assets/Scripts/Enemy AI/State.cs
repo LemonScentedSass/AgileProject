@@ -58,16 +58,22 @@ public class State
       /// </summary>
       /// <returns></returns>
       public bool CanSeePlayer()
-      {
-            Vector3 direction = player.position - npc.transform.position;           // Determine direction vector from player to AI
-            float angle = Vector3.Angle(direction, npc.transform.forward);          // Determine the angle between the AI's forward vector and our direction vector
-
-            if(direction.magnitude < visDist && angle < visAngle)                   // If the length of the vector connecting player and AI is less than our visible distance float && the player is within AI FOV,
+      {     
+            if(player != null)
             {
-                  return true;
+                  Vector3 direction = player.position - npc.transform.position;           // Determine direction vector from player to AI
+                  float angle = Vector3.Angle(direction, npc.transform.forward);          // Determine the angle between the AI's forward vector and our direction vector
+
+                  if (direction.magnitude < visDist && angle < visAngle)                   // If the length of the vector connecting player and AI is less than our visible distance float && the player is within AI FOV,
+                  {
+                        return true;
+                  }
+
+                  return false;
             }
 
             return false;
+            
       }
 
       /// <summary>
@@ -263,6 +269,7 @@ public class Pursue : State
 public class Attack : State
 {
       EnemyStats enemyStats;
+      GameManager.PlayerManager pm;
       float rotationSpeed = 5.0f;
       //AudioSource attackAudio;
       
@@ -275,6 +282,7 @@ public class Attack : State
       public override void Enter()
       {
             player = GameObject.FindGameObjectWithTag("Player").transform;
+            pm = player.GetComponent<GameManager.PlayerManager>();
             anim.SetTrigger("isAttacking");                                                                 // When entering the attack state, play attack animation
             //Debug.Log("ATTACKING PLAYER");
             agent.isStopped = true;                                                                         // Stop the AI agent from moving
@@ -295,6 +303,11 @@ public class Attack : State
             if (!CanAttackPlayer())                                                                            // If the AI agent no longer attack the player,
             {
                   nextState = new Pursue(npc, agent, anim, player);                                         // Resume the pursue state
+                  stage = EVENT.EXIT;
+            }
+            else if(pm.CurrentHealth <= 0)
+            {
+                  nextState = new Patrol(npc, agent, anim, player);
                   stage = EVENT.EXIT;
             }
       }
