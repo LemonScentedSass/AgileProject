@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using GameManager;
 
 public class MenuButtonClicks : MonoBehaviour
 {
@@ -17,6 +18,7 @@ public class MenuButtonClicks : MonoBehaviour
 
     public GameObject[] Skills;
     private bool canCloseMenu;
+    private bool flag;
 
     // Start is called before the first frame update
     void Start()
@@ -32,21 +34,24 @@ public class MenuButtonClicks : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Tab))
+
+        if (Input.GetKeyDown(KeyCode.Tab))
         {
+            Time.timeScale = 0;
             anim.SetBool("Menu", true);
             canCloseMenu = true;
         }
-        if(Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyUp(KeyCode.Escape))
         {
+            canCloseMenu = true;
             anim.SetBool("open", false);
-            StartCoroutine(Escape());
         }
 
         if (Input.GetKeyDown(KeyCode.Escape) && canCloseMenu == true && OptionMenu.activeSelf == false)
         {
             anim.SetBool("Menu", false);
-            
+            Time.timeScale = 1;
+
         }
         if (Input.GetKeyDown(KeyCode.Escape) && OptionMenu.activeSelf == true)
         {
@@ -91,7 +96,7 @@ public class MenuButtonClicks : MonoBehaviour
         for (int i = 0; i < Skills.Length; i++)
         {
             Skills[i].SetActive(false);
-                   }
+        }
         scrollSkills.SetActive(true);
     }
 
