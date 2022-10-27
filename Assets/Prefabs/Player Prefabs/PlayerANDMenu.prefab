@@ -19,6 +19,7 @@ PrefabInstance:
       propertyPath: staminabar
       value: 
       objectReference: {fileID: 1594976693027073375}
+<<<<<<< HEAD
 <<<<<<< Updated upstream
     - target: {fileID: 1308134222, guid: b0dcad4df8455b748aa5c10ea71621be, type: 3}
       propertyPath: m_Enabled
@@ -33,6 +34,8 @@ PrefabInstance:
       value: 2
 >>>>>>> Stashed changes
       objectReference: {fileID: 0}
+=======
+>>>>>>> parent of abb122b (Merge branch 'main' of https://github.com/LemonScentedSass/AgileProject)
     - target: {fileID: 6440061712961576240, guid: b0dcad4df8455b748aa5c10ea71621be, type: 3}
       propertyPath: readyToDodge
       value: 1
@@ -163,6 +166,45 @@ MonoBehaviour:
   manacooldownImage: {fileID: 1594976693303888625}
   manafullTXT: {fileID: 1594976693736156635}
   manafull: 0
+--- !u!114 &1600266661
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5727959545636513188}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 950977d9e96b0334891fe10613012b70, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _playerLevel: 0
+  _currentEXP: 0
+  _maxEXP: 100
+  _curHealth: 0
+  _maxHealth: 100
+  _curStamina: 0
+  _maxStamina: 100
+  _curMana: 0
+  _maxMana: 100
+  _minAttack: 1
+  _maxAttack: 2
+  _healthPotionAmount: 0
+  _manaPotionAmount: 0
+  _healthPotionHeal: 40
+  _manaPotionHeal: 40
+  meatAmount: 0
+  newHealth: 0
+  newMana: 0
+  healthRegen: 0
+  stamRegen: 0
+  manaRegen: 0
+  healthbar: {fileID: 1594976694308860588}
+  staminabar: {fileID: 1594976693027073375}
+  manabar: {fileID: 1594976694503647485}
+  staminaFILLAMOUNT: 0
+  healthFILLAMOUNT: 0
+  manaFillAMOUNT: 0
 --- !u!4 &5727959546164457165 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6440061713506326107, guid: b0dcad4df8455b748aa5c10ea71621be, type: 3}
@@ -1845,6 +1887,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7763122476666159790, guid: c004dda5baadfc049bb19e97601fca10, type: 3}
       propertyPath: m_Size
+<<<<<<< HEAD
 <<<<<<< Updated upstream
       value: 0.6520287
       objectReference: {fileID: 0}
@@ -1858,6 +1901,13 @@ PrefabInstance:
       propertyPath: m_Value
       value: 1.0000001
 >>>>>>> Stashed changes
+=======
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7763122476666159790, guid: c004dda5baadfc049bb19e97601fca10, type: 3}
+      propertyPath: m_Value
+      value: 1.0329604
+>>>>>>> parent of abb122b (Merge branch 'main' of https://github.com/LemonScentedSass/AgileProject)
       objectReference: {fileID: 0}
     - target: {fileID: 7763122476779260631, guid: c004dda5baadfc049bb19e97601fca10, type: 3}
       propertyPath: m_AnchorMax.y
@@ -1933,11 +1983,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7763122476987658474, guid: c004dda5baadfc049bb19e97601fca10, type: 3}
       propertyPath: m_AnchoredPosition.y
+<<<<<<< HEAD
 <<<<<<< Updated upstream
       value: 239.03896
 =======
       value: -239.0405
 >>>>>>> Stashed changes
+=======
+      value: -254.79637
+>>>>>>> parent of abb122b (Merge branch 'main' of https://github.com/LemonScentedSass/AgileProject)
       objectReference: {fileID: 0}
     - target: {fileID: 7763122477040796761, guid: c004dda5baadfc049bb19e97601fca10, type: 3}
       propertyPath: m_EventSystem
@@ -1945,11 +1999,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7763122477046113390, guid: c004dda5baadfc049bb19e97601fca10, type: 3}
       propertyPath: m_AnchoredPosition.y
+<<<<<<< HEAD
 <<<<<<< Updated upstream
       value: 239.03918
 =======
       value: -239.03923
 >>>>>>> Stashed changes
+=======
+      value: -254.79684
+>>>>>>> parent of abb122b (Merge branch 'main' of https://github.com/LemonScentedSass/AgileProject)
       objectReference: {fileID: 0}
     - target: {fileID: 7763122477050589125, guid: c004dda5baadfc049bb19e97601fca10, type: 3}
       propertyPath: m_EventSystem
@@ -1965,11 +2023,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7763122477094346348, guid: c004dda5baadfc049bb19e97601fca10, type: 3}
       propertyPath: m_AnchoredPosition.y
+<<<<<<< HEAD
 <<<<<<< Updated upstream
       value: 239.03944
 =======
       value: -239.03995
 >>>>>>> Stashed changes
+=======
+      value: -254.79587
+>>>>>>> parent of abb122b (Merge branch 'main' of https://github.com/LemonScentedSass/AgileProject)
       objectReference: {fileID: 0}
     - target: {fileID: 7763122477116093740, guid: c004dda5baadfc049bb19e97601fca10, type: 3}
       propertyPath: m_AnchorMax.x
@@ -1989,6 +2051,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7763122477134682479, guid: c004dda5baadfc049bb19e97601fca10, type: 3}
       propertyPath: m_Size
+<<<<<<< HEAD
 <<<<<<< Updated upstream
       value: 0.6520286
       objectReference: {fileID: 0}
@@ -2002,6 +2065,13 @@ PrefabInstance:
       propertyPath: m_Value
       value: 1.0000001
 >>>>>>> Stashed changes
+=======
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7763122477134682479, guid: c004dda5baadfc049bb19e97601fca10, type: 3}
+      propertyPath: m_Value
+      value: 1.0329578
+>>>>>>> parent of abb122b (Merge branch 'main' of https://github.com/LemonScentedSass/AgileProject)
       objectReference: {fileID: 0}
     - target: {fileID: 7763122477152785353, guid: c004dda5baadfc049bb19e97601fca10, type: 3}
       propertyPath: m_AnchorMax.x
@@ -2053,10 +2123,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7763122477306215874, guid: c004dda5baadfc049bb19e97601fca10, type: 3}
       propertyPath: m_Size
-      value: 0.6520287
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7763122477306215874, guid: c004dda5baadfc049bb19e97601fca10, type: 3}
       propertyPath: m_Value
+<<<<<<< HEAD
 <<<<<<< Updated upstream
       value: -0.00000012766765
       objectReference: {fileID: 0}
@@ -2070,6 +2141,13 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -239.03946
 >>>>>>> Stashed changes
+=======
+      value: 1.0329584
+      objectReference: {fileID: 0}
+    - target: {fileID: 7763122477306878173, guid: c004dda5baadfc049bb19e97601fca10, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -254.79588
+>>>>>>> parent of abb122b (Merge branch 'main' of https://github.com/LemonScentedSass/AgileProject)
       objectReference: {fileID: 0}
     - target: {fileID: 7763122477312573381, guid: c004dda5baadfc049bb19e97601fca10, type: 3}
       propertyPath: m_EventSystem
@@ -2261,15 +2339,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7763122478418460900, guid: c004dda5baadfc049bb19e97601fca10, type: 3}
       propertyPath: m_Size
-      value: 0.6520287
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7763122478418460900, guid: c004dda5baadfc049bb19e97601fca10, type: 3}
       propertyPath: m_Value
+<<<<<<< HEAD
 <<<<<<< Updated upstream
       value: 0.00000012766765
 =======
       value: 1.000002
 >>>>>>> Stashed changes
+=======
+      value: 1.0329586
+>>>>>>> parent of abb122b (Merge branch 'main' of https://github.com/LemonScentedSass/AgileProject)
       objectReference: {fileID: 0}
     - target: {fileID: 7763122478427303441, guid: c004dda5baadfc049bb19e97601fca10, type: 3}
       propertyPath: m_EventSystem
