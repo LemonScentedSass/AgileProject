@@ -6,11 +6,11 @@ using UnityEngine.UI;
 
 namespace GameManager
 {
-      public class PlayerManager : MonoBehaviour
+      public class PlayerManager : MonoBehaviour, IHittable
       {
             public static PlayerManager pm;
 
-            [SerializeField] private int _playerLevel = 1;
+            [SerializeField] private int _playerLevel = 1;        
             [SerializeField] private int _currentEXP = 0;
             [SerializeField] private int _maxEXP = 100;
 
@@ -42,6 +42,7 @@ namespace GameManager
             public bool healthRegen = false;
             public bool stamRegen = false;
             public bool manaRegen = false;
+            private bool isDead = false;
 
             public Image healthbar;
             public Image staminabar;
@@ -205,5 +206,17 @@ namespace GameManager
                   }
             }
 
+            public void GetHit(int damage)
+            {
+                  if (isDead == false)                                               // If player is not dead,
+                  {
+                        CurrentHealth -= damage;                                     // Decrease health by 1
+                                                                             
+                        if (CurrentHealth <= 0)                                      // Check for health less than or equal to 0
+                        { 
+                              isDead = true;                                         // dead bool = true
+                        }
+                  }
+            }
       }
 }
