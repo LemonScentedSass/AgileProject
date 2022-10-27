@@ -19,6 +19,7 @@ PrefabInstance:
       propertyPath: staminabar
       value: 
       objectReference: {fileID: 1594976693027073375}
+<<<<<<< Updated upstream
     - target: {fileID: 1308134222, guid: b0dcad4df8455b748aa5c10ea71621be, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -26,6 +27,11 @@ PrefabInstance:
     - target: {fileID: 5834228533122474813, guid: b0dcad4df8455b748aa5c10ea71621be, type: 3}
       propertyPath: m_Enabled
       value: 1
+=======
+    - target: {fileID: 591422529720852884, guid: b0dcad4df8455b748aa5c10ea71621be, type: 3}
+      propertyPath: m_UpdateMode
+      value: 2
+>>>>>>> Stashed changes
       objectReference: {fileID: 0}
     - target: {fileID: 6440061712961576240, guid: b0dcad4df8455b748aa5c10ea71621be, type: 3}
       propertyPath: readyToDodge
@@ -360,6 +366,10 @@ PrefabInstance:
     - target: {fileID: 78185199127692902, guid: c004dda5baadfc049bb19e97601fca10, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 78185199154524960, guid: c004dda5baadfc049bb19e97601fca10, type: 3}
+      propertyPath: m_UpdateMode
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 78185199688720339, guid: c004dda5baadfc049bb19e97601fca10, type: 3}
       propertyPath: m_AnchorMax.y
@@ -1835,11 +1845,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7763122476666159790, guid: c004dda5baadfc049bb19e97601fca10, type: 3}
       propertyPath: m_Size
+<<<<<<< Updated upstream
       value: 0.6520287
       objectReference: {fileID: 0}
     - target: {fileID: 7763122476666159790, guid: c004dda5baadfc049bb19e97601fca10, type: 3}
       propertyPath: m_Value
       value: 0.00000012766765
+=======
+      value: 0.6520288
+      objectReference: {fileID: 0}
+    - target: {fileID: 7763122476666159790, guid: c004dda5baadfc049bb19e97601fca10, type: 3}
+      propertyPath: m_Value
+      value: 1.0000001
+>>>>>>> Stashed changes
       objectReference: {fileID: 0}
     - target: {fileID: 7763122476779260631, guid: c004dda5baadfc049bb19e97601fca10, type: 3}
       propertyPath: m_AnchorMax.y
@@ -1915,7 +1933,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7763122476987658474, guid: c004dda5baadfc049bb19e97601fca10, type: 3}
       propertyPath: m_AnchoredPosition.y
+<<<<<<< Updated upstream
       value: 239.03896
+=======
+      value: -239.0405
+>>>>>>> Stashed changes
       objectReference: {fileID: 0}
     - target: {fileID: 7763122477040796761, guid: c004dda5baadfc049bb19e97601fca10, type: 3}
       propertyPath: m_EventSystem
@@ -1923,7 +1945,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7763122477046113390, guid: c004dda5baadfc049bb19e97601fca10, type: 3}
       propertyPath: m_AnchoredPosition.y
+<<<<<<< Updated upstream
       value: 239.03918
+=======
+      value: -239.03923
+>>>>>>> Stashed changes
       objectReference: {fileID: 0}
     - target: {fileID: 7763122477050589125, guid: c004dda5baadfc049bb19e97601fca10, type: 3}
       propertyPath: m_EventSystem
@@ -1939,7 +1965,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7763122477094346348, guid: c004dda5baadfc049bb19e97601fca10, type: 3}
       propertyPath: m_AnchoredPosition.y
+<<<<<<< Updated upstream
       value: 239.03944
+=======
+      value: -239.03995
+>>>>>>> Stashed changes
       objectReference: {fileID: 0}
     - target: {fileID: 7763122477116093740, guid: c004dda5baadfc049bb19e97601fca10, type: 3}
       propertyPath: m_AnchorMax.x
@@ -1959,11 +1989,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7763122477134682479, guid: c004dda5baadfc049bb19e97601fca10, type: 3}
       propertyPath: m_Size
+<<<<<<< Updated upstream
       value: 0.6520286
       objectReference: {fileID: 0}
     - target: {fileID: 7763122477134682479, guid: c004dda5baadfc049bb19e97601fca10, type: 3}
       propertyPath: m_Value
       value: -0.00000012766762
+=======
+      value: 0.65202856
+      objectReference: {fileID: 0}
+    - target: {fileID: 7763122477134682479, guid: c004dda5baadfc049bb19e97601fca10, type: 3}
+      propertyPath: m_Value
+      value: 1.0000001
+>>>>>>> Stashed changes
       objectReference: {fileID: 0}
     - target: {fileID: 7763122477152785353, guid: c004dda5baadfc049bb19e97601fca10, type: 3}
       propertyPath: m_AnchorMax.x
@@ -2019,11 +2057,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7763122477306215874, guid: c004dda5baadfc049bb19e97601fca10, type: 3}
       propertyPath: m_Value
+<<<<<<< Updated upstream
       value: -0.00000012766765
       objectReference: {fileID: 0}
     - target: {fileID: 7763122477306878173, guid: c004dda5baadfc049bb19e97601fca10, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 239.03932
+=======
+      value: 1.0000018
+      objectReference: {fileID: 0}
+    - target: {fileID: 7763122477306878173, guid: c004dda5baadfc049bb19e97601fca10, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -239.03946
+>>>>>>> Stashed changes
       objectReference: {fileID: 0}
     - target: {fileID: 7763122477312573381, guid: c004dda5baadfc049bb19e97601fca10, type: 3}
       propertyPath: m_EventSystem
@@ -2219,7 +2265,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7763122478418460900, guid: c004dda5baadfc049bb19e97601fca10, type: 3}
       propertyPath: m_Value
+<<<<<<< Updated upstream
       value: 0.00000012766765
+=======
+      value: 1.000002
+>>>>>>> Stashed changes
       objectReference: {fileID: 0}
     - target: {fileID: 7763122478427303441, guid: c004dda5baadfc049bb19e97601fca10, type: 3}
       propertyPath: m_EventSystem
