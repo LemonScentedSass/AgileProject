@@ -22,8 +22,9 @@ public class ResourceDropper : MonoBehaviour
             var dropValue = Random.value;
             if(dropValue < dropChance)
             {
-                  int index = GetRandomWeightedIndex(itemWeights);
-                  Instantiate(itemsToDrop[index].itemPrefab, transform.position, Quaternion.identity);
+                        int index = GetRandomWeightedIndex(itemWeights);
+                        Instantiate(itemsToDrop[index].itemPrefab, transform.position, Quaternion.identity);
+                        Debug.Log("Enemy Dropped Item");
             }
       }
 
