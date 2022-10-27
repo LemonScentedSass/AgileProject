@@ -36,8 +36,12 @@ namespace GameManager
             [SerializeField] private float _healthPotionHeal = 40f;
             [SerializeField] private float _manaPotionHeal = 40f;
 
+            [Header("Collectables")]
             [SerializeField] private float meatAmount = 0;
+            [SerializeField] private int goldAmount = 0;
 
+
+            [Header("Others")]
             public float newHealth = 0;
             public float newMana = 0;
 
@@ -209,6 +213,10 @@ namespace GameManager
                               {
                                     case ResourceTypeEnum.MonsterMeat:
                                           meatAmount += resource.ResourceData.GetAmount();
+                                          resource.PickupResource();
+                                          break;
+                                    case ResourceTypeEnum.Gold:
+                                          goldAmount += resource.ResourceData.GetAmount();
                                           resource.PickupResource();
                                           break;
                               }
