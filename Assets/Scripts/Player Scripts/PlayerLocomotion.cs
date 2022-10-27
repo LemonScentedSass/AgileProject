@@ -21,8 +21,6 @@ public class PlayerLocomotion : MonoBehaviour
     [SerializeField] public float dodgeSpeedMultiplier; // Dodge Speed
     [SerializeField] public float dodgeLengthTime; // Length of time the dodge will last
     [SerializeField] public float dodgeCooldown; // Length of time between dodges
-    [SerializeField] public float wallCheckDistance; // Distance from the player that, when met by a wall, will stop roll movement
-    [SerializeField] public LayerMask whatIsWall; // Layer for walls
     [SerializeField] public bool isDodging; // Self-explanatory
     [SerializeField] public bool readyToDodge; // Whether or not the player is allowed to dodge
 
