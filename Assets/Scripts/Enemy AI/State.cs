@@ -106,7 +106,7 @@ public class Idle : State
       public override void Enter()
       {
             anim.SetTrigger("isIdle");                                              // Begin idle animation
-            Debug.Log("IDLING");
+            //Debug.Log("IDLING");
             player = GameObject.FindGameObjectWithTag("Player").transform;
             base.Enter();
       }
@@ -167,7 +167,7 @@ public class Patrol : State
 
 
             anim.SetTrigger("isWalking");                                                                   // Trigger the Walking animation
-            Debug.Log("PATROLLING");
+            //Debug.Log("PATROLLING");
             base.Enter();
       }
 
@@ -226,7 +226,7 @@ public class Pursue : State
       {
             player = GameObject.FindGameObjectWithTag("Player").transform;
             anim.SetTrigger("isRunning");                                                                   // Upon entering the Pursue State, trigger the Running animation
-            Debug.Log("PURSUING PLAYER");
+            //Debug.Log("PURSUING PLAYER");
             base.Enter();
       }
 
@@ -277,7 +277,7 @@ public class Attack : State
       {
             player = GameObject.FindGameObjectWithTag("Player").transform;
             anim.SetTrigger("isAttacking");                                                                 // When entering the attack state, play attack animation
-            Debug.Log("ATTACKING PLAYER");
+            //Debug.Log("ATTACKING PLAYER");
             agent.isStopped = true;                                                                         // Stop the AI agent from moving
             //attackAudio.Play();
             base.Enter();
