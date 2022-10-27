@@ -70,7 +70,6 @@ public class State
             return false;
       }
 
-
       /// <summary>
       /// CanAttackPlayer returns a boolean which indicates whether or not the player is
       /// within the AI attack range.

@@ -378,6 +378,14 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 5727959545636513190, guid: 748852058d8fff34faae62c3b5b689e8, type: 3}
+      propertyPath: dodgeLengthTime
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5727959545636513190, guid: 748852058d8fff34faae62c3b5b689e8, type: 3}
+      propertyPath: dodgeSpeedMultiplier
+      value: 1.35
+      objectReference: {fileID: 0}
     - target: {fileID: 5727959546164457164, guid: 748852058d8fff34faae62c3b5b689e8, type: 3}
       propertyPath: m_Name
       value: PlayerANDMenu
@@ -546,7 +554,8 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2168300093340342531, guid: 748852058d8fff34faae62c3b5b689e8, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 748852058d8fff34faae62c3b5b689e8, type: 3}
 --- !u!1 &256845326
 GameObject:
@@ -1075,6 +1084,25 @@ Transform:
   m_Father: {fileID: 1250858715}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2026034639 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5727959545636513188, guid: 748852058d8fff34faae62c3b5b689e8, type: 3}
+  m_PrefabInstance: {fileID: 206455473}
+  m_PrefabAsset: {fileID: 0}
+--- !u!136 &2026034648
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2026034639}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 1
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!4 &2040665491 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4676986922810954, guid: 9d2d21ead9f817446aa6c299b76f7e89, type: 3}
@@ -1125,6 +1153,8 @@ GameObject:
   - component: {fileID: 2117594570}
   - component: {fileID: 2117594571}
   - component: {fileID: 2117594572}
+  - component: {fileID: 2117594574}
+  - component: {fileID: 2117594573}
   m_Layer: 3
   m_Name: Enemy - Dark Elf
   m_TagString: Untagged
@@ -1233,6 +1263,45 @@ MonoBehaviour:
   currentHealth: 0
   maxHealth: 5
   isDead: 0
+--- !u!114 &2117594573
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2117594560}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20343e5359d3f66449b1390e76d4bba7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <AttackDelay>k__BackingField: 1
+  waitBeforeNextAttack: 0
+--- !u!114 &2117594574
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2117594560}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d9358ebc6fecad458c708c1ca79f6b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <EnemyData>k__BackingField: {fileID: 11400000, guid: 9ea67ce44b238cf428a8d549d6ddc1b6, type: 2}
+  <EnemyAttack>k__BackingField: {fileID: 0}
+  <Health>k__BackingField: 5
+  isDead: 0
+  <OnGetHit>k__BackingField:
+    m_PersistentCalls:
+      m_Calls:
+      - {m_Target: {fileID: 2117594574}, m_TargetAssemblyTypeName: Enemy, Assembly-CSharp, m_MethodName: Die, m_Mode: 1, m_Arguments: {m_ObjectArgument: {fileID: 0}, m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine, m_IntArgument: 0, m_FloatArgument: 0, m_StringArgument: , m_BoolArgument: 0}, m_CallState: 2}
+    m_CallsDirty: 1
+  <OnDeath>k__BackingField:
+    m_PersistentCalls:
+      m_Calls: []
+    m_CallsDirty: 1
 --- !u!1 &2118622848
 GameObject:
   m_ObjectHideFlags: 0
@@ -1281,7 +1350,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20343e5359d3f66449b1390e76d4bba7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageAmount: 1
+  <AttackDelay>k__BackingField: 1
+  waitBeforeNextAttack: 0
 --- !u!64 &2131362296
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -1290,10 +1360,10 @@ MeshCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2131362291}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 0
+  m_IsTrigger: 1
+  m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 575c79ff119c2384281a69576dc4e5aa, type: 3}
 --- !u!65 &2131362297
@@ -1305,7 +1375,7 @@ BoxCollider:
   m_GameObject: {fileID: 2131362291}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 0.028154388, y: 1.3207024, z: 0.14831896}
   m_Center: {x: 0.0000003408902, y: 0.44735155, z: -0.00027629588}

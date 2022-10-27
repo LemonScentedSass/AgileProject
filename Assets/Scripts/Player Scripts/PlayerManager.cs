@@ -10,22 +10,24 @@ namespace GameManager
       {
             public static PlayerManager pm;
 
+            [Header("Player EXP Info")]
             [SerializeField] private int _playerLevel = 1;        
             [SerializeField] private int _currentEXP = 0;
             [SerializeField] private int _maxEXP = 100;
 
+            [Header("Player Health / Stamina / Mana")]
             [SerializeField] private float _curHealth;
             [SerializeField] private float _maxHealth = 100f;
-
             [SerializeField] private float _curStamina;
             [SerializeField] private float _maxStamina = 100f;
-
             [SerializeField] private float _curMana;
             [SerializeField] private float _maxMana = 100f;
 
+            [Header("Attack Settings?")]
             [SerializeField] private int _minAttack = 1;
             [SerializeField] private int _maxAttack = 2;
 
+            [Header("Consumable Settings")]
             [SerializeField] private int _healthPotionAmount;
             [SerializeField] private int _manaPotionAmount;
 
