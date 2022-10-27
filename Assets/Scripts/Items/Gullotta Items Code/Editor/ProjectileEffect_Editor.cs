@@ -22,7 +22,30 @@ namespace EffectSystem
             if (_curPE.doesComeBack == true)
             {
                 _curPE.comeBackTime = EditorGUILayout.FloatField("Come back after seconds", _curPE.comeBackTime);
+                _curPE.explodes = false;
             }
+
+            if (_curPE.doesComeBack == false)
+            {
+                _curPE.explodes = EditorGUILayout.Toggle("Explodes?: ", _curPE.explodes);
+
+                if (_curPE.explodes)
+                {
+                    _curPE.ExplosionPrefab = EditorGUILayout.ObjectField("Explosion Prefab: ", _curPE.ExplosionPrefab, typeof(GameObject), true) as GameObject;
+                    _curPE.explodeRadius = EditorGUILayout.FloatField("Explosion Radius: ", _curPE.explodeRadius);
+                    _curPE.explosionTime = EditorGUILayout.FloatField("Explosion Time", _curPE.explosionTime);
+                }
+            }
+
+           
+
+            _curPE.hasTravelTime = EditorGUILayout.Toggle("Travel Time:", _curPE.hasTravelTime);
+
+            if(_curPE.hasTravelTime == true)
+            {
+                _curPE.TravelTime = EditorGUILayout.FloatField("Time: ", _curPE.TravelTime);
+            }
+
 
             _curPE.speed = EditorGUILayout.FloatField("Speed", _curPE.speed);
 

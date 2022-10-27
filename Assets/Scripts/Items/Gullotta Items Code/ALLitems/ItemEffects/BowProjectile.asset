@@ -13,8 +13,14 @@ MonoBehaviour:
   m_Name: BowProjectile
   m_EditorClassIdentifier: 
   doesComeBack: 0
-  comeBackTime: 0
+  comeBackTime: 2
+  explodes: 1
+  explodeRadius: 2
+  explosionTime: 1
   projectileObject: {fileID: 0}
   objectPool: {fileID: 0}
-  speed: 0
+  speed: 10
   direction: 0
+  hasTravelTime: 0
+  TravelTime: 2
+  ExplosionPrefab: {fileID: 0}

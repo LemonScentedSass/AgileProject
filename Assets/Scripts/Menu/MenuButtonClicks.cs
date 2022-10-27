@@ -13,12 +13,15 @@ public class MenuButtonClicks : MonoBehaviour
     public GameObject scrollSkills;
     public GameObject characterSkills;
 
+    public GameObject OptionMenu;
+
     public GameObject[] Skills;
     private bool canCloseMenu;
 
     // Start is called before the first frame update
     void Start()
     {
+        OptionMenu.SetActive(false);
         anim = GetComponent<Animator>();
         for (int i = 0; i < Skills.Length; i++)
         {
@@ -40,9 +43,13 @@ public class MenuButtonClicks : MonoBehaviour
             StartCoroutine(Escape());
         }
 
-        if (Input.GetKeyDown(KeyCode.Escape) && canCloseMenu == true)
+        if (Input.GetKeyDown(KeyCode.Escape) && canCloseMenu == true && OptionMenu.activeSelf == false)
         {
             anim.SetBool("Menu", false);
+        }
+        if (Input.GetKeyDown(KeyCode.Escape) && OptionMenu.activeSelf == true)
+        {
+            OptionMenu.SetActive(false);
         }
     }
 
@@ -85,6 +92,11 @@ public class MenuButtonClicks : MonoBehaviour
             Skills[i].SetActive(false);
                    }
         scrollSkills.SetActive(true);
+    }
+
+    public void ButtonClickOptions()
+    {
+        OptionMenu.SetActive(true);
     }
 
     private IEnumerator Escape()
