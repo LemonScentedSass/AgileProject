@@ -12,11 +12,6 @@ namespace GameManager
             Animator anim;
             PlayerLocomotion playerLoco;
 
-            [Header("Player EXP Info")]
-            [SerializeField] private int _playerLevel = 1;        
-            [SerializeField] private int _currentEXP = 0;
-            [SerializeField] private int _maxEXP = 100;
-
             [Header("Player Health / Stamina / Mana")]
             [SerializeField] private float _curHealth;
             [SerializeField] private float _maxHealth = 10f;
@@ -42,9 +37,6 @@ namespace GameManager
 
 
             [Header("Others")]
-            public float newHealth = 0;
-            public float newMana = 0;
-
             private float _MAXFILLAMOUNT = 1.0f;
 
             public bool healthRegen = false;
@@ -59,10 +51,6 @@ namespace GameManager
             public float staminaFILLAMOUNT;
             public float healthFILLAMOUNT;
             public float manaFillAMOUNT;
-
-            public int PlayerLevel { get { return _playerLevel; } set { _playerLevel = value; } }
-            public int CurrentEXP { get { return _currentEXP; } set { _currentEXP = value; } }
-            public int MaxEXP { get { return _maxEXP; } set { _maxEXP = value; } }
 
             public float MaxHealth { get { return _maxHealth; } set { _maxHealth = value; } }
             public float CurrentHealth { get { return _curHealth; } set { _curHealth = value; } }
