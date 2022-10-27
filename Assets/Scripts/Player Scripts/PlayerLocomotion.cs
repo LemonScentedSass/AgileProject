@@ -109,6 +109,8 @@ public class PlayerLocomotion : MonoBehaviour
         CalculateAnimation(movementVector);                                                                // Calculates the blend tree based on movementVector and mouse position
     }
 
+    // -- Dodging --
+    #region
     private void Dodge(Vector3 targetVector)
     {
         if (!isDodging)                                                                                    // Because Dodge() is an update function, this if statement will only activate on the first frame
@@ -214,7 +216,10 @@ public class PlayerLocomotion : MonoBehaviour
         readyToDodge = true;
         anim.SetBool("canDodge", true);
     }
+    #endregion
 
+    // -- Moving --
+    #region
     private Vector3 MoveTowardTarget(Vector3 targetVector)
     {
         var speed = moveSpeed * Time.deltaTime; // Set speed scaled by Time.deltaTime.
@@ -275,4 +280,5 @@ public class PlayerLocomotion : MonoBehaviour
             }
         }
     }
+    #endregion
 }
