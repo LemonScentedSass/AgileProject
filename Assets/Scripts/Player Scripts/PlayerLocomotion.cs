@@ -21,8 +21,6 @@ public class PlayerLocomotion : MonoBehaviour
     [SerializeField] public float dodgeSpeedMultiplier; // Dodge Speed
     [SerializeField] public float dodgeLengthTime; // Length of time the dodge will last
     [SerializeField] public float dodgeCooldown; // Length of time between dodges
-    [SerializeField] public float wallCheckDistance; // Distance from the player that, when met by a wall, will stop roll movement
-    [SerializeField] public LayerMask whatIsWall; // Layer for walls
     [SerializeField] public bool isDodging; // Self-explanatory
     [SerializeField] public bool readyToDodge; // Whether or not the player is allowed to dodge
 
@@ -65,7 +63,7 @@ public class PlayerLocomotion : MonoBehaviour
 
         // Calls Dodge() using the combined hor. and vert. inputs once per dodge attempt,
         // and will end the dodge after either a set amount of time or if a wall is hit during the dodge
-        if (input.dodgeKey && readyToDodge && !isDodging)
+        if (input.dodgeKey && readyToDodge && !isDodging && anim.GetCurrentAnimatorStateInfo(0).IsName("Locomotion"))
         {
             readyToDodge = false;
             Dodge(targetVector);
@@ -111,6 +109,8 @@ public class PlayerLocomotion : MonoBehaviour
         CalculateAnimation(movementVector);                                                                // Calculates the blend tree based on movementVector and mouse position
     }
 
+    // -- Dodging --
+    #region
     private void Dodge(Vector3 targetVector)
     {
         if (!isDodging)                                                                                    // Because Dodge() is an update function, this if statement will only activate on the first frame
@@ -216,7 +216,10 @@ public class PlayerLocomotion : MonoBehaviour
         readyToDodge = true;
         anim.SetBool("canDodge", true);
     }
+    #endregion
 
+    // -- Moving --
+    #region
     private Vector3 MoveTowardTarget(Vector3 targetVector)
     {
         var speed = moveSpeed * Time.deltaTime; // Set speed scaled by Time.deltaTime.
@@ -277,4 +280,5 @@ public class PlayerLocomotion : MonoBehaviour
             }
         }
     }
+    #endregion
 }
