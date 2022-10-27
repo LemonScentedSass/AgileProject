@@ -11,8 +11,12 @@ public class PlayerSword : MonoBehaviour
             if(other.gameObject.layer == LayerMask.NameToLayer("Enemy")) // If we have collided with an enemy,
             {
                   var hittable = other.GetComponent<IHittable>();        // Grab the IHittable component
-                  hittable.GetHit(damageAmount);                         // Call GetHit function passing damageAmount
-                  Debug.Log("Hit enemy");
+                  if(hittable != null)
+                  {
+                        hittable.GetHit(damageAmount);                         // Call GetHit function passing damageAmount
+                        Debug.Log("Hit enemy");
+                  }
+
             }
       }
 }

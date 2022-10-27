@@ -5,23 +5,19 @@ TagManager:
   serializedVersion: 2
   tags:
   - Consumable
-<<<<<<< Updated upstream
   - Checkpoint
-=======
-  - Wall
->>>>>>> Stashed changes
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - Ground
+  - Enemy
   - Water
   - UI
-  - Player
-  - Wall
-  - 2D Generation
-  - Enemy
-  - Resource
+  - 
+  - 
+  - 
+  - 
+  - 
   - 
   - 
   - 
