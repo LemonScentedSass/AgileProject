@@ -9,14 +9,22 @@ namespace EffectSystem
     {
         public bool doesComeBack = false;
         public float comeBackTime = 0f;
+        public bool explodes = false;
+        public float explodeRadius;
+        public float explosionTime;
         public GameObject projectileObject;
         public Transform objectPool;
         public float speed;
         public Direction direction;
+        public bool hasTravelTime = false;
+        public float TravelTime = 0f;
+        public GameObject ExplosionPrefab;
+       
 
         public override void UseEffect(Transform user)
         {
             projectileObject.SetActive(true);
+            Debug.Log("ayo");
             projectileObject.transform.position = user.position + new Vector3(0,1,0) + user.transform.forward;
 
             switch (direction)
@@ -47,6 +55,12 @@ namespace EffectSystem
             pm.comebackTime = comeBackTime;
             pm.user = user;
             pm.objectPool = objectPool;
+            pm.explodes = explodes;
+            pm.explodeRadius = explodeRadius;
+            pm.ExplosionPrefab = ExplosionPrefab;
+            pm.explosionTime = explosionTime;
+            pm.travelTime = hasTravelTime;
+            pm.TravelTime = TravelTime;
         }
 
         public enum Direction
