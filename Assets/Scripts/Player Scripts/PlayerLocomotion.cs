@@ -115,7 +115,9 @@ public class PlayerLocomotion : MonoBehaviour
     {
         if (!isDodging)                                                                                    // Because Dodge() is an update function, this if statement will only activate on the first frame
         {
-            anim.SetFloat("dodgeAnimSpeed", dodgeLengthTime * 1.867f);                                     // Sets the length of the dodge animation to roughly equal desired length of the dodge
+            float animSpeedMulti = 1.867f / dodgeLengthTime;                                               // Sets the length of the dodge animation to roughly equal desired length of the dodge
+            Debug.Log(animSpeedMulti);
+            anim.SetFloat("dodgeAnimSpeed", animSpeedMulti - 0.5f);                                               
 
             tempDodgeTime = dodgeLengthTime;                                                               // Copies the desired length of dodge
 
@@ -191,6 +193,17 @@ public class PlayerLocomotion : MonoBehaviour
 
     private void OnTriggerEnter(Collider other) // Detects if the smaller capsule collider on the "Player" object touches a Wall object and
     {                                           // stops the roll animation while keeping the player in a dodging state which prevents spam
+        if (isDodging)
+        {
+            if (other.tag == "Wall")
+            {
+                hitWall = true;
+            }
+        }
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
         if (isDodging)
         {
             if (other.tag == "Wall")
