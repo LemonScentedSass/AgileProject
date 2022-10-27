@@ -26,6 +26,7 @@ public class PlayerLocomotion : MonoBehaviour
 
     private float tempDodgeTime; // Copies the dodgeLengthTime and subtracts Time.deltaTime while rolling
     private bool hitWall = false; // Used to detect if a wall was hit while rolling and, if so, the desired result
+    private bool reallyGroovin; // Used to measure if the targetVector is high enough in any direction to allow a dodge to occur
 
     [Header("Attack Settings")]
     private bool isAttacking;
@@ -61,9 +62,14 @@ public class PlayerLocomotion : MonoBehaviour
     {
         var targetVector = new Vector3(input.inputVector.x, 0, input.inputVector.y); // Create Target Vector based on our input vector from InputHandler script.
 
+        if (targetVector.x > 0.08f || targetVector.x < -0.08f || targetVector.z > 0.08f || targetVector.z < -0.08f) // Sets the value of reallyGroovin based on if the player is actually moving
+            reallyGroovin = true;
+        else
+            reallyGroovin = false;
+
         // Calls Dodge() using the combined hor. and vert. inputs once per dodge attempt,
         // and will end the dodge after either a set amount of time or if a wall is hit during the dodge
-        if (input.dodgeKey && readyToDodge && !isDodging && anim.GetCurrentAnimatorStateInfo(0).IsName("Locomotion"))
+        if (input.dodgeKey && readyToDodge && !isDodging && anim.GetCurrentAnimatorStateInfo(0).IsName("Locomotion") && reallyGroovin)
         {
             readyToDodge = false;
             Dodge(targetVector);
@@ -116,8 +122,7 @@ public class PlayerLocomotion : MonoBehaviour
         if (!isDodging)                                                                                    // Because Dodge() is an update function, this if statement will only activate on the first frame
         {
             float animSpeedMulti = 1.867f / dodgeLengthTime;                                               // Sets the length of the dodge animation to roughly equal desired length of the dodge
-            Debug.Log(animSpeedMulti);
-            anim.SetFloat("dodgeAnimSpeed", animSpeedMulti - 0.5f);                                               
+            anim.SetFloat("dodgeAnimSpeed", animSpeedMulti - 0.5f);                                        // Takes a little off the top of the animation speed to make the transition out a bit smoother       
 
             tempDodgeTime = dodgeLengthTime;                                                               // Copies the desired length of dodge
 
