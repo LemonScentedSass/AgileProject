@@ -63,7 +63,7 @@ public class PlayerLocomotion : MonoBehaviour
 
         // Calls Dodge() using the combined hor. and vert. inputs once per dodge attempt,
         // and will end the dodge after either a set amount of time or if a wall is hit during the dodge
-        if (input.dodgeKey && readyToDodge && !isDodging)
+        if (input.dodgeKey && readyToDodge && !isDodging && anim.GetCurrentAnimatorStateInfo(0).IsName("Locomotion"))
         {
             readyToDodge = false;
             Dodge(targetVector);
