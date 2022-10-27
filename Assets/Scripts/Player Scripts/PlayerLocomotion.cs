@@ -25,15 +25,13 @@ public class PlayerLocomotion : MonoBehaviour
     [SerializeField] public LayerMask whatIsWall; // Layer for walls
     [SerializeField] public bool isDodging; // Self-explanatory
     [SerializeField] public bool readyToDodge; // Whether or not the player is allowed to dodge
-    private float dodgeFinalDistance;
-    private float tempDodgeTime;
-    private Vector3 dodgeFinalPosition;
-    private RaycastHit WallHit;
 
-    public bool isAttacking;
-    public bool canAttack;
+    private float tempDodgeTime; // Copies the dodgeLengthTime and subtracts Time.deltaTime while rolling
+    private bool hitWall = false; // Used to detect if a wall was hit while rolling and, if so, the desired result
 
-    private float startTime;
+    [Header("Attack Settings")]
+    private bool isAttacking;
+    private bool canAttack;
 
     public enum PlayerState // List of states the player is able to be in, add to it as we add more functionality to the player
     {
@@ -52,6 +50,7 @@ public class PlayerLocomotion : MonoBehaviour
     private void Start()
     {
         readyToDodge = true; // Allows the player to dodge for the first time
+        anim.SetBool("canDodge", true); // Same bool, but for the animator
     }
 
     void Update()
@@ -64,12 +63,14 @@ public class PlayerLocomotion : MonoBehaviour
     {
         var targetVector = new Vector3(input.inputVector.x, 0, input.inputVector.y); // Create Target Vector based on our input vector from InputHandler script.
 
-        // Calls Dodge() using the combined hor. and vert. inputs once per dodge attempt, and will end the dodge after a set amount of time
+        // Calls Dodge() using the combined hor. and vert. inputs once per dodge attempt,
+        // and will end the dodge after either a set amount of time or if a wall is hit during the dodge
         if (input.dodgeKey && readyToDodge && !isDodging)
         {
             readyToDodge = false;
             Dodge(targetVector);
         }
+
         // Calls Dodge() each subsequent frame until the dodge is finished executing
         else if (isDodging)
         {
@@ -100,49 +101,48 @@ public class PlayerLocomotion : MonoBehaviour
 
     private void Movement(Vector3 targetVector)
     {
-        var movementVector = MoveTowardTarget(targetVector); // Generate movementVector by calling MoveTowardTarget which returns a movementVector.
+        var movementVector = MoveTowardTarget(targetVector);                                               // Generate movementVector by calling MoveTowardTarget which returns a movementVector.
 
-        if (!rotateTowardsMouse) // If we are not rotating with mouse,
-            RotateTowardMovementVector(movementVector); // Rotate manually.
+        if (!rotateTowardsMouse)                                                                           // If we are not rotating with mouse,
+            RotateTowardMovementVector(movementVector);                                                    // Rotate manually.
         else
-            RotateTowardMouseVector(movementVector); // Rotate with mouse.
+            RotateTowardMouseVector(movementVector);                                                       // Rotate with mouse.
 
-        CalculateAnimation(movementVector);
+        CalculateAnimation(movementVector);                                                                // Calculates the blend tree based on movementVector and mouse position
     }
 
     private void Dodge(Vector3 targetVector)
     {
-        if (!isDodging)
+        if (!isDodging)                                                                                    // Because Dodge() is an update function, this if statement will only activate on the first frame
         {
-            anim.SetFloat("dodgeAnimSpeed", dodgeLengthTime * 1.867f);
-            anim.SetTrigger("Dodging");
+            anim.SetFloat("dodgeAnimSpeed", dodgeLengthTime * 1.867f);                                     // Sets the length of the dodge animation to roughly equal desired length of the dodge
 
-            startTime = Time.time;
-            tempDodgeTime = dodgeLengthTime;
+            tempDodgeTime = dodgeLengthTime;                                                               // Copies the desired length of dodge
 
-            var rotation = Quaternion.LookRotation(targetVector);
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, rotation, rotateSpeed * 5);
-
-           
+            var rotation = Quaternion.LookRotation(targetVector);                                          // Assigns the targetVector (combined hor. and vert. inputs) to a rotation variable
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, rotation, rotateSpeed * 50); // Snaps the rotation of the player to that variable's value      
         }
 
-        isDodging = true;        
+        isDodging = true;                                                                                  // Prevents the previous code from running more than once per dodge
+        anim.SetBool("dodging", true);                                                                     // Transitions to the dodging animation
+                                                                           // Prevents another dodge anim transition from locomotion until both values are true again
 
         if (tempDodgeTime > 0)
         {            
-            tempDodgeTime -= Time.deltaTime;
-            if (!HitWall())
+            tempDodgeTime -= Time.deltaTime;                                                               // Count down the copied length of the dodge every frame
+
+            if (!hitWall)                                                                                  // If the player HAS NOT hit a wall yet...
             {
-                var movementVector = DodgeTowardTarget(targetVector);
+                var movementVector = DodgeTowardTarget(targetVector);                                      // Move the player using DodgeTowardTarget()
             }
-            else if (HitWall() == true)
+            else if (hitWall)                                                                              // If the player HAS hit a wall...
             {
-                EndDodge();
+                anim.SetBool("hitWall", true);                                                             // Stop the dodge animation while keeping the player in a dodging state
             }
         }
-        else
+        else                                                                                               // If the timer runs out regardless of hitting the wall or not...
         {
-            EndDodge();
+            EndDodge();                                                                                    // End the dodge.
         }
 
         // Old rolling code I left in case I need it. Will delete at build time if still unused //
@@ -179,40 +179,42 @@ public class PlayerLocomotion : MonoBehaviour
         #endregion
     }
 
-    private Vector3 DodgeTowardTarget(Vector3 targetVector)
+    private Vector3 DodgeTowardTarget(Vector3 targetVector)                                                // This code is nearly identical to MoveTowardTarget, just with a predetermined rotation
     {
-        var speed = moveSpeed * dodgeSpeedMultiplier * Time.deltaTime;
+        var speed = moveSpeed * dodgeSpeedMultiplier * Time.deltaTime;                                     // Sets the speed of the dodge to moveSpeed x dodgeSpeedMultiplier
 
-        targetVector = Vector3.Normalize(targetVector);
-        var targetPosition = transform.position + targetVector * speed;
-        transform.position = targetPosition;        
-        return targetVector;
+        targetVector = Vector3.Normalize(targetVector);                                                    // Sets the combined hor. and vert. targetVector to a magnitude of one
+        var targetPosition = transform.position + targetVector * speed;                                    // Sets the target position of the dodge
+        transform.position = targetPosition;                                                               // "Moves" the player to the target position by just like putting them there, lil by lil idk I'm getting sleepy
+        return targetVector;                                                                               // returns the targetVector
     }
 
-    private bool HitWall()
-    {
-        if (Physics.Raycast(transform.position, transform.localEulerAngles, wallCheckDistance, whatIsWall))
+    private void OnTriggerEnter(Collider other) // Detects if the smaller capsule collider on the "Player" object touches a Wall object and
+    {                                           // stops the roll animation while keeping the player in a dodging state which prevents spam
+        if (isDodging)
         {
-            Debug.Log("Bonk");
-            return true;
-        }
-        else
-        {
-            return false;
+            if (other.tag == "Wall")
+            {
+                hitWall = true;
+            }
         }
     }
 
-    private void EndDodge()
-    {
+    private void EndDodge() // When EndDodge() is called, every bool allowing dodging is set to false, stopping the dodge no matter what
+    {                       // and ResetDodge() is invoked after dodgeCooldown is elapsed
         isDodging = false;
         readyToDodge = false;
-        anim.SetTrigger("quitDodging");
+        anim.SetBool("canDodge", false);
+        anim.SetBool("hitWall", false);
+        anim.SetBool("dodging", false);
         Invoke(nameof(ResetDodge), dodgeCooldown);        
     }
 
-    private void ResetDodge()
+    private void ResetDodge() // Self-explanitory
     {
+        hitWall = false;
         readyToDodge = true;
+        anim.SetBool("canDodge", true);
     }
 
     private Vector3 MoveTowardTarget(Vector3 targetVector)

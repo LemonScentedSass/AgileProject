@@ -24,6 +24,7 @@ namespace MapGeneration
         [SerializeField] private Tilemap _tilemap;
         [SerializeField] private TileBase _floorTile;
         [SerializeField] private TileBase _wallTile;
+        [SerializeField] private Tileset _wfcTileset;
 
         [SerializeField] private Tilemap _3Dtilemap;
         [SerializeField] private TileBase _3DfloorTile;
@@ -36,6 +37,10 @@ namespace MapGeneration
         private void Start()
         {
             Generate();
+            if (_wfcTileset != null)
+            {
+                _wfcTileset.SetNeighbors();
+            }
         }
 
         public void Generate()

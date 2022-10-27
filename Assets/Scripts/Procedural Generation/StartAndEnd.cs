@@ -55,9 +55,9 @@ namespace LevelData
                     float newDistance = Vector2.Distance(curRoomCenter, sRoomCenter);
                     if (newDistance > minDistance)
                     {
-                        Debug.Log("End Room Found @ " + i);
+                        //Debug.Log("End Room Found @ " + i);
                         Vector2 eRoomCenter = curRoomCenter;
-                        Debug.Log("end Room Center: " + eRoomCenter);
+                        //Debug.Log("end Room Center: " + eRoomCenter);
                         if (endRoomObject != null)
                         {
                             endRoomObject.transform.position = new Vector3(eRoomCenter.x, 2.7f, eRoomCenter.y);

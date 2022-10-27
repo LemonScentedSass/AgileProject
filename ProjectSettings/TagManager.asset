@@ -5,7 +5,11 @@ TagManager:
   serializedVersion: 2
   tags:
   - Consumable
+<<<<<<< Updated upstream
   - Checkpoint
+=======
+  - Wall
+>>>>>>> Stashed changes
   layers:
   - Default
   - TransparentFX
