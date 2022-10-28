@@ -103,10 +103,10 @@ public class ProjectileMotion : MonoBehaviour
         }
         else if(comesBack == false && explodes == false)
         {
-            if(collision.gameObject.tag == "Wall")
+            if(collision.gameObject.tag != "Player")
             {
-                transform.position = objectPool;
                 CharacterTest.instance.Using = false;
+                transform.position = objectPool;
                 gameObject.SetActive(false);
             }
 
