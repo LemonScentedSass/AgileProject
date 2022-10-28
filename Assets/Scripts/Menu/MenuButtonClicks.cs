@@ -118,6 +118,7 @@ public class MenuButtonClicks : MonoBehaviour
 
     public void ExitToMenu()
     {
+        Time.timeScale = 1;
         SceneManager.LoadScene(0);
     }
 

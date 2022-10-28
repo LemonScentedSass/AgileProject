@@ -6,24 +6,15 @@ using UnityEngine.SceneManagement;
 using TMPro;
 
 public class MainMenuUI : MonoBehaviour
-{
-    /*
+{    
     public Image FadingImage;
-    public GameObject FadingImageObject;
     public float fadeTime = 1;
     public float alpha;
-    */
+    
 
     public Button loadGenerationButton;
     public Button loadFeaturesButton;
     public Button quitButton;
-
-    /*
-    private void Awake()
-    {
-        FadingImageObject = GameObject.Find("Start Fade Img");
-        FadingImage = FadingImageObject.GetComponent<Image>();
-    }
 
     void Start()
     {
@@ -47,7 +38,7 @@ public class MainMenuUI : MonoBehaviour
             FadingImage.gameObject.SetActive(false);
         }
     }
-    */
+    
 
     public void LoadGenerationScene()
     {
