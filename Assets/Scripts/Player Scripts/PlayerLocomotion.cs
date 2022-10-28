@@ -278,7 +278,7 @@ public class PlayerLocomotion : MonoBehaviour
     {
         Ray ray = cam.ScreenPointToRay(input.mousePosition); // Generate raycast from camera to terrain.
 
-        if (Physics.Raycast(ray, out RaycastHit hitInfo, maxDistance: 300f)) // Limit distance and grab hitInfo from whatever the ray hits.
+        if (Physics.Raycast(ray, out RaycastHit hitInfo, maxDistance: 300f, Ground)) // Limit distance and grab hitInfo from whatever the ray hits.
         {
             var target = hitInfo.point; // Assign target varable to the point at which hitInfo intersected with ground.
             target.y = transform.position.y; // Lock target's y position to player y position in order to prevent awkward backwards lean near a wall or object.
