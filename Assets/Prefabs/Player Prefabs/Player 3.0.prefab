@@ -105,7 +105,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6440061711711795791, guid: b0dcad4df8455b748aa5c10ea71621be, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.35905635
+      value: 0.35905588
       objectReference: {fileID: 0}
     - target: {fileID: 6440061712961576240, guid: b0dcad4df8455b748aa5c10ea71621be, type: 3}
       propertyPath: readyToDodge
@@ -137,7 +137,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6440061713285793152, guid: b0dcad4df8455b748aa5c10ea71621be, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.73648214
+      value: -0.7364826
       objectReference: {fileID: 0}
     - target: {fileID: 6440061713366448137, guid: b0dcad4df8455b748aa5c10ea71621be, type: 3}
       propertyPath: m_ChildCameras.Array.size
@@ -145,11 +145,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6440061713396318574, guid: b0dcad4df8455b748aa5c10ea71621be, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -1.377426
+      value: -1.3774267
       objectReference: {fileID: 0}
     - target: {fileID: 6440061713506326106, guid: b0dcad4df8455b748aa5c10ea71621be, type: 3}
       propertyPath: m_Name
-      value: fixedEXP
+      value: Player 3.0
       objectReference: {fileID: 0}
     - target: {fileID: 6440061713506326107, guid: b0dcad4df8455b748aa5c10ea71621be, type: 3}
       propertyPath: m_RootOrder
@@ -234,79 +234,41 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94c3735a3009a0f41a01900e56ce1266, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coolDown: 0
   HealthPotion: 49
   ManaPotion: 50
+  BuffPotion: 51
+  MonsterMeat: 52
   Item: 113
   Magic: 101
-  HealthPotionCooldown: 5
+  HealthPotionCooldownDuration: 5
   healthCooldownFILLAMOUNT: 0
   healthPotionAmounTXT: {fileID: 3220615831539878244}
-  healthcooldown: 0
   healthcooldownImage: {fileID: 4064838975239117354}
-  healthfullTXT: {fileID: 2047799080648974482}
-  healthfull: 0
-  ManaPotionCooldown: 5
+  ManaPotionCooldownDuration: 5
   manaCooldownFILLAMOUNT: 0
   manaPotionAmountTXT: {fileID: 2047799081731119267}
-  manacooldown: 0
   manacooldownImage: {fileID: 2047799082412227686}
-  manafullTXT: {fileID: 2047799081711000396}
-  manafull: 0
---- !u!114 &6952296986416254771
-MonoBehaviour:
+  BuffPotionCooldownDuration: 5
+  buffPotionFILLAMOUNT: 0
+  buffPotionAmountTXT: {fileID: 0}
+  buffcooldownImage: {fileID: 0}
+  MeatCooldownDuration: 5
+  meatCooldownFILLAMOUNT: 0
+  meatAmountTXT: {fileID: 0}
+  meatcooldownImage: {fileID: 0}
+--- !u!65 &590518245056111981
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4986765081389962035}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0d2468d89c3f7141bb7e5ca2493f928, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  anim: {fileID: 0}
-  Ground:
-    serializedVersion: 2
-    m_Bits: 8
-  cam: {fileID: 0}
-  rotateTowardsMouse: 1
-  moveSpeed: 5
-  rotateSpeed: 15
-  dodgeSpeedMultiplier: 1.35
-  dodgeLengthTime: 1
-  dodgeCooldown: 1
-  isDodging: 0
-  readyToDodge: 1
-  canMove: 1
-  state: 0
---- !u!114 &7980299566970046844
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4986765081389962035}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0d2468d89c3f7141bb7e5ca2493f928, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  anim: {fileID: 0}
-  Ground:
-    serializedVersion: 2
-    m_Bits: 8
-  cam: {fileID: 0}
-  rotateTowardsMouse: 1
-  moveSpeed: 5
-  rotateSpeed: 15
-  dodgeSpeedMultiplier: 1.35
-  dodgeLengthTime: 1
-  dodgeCooldown: 1
-  isDodging: 0
-  readyToDodge: 1
-  canMove: 1
-  state: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 5.073328, z: 1.7274189}
+  m_Center: {x: 0, y: 2.5628662, z: 0.22755182}
 --- !u!1 &5329418321925779285 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6169610227485319508, guid: b0dcad4df8455b748aa5c10ea71621be, type: 3}
@@ -2596,17 +2558,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c004dda5baadfc049bb19e97601fca10, type: 3}
---- !u!114 &2047799080648974482 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7763122477497504851, guid: c004dda5baadfc049bb19e97601fca10, type: 3}
-  m_PrefabInstance: {fileID: 8635397925547209921}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &2047799080943378026 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7763122477200485035, guid: c004dda5baadfc049bb19e97601fca10, type: 3}
@@ -2627,17 +2578,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &2047799081711000396 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7763122478563700621, guid: c004dda5baadfc049bb19e97601fca10, type: 3}
-  m_PrefabInstance: {fileID: 8635397925547209921}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &2047799081731119267 stripped
