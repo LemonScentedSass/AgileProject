@@ -19,28 +19,24 @@ public class Hotbar : MonoBehaviour
 
     [Header("Health Potion")]
     public float HealthPotionCooldownDuration = 5f;
-    public float healthCooldownFILLAMOUNT;
     public TMP_Text healthPotionAmounTXT;
     public Image healthcooldownImage;
 
     [Header("Mana Potion")]
     //mana potion
     public float ManaPotionCooldownDuration = 5f;
-    public float manaCooldownFILLAMOUNT;
     public TMP_Text manaPotionAmountTXT;
     public Image manacooldownImage;
 
     [Header("Buff Potion")]
     //buff potion
     public float BuffPotionCooldownDuration = 5f;
-    public float buffPotionFILLAMOUNT;
     public TMP_Text buffPotionAmountTXT;
     public Image buffcooldownImage;
 
     [Header("Monster Meat")]
     //monster meat
     public float MeatCooldownDuration = 5f;
-    public float meatCooldownFILLAMOUNT;
     public TMP_Text meatAmountTXT;
     public Image meatcooldownImage;
 
@@ -95,7 +91,7 @@ public class Hotbar : MonoBehaviour
     private void PotionUse()
     {
         //Health Potion
-        if (Input.GetKeyUp(HealthPotion) && GameManager.PlayerManager.pm.HealthPotionAmount != 0)
+        if (Input.GetKeyUp(HealthPotion) && GameManager.PlayerManager.pm.HealthPotionAmount != 0 && healthcooldownImage.fillAmount == 0)
         {
             StartCoroutine(StartCoolDown(HealthPotionCooldownDuration, ResetCooldown, healthcooldownImage));
             GameManager.PlayerManager.pm.HealthPotionAmount -= 1;
@@ -103,21 +99,21 @@ public class Hotbar : MonoBehaviour
 
         }
         //Mana Potion
-        if (Input.GetKeyUp(ManaPotion) && GameManager.PlayerManager.pm.ManaPotionAmount != 0)
+        if (Input.GetKeyUp(ManaPotion) && GameManager.PlayerManager.pm.ManaPotionAmount != 0 && manacooldownImage.fillAmount == 0)
         {
             StartCoroutine(StartCoolDown(ManaPotionCooldownDuration, ResetCooldown, manacooldownImage));
             GameManager.PlayerManager.pm.ManaPotionAmount -= 1;
             manaPotionAmountTXT.text = "x" + GameManager.PlayerManager.pm.ManaPotionAmount;
         }
         //Buff Potion
-        if (Input.GetKeyUp(BuffPotion) && GameManager.PlayerManager.pm.BuffPotionAmount != 0)
+        if (Input.GetKeyUp(BuffPotion) && GameManager.PlayerManager.pm.BuffPotionAmount != 0 && buffcooldownImage.fillAmount == 0)
         {
             StartCoroutine(StartCoolDown(BuffPotionCooldownDuration, ResetCooldown, buffcooldownImage));
             GameManager.PlayerManager.pm.BuffPotionAmount -= 1;
             buffPotionAmountTXT.text = "x" + GameManager.PlayerManager.pm.BuffPotionAmount;
         }
         //Monster Meat
-        if (Input.GetKeyUp(MonsterMeat) && GameManager.PlayerManager.pm.MonsterMeatAmount != 0)
+        if (Input.GetKeyUp(MonsterMeat) && GameManager.PlayerManager.pm.MonsterMeatAmount != 0 && meatcooldownImage.fillAmount == 0)
         {
             StartCoroutine(StartCoolDown(BuffPotionCooldownDuration, ResetCooldown, meatcooldownImage));
             GameManager.PlayerManager.pm.MonsterMeatAmount -= 1;
