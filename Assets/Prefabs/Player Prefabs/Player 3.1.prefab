@@ -1254,7 +1254,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1123849828031975781}
   m_Layer: 0
-  m_Name: Player 3 1
+  m_Name: Player 3.1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16578,7 +16578,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 6252972618326509778}
   m_Direction: 1
   m_Value: 1.0000011
-  m_Size: 0.6506448
+  m_Size: 0.6520287
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -41648,7 +41648,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 6252972617721307462}
   m_Direction: 1
   m_Value: 1.0000007
-  m_Size: 0.6506449
+  m_Size: 0.6520287
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -58394,7 +58394,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 6252972618196009096}
   m_Direction: 1
   m_Value: 1.0000006
-  m_Size: 0.6506443
+  m_Size: 0.6520288
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -68844,7 +68844,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 6252972618354830903}
   m_Direction: 1
   m_Value: 1.0000012
-  m_Size: 0.6506446
+  m_Size: 0.65202856
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
