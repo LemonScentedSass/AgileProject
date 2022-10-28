@@ -9,8 +9,7 @@ public class MainMenuUI : MonoBehaviour
 {    
     public Image FadingImage;
     public float fadeTime = 1;
-    public float alpha;
-    
+    public float alpha;    
 
     public Button loadGenerationButton;
     public Button loadFeaturesButton;
@@ -33,7 +32,7 @@ public class MainMenuUI : MonoBehaviour
 
     private void Update()
     {
-        if (alpha <= .1f)
+        if (alpha <= .01f)
         {
             FadingImage.gameObject.SetActive(false);
         }
