@@ -27,9 +27,11 @@ namespace GameManager
             [Header("Consumable Settings")]
             [SerializeField] private int _healthPotionAmount;
             [SerializeField] private int _manaPotionAmount;
+            [SerializeField] private int _buffPotionAmount;
 
             [SerializeField] private float _healthPotionHeal = 40f;
             [SerializeField] private float _manaPotionHeal = 40f;
+        
 
             [Header("Collectables")]
             [SerializeField] private float meatAmount = 0;
@@ -69,11 +71,13 @@ namespace GameManager
 
             public int HealthPotionAmount { get { return _healthPotionAmount; } set { _healthPotionAmount = value; } }
             public int ManaPotionAmount { get { return _manaPotionAmount; } set { _manaPotionAmount = value; } }
+            public int BuffPotionAmount { get { return _buffPotionAmount; } set { _buffPotionAmount = value; } }
+            public int MonsterMeatAmount { get { return (int)meatAmount; } set { meatAmount = value; } }
 
 
 
 
-            private void Awake()
+        private void Awake()
             {
                   anim = GetComponentInChildren<Animator>();
                   playerLoco = GetComponent<PlayerLocomotion>();
@@ -213,11 +217,6 @@ namespace GameManager
                           bar.fillAmount = DamageConversion(CurrentMana, MaxMana);
                       }
                    }
-                 
-
-                  //converts amount and fluidly change stamina with lerp
-                
-                  //converts amount and fluidly change stamina with lerp
                 
             }
 
