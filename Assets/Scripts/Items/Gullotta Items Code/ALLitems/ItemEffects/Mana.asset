@@ -9,13 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a836d04824a17ad48b05b1cac4344f80, type: 3}
-  m_Name: PotionHeal
+  m_Script: {fileID: 11500000, guid: 4f3bba358b1099e448a8c4a107181e22, type: 3}
+  m_Name: Mana
   m_EditorClassIdentifier: 
-  _index: 0
-  itemName: Health Potion
-  itemDescription: Heals player
-  itemIcon: {fileID: 0}
-  itemCost: 0
-  effectsOnUse:
-  - {fileID: 11400000, guid: a99291ca6a5a6f44fb9a312a587977d9, type: 2}
+  amount: 40
+  statType: 1
