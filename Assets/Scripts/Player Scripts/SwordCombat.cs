@@ -42,7 +42,7 @@ public class SwordCombat : MonoBehaviour
 
         if (Time.time - LastClickedTime > maxComboDelay && anim.GetCurrentAnimatorStateInfo(1).IsName("Empty (Not Dodging)"))
         {
-            Debug.Log("Time.time - LastClickedTime is greater than the maxComboDelay");
+            //Debug.Log("Time.time - LastClickedTime is greater than the maxComboDelay");
             noOfClicks = 0;
         }
 

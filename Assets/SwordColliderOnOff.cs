@@ -10,7 +10,7 @@ public class SwordColliderOnOff : MonoBehaviour
     {
         if (swordCollider != null)
         {
-            Debug.Log("Collider enabled");
+            //Debug.Log("Collider enabled");
             swordCollider.enabled = true;
         }
         else
@@ -23,7 +23,7 @@ public class SwordColliderOnOff : MonoBehaviour
     {
         if (swordCollider != null)
         {
-            Debug.Log("Collider disabled");
+            //Debug.Log("Collider disabled");
             swordCollider.enabled = false;
         }
         else
