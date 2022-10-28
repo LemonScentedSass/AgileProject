@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using MapGeneration;
 using UnityEngine.SceneManagement;
 
@@ -12,10 +13,18 @@ namespace LevelData
         [SerializeField] private GameObject startRoomObject;
         [SerializeField] private GameObject endRoomObject;
 
+        public Image loadingScreen;
+
+        public bool readyToSpawn;
+        public GameObject groundPlane;
+
         public static StartAndEnd instance;
 
         private void Awake()
         {
+            readyToSpawn = false; // Not ready to 'spawn' the player
+            groundPlane.SetActive(false); // Because the player already exists though, turn off the ground so they can't walk bwahaha
+            
             if (StartAndEnd.instance == null)
             {
                 StartAndEnd.instance = this;
@@ -68,12 +77,26 @@ namespace LevelData
 
                 if (i == rooms.Count - 1)
                 {
-                    if (playerPrefab != null)
-                    {
-                        playerPrefab.transform.position = startRoomObject.transform.position;
-                    }
+                    readyToSpawn = true;
                 }
             }
+        }
+
+        private void Update()
+        {
+            if (readyToSpawn)
+            {
+                InitSpawn();
+                readyToSpawn = false;
+            }
+        }
+
+        public void InitSpawn()
+        {
+            playerPrefab.transform.position = startRoomObject.transform.position;
+            groundPlane.SetActive(true);
+
+            loadingScreen.gameObject.SetActive(false);
         }
     }
 }
