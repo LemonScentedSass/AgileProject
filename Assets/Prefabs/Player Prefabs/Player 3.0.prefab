@@ -340,6 +340,22 @@ PrefabInstance:
       propertyPath: m_Colors.m_HighlightedColor.r
       value: 0.4716981
       objectReference: {fileID: 0}
+    - target: {fileID: 11690209778602055, guid: c004dda5baadfc049bb19e97601fca10, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 96161463}
+    - target: {fileID: 11690209778602055, guid: c004dda5baadfc049bb19e97601fca10, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: HealthUse
+      objectReference: {fileID: 0}
+    - target: {fileID: 11690209778602055, guid: c004dda5baadfc049bb19e97601fca10, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Hotbar, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 11690209778602055, guid: c004dda5baadfc049bb19e97601fca10, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 56749765847200147, guid: c004dda5baadfc049bb19e97601fca10, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1580,6 +1596,34 @@ PrefabInstance:
       propertyPath: m_LocalRotation.z
       value: 0.1514014
       objectReference: {fileID: 0}
+    - target: {fileID: 5953994364111885887, guid: c004dda5baadfc049bb19e97601fca10, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5953994364111885887, guid: c004dda5baadfc049bb19e97601fca10, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5953994364111885887, guid: c004dda5baadfc049bb19e97601fca10, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 96161463}
+    - target: {fileID: 5953994364111885887, guid: c004dda5baadfc049bb19e97601fca10, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5953994364111885887, guid: c004dda5baadfc049bb19e97601fca10, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: MeatUse
+      objectReference: {fileID: 0}
+    - target: {fileID: 5953994364111885887, guid: c004dda5baadfc049bb19e97601fca10, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Hotbar, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5953994364111885887, guid: c004dda5baadfc049bb19e97601fca10, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 5980343427641715350, guid: c004dda5baadfc049bb19e97601fca10, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.000020116035
@@ -1715,6 +1759,34 @@ PrefabInstance:
     - target: {fileID: 6307590005177328900, guid: c004dda5baadfc049bb19e97601fca10, type: 3}
       propertyPath: m_LocalRotation.z
       value: -0.04261607
+      objectReference: {fileID: 0}
+    - target: {fileID: 6348523961010202931, guid: c004dda5baadfc049bb19e97601fca10, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6348523961010202931, guid: c004dda5baadfc049bb19e97601fca10, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6348523961010202931, guid: c004dda5baadfc049bb19e97601fca10, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 96161463}
+    - target: {fileID: 6348523961010202931, guid: c004dda5baadfc049bb19e97601fca10, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6348523961010202931, guid: c004dda5baadfc049bb19e97601fca10, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: BuffUse
+      objectReference: {fileID: 0}
+    - target: {fileID: 6348523961010202931, guid: c004dda5baadfc049bb19e97601fca10, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Hotbar, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6348523961010202931, guid: c004dda5baadfc049bb19e97601fca10, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 6405397612273010134, guid: c004dda5baadfc049bb19e97601fca10, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2027,6 +2099,34 @@ PrefabInstance:
     - target: {fileID: 7459728837649742339, guid: c004dda5baadfc049bb19e97601fca10, type: 3}
       propertyPath: m_LocalRotation.z
       value: 0.51702696
+      objectReference: {fileID: 0}
+    - target: {fileID: 7576597655360492119, guid: c004dda5baadfc049bb19e97601fca10, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7576597655360492119, guid: c004dda5baadfc049bb19e97601fca10, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7576597655360492119, guid: c004dda5baadfc049bb19e97601fca10, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 96161463}
+    - target: {fileID: 7576597655360492119, guid: c004dda5baadfc049bb19e97601fca10, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7576597655360492119, guid: c004dda5baadfc049bb19e97601fca10, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ManaUse
+      objectReference: {fileID: 0}
+    - target: {fileID: 7576597655360492119, guid: c004dda5baadfc049bb19e97601fca10, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Hotbar, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7576597655360492119, guid: c004dda5baadfc049bb19e97601fca10, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 7763122476666159790, guid: c004dda5baadfc049bb19e97601fca10, type: 3}
       propertyPath: m_Size
