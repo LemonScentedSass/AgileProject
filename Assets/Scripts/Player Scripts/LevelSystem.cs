@@ -17,12 +17,10 @@ public class LevelSystem : MonoBehaviour
       public int level = 0;                                             // Player current level
       public int experience;                                            // Player current EXP
       public int experienceToNextLevel;                                 // EXP to next level
-
-      public TMPro.TMP_Text[] LevelTXT;
-      public TMPro.TMP_Text[] ExpTXT;
-      public UnityEngine.UI.Image[] ExpSlider;
-      public bool addingExperience;
-    public float check;
+        
+      public TMPro.TMP_Text[] LevelTXT;                                 //All level texts in game
+      public TMPro.TMP_Text[] ExpTXT;                                   //All Exp texts in game
+      public UnityEngine.UI.Image[] ExpSlider;                          //All Exp sliders in game
 
       private void Awake()
       {
@@ -33,13 +31,12 @@ public class LevelSystem : MonoBehaviour
             }
 
             instance = this;                                            // instance variable = this object.
-            SetLevel(1);                                             // Set Level at 1 upon startup.
-            check = experience;
+            SetLevel(1);                                                // Set Level at 1 upon startup.
       }
 
     private void Update()
     {
-        UpdateSlider();
+        UpdateSlider(); //Updates all sliders to current stat
     }
 
 
@@ -79,7 +76,7 @@ public class LevelSystem : MonoBehaviour
 
       }
 
-    private void UpdateText()
+    private void UpdateText() //Updates all text UI
     {
         for (int i = 0; i < LevelTXT.Length; i++)
         {
@@ -94,6 +91,7 @@ public class LevelSystem : MonoBehaviour
 
     private void UpdateSlider()
     {
+        //Grabs each slider and checks if slider equals current stat, if not increase stat to current
         foreach (var slider in ExpSlider)
         {
             if(slider.fillAmount != (float)experience / (float)experienceToNextLevel)
