@@ -17,7 +17,10 @@ public class ZoomSwitch : MonoBehaviour
 
     private void Start()
     {
-        miniMapCam.GetComponent<Camera>().orthographicSize = zoomedInMinimapCamSize;
+        if (miniMapCam != null)
+        {
+            miniMapCam.GetComponent<Camera>().orthographicSize = zoomedInMinimapCamSize;
+        }        
     }
 
     public void SwitchState()

@@ -106,13 +106,13 @@ namespace WFC
             {
                 if (colourIndex[cur][xStart + i] != colourIndex[temp][yStart + i])
                 {
-                    Debug.Log("False");
+                    //Debug.Log("False");
                     return false;
                 }
             }
 
 
-            Debug.Log("True");
+            //Debug.Log("True");
             return true;
         }
     }
