@@ -88,15 +88,17 @@ public class ProjectileMotion : MonoBehaviour
 
         if(comesBack == true)
         {
-            if (collision.gameObject.tag == "Wall")
-            {
-                transform.position = objectPool;
-                gameObject.SetActive(false);
-            }
-
-            if (collision.gameObject)
+            if (collision.gameObject.tag != "Player")
             {
                 comebackTime = 0;
+            }
+
+            if(collision.gameObject.tag == "Player")
+            {
+                CharacterTest.instance.Using = false;
+                transform.position = objectPool;
+                gameObject.SetActive(false);
+
             }
         }
         else if(comesBack == false && explodes == false)

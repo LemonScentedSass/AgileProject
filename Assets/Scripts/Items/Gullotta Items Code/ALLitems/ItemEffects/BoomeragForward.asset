@@ -17,8 +17,8 @@ MonoBehaviour:
   explodes: 0
   explodeRadius: 0
   explosionTime: 0
-  projectileObject: {fileID: 919132149155446097, guid: b30c98427c39ba341afed108adbbff63, type: 3}
-  objectPool: {x: 0, y: 0, z: 0}
+  projectileObject: {fileID: 3392958806442306109, guid: 9571c46b635ef2444b3dfc5eed39e4b5, type: 3}
+  objectPool: {x: -2.8769448, y: 50, z: -6.9943614}
   speed: 10
   direction: 0
   hasTravelTime: 0

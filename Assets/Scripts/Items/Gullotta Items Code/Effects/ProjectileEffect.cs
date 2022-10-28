@@ -27,7 +27,7 @@ namespace EffectSystem
             if(ITEM == null)
             {
                 objectPool = (GameManager.PlayerManager.pm.transform.position + GameManager.PlayerManager.pm.transform.up * 50);
-                ITEM = Instantiate(projectileObject, user.transform);
+                ITEM = Instantiate(projectileObject, user.transform.forward, Quaternion.identity);
             }
 
             ITEM.SetActive(true);

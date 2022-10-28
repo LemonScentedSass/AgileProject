@@ -33,8 +33,8 @@ public class CharacterTest : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Q) && Using == false)
         {
-            Using = true;
             anim.Play("Fireball", 2);
+            Using = true;
         }
         
     }
