@@ -49,7 +49,7 @@ namespace EffectSystem
 
             _curPE.speed = EditorGUILayout.FloatField("Speed", _curPE.speed);
 
-            _curPE.objectPool = EditorGUILayout.ObjectField("Object Pool", _curPE.objectPool, typeof(Transform), true) as Transform;
+            _curPE.objectPool = EditorGUILayout.Vector3Field("Object Pool", _curPE.objectPool);
 
             _curPE.projectileObject = EditorGUILayout.ObjectField("Item", _curPE.projectileObject, typeof(GameObject), true) as GameObject;
             _curPE.direction = (ProjectileEffect.Direction)EditorGUILayout.EnumPopup("Direction", _curPE.direction);
