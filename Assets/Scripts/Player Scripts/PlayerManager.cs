@@ -44,9 +44,9 @@ namespace GameManager
             public bool manaRegen = false;
             private bool isDead = false;
 
-            public Image healthbar;
-            public Image staminabar;
-            public Image manabar;
+            public Image[] healthbar;
+            public Image[] staminabar;
+            public Image[] manabar;
 
             public float staminaFILLAMOUNT;
             public float healthFILLAMOUNT;
@@ -87,18 +87,29 @@ namespace GameManager
                         Destroy(this);
                   }
             }
-            // Start is called before the first frame update
+          // Start is called before the first frame update
             void Start()
             {
-                  //Sets current health and stamina to max
-                  _curHealth = _maxHealth;
-                  _curStamina = _maxStamina;
-                  _curMana = _maxMana;
+                   //Sets current health and stamina to max
+                   _curHealth = _maxHealth;
+                   _curStamina = _maxStamina;
+                   _curMana = _maxMana;
+                    //sets the healthbar and staminabar to max
+                   foreach (Image bar in healthbar)
+                   {
+                        bar.fillAmount = _MAXFILLAMOUNT;
+                   }
 
-                  //sets the healthbar and staminabar to max
-                  healthbar.fillAmount = _MAXFILLAMOUNT;
-                  staminabar.fillAmount = _MAXFILLAMOUNT;
-                  manabar.fillAmount = _MAXFILLAMOUNT;
+                   foreach (Image bar in staminabar)
+                   {
+                      bar.fillAmount = _MAXFILLAMOUNT;
+                   }
+
+                   foreach (Image bar in manabar)
+                   {
+                       bar.fillAmount = _MAXFILLAMOUNT;
+                   }
+
             }
 
             // Update is called once per frame
@@ -163,23 +174,51 @@ namespace GameManager
 
             private void DisplayStatConversion()
             {
-                  //converts amount and fluidly change health with lerp
-                  if (healthbar.fillAmount != DamageConversion(CurrentHealth, MaxHealth))
-                  {
-                        healthbar.fillAmount = Mathf.Lerp(healthbar.fillAmount, DamageConversion(CurrentHealth, MaxHealth), 0.005f);
-                  }
+                    //converts amount and fluidly change health with lerp
+                   foreach (var bar in healthbar)
+                   {
+                      if (bar.fillAmount != DamageConversion(CurrentHealth, MaxHealth))
+                      {
+                            bar.fillAmount = Mathf.Lerp(bar.fillAmount, DamageConversion(CurrentHealth, MaxHealth), 0.005f);
+                      }
+                      if (bar.fillAmount >= DamageConversion(CurrentHealth, MaxHealth) - 0.05)
+                      {
+                            bar.fillAmount = DamageConversion(CurrentHealth, MaxHealth);
+                      }
+
+                   }
+
+                   foreach (var bar in staminabar)
+                   {
+                      if (bar.fillAmount != DamageConversion(CurrentStamina, MaxStamina))
+                      {
+                            bar.fillAmount = Mathf.Lerp(bar.fillAmount, DamageConversion(CurrentStamina, MaxStamina), 0.005f);
+                      }
+
+                      if(bar.fillAmount >= DamageConversion(CurrentStamina, MaxStamina) - 0.05)
+                      {
+                         bar.fillAmount = DamageConversion(CurrentStamina, MaxStamina);
+                      }
+
+                   }
+
+                   foreach (var bar in manabar)
+                   {
+                      if (bar.fillAmount != DamageConversion(CurrentMana, MaxMana))
+                      {
+                            bar.fillAmount = Mathf.Lerp(bar.fillAmount, DamageConversion(CurrentMana, MaxMana), 0.005f);
+                      }
+                      if (bar.fillAmount >= DamageConversion(CurrentMana, MaxMana) - 0.05)
+                      {
+                          bar.fillAmount = DamageConversion(CurrentMana, MaxMana);
+                      }
+                   }
+                 
 
                   //converts amount and fluidly change stamina with lerp
-                  if (staminabar.fillAmount != DamageConversion(CurrentStamina, MaxStamina))
-                  {
-                        staminabar.fillAmount = Mathf.Lerp(staminabar.fillAmount, DamageConversion(CurrentStamina, MaxStamina), 0.005f);
-                  }
-
+                
                   //converts amount and fluidly change stamina with lerp
-                  if (manabar.fillAmount != DamageConversion(CurrentMana, MaxMana))
-                  {
-                        manabar.fillAmount = Mathf.Lerp(manabar.fillAmount, DamageConversion(CurrentMana, MaxMana), 0.005f);
-                  }
+                
             }
 
 
