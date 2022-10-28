@@ -2533,13 +2533,12 @@ GameObject:
   - component: {fileID: 1068422272}
   - component: {fileID: 1068422271}
   m_Layer: 5
-  m_Name: Start Fade Img (not working when the scene is reloaded and im really frikkin
-    po'd about it urrg
+  m_Name: Start Fade Img
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1068422271
 MonoBehaviour:
   m_ObjectHideFlags: 0
