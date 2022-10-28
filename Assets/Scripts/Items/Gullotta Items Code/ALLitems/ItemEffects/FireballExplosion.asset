@@ -17,10 +17,10 @@ MonoBehaviour:
   explodes: 1
   explodeRadius: 30
   explosionTime: 2
-  projectileObject: {fileID: 0}
-  objectPool: {fileID: 0}
+  projectileObject: {fileID: 1599504187946005103, guid: 029e4d1211b3fdf47b44a5bd25a2ef73, type: 3}
+  objectPool: {x: 5.405717, y: 50, z: -1.3256676}
   speed: 35
   direction: 0
   hasTravelTime: 1
   TravelTime: 0.25
-  ExplosionPrefab: {fileID: 0}
+  ExplosionPrefab: {fileID: 1599504187946005103, guid: b31c70f94338d1c4b87657a5df25f7a5, type: 3}

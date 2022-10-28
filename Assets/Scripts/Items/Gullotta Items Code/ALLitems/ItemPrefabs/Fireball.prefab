@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 961716920417338913}
   - component: {fileID: 3032605626936024289}
   - component: {fileID: -2443703770689494909}
+  - component: {fileID: -5260754554073317794}
   m_Layer: 0
   m_Name: Fireball
   m_TagString: Untagged
@@ -27,8 +28,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1599504187946005103}
-  m_LocalRotation: {x: 0, y: -0.43401468, z: -0, w: 0.90090585}
-  m_LocalPosition: {x: 0.8070696, y: 1, z: -4.572934}
+  m_LocalRotation: {x: 0, y: 0.41860184, z: 0, w: 0.90816987}
+  m_LocalPosition: {x: 1.564299, y: 1, z: -2.7356644}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -93,7 +94,7 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1599504187946005103}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.5
@@ -114,3 +115,27 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 116
   m_CollisionDetection: 0
+--- !u!114 &-5260754554073317794
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1599504187946005103}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c95472fea0dad67439893441ddbf9fd1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  user: {fileID: 0}
+  attackDirection: {fileID: 0}
+  objectPool: {x: 0, y: 0, z: 0}
+  ExplosionPrefab: {fileID: 1599504187946005103, guid: b31c70f94338d1c4b87657a5df25f7a5, type: 3}
+  explosionTime: 2
+  travelTime: 1
+  TravelTime: 0.25
+  explodes: 1
+  explodeRadius: 30
+  speed: 35
+  comebackTime: 0
+  comesBack: 0

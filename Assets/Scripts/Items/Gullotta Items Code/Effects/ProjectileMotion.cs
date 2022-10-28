@@ -8,7 +8,7 @@ public class ProjectileMotion : MonoBehaviour
     public Transform user;
     public Transform attackDirection;
 
-    public Transform objectPool;
+    public Vector3 objectPool;
     public GameObject ExplosionPrefab;
     public float explosionTime;
     public bool travelTime;
@@ -49,7 +49,7 @@ public class ProjectileMotion : MonoBehaviour
             if (TravelTime <= 0f)
             {
                 //do something
-                transform.position = objectPool.position;
+                transform.position = objectPool;
             }
         }
 
@@ -75,12 +75,12 @@ public class ProjectileMotion : MonoBehaviour
         Debug.Log(gameObject.transform.localScale.magnitude);
         if(explodes)
         {
-            if(collision.gameObject.layer == LayerMask.NameToLayer("Wall"))
+            if(collision.gameObject.tag == "Wall")
             {
                 Hit = true;
                 Debug.Log("wtf, why two balls");
                 fireballExplosion = Instantiate(ExplosionPrefab, transform.position, Quaternion.identity);
-                transform.position = objectPool.position;
+                transform.position = objectPool;
                 Exploded = true;
 
             }
@@ -88,9 +88,9 @@ public class ProjectileMotion : MonoBehaviour
 
         if(comesBack == true)
         {
-            if (collision.gameObject.layer == LayerMask.NameToLayer("Wall"))
+            if (collision.gameObject.tag == "Wall")
             {
-                transform.position = objectPool.position;
+                transform.position = objectPool;
                 gameObject.SetActive(false);
             }
 
@@ -101,9 +101,9 @@ public class ProjectileMotion : MonoBehaviour
         }
         else if(comesBack == false && explodes == false)
         {
-            if(collision.gameObject.layer == LayerMask.NameToLayer("Wall"))
+            if(collision.gameObject.tag == "Wall")
             {
-                transform.position = objectPool.position;
+                transform.position = objectPool;
                 CharacterTest.instance.Using = false;
                 gameObject.SetActive(false);
             }
@@ -147,7 +147,7 @@ public class ProjectileMotion : MonoBehaviour
             {
                 Debug.Log("explosion");
                 fireballExplosion = Instantiate(ExplosionPrefab, transform.position, Quaternion.identity);
-                transform.position = objectPool.position;
+                transform.position = objectPool;
                 Exploded = true;
             }
 
