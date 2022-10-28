@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using GameManager;
+using UnityEngine.SceneManagement;
 
 public class MenuButtonClicks : MonoBehaviour
 {
@@ -19,6 +20,9 @@ public class MenuButtonClicks : MonoBehaviour
     public GameObject[] Skills;
     private bool canCloseMenu;
     private bool flag;
+
+    public Button exitToMenuButton;
+    public Button quitToDesktopButton;
 
     // Start is called before the first frame update
     void Start()
@@ -110,5 +114,15 @@ public class MenuButtonClicks : MonoBehaviour
         yield return new WaitForSeconds(1f);
 
         canCloseMenu = true;
+    }
+
+    public void ExitToMenu()
+    {
+        SceneManager.LoadScene(0);
+    }
+
+    public void Quit()
+    {
+        Application.Quit();
     }
 }
