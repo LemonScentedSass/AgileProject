@@ -21,24 +21,28 @@ public class Hotbar : MonoBehaviour
     public float HealthPotionCooldownDuration = 5f;
     public TMP_Text healthPotionAmounTXT;
     public Image healthcooldownImage;
+    public Button healthPotionButton;
 
     [Header("Mana Potion")]
     //mana potion
     public float ManaPotionCooldownDuration = 5f;
     public TMP_Text manaPotionAmountTXT;
     public Image manacooldownImage;
+    public Button manaPotionButton;
 
     [Header("Buff Potion")]
     //buff potion
     public float BuffPotionCooldownDuration = 5f;
     public TMP_Text buffPotionAmountTXT;
     public Image buffcooldownImage;
+    public Button buffPotionButton;
 
     [Header("Monster Meat")]
     //monster meat
     public float MeatCooldownDuration = 5f;
     public TMP_Text meatAmountTXT;
     public Image meatcooldownImage;
+    public Button monsterMeatButton;
 
     // Start is called before the first frame update
     void Start()
@@ -59,7 +63,7 @@ public class Hotbar : MonoBehaviour
 
     }
 
-    public IEnumerator StartCoolDown(float duration, float reset, Image fill)
+    public IEnumerator StartCoolDown(float duration, float reset, Image fill, Button button)
     {
         float t = 0;
 
@@ -73,10 +77,7 @@ public class Hotbar : MonoBehaviour
             yield return null;
         }
 
-        CoolDownCheck(fill);
-    }
-    private void CoolDownCheck(Image fill)
-    {
+        button.interactable = true;
         fill.fillAmount = 0;
     }
 
@@ -93,7 +94,8 @@ public class Hotbar : MonoBehaviour
         //Health Potion
         if (Input.GetKeyUp(HealthPotion) && GameManager.PlayerManager.pm.HealthPotionAmount != 0 && healthcooldownImage.fillAmount == 0)
         {
-            StartCoroutine(StartCoolDown(HealthPotionCooldownDuration, ResetCooldown, healthcooldownImage));
+            healthPotionButton.interactable = false;
+            StartCoroutine(StartCoolDown(HealthPotionCooldownDuration, ResetCooldown, healthcooldownImage, healthPotionButton));
             GameManager.PlayerManager.pm.HealthPotionAmount -= 1;
             healthPotionAmounTXT.text = "x" + GameManager.PlayerManager.pm.HealthPotionAmount;
 
@@ -101,21 +103,24 @@ public class Hotbar : MonoBehaviour
         //Mana Potion
         if (Input.GetKeyUp(ManaPotion) && GameManager.PlayerManager.pm.ManaPotionAmount != 0 && manacooldownImage.fillAmount == 0)
         {
-            StartCoroutine(StartCoolDown(ManaPotionCooldownDuration, ResetCooldown, manacooldownImage));
+            manaPotionButton.interactable = false;
+            StartCoroutine(StartCoolDown(ManaPotionCooldownDuration, ResetCooldown, manacooldownImage, manaPotionButton));
             GameManager.PlayerManager.pm.ManaPotionAmount -= 1;
             manaPotionAmountTXT.text = "x" + GameManager.PlayerManager.pm.ManaPotionAmount;
         }
         //Buff Potion
         if (Input.GetKeyUp(BuffPotion) && GameManager.PlayerManager.pm.BuffPotionAmount != 0 && buffcooldownImage.fillAmount == 0)
         {
-            StartCoroutine(StartCoolDown(BuffPotionCooldownDuration, ResetCooldown, buffcooldownImage));
+            buffPotionButton.interactable = false;
+            StartCoroutine(StartCoolDown(BuffPotionCooldownDuration, ResetCooldown, buffcooldownImage, buffPotionButton));
             GameManager.PlayerManager.pm.BuffPotionAmount -= 1;
             buffPotionAmountTXT.text = "x" + GameManager.PlayerManager.pm.BuffPotionAmount;
         }
         //Monster Meat
         if (Input.GetKeyUp(MonsterMeat) && GameManager.PlayerManager.pm.MonsterMeatAmount != 0 && meatcooldownImage.fillAmount == 0)
         {
-            StartCoroutine(StartCoolDown(BuffPotionCooldownDuration, ResetCooldown, meatcooldownImage));
+            monsterMeatButton.interactable = false;
+            StartCoroutine(StartCoolDown(BuffPotionCooldownDuration, ResetCooldown, meatcooldownImage, monsterMeatButton));
             GameManager.PlayerManager.pm.MonsterMeatAmount -= 1;
             meatAmountTXT.text = "x" + GameManager.PlayerManager.pm.MonsterMeatAmount;
         }
@@ -141,5 +146,53 @@ public class Hotbar : MonoBehaviour
             meatAmountTXT.text = "x" + GameManager.PlayerManager.pm.MonsterMeatAmount;
         }
     }
+
+    public void HealthUse()
+    {
+        if(GameManager.PlayerManager.pm.HealthPotionAmount != 0 && healthcooldownImage.fillAmount == 0)
+        {
+            healthPotionButton.interactable = false;
+            StartCoroutine(StartCoolDown(HealthPotionCooldownDuration, ResetCooldown, healthcooldownImage, healthPotionButton));
+            GameManager.PlayerManager.pm.HealthPotionAmount -= 1;
+            healthPotionAmounTXT.text = "x" + GameManager.PlayerManager.pm.HealthPotionAmount;
+        }
+      
+    }
+    public void ManaUse()
+    {
+        if (GameManager.PlayerManager.pm.ManaPotionAmount != 0 && manacooldownImage.fillAmount == 0)
+        {
+            manaPotionButton.interactable = false;
+            StartCoroutine(StartCoolDown(ManaPotionCooldownDuration, ResetCooldown, manacooldownImage, manaPotionButton));
+            GameManager.PlayerManager.pm.ManaPotionAmount -= 1;
+            manaPotionAmountTXT.text = "x" + GameManager.PlayerManager.pm.ManaPotionAmount;
+        }
+      
+    }
+
+    public void BuffUse()
+    {
+        if (GameManager.PlayerManager.pm.BuffPotionAmount != 0 && buffcooldownImage.fillAmount == 0)
+        {
+            buffPotionButton.interactable = false;
+            StartCoroutine(StartCoolDown(BuffPotionCooldownDuration, ResetCooldown, buffcooldownImage, buffPotionButton));
+            GameManager.PlayerManager.pm.BuffPotionAmount -= 1;
+            buffPotionAmountTXT.text = "x" + GameManager.PlayerManager.pm.BuffPotionAmount;
+        }
+       
+    }
+
+    public void MeatUse()
+    {
+        if (GameManager.PlayerManager.pm.MonsterMeatAmount != 0 && meatcooldownImage.fillAmount == 0)
+        {
+            monsterMeatButton.interactable = false;
+            StartCoroutine(StartCoolDown(MeatCooldownDuration, ResetCooldown, meatcooldownImage, monsterMeatButton));
+            GameManager.PlayerManager.pm.MonsterMeatAmount -= 1;
+            meatAmountTXT.text = "x" + GameManager.PlayerManager.pm.MonsterMeatAmount;
+        }
+        
+    }
+
 
 }
