@@ -65,7 +65,7 @@ GameObject:
   - component: {fileID: 980792078484698061}
   - component: {fileID: 980792078484698058}
   m_Layer: 3
-  m_Name: Enemy - Dark Elf
+  m_Name: Dark Elf (Small)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -284,6 +284,10 @@ PrefabInstance:
     - target: {fileID: 1566049822020886, guid: 9d2d21ead9f817446aa6c299b76f7e89, type: 3}
       propertyPath: m_Name
       value: Character_DarkElf_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 1566049822020886, guid: 9d2d21ead9f817446aa6c299b76f7e89, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4283388011225748, guid: 9d2d21ead9f817446aa6c299b76f7e89, type: 3}
       propertyPath: m_RootOrder
