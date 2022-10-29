@@ -3,19 +3,32 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using ItemSystem;
 
 
 public class Hotbar : MonoBehaviour
 {
     private float ResetCooldown;
+    private Animator anim;
 
     [Header("Hotbar Keys")]
     public KeyCode HealthPotion = KeyCode.Alpha1;
     public KeyCode ManaPotion = KeyCode.Alpha2;
     public KeyCode BuffPotion = KeyCode.Alpha3;
     public KeyCode MonsterMeat = KeyCode.Alpha4;
-    public KeyCode Item = KeyCode.Q;
-    public KeyCode Magic = KeyCode.E;
+    public KeyCode Item = KeyCode.Mouse1;
+    public KeyCode Magic = KeyCode.Q;
+
+
+    [Header("Current Magic")]
+    public float MagicCooldownDuration = 5f;
+    public Image magiccooldownImage;
+    public UseItem useMagic;
+
+    [Header("Current Item")]
+    public float ItemCooldownDuration = 5f;
+    public Image itemcooldownImage;
+    public UseItem useItem;
 
     [Header("Health Potion")]
     public float HealthPotionCooldownDuration = 5f;
@@ -47,6 +60,7 @@ public class Hotbar : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        anim = GetComponent<Animator>();
         healthPotionAmounTXT.text = "x" + GameManager.PlayerManager.pm.HealthPotionAmount;
         manaPotionAmountTXT.text = "x" + GameManager.PlayerManager.pm.ManaPotionAmount;
         buffPotionAmountTXT.text = "x" + GameManager.PlayerManager.pm.BuffPotionAmount;
@@ -63,29 +77,38 @@ public class Hotbar : MonoBehaviour
 
     }
 
-    public IEnumerator StartCoolDown(float duration, float reset, Image fill, Button button)
-    {
-        float t = 0;
-
-        while(t < duration)
-        {
-            Debug.Log("trigger");
-            Debug.Log(reset);
-            t += Time.deltaTime;
-            reset = t/duration;
-            fill.fillAmount = reset;
-            yield return null;
-        }
-
-        button.interactable = true;
-        fill.fillAmount = 0;
-    }
+   
 
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(Magic) && GameManager.PlayerManager.pm.usingItem == false && anim.GetCurrentAnimatorStateInfo(2).IsName("Empty") == true && magiccooldownImage.fillAmount == 0)
+        {
+            anim.Play("Fireball", 2);
+            GameManager.PlayerManager.pm.usingItem = true;
+            StartCoroutine(StartCoolDown(MagicCooldownDuration, ResetCooldown, magiccooldownImage));
+        }
+
+        if (Input.GetKeyDown(Item) && GameManager.PlayerManager.pm.usingItem == false && itemcooldownImage.fillAmount == 0)
+        {
+            Debug.Log("boomeragn");
+            anim.Play("Boomerang", 1);
+            GameManager.PlayerManager.pm.usingItem = true;
+            StartCoroutine(StartCoolDown(ItemCooldownDuration, ResetCooldown, itemcooldownImage));
+        }
+
+
         PotionUse();
         PotionAmountText();
+    }
+
+    public void UseItem()
+    {
+        useItem.OnUseItem(transform);
+    }
+    public void UseMagic()
+    {
+        useMagic.OnUseItem(transform);
     }
 
 
@@ -194,5 +217,39 @@ public class Hotbar : MonoBehaviour
         
     }
 
+    public IEnumerator StartCoolDown(float duration, float reset, Image fill, Button button)
+    {
+        float t = 0;
+
+        while (t < duration)
+        {
+            Debug.Log("trigger");
+            Debug.Log(reset);
+            t += Time.deltaTime;
+            reset = t / duration;
+            fill.fillAmount = reset;
+            yield return null;
+        }
+
+        button.interactable = true;
+        fill.fillAmount = 0;
+    }
+
+    public IEnumerator StartCoolDown(float duration, float reset, Image fill)
+    {
+        float t = 0;
+
+        while (t < duration)
+        {
+            Debug.Log("trigger");
+            Debug.Log(reset);
+            t += Time.deltaTime;
+            reset = t / duration;
+            fill.fillAmount = reset;
+            yield return null;
+        }
+
+        fill.fillAmount = 0;
+    }
 
 }

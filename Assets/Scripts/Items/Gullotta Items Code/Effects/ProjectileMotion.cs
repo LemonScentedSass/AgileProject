@@ -42,7 +42,7 @@ public class ProjectileMotion : MonoBehaviour
             }
         }
 
-        if(travelTime == true && explodes == false && CharacterTest.instance.Using == true)
+        if(travelTime == true && explodes == false && GameManager.PlayerManager.pm.usingItem == true)
         {
             TravelTime -= Time.deltaTime;
             //broken
@@ -95,7 +95,7 @@ public class ProjectileMotion : MonoBehaviour
 
             if(collision.gameObject.tag == "Player")
             {
-                CharacterTest.instance.Using = false;
+                GameManager.PlayerManager.pm.usingItem = false;
                 transform.position = objectPool;
                 gameObject.SetActive(false);
 
@@ -105,7 +105,7 @@ public class ProjectileMotion : MonoBehaviour
         {
             if(collision.gameObject.tag != "Player")
             {
-                CharacterTest.instance.Using = false;
+                GameManager.PlayerManager.pm.usingItem = false;
                 transform.position = objectPool;
                 gameObject.SetActive(false);
             }
@@ -126,7 +126,7 @@ public class ProjectileMotion : MonoBehaviour
                 timeTracker2 -= explosionTime;
                 Hit = false;
                 Exploded = false;
-                CharacterTest.instance.Using = false;
+                GameManager.PlayerManager.pm.usingItem = false;
                 gameObject.SetActive(false);
             }
 

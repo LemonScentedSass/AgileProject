@@ -45,6 +45,7 @@ namespace GameManager
             public bool stamRegen = false;
             public bool manaRegen = false;
             private bool isDead = false;
+            public bool usingItem = false;
 
             public Image[] healthbar;
             public Image[] staminabar;
