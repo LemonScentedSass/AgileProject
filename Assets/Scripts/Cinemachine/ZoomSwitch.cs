@@ -6,21 +6,35 @@ public class ZoomSwitch : MonoBehaviour
 {
     private Animator anim;
     private bool zoomed = true;
-    public Camera miniMapCam;
+    public GameObject minimapCamObj;
+    public Camera minimapCam;
     public float zoomedInMinimapCamSize = 15f;
     public float zoomedOutMinimapCamSize = 30f;
 
     private void Awake()
     {
         anim = GetComponent<Animator>();
+        minimapCamObj = GameObject.FindGameObjectWithTag("MinimapCam");
     }
 
     private void Start()
     {
-        if (miniMapCam != null)
+        if (minimapCamObj != null && minimapCamObj.activeSelf)
         {
-            miniMapCam.GetComponent<Camera>().orthographicSize = zoomedInMinimapCamSize;
-        }        
+            minimapCam = minimapCamObj.GetComponent<Camera>();
+            if (zoomed)
+            {
+                minimapCam.orthographicSize = zoomedInMinimapCamSize;
+            }
+            else
+            {
+                minimapCam.orthographicSize = zoomedOutMinimapCamSize;
+            }            
+        }
+        else
+        {
+            Debug.Log("MinimapCam either null or not active.");
+        }
     }
 
     public void SwitchState()
@@ -28,13 +42,18 @@ public class ZoomSwitch : MonoBehaviour
         if (zoomed)
         {
             anim.Play("Zoomed Out");
-            miniMapCam.GetComponent<Camera>().orthographicSize = zoomedOutMinimapCamSize;
+            if (minimapCam != null)
+            {                
+                minimapCam.orthographicSize = zoomedOutMinimapCamSize;
+            }
         }
-
         else
         {
             anim.Play("Zoomed In");
-            miniMapCam.GetComponent<Camera>().orthographicSize = zoomedInMinimapCamSize;
+            if (minimapCam != null)
+            {
+                minimapCam.orthographicSize = zoomedInMinimapCamSize;
+            }                           
         }
 
         zoomed = !zoomed;
