@@ -10,6 +10,8 @@ public class CharacterTest : MonoBehaviour
     public bool Using;
     public Animator anim;
     public AnimationType animationType;
+    private Quaternion Rotation;
+    public GameObject spine;
 
     public AnimationType GetType { get { return animationType; } set { animationType = value; } }
     public enum AnimationType
@@ -48,6 +50,7 @@ public class CharacterTest : MonoBehaviour
 
         if (Input.GetMouseButtonDown(1) && Using == false && anim.GetCurrentAnimatorStateInfo(1).IsName("Empty (Not Dodging)") == true && animationType == AnimationType.Boomerang)
         {
+            spine.transform.rotation = Quaternion.FromToRotation(Vector3.forward, Vector3.left);
             anim.Play("Boomerang", 1);
             Using = true;
         }
