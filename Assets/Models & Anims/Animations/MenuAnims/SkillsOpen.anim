@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: MenuOpen
+  m_Name: SkillsOpen
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -22,15 +22,25 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: -2855
+        value: 136.95996
         inSlope: 0
         outSlope: 0
         tangentMode: 136
         weightedMode: 0
         inWeight: 0.33333334
         outWeight: 0.33333334
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_AnchoredPosition.y
+    path: Menu/CharacterButtons
+    classID: 224
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
       - serializedVersion: 3
-        time: 0.41666666
+        time: 0
         value: -1523
         inSlope: 0
         outSlope: 0
@@ -50,7 +60,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: -1195.04
+        value: 71
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -59,7 +69,7 @@ AnimationClip:
         outWeight: 0.33333334
       - serializedVersion: 3
         time: 0.41666666
-        value: 136.95996
+        value: 1902
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -70,7 +80,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_AnchoredPosition.y
-    path: Menu/CharacterButtons
+    path: Menu
     classID: 224
     script: {fileID: 0}
   m_PPtrCurves: []
@@ -82,7 +92,7 @@ AnimationClip:
   m_ClipBindingConstant:
     genericBindings:
     - serializedVersion: 2
-      path: 1798181986
+      path: 3711407533
       attribute: 538195251
       script: {fileID: 0}
       typeID: 224
@@ -90,6 +100,13 @@ AnimationClip:
       isPPtrCurve: 0
     - serializedVersion: 2
       path: 250410515
+      attribute: 538195251
+      script: {fileID: 0}
+      typeID: 224
+      customType: 28
+      isPPtrCurve: 0
+    - serializedVersion: 2
+      path: 1798181986
       attribute: 538195251
       script: {fileID: 0}
       typeID: 224
@@ -122,15 +139,25 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: -2855
+        value: 136.95996
         inSlope: 0
         outSlope: 0
         tangentMode: 136
         weightedMode: 0
         inWeight: 0.33333334
         outWeight: 0.33333334
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_AnchoredPosition.y
+    path: Menu/CharacterButtons
+    classID: 224
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
       - serializedVersion: 3
-        time: 0.41666666
+        time: 0
         value: -1523
         inSlope: 0
         outSlope: 0
@@ -150,7 +177,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: -1195.04
+        value: 71
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -159,7 +186,7 @@ AnimationClip:
         outWeight: 0.33333334
       - serializedVersion: 3
         time: 0.41666666
-        value: 136.95996
+        value: 1902
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -170,7 +197,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_AnchoredPosition.y
-    path: Menu/CharacterButtons
+    path: Menu
     classID: 224
     script: {fileID: 0}
   m_EulerEditorCurves: []

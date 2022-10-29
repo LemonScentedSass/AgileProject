@@ -50,7 +50,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: f6bb561aef6290141ace081fbd700396, type: 2}
+  m_Motion: {fileID: 7400000, guid: e52bd8ac3f3b0fd4083a4075a34a5648, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -127,7 +127,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: d67c91885692d3e48977d84fb0f60f82, type: 2}
+  m_Motion: {fileID: 7400000, guid: 8071c07f73a949442928ef4f73d5016b, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -290,7 +290,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 90f7b4d95d5c8034cba93dafee3089ad, type: 2}
+  m_Motion: {fileID: 7400000, guid: 371db8248168c924490cffa24f49cd22, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -338,7 +338,7 @@ AnimatorStateMachine:
     m_Position: {x: 460, y: 370, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -4010670390142750793}
-    m_Position: {x: 470, y: 160, z: 0}
+    m_Position: {x: 570, y: 130, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 6903276563925633484}
     m_Position: {x: 230, y: 160, z: 0}
@@ -347,7 +347,7 @@ AnimatorStateMachine:
     m_Position: {x: 240, y: 60, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -5555544641487714954}
-    m_Position: {x: 460, y: 270, z: 0}
+    m_Position: {x: 530, y: 230, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []
@@ -379,7 +379,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: da358627864a78d4cb1a9ec7ab5133d6, type: 2}
+  m_Motion: {fileID: 7400000, guid: 02f5a3c98038d844d943f007998927b8, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -415,7 +415,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: MenuOpen
-  m_Speed: 4
+  m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: -6761323658796150875}
