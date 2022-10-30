@@ -21,6 +21,7 @@ public class ProjectileMotion : MonoBehaviour
       private float timeTracker;
       private float timeTracker2;
       private bool Hit;
+      public int fireballDamage = 5;
 
       private bool Exploded = false;
 
@@ -75,11 +76,20 @@ public class ProjectileMotion : MonoBehaviour
             Debug.Log(gameObject.transform.localScale.magnitude);
             if (explodes)
             {
+                  if (collision.gameObject.tag == "Enemy")
+                  {
+                        //Debug.Log("Fireball hit enemy");
+                        Hit = true;
+                        //fireballExplosion = Instantiate(ExplosionPrefab, transform.position, Quaternion.identity);      // Create explosion prefab
+                        collision.gameObject.GetComponent<IHittable>().GetHit(fireballDamage);                          // Apply Damage to enemy
+                        //Destroy(fireballExplosion, 0.25f);
+                  }
+
                   if (collision.gameObject.tag == "Wall")
                   {
                         Hit = true;
                         Debug.Log("wtf, why two balls");
-                        fireballExplosion = Instantiate(ExplosionPrefab, transform.position, Quaternion.identity);
+                        //fireballExplosion = Instantiate(ExplosionPrefab, transform.position, Quaternion.identity);
                         transform.position = objectPool;
                         Exploded = true;
                   }
