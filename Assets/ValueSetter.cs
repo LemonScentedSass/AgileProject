@@ -50,7 +50,7 @@ public class ValueSetter : StateMachineBehaviour
     {
         for (int i = 0; i < boolsOnExit.Length; i++)
         {
-            animator.SetBool(boolsOnExit[i].name, boolsOnUpdate[i].value);
+            animator.SetBool(boolsOnExit[i].name, boolsOnExit[i].value);
         }
 
         for (int i = 0; i < floatsOnExit.Length; i++)

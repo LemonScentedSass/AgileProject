@@ -1,18 +1,26 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class NewSwordCombat : MonoBehaviour
 {
     private Animator anim;
     private InputHandler input;
 
+    [Header("UI Elements")]
+    public GameObject comboBarObj;
+    public GameObject comboBarBreakLeft;
+    public GameObject comboBarBreakRight;
+    public Transform comboBarTimeIndicator;
+
     //public bool canAttack;
     //public bool comboAdvance;
     //public bool comboEnded;
 
+    [Header("Combat Settings")]
     [Range(0f, .99f)] public float comboAdvancementWindowStart = .5f;
-    [Range(0f, .99f)] public float comboAdvancementWindowEnd = 1f;
+    [Range(0f, .99f)] public float comboAdvancementWindowEnd = .99f;
     public float cooldownTime = 1f;
     float tempCooldownTime;
 
@@ -58,6 +66,7 @@ public class NewSwordCombat : MonoBehaviour
             tempCooldownTime = cooldownTime;
             anim.SetFloat("cooldown", cooldownTime);
 
+            //DoComboUI();
 
             // If outside the combo advancement window
             if (anim.GetFloat("curAnimTime") < comboAdvancementWindowStart ||
@@ -71,19 +80,29 @@ public class NewSwordCombat : MonoBehaviour
             {
                 anim.SetBool("comboWindow", true);
             }            
-        }
-
-        
+        }        
 
         // If the player can't attack, make it able to after the cooldown elapses.
         if (!anim.GetBool("canAttack"))
         {
-            tempCooldownTime = cooldownTime;
+            if ((anim.GetFloat("cooldown")) == cooldownTime)
+            {
+                tempCooldownTime = cooldownTime;
+            }
+            
             anim.SetFloat("cooldown", tempCooldownTime -= Time.deltaTime);
-            if (anim.GetFloat("cooldown") <= 0.01f)
+            Debug.Log(tempCooldownTime);
+            if (anim.GetFloat("cooldown") <= 0f)
             {
                 anim.SetBool("canAttack", true);
             }
         }
+    }
+
+    public void DoComboUI()
+    {
+        // Activates the combo bar UI while an attack animation is playing. Sets the left and right
+        // images to fill relative to the window of combo advancement set in the inspector and moves
+        // the lil square indicator along the bar 
     }
 }
