@@ -67048,7 +67048,7 @@ MonoBehaviour:
   healthPotionButton: {fileID: 6257703957547878008}
   useHealthPotion: {fileID: 11400000, guid: 09f5cd577f6b4a54fa5cd911c342c604, type: 2}
   ManaPotionCooldownDuration: 5
-  manaPotionAmountTXT: {fileID: 3229935371840933140}
+  manaPotionAmountTXT: {fileID: 4344986060712676062}
   manacooldownImage: {fileID: 288345361242791779}
   manaPotionButton: {fileID: 1267252622715248485}
   useManaPotion: {fileID: 11400000, guid: a585734b8e5348a4cb9d4ec8f9951dc0, type: 2}
