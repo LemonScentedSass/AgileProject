@@ -19,7 +19,8 @@ public class ResourceDataSO : ScriptableObject
 public enum ResourceTypeEnum
 {
       None,
-      Health,
       MonsterMeat,
-      Gold
+      Gold,
+      Mana,
+      Health
 }

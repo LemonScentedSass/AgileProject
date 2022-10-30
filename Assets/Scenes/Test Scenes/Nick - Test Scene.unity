@@ -668,7 +668,7 @@ MonoBehaviour:
   - {fileID: 1627314478}
   - {fileID: 945586699}
   - {fileID: 1240323298}
-  count: 20
+  count: 1
   minDelay: 0.8
   maxDelay: 1.5
 --- !u!4 &901776091
@@ -957,6 +957,18 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 980792077887058482, guid: 28275f29d6c34004aa31085a9e28a2d5, type: 3}
+      propertyPath: itemsToDrop.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 980792077887058482, guid: 28275f29d6c34004aa31085a9e28a2d5, type: 3}
+      propertyPath: itemsToDrop.Array.data[2].rate
+      value: 0.397
+      objectReference: {fileID: 0}
+    - target: {fileID: 980792077887058482, guid: 28275f29d6c34004aa31085a9e28a2d5, type: 3}
+      propertyPath: itemsToDrop.Array.data[2].itemPrefab
+      value: 
+      objectReference: {fileID: 6165752449646131301, guid: 0419638252102e84b85ab5be50c099ba, type: 3}
     - target: {fileID: 980792078484698048, guid: 28275f29d6c34004aa31085a9e28a2d5, type: 3}
       propertyPath: m_RootOrder
       value: 1
