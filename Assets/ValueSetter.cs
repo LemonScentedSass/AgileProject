@@ -6,12 +6,15 @@ public class ValueSetter : StateMachineBehaviour
 {
     [Header("On Enter")]
     public BoolVariable[] boolsOnEnter;
+    public FloatVariable[] floatsOnEnter;
 
     [Header("On Update")]
     public BoolVariable[] boolsOnUpdate;
+    public FloatVariable[] floatsOnUpdate;
 
     [Header("On Exit")]
     public BoolVariable[] boolsOnExit;
+    public FloatVariable[] floatsOnExit;
 
     //OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
@@ -19,6 +22,11 @@ public class ValueSetter : StateMachineBehaviour
         for (int i = 0; i < boolsOnEnter.Length; i++)
         {
             animator.SetBool(boolsOnEnter[i].name, boolsOnEnter[i].value);
+        }
+
+        for (int i = 0; i < floatsOnEnter.Length; i++)
+        {
+            animator.SetFloat(floatsOnEnter[i].name, floatsOnEnter[i].value);
         }
     }
 
@@ -30,6 +38,11 @@ public class ValueSetter : StateMachineBehaviour
         {
             animator.SetBool(boolsOnUpdate[i].name, boolsOnUpdate[i].value);
         }
+
+        for (int i = 0; i < floatsOnUpdate.Length; i++)
+        {
+            animator.SetFloat(floatsOnUpdate[i].name, floatsOnUpdate[i].value);
+        }
     }
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
@@ -38,6 +51,11 @@ public class ValueSetter : StateMachineBehaviour
         for (int i = 0; i < boolsOnExit.Length; i++)
         {
             animator.SetBool(boolsOnExit[i].name, boolsOnUpdate[i].value);
+        }
+
+        for (int i = 0; i < floatsOnExit.Length; i++)
+        {
+            animator.SetFloat(floatsOnExit[i].name, floatsOnExit[i].value);
         }
     }
 
@@ -65,4 +83,10 @@ public abstract class VariableBase
 public class BoolVariable : VariableBase
 {
     public bool value;
+}
+
+[System.Serializable]
+public class FloatVariable : VariableBase
+{
+    public float value;
 }
