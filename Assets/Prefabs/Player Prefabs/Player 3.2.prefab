@@ -67046,18 +67046,22 @@ MonoBehaviour:
   healthPotionAmounTXT: {fileID: 6542410845419961586}
   healthcooldownImage: {fileID: 8995510296069927922}
   healthPotionButton: {fileID: 6257703957547878008}
+  useHealthPotion: {fileID: 11400000, guid: 09f5cd577f6b4a54fa5cd911c342c604, type: 2}
   ManaPotionCooldownDuration: 5
   manaPotionAmountTXT: {fileID: 3229935371840933140}
   manacooldownImage: {fileID: 288345361242791779}
   manaPotionButton: {fileID: 1267252622715248485}
+  useManaPotion: {fileID: 11400000, guid: a585734b8e5348a4cb9d4ec8f9951dc0, type: 2}
   BuffPotionCooldownDuration: 5
   buffPotionAmountTXT: {fileID: 2995274595150936915}
   buffcooldownImage: {fileID: 5818225947869925407}
   buffPotionButton: {fileID: 5607136909548035752}
+  useBuffPotion: {fileID: 0}
   MeatCooldownDuration: 5
   meatAmountTXT: {fileID: 8836043595392661983}
   meatcooldownImage: {fileID: 860459079360039834}
   monsterMeatButton: {fileID: 7226308189807774746}
+  useMonsterMeat: {fileID: 0}
 --- !u!1 &5793436509962083373
 GameObject:
   m_ObjectHideFlags: 0
@@ -68465,7 +68469,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6697902658157260006}
   m_LocalRotation: {x: 0.6427876, y: -0, z: -0, w: 0.7660445}
-  m_LocalPosition: {x: 0, y: 10.848078, z: -0.7364826}
+  m_LocalPosition: {x: 0, y: 10.848078, z: -0.73648214}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -69169,7 +69173,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6697902659085609075}
   m_LocalRotation: {x: 0.6427876, y: 0, z: 0, w: 0.7660445}
-  m_LocalPosition: {x: -0.047727086, y: 9.918301, z: -1.3774267}
+  m_LocalPosition: {x: -0.047727086, y: 9.918301, z: -1.377426}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -69240,7 +69244,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6697902659544355666}
   m_LocalRotation: {x: 0.6427876, y: -0, z: -0, w: 0.7660445}
-  m_LocalPosition: {x: -0.047727086, y: 0.070222855, z: 0.35905588}
+  m_LocalPosition: {x: -0.047727086, y: 0.070222855, z: 0.35905635}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

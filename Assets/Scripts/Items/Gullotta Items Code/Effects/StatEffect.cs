@@ -16,22 +16,17 @@ public class StatEffect : EffectBase
         {
             return;
         }
-
-
-
-        //make better as well, enemies might want this effect as well
-        GameManager.PlayerManager theSUser = user.GetComponent<GameManager.PlayerManager>();
-
+          //make better might want enemies to use this as well
         switch (statType)
         {
             case StatType.Health:
-                theSUser.CurrentHealth += amount;
+                GameManager.PlayerManager.pm.CurrentHealth += amount;
                 break;
             case StatType.Mana:
-                theSUser.CurrentMana += amount;
+                GameManager.PlayerManager.pm.CurrentMana += amount;
                 break;
             case StatType.Stamina:
-                theSUser.CurrentStamina += amount;
+                GameManager.PlayerManager.pm.CurrentStamina += amount;
                 break;
         }
     }

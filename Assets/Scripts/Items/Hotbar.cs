@@ -35,6 +35,7 @@ public class Hotbar : MonoBehaviour
     public TMP_Text healthPotionAmounTXT;
     public Image healthcooldownImage;
     public Button healthPotionButton;
+    public UseItem useHealthPotion;
 
     [Header("Mana Potion")]
     //mana potion
@@ -42,6 +43,7 @@ public class Hotbar : MonoBehaviour
     public TMP_Text manaPotionAmountTXT;
     public Image manacooldownImage;
     public Button manaPotionButton;
+    public UseItem useManaPotion;
 
     [Header("Buff Potion")]
     //buff potion
@@ -49,6 +51,7 @@ public class Hotbar : MonoBehaviour
     public TMP_Text buffPotionAmountTXT;
     public Image buffcooldownImage;
     public Button buffPotionButton;
+    public UseItem useBuffPotion;
 
     [Header("Monster Meat")]
     //monster meat
@@ -56,6 +59,8 @@ public class Hotbar : MonoBehaviour
     public TMP_Text meatAmountTXT;
     public Image meatcooldownImage;
     public Button monsterMeatButton;
+    public UseItem useMonsterMeat;
+
 
     // Start is called before the first frame update
     void Start()
@@ -104,48 +109,40 @@ public class Hotbar : MonoBehaviour
 
     public void UseItem()
     {
-        useItem.OnUseItem(transform);
+        useItem.OnUseItem(GameManager.PlayerManager.pm.transform);
     }
     public void UseMagic()
     {
-        useMagic.OnUseItem(transform);
+        useMagic.OnUseItem(GameManager.PlayerManager.pm.transform);
     }
 
 
     private void PotionUse()
     {
         //Health Potion
-        if (Input.GetKeyUp(HealthPotion) && GameManager.PlayerManager.pm.HealthPotionAmount != 0 && healthcooldownImage.fillAmount == 0)
+        if (Input.GetKeyUp(HealthPotion))
         {
-            healthPotionButton.interactable = false;
-            StartCoroutine(StartCoolDown(HealthPotionCooldownDuration, ResetCooldown, healthcooldownImage, healthPotionButton));
-            GameManager.PlayerManager.pm.HealthPotionAmount -= 1;
-            healthPotionAmounTXT.text = "x" + GameManager.PlayerManager.pm.HealthPotionAmount;
+            useHealthPotion.OnUseItem(GameManager.PlayerManager.pm.transform);
+            HealthUse();
 
         }
         //Mana Potion
-        if (Input.GetKeyUp(ManaPotion) && GameManager.PlayerManager.pm.ManaPotionAmount != 0 && manacooldownImage.fillAmount == 0)
+        if (Input.GetKeyUp(ManaPotion))
         {
-            manaPotionButton.interactable = false;
-            StartCoroutine(StartCoolDown(ManaPotionCooldownDuration, ResetCooldown, manacooldownImage, manaPotionButton));
-            GameManager.PlayerManager.pm.ManaPotionAmount -= 1;
-            manaPotionAmountTXT.text = "x" + GameManager.PlayerManager.pm.ManaPotionAmount;
+            useManaPotion.OnUseItem(GameManager.PlayerManager.pm.transform);
+            ManaUse();
         }
         //Buff Potion
-        if (Input.GetKeyUp(BuffPotion) && GameManager.PlayerManager.pm.BuffPotionAmount != 0 && buffcooldownImage.fillAmount == 0)
+        if (Input.GetKeyUp(BuffPotion))
         {
-            buffPotionButton.interactable = false;
-            StartCoroutine(StartCoolDown(BuffPotionCooldownDuration, ResetCooldown, buffcooldownImage, buffPotionButton));
-            GameManager.PlayerManager.pm.BuffPotionAmount -= 1;
-            buffPotionAmountTXT.text = "x" + GameManager.PlayerManager.pm.BuffPotionAmount;
+            useBuffPotion.OnUseItem(GameManager.PlayerManager.pm.transform);
+            BuffUse();
         }
         //Monster Meat
-        if (Input.GetKeyUp(MonsterMeat) && GameManager.PlayerManager.pm.MonsterMeatAmount != 0 && meatcooldownImage.fillAmount == 0)
+        if (Input.GetKeyUp(MonsterMeat))
         {
-            monsterMeatButton.interactable = false;
-            StartCoroutine(StartCoolDown(BuffPotionCooldownDuration, ResetCooldown, meatcooldownImage, monsterMeatButton));
-            GameManager.PlayerManager.pm.MonsterMeatAmount -= 1;
-            meatAmountTXT.text = "x" + GameManager.PlayerManager.pm.MonsterMeatAmount;
+            useMonsterMeat.OnUseItem(GameManager.PlayerManager.pm.transform);
+            MeatUse();
         }
     }
 
