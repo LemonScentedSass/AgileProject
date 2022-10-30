@@ -64,7 +64,8 @@ public class NewSwordCombat : MonoBehaviour
         {
             DoComboUI();
 
-            anim.SetFloat("curAnimTime", anim.GetCurrentAnimatorStateInfo(1).normalizedTime);
+            anim.SetFloat("curAnimTime", anim.GetCurrentAnimatorStateInfo(1).normalizedTime - anim.GetAnimatorTransitionInfo(1).duration);
+            
             tempCooldownTime = cooldownTime;
             anim.SetFloat("cooldown", cooldownTime);            
 
@@ -91,7 +92,7 @@ public class NewSwordCombat : MonoBehaviour
                 anim.SetBool("comboAdvance", true);
             }
         }
-        else
+        else if (!anim.GetBool("isAttacking"))
         {
             comboBarObj.SetActive(false);
         }

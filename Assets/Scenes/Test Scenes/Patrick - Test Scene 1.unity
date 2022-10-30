@@ -973,7 +973,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6697902658378724397, guid: 695be3c7a7eb8884582e6327564fcdc3, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6697902658923446080, guid: 695be3c7a7eb8884582e6327564fcdc3, type: 3}
       propertyPath: m_RootOrder
@@ -1037,7 +1037,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7992057965395269861, guid: 695be3c7a7eb8884582e6327564fcdc3, type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7992057965395269861, guid: 695be3c7a7eb8884582e6327564fcdc3, type: 3}
       propertyPath: comboBarObj
@@ -1177,7 +1177,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8217219265926697297, guid: 695be3c7a7eb8884582e6327564fcdc3, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 695be3c7a7eb8884582e6327564fcdc3, type: 3}
