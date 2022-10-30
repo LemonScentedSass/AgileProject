@@ -49,6 +49,8 @@ MonoBehaviour:
     itemPrefab: {fileID: 7711871126866027623, guid: 0b42f3b0582f0ca42b7f95f4f873753a, type: 3}
   - rate: 0.64
     itemPrefab: {fileID: 6165752449646131301, guid: 0419638252102e84b85ab5be50c099ba, type: 3}
+  - rate: 0.38
+    itemPrefab: {fileID: 0}
   dropChance: 1
 --- !u!1 &980792078484698054
 GameObject:
@@ -78,7 +80,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 980792078484698054}
-  m_LocalRotation: {x: -0, y: 0.99939185, z: -0, w: 0.034871496}
+  m_LocalRotation: {x: 0, y: 0.99939173, z: 0, w: 0.034873385}
   m_LocalPosition: {x: 0.2550891, y: 0, z: 15.354169}
   m_LocalScale: {x: 1.25, y: 1.25, z: 1.25}
   m_ConstrainProportionsScale: 0

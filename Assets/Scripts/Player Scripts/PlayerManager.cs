@@ -95,8 +95,10 @@ namespace GameManager
           // Start is called before the first frame update
             void Start()
             {
-                   //Sets current health and stamina to max
-                   _curHealth = _maxHealth;
+
+                  Debug.Log($"Starting ManaPotionAmount: {_manaPotionAmount}");
+                  //Sets current health and stamina to max
+                  _curHealth = _maxHealth;
                    _curStamina = _maxStamina;
                    _curMana = _maxMana;
                     //sets the healthbar and staminabar to max
@@ -245,6 +247,15 @@ namespace GameManager
                                     case ResourceTypeEnum.Gold:
                                           goldAmount += resource.ResourceData.GetAmount();
                                           resource.PickupResource();
+                                          break;
+                                    case ResourceTypeEnum.Health:
+                                          _healthPotionAmount += resource.ResourceData.GetAmount();
+                                          resource.PickupResource();
+                                          break;
+                                    case ResourceTypeEnum.Mana:
+                                          _manaPotionAmount += resource.ResourceData.GetAmount();
+                                          resource.PickupResource();
+                                          Debug.Log($"ManaPotionAmount: {_manaPotionAmount}");
                                           break;
                               }
                         }
