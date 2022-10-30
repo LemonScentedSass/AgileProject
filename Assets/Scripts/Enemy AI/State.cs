@@ -23,8 +23,8 @@ public class State
       protected State nextState;
       protected NavMeshAgent agent;
 
-      float visDist = 10.0f;                                                        // How far the AI can spot the player from
-      float visAngle = 30.0f;                                                       // AI FOV
+      float visDist = 20.0f;                                                        // How far the AI can spot the player from
+      float visAngle = 65.0f;                                                       // AI FOV
       float attackDist = 2.0f;                                                      // Distance from player needed to attack
 
       public State(GameObject _npc, NavMeshAgent _agent, Animator _anim, Transform _player)

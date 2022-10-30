@@ -5,4 +5,6 @@ using UnityEngine;
 public interface IHittable
 {
       void GetHit(int damage);
+
+      void GetStunned(float length);
 }

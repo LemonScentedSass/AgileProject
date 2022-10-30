@@ -5,180 +5,184 @@ using UnityEngine;
 public class ProjectileMotion : MonoBehaviour
 {
 
-    public Transform user;
-    public Transform attackDirection;
+      public Transform user;
+      public Transform attackDirection;
 
-    public Vector3 objectPool;
-    public GameObject ExplosionPrefab;
-    public float explosionTime;
-    public bool travelTime;
-    public float TravelTime;
-    public bool explodes;
-    public float explodeRadius;
-    public float speed;
-    public float comebackTime;
-    public bool comesBack;
-    private float timeTracker;
-    private float timeTracker2;
-    private bool Hit;
+      public Vector3 objectPool;
+      public GameObject ExplosionPrefab;
+      public float explosionTime;
+      public bool travelTime;
+      public float TravelTime;
+      public bool explodes;
+      public float explodeRadius;
+      public float speed;
+      public float comebackTime;
+      public bool comesBack;
+      private float timeTracker;
+      private float timeTracker2;
+      private bool Hit;
 
-    private bool Exploded = false;
+      private bool Exploded = false;
 
-    private GameObject fireballExplosion;
+      private GameObject fireballExplosion;
 
-    private Vector3 scale = new Vector3(0.5f, 0.5f, 0.5f);
+      private Vector3 scale = new Vector3(0.5f, 0.5f, 0.5f);
 
-    // Update is called once per frame
-    void Update()
-    {
-      
-        if(comesBack == true)
-        {
-            comebackTime -= Time.deltaTime;
+      // Update is called once per frame
+      void Update()
+      {
 
-            if(comebackTime <= 0f)
+            if (comesBack == true)
             {
-                transform.LookAt(user.position + new Vector3(0,1,0));
-            }
-        }
+                  comebackTime -= Time.deltaTime;
 
-        if(travelTime == true && explodes == false && GameManager.PlayerManager.pm.usingItem == true)
-        {
-            TravelTime -= Time.deltaTime;
-            //broken
-            if (TravelTime <= 0f)
-            {
-                //do something
-                transform.position = objectPool;
-            }
-        }
-
-        if(Exploded != true)
-        {
-            transform.position += (transform.forward * speed * Time.deltaTime);
-        }
-        else
-        {
-            transform.position = transform.position;
-        }
-     
-
-        if (explodes)
-        {
-            Explodes();
-        }
-
-    }
-
-    private void OnCollisionEnter(Collision collision)
-    {
-        Debug.Log(gameObject.transform.localScale.magnitude);
-        if(explodes)
-        {
-            if(collision.gameObject.tag == "Wall")
-            {
-                Hit = true;
-                Debug.Log("wtf, why two balls");
-                fireballExplosion = Instantiate(ExplosionPrefab, transform.position, Quaternion.identity);
-                transform.position = objectPool;
-                Exploded = true;
-
-            }
-        }
-
-        if(comesBack == true)
-        {
-            if (collision.gameObject.tag != "Player")
-            {
-                comebackTime = 0;
+                  if (comebackTime <= 0f)
+                  {
+                        transform.LookAt(user.position + new Vector3(0, 1, 0));
+                  }
             }
 
-            if(collision.gameObject.tag == "Player")
+            if (travelTime == true && explodes == false && GameManager.PlayerManager.pm.usingItem == true)
             {
-                GameManager.PlayerManager.pm.usingItem = false;
-                transform.position = objectPool;
-                gameObject.SetActive(false);
-
-            }
-        }
-        else if(comesBack == false && explodes == false)
-        {
-            if(collision.gameObject.tag != "Player")
-            {
-                GameManager.PlayerManager.pm.usingItem = false;
-                transform.position = objectPool;
-                gameObject.SetActive(false);
+                  TravelTime -= Time.deltaTime;
+                  //broken
+                  if (TravelTime <= 0f)
+                  {
+                        //do something
+                        transform.position = objectPool;
+                  }
             }
 
-        }
-
-    }
-
-    public void Explodes()
-    {
-        //explosion prefab time
-        if (Exploded == true)
-        {
-           
-            if (timeTracker2 >= explosionTime)
+            if (Exploded != true)
             {
-                Destroy(fireballExplosion);
-                timeTracker2 -= explosionTime;
-                Hit = false;
-                Exploded = false;
-                GameManager.PlayerManager.pm.usingItem = false;
-                gameObject.SetActive(false);
-            }
-
-            if(Exploded == true)
-            {
-                timeTracker2 += Time.deltaTime;
+                  transform.position += (transform.forward * speed * Time.deltaTime);
             }
             else
             {
-                timeTracker2 = 0;
+                  transform.position = transform.position;
             }
 
 
-        }
-        //explosion after travel time
-        if(Exploded != true && travelTime == true && Hit == false)
-        {
-            Debug.Log("alsdjfl;asjdfl;asjdf;lajsd;ljasl;dfja");
-            if(timeTracker >= TravelTime)
+            if (explodes)
             {
-                Debug.Log("explosion");
-                fireballExplosion = Instantiate(ExplosionPrefab, transform.position, Quaternion.identity);
-                transform.position = objectPool;
-                Exploded = true;
+                  Explodes();
             }
 
-            if(Exploded != true)
+      }
+
+      private void OnCollisionEnter(Collision collision)
+      {
+            Debug.Log(gameObject.transform.localScale.magnitude);
+            if (explodes)
             {
-                timeTracker += Time.deltaTime;
+                  if (collision.gameObject.tag == "Wall")
+                  {
+                        Hit = true;
+                        Debug.Log("wtf, why two balls");
+                        fireballExplosion = Instantiate(ExplosionPrefab, transform.position, Quaternion.identity);
+                        transform.position = objectPool;
+                        Exploded = true;
+                  }
             }
-            else
+
+            if (comesBack == true)
             {
-                timeTracker = 0;
+                  if (collision.gameObject.tag != "Player")
+                  {
+                        comebackTime = 0;
+                  }
+
+                  if (collision.gameObject.tag == "Player")
+                  {
+                        GameManager.PlayerManager.pm.usingItem = false;
+                        transform.position = objectPool;
+                        gameObject.SetActive(false);
+
+                  }
+
+                  if (collision.gameObject.tag == "Enemy")
+                  {
+                        collision.gameObject.GetComponent<EnemyStats>().GetStunned(1f);
+                  }
             }
-           
-        }
-       
-       
-        if (fireballExplosion != null)
-        {
-            if (fireballExplosion.transform.localScale.magnitude < explodeRadius)
+            else if (comesBack == false && explodes == false)
             {
-                fireballExplosion.transform.localScale += scale;
-                Debug.Log(fireballExplosion.transform.localScale.magnitude);
+                  if (collision.gameObject.tag != "Player")
+                  {
+                        GameManager.PlayerManager.pm.usingItem = false;
+                        transform.position = objectPool;
+                        gameObject.SetActive(false);
+                  }
+
             }
-        }
-    }
+
+      }
+
+      public void Explodes()
+      {
+            //explosion prefab time
+            if (Exploded == true)
+            {
+
+                  if (timeTracker2 >= explosionTime)
+                  {
+                        Destroy(fireballExplosion);
+                        timeTracker2 -= explosionTime;
+                        Hit = false;
+                        Exploded = false;
+                        GameManager.PlayerManager.pm.usingItem = false;
+                        gameObject.SetActive(false);
+                  }
+
+                  if (Exploded == true)
+                  {
+                        timeTracker2 += Time.deltaTime;
+                  }
+                  else
+                  {
+                        timeTracker2 = 0;
+                  }
 
 
-    private void OnDrawGizmos()
-    {
-        Gizmos.DrawWireSphere(this.transform.position, explodeRadius);
-    }
+            }
+            //explosion after travel time
+            if (Exploded != true && travelTime == true && Hit == false)
+            {
+                  Debug.Log("alsdjfl;asjdfl;asjdf;lajsd;ljasl;dfja");
+                  if (timeTracker >= TravelTime)
+                  {
+                        Debug.Log("explosion");
+                        fireballExplosion = Instantiate(ExplosionPrefab, transform.position, Quaternion.identity);
+                        transform.position = objectPool;
+                        Exploded = true;
+                  }
+
+                  if (Exploded != true)
+                  {
+                        timeTracker += Time.deltaTime;
+                  }
+                  else
+                  {
+                        timeTracker = 0;
+                  }
+
+            }
+
+
+            if (fireballExplosion != null)
+            {
+                  if (fireballExplosion.transform.localScale.magnitude < explodeRadius)
+                  {
+                        fireballExplosion.transform.localScale += scale;
+                        Debug.Log(fireballExplosion.transform.localScale.magnitude);
+                  }
+            }
+      }
+
+
+      private void OnDrawGizmos()
+      {
+            Gizmos.DrawWireSphere(this.transform.position, explodeRadius);
+      }
 
 }

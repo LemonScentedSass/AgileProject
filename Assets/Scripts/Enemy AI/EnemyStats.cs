@@ -56,4 +56,23 @@ public class EnemyStats : MonoBehaviour, IHittable
             LevelSystem.instance.AddExperience(30);
             Destroy(gameObject);
       }
+
+      public void GetStunned(float length)
+      {
+            if(length > 0)
+            {
+                  agent.speed = 0f;
+                  anim.ResetTrigger("isWalking");
+                  anim.ResetTrigger("isRunning");
+                  anim.ResetTrigger("isAttacking");
+                  anim.ResetTrigger("isIdle");
+                  length -= Time.deltaTime;
+            }
+
+            if(length <= 0)
+            {
+                  agent.speed = 2f;
+            }
+
+      }
 }

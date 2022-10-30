@@ -282,5 +282,10 @@ namespace GameManager
                   yield return new WaitForSeconds(10f);
                   gameObject.SetActive(false);
             }
+
+            public void GetStunned(float length)
+            {
+                  return;
+            }
       }
 }
