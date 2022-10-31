@@ -389,6 +389,14 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1377745570618470022, guid: 695be3c7a7eb8884582e6327564fcdc3, type: 3}
+      propertyPath: useItem
+      value: 
+      objectReference: {fileID: 11400000, guid: 4715fe4a88aa4404cace284ac1e207ad, type: 2}
+    - target: {fileID: 1377745570618470022, guid: 695be3c7a7eb8884582e6327564fcdc3, type: 3}
+      propertyPath: ItemCooldownDuration
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 1857513367187451468, guid: 695be3c7a7eb8884582e6327564fcdc3, type: 3}
       propertyPath: animationType
       value: 1

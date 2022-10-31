@@ -62,7 +62,6 @@ public class Hotbar : MonoBehaviour
       public Button monsterMeatButton;
       public UseItem useMonsterMeat;
 
-
       // Start is called before the first frame update
       void Start()
       {
@@ -96,10 +95,9 @@ public class Hotbar : MonoBehaviour
                   StartCoroutine(StartCoolDown(MagicCooldownDuration, ResetCooldown, magiccooldownImage));
             }
 
-            if (Input.GetKeyDown(Item) && GameManager.PlayerManager.pm.usingItem == false && itemcooldownImage.fillAmount == 0)
+            if (Input.GetKeyDown(Item) && GameManager.PlayerManager.pm.usingItem == false && itemcooldownImage.fillAmount == 0 && anim.GetCurrentAnimatorStateInfo(1).IsName("Empty (Not Dodging)"))
             {
-                  Debug.Log("boomeragn");
-                  anim.Play("Boomerang", 1);
+                  anim.Play("Bow", 1);
                   GameManager.PlayerManager.pm.usingItem = true;
                   GameManager.PlayerManager.pm.CurrentStamina -= 15f;
                   StartCoroutine(StartCoolDown(ItemCooldownDuration, ResetCooldown, itemcooldownImage));
@@ -219,6 +217,7 @@ public class Hotbar : MonoBehaviour
 
       public IEnumerator StartCoolDown(float duration, float reset, Image fill, Button button)
       {
+            GameManager.PlayerManager.pm.usingItem = false;
             float t = 0;
 
             while (t < duration)
@@ -237,6 +236,7 @@ public class Hotbar : MonoBehaviour
 
       public IEnumerator StartCoolDown(float duration, float reset, Image fill)
       {
+            GameManager.PlayerManager.pm.usingItem = false;
             float t = 0;
 
             while (t < duration)

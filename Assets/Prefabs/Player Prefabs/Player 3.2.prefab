@@ -58533,7 +58533,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1377745570618470022}
         m_TargetAssemblyTypeName: Hotbar, Assembly-CSharp
         m_MethodName: BuffUse
         m_Mode: 1
@@ -60740,7 +60740,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1377745570618470022}
         m_TargetAssemblyTypeName: Hotbar, Assembly-CSharp
         m_MethodName: HealthUse
         m_Mode: 1
@@ -66667,7 +66667,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -66726,7 +66726,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 6525732750824595124}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5778913451418372175}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &5175137326704619563
 GameObject:
   m_ObjectHideFlags: 0
@@ -68183,7 +68195,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -68243,9 +68255,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1377745570618470022}
         m_TargetAssemblyTypeName: Hotbar, Assembly-CSharp
-        m_MethodName: MeatUse
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -69359,7 +69371,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6697902658157260006}
   m_LocalRotation: {x: 0.6427876, y: -0, z: -0, w: 0.7660445}
-  m_LocalPosition: {x: 0, y: 10.848078, z: -0.73648244}
+  m_LocalPosition: {x: 0, y: 10.848078, z: -0.73648214}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -70134,7 +70146,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6697902659544355666}
   m_LocalRotation: {x: 0.6427876, y: -0, z: -0, w: 0.7660445}
-  m_LocalPosition: {x: -0.047727086, y: 0.070222855, z: 0.35905606}
+  m_LocalPosition: {x: -0.047727086, y: 0.070222855, z: 0.35905635}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -71304,7 +71316,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1377745570618470022}
         m_TargetAssemblyTypeName: Hotbar, Assembly-CSharp
         m_MethodName: ManaUse
         m_Mode: 1
@@ -77177,7 +77189,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1377745570618470022}
         m_TargetAssemblyTypeName: Hotbar, Assembly-CSharp
         m_MethodName: MeatUse
         m_Mode: 1
