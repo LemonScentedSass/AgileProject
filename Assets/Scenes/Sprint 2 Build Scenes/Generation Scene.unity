@@ -1454,6 +1454,10 @@ PrefabInstance:
       propertyPath: m_CullingMask.m_Bits
       value: 1023
       objectReference: {fileID: 0}
+    - target: {fileID: 6697902658157259931, guid: 695be3c7a7eb8884582e6327564fcdc3, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.7364826
+      objectReference: {fileID: 0}
     - target: {fileID: 6697902658923446080, guid: 695be3c7a7eb8884582e6327564fcdc3, type: 3}
       propertyPath: m_RootOrder
       value: 7
@@ -1505,6 +1509,14 @@ PrefabInstance:
     - target: {fileID: 6697902659047330066, guid: 695be3c7a7eb8884582e6327564fcdc3, type: 3}
       propertyPath: m_ChildCameras.Array.size
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6697902659085609077, guid: 695be3c7a7eb8884582e6327564fcdc3, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1.3774267
+      objectReference: {fileID: 0}
+    - target: {fileID: 6697902659544355668, guid: 695be3c7a7eb8884582e6327564fcdc3, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.35905588
       objectReference: {fileID: 0}
     - target: {fileID: 6846284544940179067, guid: 695be3c7a7eb8884582e6327564fcdc3, type: 3}
       propertyPath: m_Layer
@@ -1689,6 +1701,10 @@ PrefabInstance:
     - target: {fileID: 8166287060836389973, guid: 695be3c7a7eb8884582e6327564fcdc3, type: 3}
       propertyPath: m_Layer
       value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8217219265926697297, guid: 695be3c7a7eb8884582e6327564fcdc3, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8308027995685521037, guid: 695be3c7a7eb8884582e6327564fcdc3, type: 3}
       propertyPath: m_Layer
