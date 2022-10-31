@@ -8,10 +8,11 @@ public class EnemyStats : MonoBehaviour, IHittable
       [SerializeField] public int currentHealth;
       [SerializeField] public int maxHealth = 5;
 
-      [SerializeField] bool isDead;
+      [SerializeField] public bool isDead;
 
       ResourceDropper resourceDropper;
       NavMeshAgent agent;
+      
       Animator anim;
       AI ai;
 
@@ -49,6 +50,7 @@ public class EnemyStats : MonoBehaviour, IHittable
 
       IEnumerator Die()
       {
+            
             anim.SetTrigger("isDead");
             agent.isStopped = true;
             yield return new WaitForSeconds(5f);

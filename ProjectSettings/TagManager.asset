@@ -9,6 +9,7 @@ TagManager:
   - Wall
   - MinimapCam
   - Enemy
+  - Destructable
   layers:
   - Default
   - TransparentFX

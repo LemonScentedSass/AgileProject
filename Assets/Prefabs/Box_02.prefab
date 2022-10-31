@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6569965787085324697}
-  - component: {fileID: 5938897920169445657}
+  - component: {fileID: 881771886}
   m_Layer: 3
   m_Name: ItemDropper
   m_TagString: Untagged
@@ -32,7 +32,7 @@ Transform:
   m_Father: {fileID: 3032585674497909224}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5938897920169445657
+--- !u!114 &881771886
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -44,8 +44,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bbb287ca4acc4324389d265c702f6f9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemsToDrop: []
-  dropChance: 0.5
+  itemsToDrop:
+  - rate: 0.371
+    itemPrefab: {fileID: 6165752449646131301, guid: 0419638252102e84b85ab5be50c099ba, type: 3}
+  - rate: 0.407
+    itemPrefab: {fileID: 3101630689594923053, guid: 2d1f55e606914a34f89b9ec9708ba84f, type: 3}
+  - rate: 0.343
+    itemPrefab: {fileID: 2172650058981052573, guid: bacb388e19abb604199e469b23deb710, type: 3}
+  dropChance: 0.524
 --- !u!1 &5673654229813619097
 GameObject:
   m_ObjectHideFlags: 0
@@ -62,7 +68,7 @@ GameObject:
   - component: {fileID: 3032585674497909230}
   m_Layer: 3
   m_Name: Box_02
-  m_TagString: Untagged
+  m_TagString: Destructable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -74,10 +80,10 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5673654229813619097}
-  m_LocalRotation: {x: -0, y: -0.118696235, z: -0, w: 0.99293065}
+  m_LocalRotation: {x: 0, y: -0.11869849, z: 0, w: 0.9929304}
   m_LocalPosition: {x: 3.5, y: 0.88, z: 2.5}
-  m_LocalScale: {x: 1.7104318, y: 1.7104316, z: 1.7104318}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 6569965787085324697}
   m_Father: {fileID: 0}
@@ -172,5 +178,5 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.9163015, y: 0.9166263, z: 0.9132221}
-  m_Center: {x: -0.0014074444, y: 0.001183182, z: -0.000058010235}
+  m_Size: {x: 0.9163015, y: 1.15201, z: 0.9132221}
+  m_Center: {x: -0.0014074247, y: 0.11887455, z: -0.0000580152}

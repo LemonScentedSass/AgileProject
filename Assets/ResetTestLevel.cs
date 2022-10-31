@@ -5,12 +5,13 @@ using UnityEngine.SceneManagement;
 
 public class ResetTestLevel : MonoBehaviour
 {
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.tag == "Player")
-        {
-            //Debug.Log("Loading...");
-            SceneManager.LoadScene(2);
-        }
-    }
+
+      private void OnTriggerEnter(Collider other)
+      {
+            if (other.tag == "Player")
+            {
+                  //Debug.Log("Loading..."); 
+                  SceneManager.LoadScene(2);
+            }
+      }
 }

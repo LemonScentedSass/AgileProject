@@ -23,7 +23,7 @@ public class Resources : MonoBehaviour
       {
             GetComponent<BoxCollider>().enabled = false;
             //audioSource.Play();
-            yield return new WaitForSeconds(0.5f);
+            yield return null;
             Destroy(gameObject);
 
       }

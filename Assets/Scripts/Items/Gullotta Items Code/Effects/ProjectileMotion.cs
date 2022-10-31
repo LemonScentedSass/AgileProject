@@ -114,6 +114,12 @@ public class ProjectileMotion : MonoBehaviour
                   {
                         collision.gameObject.GetComponent<EnemyStats>().GetStunned(1f);
                   }
+
+                  if (collision.gameObject.tag == "Destructable")
+                  {
+                        collision.gameObject.GetComponent<IHittable>().GetHit(1);
+                  }
+
             }
             else if (comesBack == false && explodes == false)
             {
@@ -162,7 +168,7 @@ public class ProjectileMotion : MonoBehaviour
                   if (timeTracker >= TravelTime)
                   {
                         Debug.Log("explosion");
-                        fireballExplosion = Instantiate(ExplosionPrefab, transform.position, Quaternion.identity);
+                        //fireballExplosion = Instantiate(ExplosionPrefab, transform.position, Quaternion.identity);
                         transform.position = objectPool;
                         Exploded = true;
                   }

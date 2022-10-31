@@ -14,16 +14,16 @@ namespace GameManager
         PlayerLocomotion playerLoco;
 
         [Header("Player Health / Stamina / Mana")]
-        [SerializeField] private float _curHealth;
-        [SerializeField] private float _maxHealth = 10f;
-        [SerializeField] private float _curStamina;
-        [SerializeField] private float _maxStamina = 100f;
-        [SerializeField] private float _curMana;
-        [SerializeField] private float _maxMana = 100f;
+        [SerializeField] public float _curHealth;
+        [SerializeField] public float _maxHealth = 10f;
+        [SerializeField] public float _curStamina;
+        [SerializeField] public float _maxStamina = 100f;
+        [SerializeField] public float _curMana;
+        [SerializeField] public float _maxMana = 100f;
 
         [Header("Attack Settings?")]
-        [SerializeField] private int _minAttack = 1;
-        [SerializeField] private int _maxAttack = 2;
+        [SerializeField] public int _minAttack = 1;
+        [SerializeField] public int _maxAttack = 2;
 
         [Header("Consumable Settings")]
         [SerializeField] private int _healthPotionAmount;
@@ -35,8 +35,8 @@ namespace GameManager
 
 
         [Header("Collectables")]
-        [SerializeField] private float meatAmount = 0;
-        [SerializeField] private int goldAmount = 0;
+        [SerializeField] public float meatAmount = 0;
+        [SerializeField] public int goldAmount = 0;
 
 
         [Header("Others")]

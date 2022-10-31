@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using System.Linq;
 
 public class State
 {
@@ -144,7 +145,8 @@ public class Idle : State
 /// </summary>
 public class Patrol : State
 {
-      int currentIndex = -1;                                                       
+      int currentIndex = -1;
+      private List<GameObject> checkpoints = new List<GameObject>();
 
       public Patrol(GameObject _npc, NavMeshAgent _agent, Animator _anim, Transform _player) : base(_npc, _agent, _anim, _player)
       {
@@ -156,19 +158,26 @@ public class Patrol : State
       public override void Enter()
       {                                                                                                     // Upon entering the Patrol State,
             player = GameObject.FindGameObjectWithTag("Player").transform;
-            float lastDist = Mathf.Infinity;                                                                // Assign lastDist to infinity, this way any point compared will be guaranteed to be shorter than our initial value.
-            for(int i = 0; i < GameEnvironment.Singleton.Checkpoints.Count; i++)                            // Loop through each GameObject with the tag "Checkpoint"
+            checkpoints.AddRange(GameObject.FindGameObjectsWithTag("Checkpoint"));
+            checkpoints = checkpoints.OrderBy(waypoint => waypoint.name).ToList();
+
+            if (player != null)
             {
-                  GameObject thisWP = GameEnvironment.Singleton.Checkpoints[i];                             // thisWP = current index of our checkpoint list
-                  float distance = Vector3.Distance(npc.transform.position, thisWP.transform.position);     // Determine distance from AI agent to the current index checkpoint
-
-
-                  if(distance < lastDist)                                                                   // If this distance is less than our previously evaluated checkpoint,
+                  float lastDist = Mathf.Infinity;                                                                // Assign lastDist to infinity, this way any point compared will be guaranteed to be shorter than our initial value.
+                  for (int i = 0; i < checkpoints.Count; i++)                            // Loop through each GameObject with the tag "Checkpoint"
                   {
-                        currentIndex = i - 1;                                                               // Change our current index to be one less than checked this iteration,
-                        lastDist = distance;                                                                // Assign lastDist to our distance calculated for this checkpoint.
+                        GameObject thisWP = checkpoints[i];                             // thisWP = current index of our checkpoint list
+                        float distance = Vector3.Distance(npc.transform.position, thisWP.transform.position);     // Determine distance from AI agent to the current index checkpoint
+
+
+                        if (distance < lastDist)                                                                   // If this distance is less than our previously evaluated checkpoint,
+                        {
+                              currentIndex = i - 1;                                                               // Change our current index to be one less than checked this iteration,
+                              lastDist = distance;                                                                // Assign lastDist to our distance calculated for this checkpoint.
+                        }
                   }
             }
+            
 
 
             anim.SetTrigger("isWalking");                                                                   // Trigger the Walking animation
@@ -182,7 +191,7 @@ public class Patrol : State
 
             if(agent.remainingDistance < 1)                                                                 // If the AI agent is less than 1 unit from his current destination,
             {
-                  if(currentIndex >= GameEnvironment.Singleton.Checkpoints.Count - 1)                       // If the currentIndex evaluated is greater than the number of checkpoints in our list - 1, 
+                  if(currentIndex >= checkpoints.Count - 1)                       // If the currentIndex evaluated is greater than the number of checkpoints in our list - 1, 
                   {
                         currentIndex = 0;                                                                   // Set currentIndex to the beginning of the list
                   }
@@ -192,7 +201,7 @@ public class Patrol : State
                   }
 
                   agent.SetDestination                                                                      // Move NavMeshAgent to the checkpoints position
-                        (GameEnvironment.Singleton.Checkpoints[currentIndex].transform.position);           
+                        (checkpoints[currentIndex].transform.position);           
             }
 
 
