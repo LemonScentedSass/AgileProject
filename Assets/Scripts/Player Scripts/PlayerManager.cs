@@ -2,301 +2,302 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 
 namespace GameManager
 {
-      public class PlayerManager : MonoBehaviour, IHittable
-      {
-            public static PlayerManager pm;
-            Animator anim;
-            PlayerLocomotion playerLoco;
+    public class PlayerManager : MonoBehaviour, IHittable
+    {
+        public static PlayerManager pm;
+        Animator anim;
+        PlayerLocomotion playerLoco;
 
-            [Header("Player Health / Stamina / Mana")]
-            [SerializeField] private float _curHealth;
-            [SerializeField] private float _maxHealth = 10f;
-            [SerializeField] private float _curStamina;
-            [SerializeField] private float _maxStamina = 100f;
-            [SerializeField] private float _curMana;
-            [SerializeField] private float _maxMana = 100f;
+        [Header("Player Health / Stamina / Mana")]
+        [SerializeField] private float _curHealth;
+        [SerializeField] private float _maxHealth = 10f;
+        [SerializeField] private float _curStamina;
+        [SerializeField] private float _maxStamina = 100f;
+        [SerializeField] private float _curMana;
+        [SerializeField] private float _maxMana = 100f;
 
-            [Header("Attack Settings?")]
-            [SerializeField] private int _minAttack = 1;
-            [SerializeField] private int _maxAttack = 2;
+        [Header("Attack Settings?")]
+        [SerializeField] private int _minAttack = 1;
+        [SerializeField] private int _maxAttack = 2;
 
-            [Header("Consumable Settings")]
-            [SerializeField] private int _healthPotionAmount;
-            [SerializeField] private int _manaPotionAmount;
-            [SerializeField] private int _buffPotionAmount;
+        [Header("Consumable Settings")]
+        [SerializeField] private int _healthPotionAmount;
+        [SerializeField] private int _manaPotionAmount;
+        [SerializeField] private int _buffPotionAmount;
 
-            [SerializeField] private float _healthPotionHeal = 40f;
-            [SerializeField] private float _manaPotionHeal = 40f;
-        
-
-            [Header("Collectables")]
-            [SerializeField] private float meatAmount = 0;
-            [SerializeField] private int goldAmount = 0;
+        [SerializeField] private float _healthPotionHeal = 40f;
+        [SerializeField] private float _manaPotionHeal = 40f;
 
 
-            [Header("Others")]
-            private float _MAXFILLAMOUNT = 1.0f;
+        [Header("Collectables")]
+        [SerializeField] private float meatAmount = 0;
+        [SerializeField] private int goldAmount = 0;
 
-            public bool healthRegen = false;
-            public bool stamRegen = false;
-            public bool manaRegen = false;
-            private bool isDead = false;
-            public bool usingItem = false;
 
-            public Image[] healthbar;
-            public Image[] staminabar;
-            public Image[] manabar;
+        [Header("Others")]
+        private float _MAXFILLAMOUNT = 1.0f;
 
-            public float staminaFILLAMOUNT;
-            public float healthFILLAMOUNT;
-            public float manaFillAMOUNT;
+        public bool healthRegen = false;
+        public bool stamRegen = false;
+        public bool manaRegen = false;
+        private bool isDead = false;
+        public bool usingItem = false;
 
-            public float MaxHealth { get { return _maxHealth; } set { _maxHealth = value; } }
-            public float CurrentHealth { get { return _curHealth; } set { _curHealth = value; } }
+        public Image[] healthbar;
+        public Image[] staminabar;
+        public Image[] manabar;
 
-            public float MaxStamina { get { return _maxStamina; } set { _maxStamina = value; } }
-            public float CurrentStamina { get { return _curStamina; } set { _curStamina = value; } }
+        public float staminaFILLAMOUNT;
+        public float healthFILLAMOUNT;
+        public float manaFillAMOUNT;
 
-            public float MaxMana { get { return _maxMana; } set { _maxMana = value; } }
-            public float CurrentMana { get { return _curMana; } set { _curMana = value; } }
+        public float MaxHealth { get { return _maxHealth; } set { _maxHealth = value; } }
+        public float CurrentHealth { get { return _curHealth; } set { _curHealth = value; } }
 
-            public int MinAttack { get { return _minAttack; } set { _minAttack = value; } }
-            public int MaxAttack { get { return _maxAttack; } set { _maxAttack = value; } }
+        public float MaxStamina { get { return _maxStamina; } set { _maxStamina = value; } }
+        public float CurrentStamina { get { return _curStamina; } set { _curStamina = value; } }
 
-            public float HealthPotionHeal { get { return _healthPotionHeal; } set { _healthPotionHeal = value; } }
-            public float ManaPotionHeal { get { return _manaPotionHeal; } set { _manaPotionHeal = value; } }
+        public float MaxMana { get { return _maxMana; } set { _maxMana = value; } }
+        public float CurrentMana { get { return _curMana; } set { _curMana = value; } }
 
-            public int HealthPotionAmount { get { return _healthPotionAmount; } set { _healthPotionAmount = value; } }
-            public int ManaPotionAmount { get { return _manaPotionAmount; } set { _manaPotionAmount = value; } }
-            public int BuffPotionAmount { get { return _buffPotionAmount; } set { _buffPotionAmount = value; } }
-            public int MonsterMeatAmount { get { return (int)meatAmount; } set { meatAmount = value; } }
+        public int MinAttack { get { return _minAttack; } set { _minAttack = value; } }
+        public int MaxAttack { get { return _maxAttack; } set { _maxAttack = value; } }
+
+        public float HealthPotionHeal { get { return _healthPotionHeal; } set { _healthPotionHeal = value; } }
+        public float ManaPotionHeal { get { return _manaPotionHeal; } set { _manaPotionHeal = value; } }
+
+        public int HealthPotionAmount { get { return _healthPotionAmount; } set { _healthPotionAmount = value; } }
+        public int ManaPotionAmount { get { return _manaPotionAmount; } set { _manaPotionAmount = value; } }
+        public int BuffPotionAmount { get { return _buffPotionAmount; } set { _buffPotionAmount = value; } }
+        public int MonsterMeatAmount { get { return (int)meatAmount; } set { meatAmount = value; } }
 
 
 
 
         private void Awake()
-            {
-                  anim = GetComponentInChildren<Animator>();
-                  playerLoco = GetComponent<PlayerLocomotion>();
+        {
+            anim = GetComponentInChildren<Animator>();
+            playerLoco = GetComponent<PlayerLocomotion>();
 
-                  if (PlayerManager.pm == null)
-                  {
-                        PlayerManager.pm = this;
-                  }
-                  else if (PlayerManager.pm != this)
-                  {
-                        Destroy(this);
-                  }
+            if (PlayerManager.pm == null)
+            {
+                PlayerManager.pm = this;
             }
-          // Start is called before the first frame update
-            void Start()
+            else if (PlayerManager.pm != this)
             {
+                Destroy(this);
+            }
+        }
+        // Start is called before the first frame update
+        void Start()
+        {
 
-                  Debug.Log($"Starting ManaPotionAmount: {_manaPotionAmount}");
-                  //Sets current health and stamina to max
-                  _curHealth = _maxHealth;
-                   _curStamina = _maxStamina;
-                   _curMana = _maxMana;
-                    //sets the healthbar and staminabar to max
-                   foreach (Image bar in healthbar)
-                   {
-                        bar.fillAmount = _MAXFILLAMOUNT;
-                   }
-
-                   foreach (Image bar in staminabar)
-                   {
-                      bar.fillAmount = _MAXFILLAMOUNT;
-                   }
-
-                   foreach (Image bar in manabar)
-                   {
-                       bar.fillAmount = _MAXFILLAMOUNT;
-                   }
-
+            Debug.Log($"Starting ManaPotionAmount: {_manaPotionAmount}");
+            //Sets current health and stamina to max
+            _curHealth = _maxHealth;
+            _curStamina = _maxStamina;
+            _curMana = _maxMana;
+            //sets the healthbar and staminabar to max
+            foreach (Image bar in healthbar)
+            {
+                bar.fillAmount = _MAXFILLAMOUNT;
             }
 
-            // Update is called once per frame
-            void Update()
+            foreach (Image bar in staminabar)
             {
-                  //Displays current fill amount
-                  staminaFILLAMOUNT = DamageConversion(CurrentStamina, MaxStamina);
-                  healthFILLAMOUNT = DamageConversion(CurrentHealth, MaxHealth);
-                  manaFillAMOUNT = DamageConversion(CurrentMana, MaxMana);
-
-
-                  DisplayStatConversion(); //Converts health, stamina, and mana into fillamount for health, stamina, and mana bars
-                  StatsCheck(); // Checks to make sure numbers dont go below or above 0 and 100
-
-                  if(CurrentHealth <= 0)
-                  {
-                        Die();
-                  }
+                bar.fillAmount = _MAXFILLAMOUNT;
             }
 
-
-            //Converts regular values into values that can be used for the health and staminabar
-            private float DamageConversion(float curStat, float maxStat)
+            foreach (Image bar in manabar)
             {
-                  var conversion = (curStat * _MAXFILLAMOUNT) / maxStat;
-
-                  return conversion;
+                bar.fillAmount = _MAXFILLAMOUNT;
             }
 
-            private void StatsCheck()
+        }
+
+        // Update is called once per frame
+        void Update()
+        {
+            //Displays current fill amount
+            staminaFILLAMOUNT = DamageConversion(CurrentStamina, MaxStamina);
+            healthFILLAMOUNT = DamageConversion(CurrentHealth, MaxHealth);
+            manaFillAMOUNT = DamageConversion(CurrentMana, MaxMana);
+
+
+            DisplayStatConversion(); //Converts health, stamina, and mana into fillamount for health, stamina, and mana bars
+            StatsCheck(); // Checks to make sure numbers dont go below or above 0 and 100
+
+            if (CurrentHealth <= 0)
             {
-                  //Makes sure health doesn't go over max and under 0
-                  if (CurrentHealth > MaxHealth)
-                  {
-                        CurrentHealth = MaxHealth;
-                  }
-                  if (CurrentHealth < 0)
-                  {
-                        CurrentHealth = 0;
-                  }
+                Die();
+            }
+        }
 
-                  //Makes sure stamina doesn't go over max and under 0
-                  if (CurrentStamina > MaxStamina)
-                  {
-                        CurrentStamina = MaxStamina;
-                  }
-                  if (CurrentStamina < 0)
-                  {
-                        CurrentStamina = 0;
-                  }
 
-                  //Makes sure mana doesn't go over max and under 0
-                  if (CurrentMana > MaxMana)
-                  {
-                        CurrentMana = MaxMana;
-                  }
-                  if (CurrentMana < 0)
-                  {
-                        CurrentMana = 0;
-                  }
+        //Converts regular values into values that can be used for the health and staminabar
+        private float DamageConversion(float curStat, float maxStat)
+        {
+            var conversion = (curStat * _MAXFILLAMOUNT) / maxStat;
+
+            return conversion;
+        }
+
+        private void StatsCheck()
+        {
+            //Makes sure health doesn't go over max and under 0
+            if (CurrentHealth > MaxHealth)
+            {
+                CurrentHealth = MaxHealth;
+            }
+            if (CurrentHealth < 0)
+            {
+                CurrentHealth = 0;
             }
 
-            private void DisplayStatConversion()
+            //Makes sure stamina doesn't go over max and under 0
+            if (CurrentStamina > MaxStamina)
             {
-                    //converts amount and fluidly change health with lerp
-                   foreach (var bar in healthbar)
-                   {
-                      if (bar.fillAmount != DamageConversion(CurrentHealth, MaxHealth))
-                      {
-                            bar.fillAmount = Mathf.Lerp(bar.fillAmount, DamageConversion(CurrentHealth, MaxHealth), 0.005f);
-                      }
-                      if (bar.fillAmount >= DamageConversion(CurrentHealth, MaxHealth) - 0.05)
-                      {
-                            bar.fillAmount = DamageConversion(CurrentHealth, MaxHealth);
-                      }
-
-                   }
-
-                   foreach (var bar in staminabar)
-                   {
-                      if (bar.fillAmount != DamageConversion(CurrentStamina, MaxStamina))
-                      {
-                            bar.fillAmount = Mathf.Lerp(bar.fillAmount, DamageConversion(CurrentStamina, MaxStamina), 0.005f);
-                      }
-
-                      if(bar.fillAmount >= DamageConversion(CurrentStamina, MaxStamina) - 0.05)
-                      {
-                         bar.fillAmount = DamageConversion(CurrentStamina, MaxStamina);
-                      }
-
-                   }
-
-                   foreach (var bar in manabar)
-                   {
-                      if (bar.fillAmount != DamageConversion(CurrentMana, MaxMana))
-                      {
-                            bar.fillAmount = Mathf.Lerp(bar.fillAmount, DamageConversion(CurrentMana, MaxMana), 0.005f);
-                      }
-                      if (bar.fillAmount >= DamageConversion(CurrentMana, MaxMana) - 0.05)
-                      {
-                          bar.fillAmount = DamageConversion(CurrentMana, MaxMana);
-                      }
-                   }
-                
+                CurrentStamina = MaxStamina;
+            }
+            if (CurrentStamina < 0)
+            {
+                CurrentStamina = 0;
             }
 
-
-
-            /// <summary>
-            /// Used to detect pickups from mob drops, will be added to as we have more to pickup :D
-            /// Items dropped MUST be on the Resource layer in order to be detected.
-            /// </summary>
-            /// <param name="other"></param>
-            private void OnTriggerEnter(Collider other)
+            //Makes sure mana doesn't go over max and under 0
+            if (CurrentMana > MaxMana)
             {
-                  if (other.gameObject.layer == LayerMask.NameToLayer("Resource"))
-                  {
-                        var resource = other.gameObject.GetComponent<Resources>();
+                CurrentMana = MaxMana;
+            }
+            if (CurrentMana < 0)
+            {
+                CurrentMana = 0;
+            }
+        }
 
-                        if (resource != null)
-                        {
-                              switch (resource.ResourceData.ResourceEnum)
-                              {
-                                    case ResourceTypeEnum.MonsterMeat:
-                                          meatAmount += resource.ResourceData.GetAmount();
-                                          resource.PickupResource();
-                                          break;
-                                    case ResourceTypeEnum.Gold:
-                                          goldAmount += resource.ResourceData.GetAmount();
-                                          resource.PickupResource();
-                                          break;
-                                    case ResourceTypeEnum.Health:
-                                          _healthPotionAmount += resource.ResourceData.GetAmount();
-                                          resource.PickupResource();
-                                          break;
-                                    case ResourceTypeEnum.Mana:
-                                          _manaPotionAmount += resource.ResourceData.GetAmount();
-                                          resource.PickupResource();
-                                          Debug.Log($"ManaPotionAmount: {_manaPotionAmount}");
-                                          break;
-                              }
-                        }
+        private void DisplayStatConversion()
+        {
+            //converts amount and fluidly change health with lerp
+            foreach (var bar in healthbar)
+            {
+                if (bar.fillAmount != DamageConversion(CurrentHealth, MaxHealth))
+                {
+                    bar.fillAmount = Mathf.Lerp(bar.fillAmount, DamageConversion(CurrentHealth, MaxHealth), 0.005f);
+                }
+                if (bar.fillAmount >= DamageConversion(CurrentHealth, MaxHealth) - 0.05)
+                {
+                    bar.fillAmount = DamageConversion(CurrentHealth, MaxHealth);
+                }
 
-
-                  }
             }
 
-            public void GetHit(int damage)
+            foreach (var bar in staminabar)
             {
-                  if (isDead == false)                                               // If player is not dead,
-                  {
-                        CurrentHealth -= damage;                                     // Decrease health by 1
-                                                                             
-                        if (CurrentHealth <= 0)                                      // Check for health less than or equal to 0
-                        { 
-                              isDead = true;                                         // dead bool = true
-                        }
-                  }
+                if (bar.fillAmount != DamageConversion(CurrentStamina, MaxStamina))
+                {
+                    bar.fillAmount = Mathf.Lerp(bar.fillAmount, DamageConversion(CurrentStamina, MaxStamina), 0.005f);
+                }
+
+                if (bar.fillAmount >= DamageConversion(CurrentStamina, MaxStamina) - 0.05)
+                {
+                    bar.fillAmount = DamageConversion(CurrentStamina, MaxStamina);
+                }
+
             }
 
-
-            public void Die()
+            foreach (var bar in manabar)
             {
-                  anim.SetTrigger("isDead");
-                  playerLoco.canMove = false;
-                  Collider collider = GetComponent<Collider>();
-                  collider.enabled = false;
-              
-                  StartCoroutine(DestroyCoroutine());
+                if (bar.fillAmount != DamageConversion(CurrentMana, MaxMana))
+                {
+                    bar.fillAmount = Mathf.Lerp(bar.fillAmount, DamageConversion(CurrentMana, MaxMana), 0.005f);
+                }
+                if (bar.fillAmount >= DamageConversion(CurrentMana, MaxMana) - 0.05)
+                {
+                    bar.fillAmount = DamageConversion(CurrentMana, MaxMana);
+                }
             }
 
-            IEnumerator DestroyCoroutine()
-            {
-                  yield return new WaitForSeconds(10f);
-                  gameObject.SetActive(false);
-            }
+        }
 
-            public void GetStunned(float length)
+
+
+        /// <summary>
+        /// Used to detect pickups from mob drops, will be added to as we have more to pickup :D
+        /// Items dropped MUST be on the Resource layer in order to be detected.
+        /// </summary>
+        /// <param name="other"></param>
+        private void OnTriggerEnter(Collider other)
+        {
+            if (other.gameObject.layer == LayerMask.NameToLayer("Resource"))
             {
-                  return;
+                var resource = other.gameObject.GetComponent<Resources>();
+
+                if (resource != null)
+                {
+                    switch (resource.ResourceData.ResourceEnum)
+                    {
+                        case ResourceTypeEnum.MonsterMeat:
+                            meatAmount += resource.ResourceData.GetAmount();
+                            resource.PickupResource();
+                            break;
+                        case ResourceTypeEnum.Gold:
+                            goldAmount += resource.ResourceData.GetAmount();
+                            resource.PickupResource();
+                            break;
+                        case ResourceTypeEnum.Health:
+                            _healthPotionAmount += resource.ResourceData.GetAmount();
+                            resource.PickupResource();
+                            break;
+                        case ResourceTypeEnum.Mana:
+                            _manaPotionAmount += resource.ResourceData.GetAmount();
+                            resource.PickupResource();
+                            Debug.Log($"ManaPotionAmount: {_manaPotionAmount}");
+                            break;
+                    }
+                }
+
+
             }
-      }
+        }
+
+        public void GetHit(int damage)
+        {
+            if (isDead == false)                                               // If player is not dead,
+            {
+                CurrentHealth -= damage;                                     // Decrease health by 1
+
+                if (CurrentHealth <= 0)                                      // Check for health less than or equal to 0
+                {
+                    isDead = true;                                         // dead bool = true
+                }
+            }
+        }
+
+
+        public void Die()
+        {
+            anim.SetTrigger("isDead");
+            playerLoco.canMove = false;
+            Collider collider = GetComponent<Collider>();
+            collider.enabled = false;
+
+            StartCoroutine(DestroyCoroutine());
+        }
+
+        IEnumerator DestroyCoroutine()
+        {
+            yield return new WaitForSeconds(2f);
+            SceneManager.LoadSceneAsync(0);
+        }
+
+        public void GetStunned(float length)
+        {
+            return;
+        }
+    }
 }
