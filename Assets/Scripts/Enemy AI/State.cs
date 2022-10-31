@@ -145,6 +145,69 @@ public class Idle : State
 /// </summary>
 public class Patrol : State
 {
+      //float wanderRadius = 25f;
+      //float wanderTimer = 10f;
+
+      //Transform target;
+      //float timer;
+      //float timeIdle = 2f;
+
+      //public override void Enter()
+      //{
+      //      anim.SetTrigger("isWalking");
+      //      player = GameObject.FindGameObjectWithTag("Player").transform;
+      //      timer = wanderTimer;
+      //      base.Enter();
+      //}
+
+      //public override void Update()
+      //{
+      //      timer += Time.deltaTime;
+
+      //      if(timer >= wanderTimer)
+      //      {
+      //            Vector3 newPos = RandomNavSphere(agent.transform.position, wanderRadius, -1);
+      //            agent.SetDestination(newPos);
+
+      //            if (agent.remainingDistance < 0.5f)
+      //            {
+      //                  agent.isStopped = true;
+      //                  anim.ResetTrigger("isWalking");
+
+      //            }
+
+      //            agent.isStopped = false;
+      //            timer = 0;
+      //            anim.SetTrigger("isWalking");
+
+      //            if (CanSeePlayer())                                                                             // If the AI agent can see the player,
+      //            {
+      //                  nextState = new Pursue(npc, agent, anim, player);                                         // Update our nextState to pursue the player
+      //                  stage = EVENT.EXIT;                                                                       // Run code to exit the Patrol State.
+      //            }
+      //      }
+
+
+
+
+      //      base.Update();
+      //}
+
+      //public override void Exit()
+      //{
+      //      anim.ResetTrigger("isWalking");                                                                 // Reset Walking animation
+      //      base.Exit();
+      //}
+
+      //public static Vector3 RandomNavSphere(Vector3 origin, float dist, int layermask)
+      //{
+      //      Vector3 randomDirection = Random.insideUnitSphere * dist;
+      //      randomDirection += origin;
+      //      NavMeshHit navHit;
+      //      NavMesh.SamplePosition(randomDirection, out navHit, dist, layermask);
+      //      return navHit.position;
+      //}
+
       int currentIndex = -1;
       private List<GameObject> checkpoints = new List<GameObject>();
 
@@ -177,7 +240,7 @@ public class Patrol : State
                         }
                   }
             }
-            
+
 
 
             anim.SetTrigger("isWalking");                                                                   // Trigger the Walking animation
@@ -186,12 +249,12 @@ public class Patrol : State
       }
 
       public override void Update()
-      {                                                                                                     
-                                                                                                            // LOOP THROUGH CHECKPOINTS, MOVING AI AGENT BETWEEN THEM.
+      {
+            // LOOP THROUGH CHECKPOINTS, MOVING AI AGENT BETWEEN THEM.
 
-            if(agent.remainingDistance < 1)                                                                 // If the AI agent is less than 1 unit from his current destination,
+            if (agent.remainingDistance < 1)                                                                 // If the AI agent is less than 1 unit from his current destination,
             {
-                  if(currentIndex >= checkpoints.Count - 1)                       // If the currentIndex evaluated is greater than the number of checkpoints in our list - 1, 
+                  if (currentIndex >= checkpoints.Count - 1)                       // If the currentIndex evaluated is greater than the number of checkpoints in our list - 1, 
                   {
                         currentIndex = 0;                                                                   // Set currentIndex to the beginning of the list
                   }
@@ -201,11 +264,11 @@ public class Patrol : State
                   }
 
                   agent.SetDestination                                                                      // Move NavMeshAgent to the checkpoints position
-                        (checkpoints[currentIndex].transform.position);           
+                        (checkpoints[currentIndex].transform.position);
             }
 
 
-                                                                                                            
+
             if (CanSeePlayer())                                                                             // If the AI agent can see the player,
             {
                   nextState = new Pursue(npc, agent, anim, player);                                         // Update our nextState to pursue the player
@@ -314,11 +377,16 @@ public class Attack : State
                   nextState = new Pursue(npc, agent, anim, player);                                         // Resume the pursue state
                   stage = EVENT.EXIT;
             }
-            else if(pm.CurrentHealth <= 0)
+            else if (pm.CurrentHealth <= 0)
             {
                   nextState = new Patrol(npc, agent, anim, player);
                   stage = EVENT.EXIT;
             }
+            //else if (enemyStats.currentHealth <= 0)
+            //{
+            //      nextState = new Dead(npc, agent, anim, player);
+            //      stage = EVENT.EXIT;
+            //}
       }
 
       public override void Exit()
@@ -329,3 +397,29 @@ public class Attack : State
       }
 
 }
+
+
+//public class Dead : State
+//{
+//      public Dead(GameObject _npc, NavMeshAgent _agent, Animator _anim, Transform _player) : base(_npc, _agent, _anim, _player)
+//      {
+//            name = STATE.DEAD;
+//      }
+
+//      public override void Enter()
+//      {
+//            anim.SetTrigger("isDead");
+//            agent.isStopped = true;
+//            base.Enter();
+//      }
+
+//      public override void Update()
+//      {
+//            return;
+//      }
+
+//      public override void Exit()
+//      {
+//            return;
+//      }
+//}

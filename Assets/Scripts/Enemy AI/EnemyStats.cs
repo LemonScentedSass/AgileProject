@@ -53,7 +53,7 @@ public class EnemyStats : MonoBehaviour, IHittable
             
             anim.SetTrigger("isDead");
             agent.isStopped = true;
-            yield return new WaitForSeconds(5f);
+            yield return new WaitForSeconds(3f);
             resourceDropper.DropItem();
             LevelSystem.instance.AddExperience(30);
             Destroy(gameObject);
