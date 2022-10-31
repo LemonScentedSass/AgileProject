@@ -238,7 +238,7 @@ public class Hotbar : MonoBehaviour
 
         while (t < duration)
         {
-            Debug.Log("trigger");
+            //Debug.Log("trigger");
             //Debug.Log(reset);
             t += Time.deltaTime;
             reset = t / duration;
