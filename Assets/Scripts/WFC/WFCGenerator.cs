@@ -12,6 +12,10 @@ namespace WFC
         [SerializeField] private Tileset _tileset;
         [SerializeField] private Tilemap _tilemap;
 
+        [SerializeField] private Tileset _3dTileSet;
+        [SerializeField] private Tilemap _3dTileMap;
+        [SerializeField] private TileBase _crateTile;
+
         //public Dictionary<int, RoomData> RoomDictionary;
 
         public static WFCGenerator instance;
