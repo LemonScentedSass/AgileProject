@@ -134,7 +134,7 @@ namespace WFC
                 return;
             }
 
-            curElement.Collapse(_tilemap);
+            curElement.Collapse(_tilemap, _3dTileMap);
 
             for (int y = -1; y <= 1; y++)
             {
@@ -221,7 +221,7 @@ namespace WFC
             }
         }
 
-        public void Collapse(Tilemap tilemap)
+        public void Collapse(Tilemap tilemap, Tilemap threeDTilemap)
         {
             if(_options.Count == 0)
             {

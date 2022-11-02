@@ -12,4 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e071ec8dea51e8d4fa248e2efccd3ef1, type: 3}
   m_Name: New Three Dee Tileset
   m_EditorClassIdentifier: 
-  ruleTiles: []
+  ruleTiles:
+  - {fileID: 11400000, guid: 73b61b0d3e7e67e46bc6e5da0d1173e7, type: 2}
