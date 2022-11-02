@@ -15,5 +15,7 @@ namespace WFC
         public Module[] east;
         public Module[] south;
         public Module[] west;
+
+        public Module[] detailModule;
     }
 }
