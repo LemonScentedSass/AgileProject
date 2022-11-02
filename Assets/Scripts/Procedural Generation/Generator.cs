@@ -199,7 +199,7 @@ namespace MapGeneration
             AddRandomEdges(edges, mst);
             List<Edge> corridors = CalculateCorridors(mst, rooms);
             StartCoroutine(DrawContent(rooms, corridors));
-            //StartAndEnd.instance.FindStartAndEnd(rooms);
+            StartAndEnd.instance.FindStartAndEnd(rooms);
             _gizmoMST = mst;            
         }
 

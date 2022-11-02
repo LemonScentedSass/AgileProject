@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 33104823485779868}
   - component: {fileID: 23573647223393292}
   - component: {fileID: 65016126255501838}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: SM_PolygonPrototype_Buildings_Floor_1x1_01P
   m_TagString: Untagged
   m_Icon: {fileID: 0}
