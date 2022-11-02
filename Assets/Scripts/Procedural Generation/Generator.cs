@@ -199,53 +199,47 @@ namespace MapGeneration
             AddRandomEdges(edges, mst);
             List<Edge> corridors = CalculateCorridors(mst, rooms);
             StartCoroutine(DrawContent(rooms, corridors));
-            StartAndEnd.instance.FindStartAndEnd(rooms);
+            //StartAndEnd.instance.FindStartAndEnd(rooms);
             _gizmoMST = mst;            
         }
 
         private IEnumerator DrawContent(List<Room> rooms, List<Edge> corridors)
         {
-            int iteration = 0;
-            List<Room> curWFCRooms = new List<Room>();
-            
+            List<Room> curWFCRooms = new List<Room>();            
 
             for (int i = 0; i < rooms.Count; i++)
             {
                 Room curRoom = rooms[i];
+
+                Vector2Int intPosition = Vector2Int.RoundToInt(curRoom.Position); // Finds the integer value of the current room's position
+
+                Vector2Int topLeft = new Vector2Int(intPosition.x - curRoom.GetWidth, intPosition.y + curRoom.GetHeight);
+                Vector2Int topRight = new Vector2Int(intPosition.x + curRoom.GetWidth, intPosition.y + curRoom.GetHeight);
+                Vector2Int bottomLeft = new Vector2Int(intPosition.x - curRoom.GetWidth, intPosition.y - curRoom.GetHeight);
+                Vector2Int bottomRight = new Vector2Int(intPosition.x + curRoom.GetWidth, intPosition.y - curRoom.GetHeight); // The bounds of the current room, used in drawing the walls
+
                 if (curRoom.TurnedOff == false)
                 {
-                    Vector2 topLeft = new Vector2(curRoom.Position.x - curRoom.GetWidth, curRoom.Position.y + curRoom.GetHeight);
-                    Vector2 topRight = new Vector2(curRoom.Position.x + curRoom.GetWidth, curRoom.Position.y + curRoom.GetHeight);
-                    Vector2 bottomLeft = new Vector2(curRoom.Position.x - curRoom.GetWidth, curRoom.Position.y - curRoom.GetHeight);
-                    Vector2 bottomRight = new Vector2(curRoom.Position.x + curRoom.GetWidth, curRoom.Position.y - curRoom.GetHeight);
+                    curWFCRooms.Add(curRoom); // Adds the current rooms to the list of rooms to perform WFC on top of
 
-                    MapVisualController.RectFill(curRoom.Position, curRoom.GetWidth, curRoom.GetHeight, _floorTile, _tilemap);
-                    MapVisualController.RectFill(curRoom.Position, curRoom.GetWidth, curRoom.GetHeight, _3DfloorTile, _3Dtilemap);
+                    // Draws the room floors
+                    MapVisualController.RectFill(intPosition, curRoom.GetWidth, curRoom.GetHeight, _floorTile, _tilemap);
+                    MapVisualController.RectFill(intPosition, curRoom.GetWidth, curRoom.GetHeight, _3DfloorTile, _3Dtilemap);                                 
 
-                    curWFCRooms.Add(curRoom);                    
-
-                    MapVisualController.RectFill(topLeft, topRight, 1, _wallTile, _tilemap);
-                    MapVisualController.RectFill(topLeft, topRight, 1, _3DwallTile, _3Dtilemap);
-                    MapVisualController.RectFill(topLeft, bottomLeft, 1, _wallTile, _tilemap);
-                    MapVisualController.RectFill(topLeft, bottomLeft, 1, _3DwallTile, _3Dtilemap);
-                    MapVisualController.RectFill(bottomLeft, bottomRight, 1, _wallTile, _tilemap);
-                    MapVisualController.RectFill(bottomLeft, bottomRight, 1, _3DwallTile, _3Dtilemap);
+                    // Then draws the room walls
+                    MapVisualController.RectFill(topLeft, topRight, 1, _wallTile, _tilemap);                    
+                    MapVisualController.RectFill(topLeft, bottomLeft, 1, _wallTile, _tilemap);                    
+                    MapVisualController.RectFill(bottomLeft, bottomRight, 1, _wallTile, _tilemap);                    
                     MapVisualController.RectFill(bottomRight, topRight, 1, _wallTile, _tilemap);
+                    
+                    MapVisualController.RectFill(topLeft, topRight, 1, _3DwallTile, _3Dtilemap);
+                    MapVisualController.RectFill(topLeft, bottomLeft, 1, _3DwallTile, _3Dtilemap);
+                    MapVisualController.RectFill(bottomLeft, bottomRight, 1, _3DwallTile, _3Dtilemap);
                     MapVisualController.RectFill(bottomRight, topRight, 1, _3DwallTile, _3Dtilemap);
-
-                    /*
-                    iteration++;
-
-                    if (iteration >= _refreshCounterMax)
-                    {
-                        iteration = 0;
-                        yield return null;
-                    }
-                    */
-
                 }
             }
 
+            // Draws the corridor floors and walls
             for (int i = 0; i < corridors.Count; i++)
             {
                 Edge curEdge = corridors[i];
@@ -253,20 +247,9 @@ namespace MapGeneration
                 MapVisualController.RectFill(curEdge.GetPointA, curEdge.GetPointB, 1, _3DfloorTile, _3Dtilemap, true);
                 MapVisualController.RectFill(curEdge.GetPointA, curEdge.GetPointB, 2, _wallTile, _tilemap, false);
                 MapVisualController.RectFill(curEdge.GetPointA, curEdge.GetPointB, 2, _3DwallTile, _3Dtilemap, false);
-
-                /*
-                iteration++;
-
-                if (iteration >= _refreshCounterMax)
-                {
-                    iteration = 0;
-                    yield return null;
-                }
-                */
             }
 
-
-
+            // Performs WFC
             for (int i = 0; i < curWFCRooms.Count; i++)
             {
                 Room curRoom = curWFCRooms[i];
@@ -276,26 +259,11 @@ namespace MapGeneration
                     Vector2Int pos = Vector2Int.RoundToInt(curRoom.Position);
                     pos.x -= curRoom.GetWidth;
                     pos.y -= curRoom.GetHeight;
-                    Vector2Int size = Vector2Int.RoundToInt(curRoom.GetSize);
+                    Vector2Int size = new Vector2Int(curRoom.GetWidth * 2, curRoom.GetHeight * 2);
+                    //Vector2Int size = Vector2Int.RoundToInt(curRoom.GetSize);
                     WFCGenerator.instance.Generate(pos, size);
                 }
 
-                iteration++;
-
-                /*
-                if (iteration >= _refreshCounterMax)
-                {
-                    iteration = 0;
-
-                    Debug.Log("Hit Refresh Max");
-                    yield return null;
-                }
-                else
-                {
-                    Debug.Log("Did NOT Hit Refresh Max");
-                    yield return null;
-                }
-                */
                 yield return null;
             }
         }
