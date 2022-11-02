@@ -13,10 +13,7 @@ namespace WFC
         [SerializeField] private Tilemap _tilemap;
 
         [SerializeField] private Tilemap _3dTileMap;
-
-        //[SerializeField] private TwoDimensionalTileset _twoDimensionalTileset;
-
-        //public Dictionary<int, RoomData> RoomDictionary;
+        [Range(0f, 1f)] public float spawnChance = .5f;
 
         public static WFCGenerator instance;
 
@@ -30,48 +27,10 @@ namespace WFC
             {
                 Destroy(this);
             }
-        }
-
-        /*
-        public void AddCurRoomData(Vector2Int curRoomPos, Vector2Int curRoomSize)
-        {
-            RoomData.RoomPos = curRoomPos;
-            RoomData.RoomSize = curRoomSize;
-        }
-        public class RoomData
-        {
-            public static Vector2Int RoomPos;
-            public static Vector2Int RoomSize;
-        }
-        public void SaveRoomDataToDictionary(int index)
-        { 
-            RoomDictionary.Add(new KeyValuePair<int, RoomData>())
-            //RoomDictionary = new Dictionary<int, RoomData>
-        }
-
-        /*
-        public class RoomDictionary : Dictionary<int, RoomData>
-        {
-            public void Add(int roomsIndex, Vector2Int position, Vector2Int size)
-            {
-                RoomData data;
-                data.RoomPos = position;
-                data.RoomSize = size;
-                this.Add(roomsIndex, data);
-            }            
-        }
-        */
-        
+        }        
 
         public void Generate(Vector2Int position, Vector2Int size)
         {
-            /*
-            foreach (var item in RoomDictionary)
-            {
-
-                StartCoroutine(CreateWorld(position, size));
-            }
-            */
             StartCoroutine(CreateWorld(position, size));
         }
 
@@ -135,8 +94,8 @@ namespace WFC
                 return;
             }
 
-            curElement.Collapse(_tilemap, _3dTileMap);
-
+            curElement.SpawnChance = spawnChance;
+            curElement.Collapse(_tilemap, _3dTileMap);            
 
             // Manages removing valid neighbors
             for (int y = -1; y <= 1; y++)
@@ -195,9 +154,12 @@ namespace WFC
 
         private int _entropy;
 
+        private float _spawnChance;
+
         public Vector2Int GetPosition { get { return _position; } }
         public Module GetSelectedModule { get { return _selectedModule; } }
         public int GetEntropy { get { return _options.Count; } }
+        public float SpawnChance { get { return _spawnChance; } set { _spawnChance = value; } }
 
         public Element(List<Module> options, Vector2Int position, Vector2Int offset)
         {
@@ -243,9 +205,16 @@ namespace WFC
             Vector3Int offsetPosition = (Vector3Int)_position + (Vector3Int)_offset;
             tilemap.SetTile(offsetPosition, _selectedModule.tilebase);
 
-            if (_selectedModule.detailModule.Length != 0)
+            float random = Random.Range(0f, 1f);
+            //Debug.Log("Random value: " + random + " Spawn Chance: " + _spawnChance);
+
+            if (random < _spawnChance)
             {
-                threeDTilemap.SetTile(offsetPosition, _selectedModule.detailModule[0].tilebase);
+                if (_selectedModule.detailModule.Length != 0)
+                {
+                    threeDTilemap.SetTile(offsetPosition, _selectedModule.detailModule[0].tilebase);
+                    Debug.Log("Spawned Crate " + random);
+                }
             }
 
             //tilemap.SetTile((Vector3Int)_position, _selectedModule.tilebase);

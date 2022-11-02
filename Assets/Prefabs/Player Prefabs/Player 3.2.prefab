@@ -2401,7 +2401,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 408711538437598883}
   m_HandleRect: {fileID: 408711538437598893}
   m_Direction: 1
-  m_Value: 0.99999976
+  m_Value: 1.0000001
   m_Size: 0.65202874
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -12432,7 +12432,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 408711538614255632}
   m_HandleRect: {fileID: 408711538614255634}
   m_Direction: 1
-  m_Value: 1
+  m_Value: 1.0000004
   m_Size: 0.6520286
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -49533,7 +49533,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 408711538575468276}
   m_HandleRect: {fileID: 408711538575468279}
   m_Direction: 1
-  m_Value: 1
+  m_Value: 1.0000004
   m_Size: 0.65202874
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -69410,7 +69410,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 1023
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -69616,6 +69616,7 @@ MonoBehaviour:
   _maxHealth: 10
   _curStamina: 0
   _maxStamina: 100
+  _staminaRegenTime: 4
   _curMana: 0
   _maxMana: 100
   _minAttack: 1
@@ -69627,9 +69628,6 @@ MonoBehaviour:
   _manaPotionHeal: 40
   meatAmount: 4
   goldAmount: 0
-  healthRegen: 0
-  stamRegen: 0
-  manaRegen: 0
   usingItem: 0
   healthbar:
   - {fileID: 8000058973003857341}
@@ -69987,9 +69985,7 @@ MonoBehaviour:
   m_AnimatedTarget: {fileID: 6697902659047330067}
   m_LayerIndex: 0
   m_ShowDebugText: 0
-  m_ChildCameras:
-  - {fileID: 6697902659544355669}
-  - {fileID: 6697902659085609074}
+  m_ChildCameras: []
   m_Instructions:
   - m_FullHash: 1791551656
     m_VirtualCamera: {fileID: 6697902659544355669}

@@ -181,7 +181,7 @@ GameObject:
   - component: {fileID: 472672304}
   - component: {fileID: 472672302}
   - component: {fileID: 472672303}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: 2D World
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -442,8 +442,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _numberOfRooms:
-    _minValue: 10
-    _maxValue: 15
+    _minValue: 20
+    _maxValue: 30
   _roomSize:
     _minValue: 10
     _maxValue: 15
@@ -451,9 +451,9 @@ MonoBehaviour:
     _minValue: 15
     _maxValue: 20
   _refreshCounterMax: 50
-  _cullingPercent: 0.305
+  _cullingPercent: 0.505
   _superTriangleOffset: 50
-  _edgeReconnectionPercent: 0
+  _edgeReconnectionPercent: 0.52
   _tilemap: {fileID: 472672302}
   _floorTile: {fileID: 11400000, guid: e8e4eeecaa0a72742be555689195568e, type: 2}
   _wallTile: {fileID: 11400000, guid: 583af02c87b66ce45995e6c34f084fad, type: 2}
@@ -491,6 +491,7 @@ MonoBehaviour:
   _tileset: {fileID: 11400000, guid: 7f32d74d6af134845b1f175f2e948a56, type: 2}
   _tilemap: {fileID: 472672302}
   _3dTileMap: {fileID: 733559953}
+  spawnChance: 0.221
 --- !u!114 &518638963
 MonoBehaviour:
   m_ObjectHideFlags: 0
