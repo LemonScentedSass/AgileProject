@@ -88,7 +88,6 @@ public class ProjectileMotion : MonoBehaviour
                   if (collision.gameObject.tag == "Wall")
                   {
                         Hit = true;
-                        Debug.Log("wtf, why two balls");
                         //fireballExplosion = Instantiate(ExplosionPrefab, transform.position, Quaternion.identity);
                         transform.position = objectPool;
                         Exploded = true;
@@ -164,7 +163,6 @@ public class ProjectileMotion : MonoBehaviour
             //explosion after travel time
             if (Exploded != true && travelTime == true && Hit == false)
             {
-                  Debug.Log("alsdjfl;asjdfl;asjdf;lajsd;ljasl;dfja");
                   if (timeTracker >= TravelTime)
                   {
                         Debug.Log("explosion");
