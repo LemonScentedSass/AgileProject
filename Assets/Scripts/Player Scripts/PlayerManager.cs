@@ -18,6 +18,7 @@ namespace GameManager
         [SerializeField] public float _maxHealth = 10f;
         [SerializeField] public float _curStamina;
         [SerializeField] public float _maxStamina = 100f;
+        [SerializeField] public float _staminaRegenTime = 4f;
         [SerializeField] public float _curMana;
         [SerializeField] public float _maxMana = 100f;
 
@@ -42,11 +43,10 @@ namespace GameManager
         [Header("Others")]
         private float _MAXFILLAMOUNT = 1.0f;
 
-        public bool healthRegen = false;
-        public bool stamRegen = false;
-        public bool manaRegen = false;
         private bool isDead = false;
         public bool usingItem = false;
+        private float time;
+        private float placeholder;
 
         public Image[] healthbar;
         public Image[] staminabar;
@@ -61,6 +61,7 @@ namespace GameManager
 
         public float MaxStamina { get { return _maxStamina; } set { _maxStamina = value; } }
         public float CurrentStamina { get { return _curStamina; } set { _curStamina = value; } }
+        public float StaminaRegenTime { get { return _staminaRegenTime; } set { _staminaRegenTime = value; } }
 
         public float MaxMana { get { return _maxMana; } set { _maxMana = value; } }
         public float CurrentMana { get { return _curMana; } set { _curMana = value; } }
@@ -136,6 +137,33 @@ namespace GameManager
             {
                 Die();
             }
+
+            //Regens Stamina if taken stamina damage
+            if(CurrentStamina != MaxStamina)
+            {
+                if(placeholder == 0)
+                {
+                    placeholder = CurrentStamina;
+                }
+
+                if(placeholder > CurrentStamina)
+                {
+                    time = 0;
+                    placeholder = CurrentStamina;
+                }
+
+                time += Time.deltaTime;
+               
+                if(time >= StaminaRegenTime)
+                {
+                    CurrentStamina = MaxStamina;
+                    time = 0;
+                }
+
+                Debug.Log(time);
+            }
+
+
         }
 
 

@@ -87,7 +87,7 @@ public class Hotbar : MonoBehaviour
       // Update is called once per frame
       void Update()
       {
-            if (Input.GetKeyDown(Magic) && GameManager.PlayerManager.pm.usingItem == false && anim.GetCurrentAnimatorStateInfo(2).IsName("Empty") == true && magiccooldownImage.fillAmount == 0)
+            if (Input.GetKeyDown(Magic) && GameManager.PlayerManager.pm.usingItem == false && magiccooldownImage.fillAmount == 0)
             {
                   anim.Play("Fireball", 2);
                   GameManager.PlayerManager.pm.usingItem = true;
@@ -95,7 +95,7 @@ public class Hotbar : MonoBehaviour
                   StartCoroutine(StartCoolDown(MagicCooldownDuration, ResetCooldown, magiccooldownImage));
             }
 
-            if (Input.GetKeyDown(Item) && GameManager.PlayerManager.pm.usingItem == false && itemcooldownImage.fillAmount == 0 && anim.GetCurrentAnimatorStateInfo(1).IsName("Empty (Not Dodging)"))
+            if (Input.GetKeyDown(Item) && GameManager.PlayerManager.pm.usingItem == false && itemcooldownImage.fillAmount == 0)
             {
                   anim.Play("Bow", 1);
                   GameManager.PlayerManager.pm.usingItem = true;
