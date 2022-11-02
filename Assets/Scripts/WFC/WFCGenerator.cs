@@ -14,7 +14,8 @@ namespace WFC
 
         [SerializeField] private Tileset _3dTileSet;
         [SerializeField] private Tilemap _3dTileMap;
-        [SerializeField] private TileBase _crateTile;
+
+        [SerializeField] private TwoDimensionalTileset _twoDimensionalTileset;
 
         //public Dictionary<int, RoomData> RoomDictionary;
 
@@ -75,6 +76,8 @@ namespace WFC
             StartCoroutine(CreateWorld(position, size));
         }
 
+        // Added the new TwoDimensionalTileset, try and use it to make Elements with both the wfcModules and detailModules
+
         private IEnumerator CreateWorld(Vector2Int position, Vector2Int size)
         {
             Element[,] grid = new Element[size.x, size.y];
@@ -86,6 +89,7 @@ namespace WFC
                 {
                     Vector2Int newPosition = new Vector2Int(x, y);
                     grid[x, y] = new Element(_tileset.modules, newPosition, position);
+                    grid[x, y] = new Element(_twoDimensionalTileset.wfcModules, _twoDimensionalTileset.detailModules, newPosition, position);
                     unreachedPositions.Add(new Vector2Int(x, y));
                 }
             }
@@ -188,10 +192,14 @@ namespace WFC
         private Module _selectedModule;
         private Vector2Int _offset;
 
+        private List<Module> _3dOptions;
+        private Module _selected3dModule;
+
         private int _entropy;
 
         public Vector2Int GetPosition { get { return _position; } }
         public Module GetSelectedModule { get { return _selectedModule; } }
+        public Module GetSelected3DModule { get { return _selected3dModule; } }
         public int GetEntropy { get { return _options.Count; } }
 
         public Element(List<Module> options, Vector2Int position, Vector2Int offset)
@@ -202,6 +210,15 @@ namespace WFC
         }
 
         public Element(Module[] options, Vector2Int position, Vector2Int offset)
+        {
+            _options = new List<Module>(options);
+            _position = position;
+            _offset = offset;
+        }
+
+
+        // The new Element creator
+        public Element(Module[] options, Module[] detailEquivalents, Vector2Int position, Vector2Int offset)
         {
             _options = new List<Module>(options);
             _position = position;
@@ -230,10 +247,14 @@ namespace WFC
             }
 
             int rng = Random.Range(0, _options.Count);
+            
             _selectedModule = _options[rng];
+            Debug.Log(_selectedModule);
+            _selected3dModule = _options[rng];
 
             Vector3Int offsetPosition = (Vector3Int)_position + (Vector3Int)_offset;
             tilemap.SetTile(offsetPosition, _selectedModule.tilebase);
+            threeDTilemap.SetTile(offsetPosition, _selected3dModule.tilebase);
 
             //tilemap.SetTile((Vector3Int)_position, _selectedModule.tilebase);
         }
