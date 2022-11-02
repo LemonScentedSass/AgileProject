@@ -442,11 +442,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _numberOfRooms:
-    _minValue: 30
-    _maxValue: 50
+    _minValue: 10
+    _maxValue: 15
   _roomSize:
-    _minValue: 15
-    _maxValue: 25
+    _minValue: 10
+    _maxValue: 15
   _seperationRange:
     _minValue: 15
     _maxValue: 20
