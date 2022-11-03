@@ -26,7 +26,7 @@ public class State
 
       float visDist = 20.0f;                                                        // How far the AI can spot the player from
       float visAngle = 65.0f;                                                       // AI FOV
-      float attackDist = 2.0f;                                                      // Distance from player needed to attack
+      float attackDist = 1.5f;                                                      // Distance from player needed to attack
 
       public State(GameObject _npc, NavMeshAgent _agent, Animator _anim, Transform _player)
       {
@@ -126,7 +126,7 @@ public class Idle : State
             }
             else if(Random.Range(0, 100) < 10)                                      // Else we have a 10% chance to begin patrolling
             {
-                  nextState = new Patrol(npc, agent, anim, player);                 // Assign our 'State' to a new patrol state, passing the parameters from our idle state
+                  nextState = new Wander(npc, agent, anim, player);                 // Assign our 'State' to a new patrol state, passing the parameters from our idle state
                   stage = EVENT.EXIT;                                               // Assign our current Event 'stage' to be exit
             }
       }
@@ -145,69 +145,6 @@ public class Idle : State
 /// </summary>
 public class Patrol : State
 {
-      //float wanderRadius = 25f;
-      //float wanderTimer = 10f;
-
-      //Transform target;
-      //float timer;
-      //float timeIdle = 2f;
-
-      //public override void Enter()
-      //{
-      //      anim.SetTrigger("isWalking");
-      //      player = GameObject.FindGameObjectWithTag("Player").transform;
-      //      timer = wanderTimer;
-      //      base.Enter();
-      //}
-
-      //public override void Update()
-      //{
-      //      timer += Time.deltaTime;
-
-      //      if(timer >= wanderTimer)
-      //      {
-      //            Vector3 newPos = RandomNavSphere(agent.transform.position, wanderRadius, -1);
-      //            agent.SetDestination(newPos);
-
-      //            if (agent.remainingDistance < 0.5f)
-      //            {
-      //                  agent.isStopped = true;
-      //                  anim.ResetTrigger("isWalking");
-
-      //            }
-
-      //            agent.isStopped = false;
-      //            timer = 0;
-      //            anim.SetTrigger("isWalking");
-
-      //            if (CanSeePlayer())                                                                             // If the AI agent can see the player,
-      //            {
-      //                  nextState = new Pursue(npc, agent, anim, player);                                         // Update our nextState to pursue the player
-      //                  stage = EVENT.EXIT;                                                                       // Run code to exit the Patrol State.
-      //            }
-      //      }
-
-
-
-
-      //      base.Update();
-      //}
-
-      //public override void Exit()
-      //{
-      //      anim.ResetTrigger("isWalking");                                                                 // Reset Walking animation
-      //      base.Exit();
-      //}
-
-      //public static Vector3 RandomNavSphere(Vector3 origin, float dist, int layermask)
-      //{
-      //      Vector3 randomDirection = Random.insideUnitSphere * dist;
-      //      randomDirection += origin;
-      //      NavMeshHit navHit;
-      //      NavMesh.SamplePosition(randomDirection, out navHit, dist, layermask);
-      //      return navHit.position;
-      //}
-
       int currentIndex = -1;
       private List<GameObject> checkpoints = new List<GameObject>();
 
@@ -342,7 +279,7 @@ public class Attack : State
 {
       EnemyStats enemyStats;
       GameManager.PlayerManager pm;
-      float rotationSpeed = 5.0f;
+      float rotationSpeed = 10.0f;
       //AudioSource attackAudio;
       
       public Attack(GameObject _npc, NavMeshAgent _agent, Animator _anim, Transform _player) : base(_npc, _agent, _anim, _player)
@@ -356,8 +293,7 @@ public class Attack : State
             player = GameObject.FindGameObjectWithTag("Player").transform;
             pm = player.GetComponent<GameManager.PlayerManager>();
             anim.SetTrigger("isAttacking");                                                                 // When entering the attack state, play attack animation
-            //Debug.Log("ATTACKING PLAYER");
-            agent.isStopped = true;                                                                         // Stop the AI agent from moving
+            //Debug.Log("ATTACKING PLAYER");                                                                                                            // Stop the AI agent from moving
             //attackAudio.Play();
             base.Enter();
       }
@@ -367,19 +303,18 @@ public class Attack : State
             Vector3 direction = player.position - npc.transform.position;                                   // Determine the direction vector between the player and the AI agent
             float angle = Vector3.Angle(direction, npc.transform.forward);                                  // Determing the angle between the direction vector and the AI agents forward vector
             direction.y = 0;                                                                                // Lock the Y axis to prevent any tilting
-
             npc.transform.rotation = Quaternion.Slerp(npc.transform.rotation,                               // Rotate the AI agent toward the direction calculated
                                      Quaternion.LookRotation(direction), 
                                      Time.deltaTime * rotationSpeed);
 
-            if (!CanAttackPlayer())                                                                            // If the AI agent no longer attack the player,
+            if (!CanAttackPlayer())                                                                         // If the AI agent no longer attack the player,
             {
                   nextState = new Pursue(npc, agent, anim, player);                                         // Resume the pursue state
                   stage = EVENT.EXIT;
             }
             else if (pm.CurrentHealth <= 0)
             {
-                  nextState = new Patrol(npc, agent, anim, player);
+                  nextState = new Wander(npc, agent, anim, player);
                   stage = EVENT.EXIT;
             }
             //else if (enemyStats.currentHealth <= 0)
@@ -396,8 +331,126 @@ public class Attack : State
             base.Exit();
       }
 
+
+      bool AnimatorIsPlaying(string stateName)
+      {
+            return AnimatorIsPlaying(stateName) && anim.GetCurrentAnimatorStateInfo(0).IsName(stateName);
+      }
+
 }
 
+
+public class Wander : State
+{
+      float wanderRadius = 25f;
+      float wanderTimer = 3f;
+
+      Transform target;
+      float timer;
+      float timeIdle = 2f;
+
+      public Wander(GameObject _npc, NavMeshAgent _agent, Animator _anim, Transform _player) : base(_npc, _agent, _anim, _player)
+      {
+            name = STATE.PATROL;
+            agent.speed = 2;
+            agent.isStopped = false;
+      }
+      
+      public override void Enter()
+      {
+            anim.SetTrigger("isWalking");
+            player = GameObject.FindGameObjectWithTag("Player").transform;
+            timer = wanderTimer;
+            base.Enter();
+      }
+
+      public override void Update()
+      {
+            timer += Time.deltaTime;
+            int numberOfRays = 5;
+            float angle = 25f;
+            float rayRange = 1f;
+            int count = 0;
+
+            for (int i = 0; i < numberOfRays; i++)
+            {
+                  var rotation = agent.transform.rotation;
+                  var rotationMod = Quaternion.AngleAxis((i / ((float)numberOfRays - 1)) * angle * 2 - angle, agent.transform.up);
+                  var direction = rotation * rotationMod * Vector3.forward;
+                  //Debug.DrawRay(agent.transform.position, direction);
+                  
+
+                  var ray = new Ray(agent.transform.position + new Vector3(0,1,0), direction);
+                  RaycastHit hitInfo;
+
+                  Debug.DrawRay(agent.transform.position + new Vector3(0, 1, 0), direction);
+
+                  if (Physics.Raycast(ray, out hitInfo, rayRange, 11))
+                  {
+                        if (hitInfo.collider.gameObject.tag == "Wall" || hitInfo.collider.gameObject.tag == "Destructable")
+                        {
+                              if(hitInfo.distance < 1 && count == 0)
+                              {
+                                    Debug.Log("Obstacle Detected, Selecting new location");
+                                    agent.SetDestination(SetNewPos());
+                                    count++;
+                              }
+
+                        }
+                  }    
+            }
+            
+
+            if (timer >= wanderTimer)
+            {
+                  agent.SetDestination(SetNewPos());
+
+
+                  if (agent.remainingDistance < 1.0f)
+                  {
+                        nextState = new Idle(npc, agent, anim, player);
+                        stage = EVENT.EXIT;
+                      
+                  }
+
+                  agent.isStopped = false;
+                  timer = 0;
+                  anim.SetTrigger("isWalking");
+
+
+            }
+
+            if (CanSeePlayer())                                                                             // If the AI agent can see the player,
+            {
+                  nextState = new Pursue(npc, agent, anim, player);                                         // Update our nextState to pursue the player
+                  stage = EVENT.EXIT;                                                                       // Run code to exit the Patrol State.
+            }
+
+      }
+
+      public Vector3 SetNewPos()
+      {
+            Vector3 newPos = RandomNavSphere(agent.transform.position, wanderRadius, -1);
+            return newPos;
+      }
+
+      public override void Exit()
+      {
+            anim.ResetTrigger("isWalking");                                                                 // Reset Walking animation
+            base.Exit();
+      }
+
+      public static Vector3 RandomNavSphere(Vector3 origin, float dist, int layermask)
+      {
+            Vector3 randomDirection = Random.insideUnitSphere * dist;
+            randomDirection += origin;
+            NavMeshHit navHit;
+            NavMesh.SamplePosition(randomDirection, out navHit, dist, layermask);
+            return navHit.position;
+      }
+
+      
+}
 
 //public class Dead : State
 //{

@@ -10,6 +10,7 @@ TagManager:
   - MinimapCam
   - Enemy
   - Destructable
+  - Obstacle
   layers:
   - Default
   - TransparentFX
@@ -22,7 +23,7 @@ TagManager:
   - Ground
   - InvisToMinimap
   - 2D Generation
-  - 
+  - Obstacle
   - 
   - 
   - 
