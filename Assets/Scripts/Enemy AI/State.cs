@@ -62,12 +62,20 @@ public class State
       {     
             if(player != null)
             {
+
                   Vector3 direction = player.position - npc.transform.position;           // Determine direction vector from player to AI
                   float angle = Vector3.Angle(direction, npc.transform.forward);          // Determine the angle between the AI's forward vector and our direction vector
 
                   if (direction.magnitude < visDist && angle < visAngle)                   // If the length of the vector connecting player and AI is less than our visible distance float && the player is within AI FOV,
                   {
-                        return true;
+                       UnityEngine.UI.Slider healthSlider = npc.GetComponent<EnemyHealthUI>().healthSlider;
+                       healthSlider.enabled = true;
+                       return true;
+                  }
+                  else
+                  {
+                       UnityEngine.UI.Slider healthSlider = npc.GetComponent<EnemyHealthUI>().healthSlider;
+                       healthSlider.enabled = false;
                   }
 
                   return false;
