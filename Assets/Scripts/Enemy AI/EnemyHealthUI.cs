@@ -12,7 +12,7 @@ public class EnemyHealthUI : MonoBehaviour
     {
         enemyStats = GetComponent<EnemyStats>();
         healthSlider.maxValue = enemyStats.maxHealth;
-        healthSlider.enabled = false;
+        healthSlider.gameObject.SetActive(false);
     }
 
     // Update is called once per frame

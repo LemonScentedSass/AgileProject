@@ -9,6 +9,8 @@ namespace DataStorage
     {
         public DatabaseElement[] elements;
 
+
+        //Saves Scriptable Objects to an int
         public void SetIndexes()
         {
             for (int i = 0; i < elements.Length; i++)

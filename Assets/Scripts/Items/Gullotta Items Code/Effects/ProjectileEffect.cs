@@ -24,16 +24,18 @@ namespace EffectSystem
 
         public override void UseEffect(Transform user)
         {
+            //Spawns item if it doesn't exist
             if(ITEM == null)
             {
                 objectPool = (GameManager.PlayerManager.pm.transform.position + GameManager.PlayerManager.pm.transform.up * 50);
                 ITEM = Instantiate(projectileObject, user.transform.forward, Quaternion.identity);
             }
-
             ITEM.SetActive(true);
-            Debug.Log("ayo");
+
+            //Sets item to player position
             ITEM.transform.position = user.position + new Vector3(0,1,0) + user.transform.forward;
 
+            //Switch direction player can spawn projectiles
             switch (direction)
             {
                 case Direction.Forward:
@@ -50,11 +52,13 @@ namespace EffectSystem
                     break;
             }
 
+            //Adds script to item gameobject if it doesn't exist
             if (ITEM.GetComponent<ProjectileMotion>() == null)
             {
                 ITEM.AddComponent<ProjectileMotion>();
             }
 
+            //Sets all variables to equal this script
             ProjectileMotion pm = ITEM.GetComponent<ProjectileMotion>();
 
             pm.speed = speed;

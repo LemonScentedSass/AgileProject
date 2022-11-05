@@ -24,7 +24,7 @@ public class SkillPoints : Selectable
     public GameObject SkillDescriptionGO;
     public Slider UnlockSlider;
     private bool _spentSkill = false;
-    public bool previousNode = false;
+    public bool previousNodeUnlocked = false;
 
 
     public bool skillRequirements = true;
@@ -130,7 +130,8 @@ public class SkillPoints : Selectable
             }
             else
             {
-                if(PREVIOUSNODESCRIPT.previousNode == true)
+                //checks if previous node is unlocked
+                if(PREVIOUSNODESCRIPT.previousNodeUnlocked == true)
                 {
                     UnlockButton.SetActive(true);
                 }
@@ -141,7 +142,7 @@ public class SkillPoints : Selectable
     //unlocks skill
     public  void UnlockSkill(Image clickedButton)
     {
-        previousNode = true;
+        previousNodeUnlocked = true;
         UnlockButton.GetComponentInChildren<TMP_Text>().text = "Unlocked";
 
         //fill slider

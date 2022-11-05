@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 585d242ecd76c6744a5a2a1e3ca70c2d, type: 3}
   m_Name: Gold
   m_EditorClassIdentifier: 
-  <ResourceEnum>k__BackingField: 3
+  <ResourceEnum>k__BackingField: 2
   minAmount: 25
   maxAmount: 50
