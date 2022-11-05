@@ -17027,7 +17027,7 @@ RectTransform:
   m_Children:
   - {fileID: 408711538365722422}
   m_Father: {fileID: 8000058971654900702}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -23295,7 +23295,7 @@ Transform:
   - {fileID: 408711539209035333}
   - {fileID: 408711538541112499}
   m_Father: {fileID: 8000058971654900702}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &408711538958017378
 GameObject:
@@ -60194,7 +60194,7 @@ RectTransform:
   - {fileID: 408711538793036147}
   - {fileID: 408711539894252029}
   m_Father: {fileID: 8000058971654900702}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
@@ -61085,7 +61085,7 @@ GameObject:
   - component: {fileID: 2033831099508790203}
   - component: {fileID: 3679939441863874593}
   m_Layer: 5
-  m_Name: Gold
+  m_Name: GoldTXT
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -61099,17 +61099,16 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1940356944081079610}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -11.999499}
-  m_LocalScale: {x: 1.7905505, y: 2.0919003, z: 1.7905505}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.3355662, y: 0.5373595, z: 0.9941148}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 7001307300494865142}
-  m_Father: {fileID: 8000058971654900702}
-  m_RootOrder: 3
+  m_Children: []
+  m_Father: {fileID: 7001307300494865142}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 174, y: 50}
+  m_AnchoredPosition: {x: 16.205933, y: 13.182808}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0, y: 0}
 --- !u!222 &2033831099508790203
@@ -61140,7 +61139,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Gold:'
+  m_text: 'Gold: '
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -61167,8 +61166,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 28
+  m_fontSizeBase: 28
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -63236,7 +63235,7 @@ GameObject:
   - component: {fileID: 9179273080850385399}
   - component: {fileID: 2089145304497728574}
   m_Layer: 5
-  m_Name: Image
+  m_Name: GoldImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -63249,17 +63248,18 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3214529118185839274}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.6238976, y: 0.6238976, z: 0.6238976}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -1.0835122}
+  m_LocalScale: {x: 4.1294155, y: 2.8814335, z: 1.7222776}
   m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1633616932670293235}
-  m_RootOrder: 0
+  m_Children:
+  - {fileID: 1633616932670293235}
+  m_Father: {fileID: 8000058971654900702}
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -69, y: 0}
+  m_AnchoredPosition: {x: 73, y: 81}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0, y: 0}
 --- !u!222 &9179273080850385399
@@ -63283,14 +63283,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.764151, g: 0.764151, b: 0.502225, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 4378e2d944ea2824b97d64456588808b, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -70980,7 +70980,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 2.555, y: -9}
+  m_AnchoredPosition: {x: 2.5550003, y: -9}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6885241760525718391
@@ -72259,10 +72259,10 @@ RectTransform:
   - {fileID: 408711538193164181}
   - {fileID: 1875458000036082337}
   - {fileID: 8000058972037079289}
-  - {fileID: 1633616932670293235}
   - {fileID: 1559016305559162950}
   - {fileID: 408711538957938286}
   - {fileID: 408711538786158519}
+  - {fileID: 7001307300494865142}
   - {fileID: 6187368017347233662}
   m_Father: {fileID: 6697902658923446080}
   m_RootOrder: 3
