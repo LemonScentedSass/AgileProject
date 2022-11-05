@@ -10,6 +10,7 @@ namespace ItemSystem
     {
         public EffectBase[] effectsOnUse;
 
+        //Call method to use item and all item effects on the player's transform
         public void OnUseItem(Transform user)
         {
             for (int i = 0; i < effectsOnUse.Length; i++)

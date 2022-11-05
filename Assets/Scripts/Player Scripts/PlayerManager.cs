@@ -42,6 +42,7 @@ namespace GameManager
 
         [Header("Others")]
         private float _MAXFILLAMOUNT = 1.0f;
+        [SerializeField] private TMPro.TMP_Text GoldAmountTXT;
 
         private bool isDead = false;
         public bool usingItem = false;
@@ -97,7 +98,6 @@ namespace GameManager
         // Start is called before the first frame update
         void Start()
         {
-
             Debug.Log($"Starting ManaPotionAmount: {_manaPotionAmount}");
             //Sets current health and stamina to max
             _curHealth = _maxHealth;
@@ -163,6 +163,7 @@ namespace GameManager
                 Debug.Log(time);
             }
 
+            GoldAmountTXT.text = "Gold: " + goldAmount;
 
         }
 

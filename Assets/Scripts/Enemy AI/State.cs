@@ -68,16 +68,10 @@ public class State
 
                   if (direction.magnitude < visDist && angle < visAngle)                   // If the length of the vector connecting player and AI is less than our visible distance float && the player is within AI FOV,
                   {
-                       UnityEngine.UI.Slider healthSlider = npc.GetComponent<EnemyHealthUI>().healthSlider;
-                       healthSlider.enabled = true;
+                       npc.GetComponent<EnemyHealthUI>().healthSlider.gameObject.SetActive(true);
                        return true;
                   }
-                  else
-                  {
-                       UnityEngine.UI.Slider healthSlider = npc.GetComponent<EnemyHealthUI>().healthSlider;
-                       healthSlider.enabled = false;
-                  }
-
+                  npc.GetComponent<EnemyHealthUI>().healthSlider.gameObject.SetActive(false);
                   return false;
             }
 
@@ -272,6 +266,8 @@ public class Pursue : State
 
       public override void Exit()
       {
+            UnityEngine.UI.Slider healthSlider = npc.GetComponent<EnemyHealthUI>().healthSlider;
+            healthSlider.enabled = false;
             anim.ResetTrigger("isRunning");                                                                 // When exiting the Pursue state, reset the running animation trigger
             base.Exit();
       }

@@ -2401,7 +2401,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 408711538437598883}
   m_HandleRect: {fileID: 408711538437598893}
   m_Direction: 1
-  m_Value: 1.0000001
+  m_Value: 0.99999976
   m_Size: 0.65202874
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -3795,7 +3795,7 @@ MonoBehaviour:
   requirementTXTGO: {fileID: 408711538587177350}
   SkillDescriptionGO: {fileID: 408711538918387403}
   UnlockSlider: {fileID: 408711539413079907}
-  previousNode: 0
+  previousNodeUnlocked: 0
   skillRequirements: 1
   UnlockButton: {fileID: 408711538951565112}
   m_raycaster: {fileID: 8000058971654900701}
@@ -4272,7 +4272,7 @@ MonoBehaviour:
   requirementTXTGO: {fileID: 408711538269271578}
   SkillDescriptionGO: {fileID: 408711538883995443}
   UnlockSlider: {fileID: 408711539514691361}
-  previousNode: 0
+  previousNodeUnlocked: 0
   skillRequirements: 1
   UnlockButton: {fileID: 408711539522063395}
   m_raycaster: {fileID: 8000058971654900701}
@@ -5098,7 +5098,7 @@ MonoBehaviour:
   requirementTXTGO: {fileID: 408711538891387896}
   SkillDescriptionGO: {fileID: 408711539970253022}
   UnlockSlider: {fileID: 408711539496233224}
-  previousNode: 0
+  previousNodeUnlocked: 0
   skillRequirements: 1
   UnlockButton: {fileID: 408711539333543307}
   m_raycaster: {fileID: 8000058971654900701}
@@ -9060,7 +9060,7 @@ MonoBehaviour:
   requirementTXTGO: {fileID: 408711540256958177}
   SkillDescriptionGO: {fileID: 408711538642603384}
   UnlockSlider: {fileID: 408711539345649511}
-  previousNode: 0
+  previousNodeUnlocked: 0
   skillRequirements: 1
   UnlockButton: {fileID: 408711540245013629}
   m_raycaster: {fileID: 8000058971654900701}
@@ -10832,7 +10832,7 @@ MonoBehaviour:
   requirementTXTGO: {fileID: 408711538931789397}
   SkillDescriptionGO: {fileID: 408711539059990872}
   UnlockSlider: {fileID: 408711540274965425}
-  previousNode: 0
+  previousNodeUnlocked: 0
   skillRequirements: 1
   UnlockButton: {fileID: 408711538331559699}
   m_raycaster: {fileID: 8000058971654900701}
@@ -11312,7 +11312,7 @@ MonoBehaviour:
   requirementTXTGO: {fileID: 408711540184042151}
   SkillDescriptionGO: {fileID: 408711539269066228}
   UnlockSlider: {fileID: 408711539261488467}
-  previousNode: 0
+  previousNodeUnlocked: 0
   skillRequirements: 1
   UnlockButton: {fileID: 408711539057592013}
   m_raycaster: {fileID: 8000058971654900701}
@@ -12432,7 +12432,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 408711538614255632}
   m_HandleRect: {fileID: 408711538614255634}
   m_Direction: 1
-  m_Value: 1.0000004
+  m_Value: 1
   m_Size: 0.6520286
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -13614,7 +13614,7 @@ MonoBehaviour:
   requirementTXTGO: {fileID: 408711539256470829}
   SkillDescriptionGO: {fileID: 408711539195524396}
   UnlockSlider: {fileID: 408711538644803157}
-  previousNode: 0
+  previousNodeUnlocked: 0
   skillRequirements: 1
   UnlockButton: {fileID: 408711538877057909}
   m_raycaster: {fileID: 8000058971654900701}
@@ -14769,7 +14769,7 @@ MonoBehaviour:
   requirementTXTGO: {fileID: 408711539319574720}
   SkillDescriptionGO: {fileID: 408711538637642940}
   UnlockSlider: {fileID: 408711538195234798}
-  previousNode: 0
+  previousNodeUnlocked: 0
   skillRequirements: 1
   UnlockButton: {fileID: 408711539901874921}
   m_raycaster: {fileID: 8000058971654900701}
@@ -14903,7 +14903,7 @@ MonoBehaviour:
   requirementTXTGO: {fileID: 408711538921942542}
   SkillDescriptionGO: {fileID: 408711539524942998}
   UnlockSlider: {fileID: 408711538974868844}
-  previousNode: 0
+  previousNodeUnlocked: 0
   skillRequirements: 1
   UnlockButton: {fileID: 408711540148893043}
   m_raycaster: {fileID: 8000058971654900701}
@@ -17027,7 +17027,7 @@ RectTransform:
   m_Children:
   - {fileID: 408711538365722422}
   m_Father: {fileID: 8000058971654900702}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -17335,7 +17335,7 @@ MonoBehaviour:
   requirementTXTGO: {fileID: 408711539540986316}
   SkillDescriptionGO: {fileID: 408711540185559406}
   UnlockSlider: {fileID: 408711538936598828}
-  previousNode: 0
+  previousNodeUnlocked: 0
   skillRequirements: 1
   UnlockButton: {fileID: 408711540304275117}
   m_raycaster: {fileID: 8000058971654900701}
@@ -18359,7 +18359,7 @@ MonoBehaviour:
   requirementTXTGO: {fileID: 408711538359723180}
   SkillDescriptionGO: {fileID: 408711539950747978}
   UnlockSlider: {fileID: 408711538166620516}
-  previousNode: 0
+  previousNodeUnlocked: 0
   skillRequirements: 1
   UnlockButton: {fileID: 408711539756543363}
   m_raycaster: {fileID: 8000058971654900701}
@@ -19100,7 +19100,7 @@ MonoBehaviour:
   requirementTXTGO: {fileID: 408711539326274918}
   SkillDescriptionGO: {fileID: 408711539367748510}
   UnlockSlider: {fileID: 408711539904873785}
-  previousNode: 0
+  previousNodeUnlocked: 0
   skillRequirements: 1
   UnlockButton: {fileID: 408711539061877895}
   m_raycaster: {fileID: 8000058971654900701}
@@ -19811,7 +19811,7 @@ MonoBehaviour:
   requirementTXTGO: {fileID: 408711538937328484}
   SkillDescriptionGO: {fileID: 408711539091569773}
   UnlockSlider: {fileID: 408711538220295493}
-  previousNode: 0
+  previousNodeUnlocked: 0
   skillRequirements: 1
   UnlockButton: {fileID: 408711538272441064}
   m_raycaster: {fileID: 8000058971654900701}
@@ -21447,7 +21447,7 @@ MonoBehaviour:
   requirementTXTGO: {fileID: 408711539797597712}
   SkillDescriptionGO: {fileID: 408711538791753178}
   UnlockSlider: {fileID: 0}
-  previousNode: 0
+  previousNodeUnlocked: 0
   skillRequirements: 1
   UnlockButton: {fileID: 408711538310136621}
   m_raycaster: {fileID: 8000058971654900701}
@@ -23295,7 +23295,7 @@ Transform:
   - {fileID: 408711539209035333}
   - {fileID: 408711538541112499}
   m_Father: {fileID: 8000058971654900702}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &408711538958017378
 GameObject:
@@ -23858,7 +23858,7 @@ MonoBehaviour:
   requirementTXTGO: {fileID: 408711538624022716}
   SkillDescriptionGO: {fileID: 408711539875560354}
   UnlockSlider: {fileID: 408711540247618710}
-  previousNode: 0
+  previousNodeUnlocked: 0
   skillRequirements: 1
   UnlockButton: {fileID: 408711538891396982}
   m_raycaster: {fileID: 8000058971654900701}
@@ -24309,7 +24309,7 @@ MonoBehaviour:
   requirementTXTGO: {fileID: 408711539489010596}
   SkillDescriptionGO: {fileID: 408711539209964489}
   UnlockSlider: {fileID: 408711539379858345}
-  previousNode: 0
+  previousNodeUnlocked: 0
   skillRequirements: 1
   UnlockButton: {fileID: 408711539416728647}
   m_raycaster: {fileID: 8000058971654900701}
@@ -24654,7 +24654,7 @@ MonoBehaviour:
   requirementTXTGO: {fileID: 408711539424591778}
   SkillDescriptionGO: {fileID: 408711540115520828}
   UnlockSlider: {fileID: 408711539745226221}
-  previousNode: 0
+  previousNodeUnlocked: 0
   skillRequirements: 1
   UnlockButton: {fileID: 408711539085045209}
   m_raycaster: {fileID: 8000058971654900701}
@@ -27317,7 +27317,7 @@ MonoBehaviour:
   requirementTXTGO: {fileID: 408711538175605182}
   SkillDescriptionGO: {fileID: 408711539252095854}
   UnlockSlider: {fileID: 0}
-  previousNode: 0
+  previousNodeUnlocked: 0
   skillRequirements: 1
   UnlockButton: {fileID: 408711539742002047}
   m_raycaster: {fileID: 8000058971654900701}
@@ -27759,7 +27759,7 @@ MonoBehaviour:
   requirementTXTGO: {fileID: 408711539615333874}
   SkillDescriptionGO: {fileID: 408711538521548464}
   UnlockSlider: {fileID: 408711539431780778}
-  previousNode: 0
+  previousNodeUnlocked: 0
   skillRequirements: 1
   UnlockButton: {fileID: 408711538407533958}
   m_raycaster: {fileID: 8000058971654900701}
@@ -28141,7 +28141,7 @@ MonoBehaviour:
   requirementTXTGO: {fileID: 408711540050864803}
   SkillDescriptionGO: {fileID: 408711539790610029}
   UnlockSlider: {fileID: 408711539685721605}
-  previousNode: 0
+  previousNodeUnlocked: 0
   skillRequirements: 1
   UnlockButton: {fileID: 408711538173888357}
   m_raycaster: {fileID: 8000058971654900701}
@@ -29278,7 +29278,7 @@ MonoBehaviour:
   requirementTXTGO: {fileID: 408711539832437913}
   SkillDescriptionGO: {fileID: 408711539658871119}
   UnlockSlider: {fileID: 408711538958017379}
-  previousNode: 0
+  previousNodeUnlocked: 0
   skillRequirements: 1
   UnlockButton: {fileID: 408711540259555699}
   m_raycaster: {fileID: 8000058971654900701}
@@ -29766,7 +29766,7 @@ MonoBehaviour:
   requirementTXTGO: {fileID: 408711539756632013}
   SkillDescriptionGO: {fileID: 408711540292550657}
   UnlockSlider: {fileID: 408711538925175325}
-  previousNode: 0
+  previousNodeUnlocked: 0
   skillRequirements: 1
   UnlockButton: {fileID: 408711538528798654}
   m_raycaster: {fileID: 8000058971654900701}
@@ -31092,7 +31092,7 @@ MonoBehaviour:
   requirementTXTGO: {fileID: 408711538736398580}
   SkillDescriptionGO: {fileID: 408711538284978295}
   UnlockSlider: {fileID: 408711539797649198}
-  previousNode: 0
+  previousNodeUnlocked: 0
   skillRequirements: 1
   UnlockButton: {fileID: 408711538776248264}
   m_raycaster: {fileID: 8000058971654900701}
@@ -31337,7 +31337,7 @@ MonoBehaviour:
   requirementTXTGO: {fileID: 408711539597853283}
   SkillDescriptionGO: {fileID: 408711539200767246}
   UnlockSlider: {fileID: 408711538722384687}
-  previousNode: 0
+  previousNodeUnlocked: 0
   skillRequirements: 1
   UnlockButton: {fileID: 408711538704811993}
   m_raycaster: {fileID: 8000058971654900701}
@@ -34297,7 +34297,7 @@ MonoBehaviour:
   requirementTXTGO: {fileID: 408711538898773320}
   SkillDescriptionGO: {fileID: 408711538977296486}
   UnlockSlider: {fileID: 408711538308466094}
-  previousNode: 0
+  previousNodeUnlocked: 0
   skillRequirements: 1
   UnlockButton: {fileID: 408711539498784676}
   m_raycaster: {fileID: 8000058971654900701}
@@ -34431,7 +34431,7 @@ MonoBehaviour:
   requirementTXTGO: {fileID: 408711539113674224}
   SkillDescriptionGO: {fileID: 408711539114506551}
   UnlockSlider: {fileID: 0}
-  previousNode: 0
+  previousNodeUnlocked: 0
   skillRequirements: 1
   UnlockButton: {fileID: 408711538503257785}
   m_raycaster: {fileID: 8000058971654900701}
@@ -34790,7 +34790,7 @@ MonoBehaviour:
   requirementTXTGO: {fileID: 408711539113761908}
   SkillDescriptionGO: {fileID: 408711538810017187}
   UnlockSlider: {fileID: 408711538234451684}
-  previousNode: 0
+  previousNodeUnlocked: 0
   skillRequirements: 1
   UnlockButton: {fileID: 408711538790312164}
   m_raycaster: {fileID: 8000058971654900701}
@@ -35194,7 +35194,7 @@ MonoBehaviour:
   requirementTXTGO: {fileID: 408711539168099108}
   SkillDescriptionGO: {fileID: 408711539472590418}
   UnlockSlider: {fileID: 408711539963502112}
-  previousNode: 0
+  previousNodeUnlocked: 0
   skillRequirements: 1
   UnlockButton: {fileID: 408711539293584068}
   m_raycaster: {fileID: 8000058971654900701}
@@ -35547,7 +35547,7 @@ MonoBehaviour:
   requirementTXTGO: {fileID: 408711540262800161}
   SkillDescriptionGO: {fileID: 408711538368107838}
   UnlockSlider: {fileID: 0}
-  previousNode: 0
+  previousNodeUnlocked: 0
   skillRequirements: 1
   UnlockButton: {fileID: 408711538370408762}
   m_raycaster: {fileID: 8000058971654900701}
@@ -36139,7 +36139,7 @@ MonoBehaviour:
   requirementTXTGO: {fileID: 408711539709401300}
   SkillDescriptionGO: {fileID: 408711539492276984}
   UnlockSlider: {fileID: 408711539200125254}
-  previousNode: 0
+  previousNodeUnlocked: 0
   skillRequirements: 1
   UnlockButton: {fileID: 408711538970013410}
   m_raycaster: {fileID: 8000058971654900701}
@@ -38126,7 +38126,7 @@ MonoBehaviour:
   requirementTXTGO: {fileID: 408711538703674944}
   SkillDescriptionGO: {fileID: 408711539159735135}
   UnlockSlider: {fileID: 408711539356725960}
-  previousNode: 0
+  previousNodeUnlocked: 0
   skillRequirements: 1
   UnlockButton: {fileID: 408711540198601539}
   m_raycaster: {fileID: 8000058971654900701}
@@ -41072,7 +41072,7 @@ MonoBehaviour:
   requirementTXTGO: {fileID: 408711538298293495}
   SkillDescriptionGO: {fileID: 408711538736772754}
   UnlockSlider: {fileID: 408711540122806095}
-  previousNode: 0
+  previousNodeUnlocked: 0
   skillRequirements: 1
   UnlockButton: {fileID: 408711538586502054}
   m_raycaster: {fileID: 8000058971654900701}
@@ -44754,7 +44754,7 @@ MonoBehaviour:
   requirementTXTGO: {fileID: 408711539854524806}
   SkillDescriptionGO: {fileID: 408711538366699761}
   UnlockSlider: {fileID: 408711539166700893}
-  previousNode: 0
+  previousNodeUnlocked: 0
   skillRequirements: 1
   UnlockButton: {fileID: 408711538819412493}
   m_raycaster: {fileID: 8000058971654900701}
@@ -45135,7 +45135,7 @@ MonoBehaviour:
   requirementTXTGO: {fileID: 408711540052082515}
   SkillDescriptionGO: {fileID: 408711539569335529}
   UnlockSlider: {fileID: 408711539851824789}
-  previousNode: 0
+  previousNodeUnlocked: 0
   skillRequirements: 1
   UnlockButton: {fileID: 408711538267014315}
   m_raycaster: {fileID: 8000058971654900701}
@@ -45269,7 +45269,7 @@ MonoBehaviour:
   requirementTXTGO: {fileID: 408711539262487628}
   SkillDescriptionGO: {fileID: 408711538639651121}
   UnlockSlider: {fileID: 408711539255554634}
-  previousNode: 0
+  previousNodeUnlocked: 0
   skillRequirements: 1
   UnlockButton: {fileID: 408711539101981618}
   m_raycaster: {fileID: 8000058971654900701}
@@ -45650,7 +45650,7 @@ MonoBehaviour:
   requirementTXTGO: {fileID: 408711539322994231}
   SkillDescriptionGO: {fileID: 408711539209474284}
   UnlockSlider: {fileID: 408711539468612686}
-  previousNode: 0
+  previousNodeUnlocked: 0
   skillRequirements: 1
   UnlockButton: {fileID: 408711539107179992}
   m_raycaster: {fileID: 8000058971654900701}
@@ -47093,7 +47093,7 @@ MonoBehaviour:
   requirementTXTGO: {fileID: 408711539183591570}
   SkillDescriptionGO: {fileID: 408711540221902511}
   UnlockSlider: {fileID: 408711538826154349}
-  previousNode: 0
+  previousNodeUnlocked: 0
   skillRequirements: 1
   UnlockButton: {fileID: 408711538896406924}
   m_raycaster: {fileID: 8000058971654900701}
@@ -47663,7 +47663,7 @@ MonoBehaviour:
   requirementTXTGO: {fileID: 408711539559068488}
   SkillDescriptionGO: {fileID: 408711538439060554}
   UnlockSlider: {fileID: 408711540274360254}
-  previousNode: 0
+  previousNodeUnlocked: 0
   skillRequirements: 1
   UnlockButton: {fileID: 408711539634158098}
   m_raycaster: {fileID: 8000058971654900701}
@@ -49533,7 +49533,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 408711538575468276}
   m_HandleRect: {fileID: 408711538575468279}
   m_Direction: 1
-  m_Value: 1.0000004
+  m_Value: 1
   m_Size: 0.65202874
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -49937,7 +49937,7 @@ MonoBehaviour:
   requirementTXTGO: {fileID: 408711538874460984}
   SkillDescriptionGO: {fileID: 408711540278196574}
   UnlockSlider: {fileID: 408711539103107374}
-  previousNode: 0
+  previousNodeUnlocked: 0
   skillRequirements: 1
   UnlockButton: {fileID: 408711539496473444}
   m_raycaster: {fileID: 8000058971654900701}
@@ -50594,7 +50594,7 @@ MonoBehaviour:
   requirementTXTGO: {fileID: 408711539697981542}
   SkillDescriptionGO: {fileID: 408711539303826973}
   UnlockSlider: {fileID: 408711538912981190}
-  previousNode: 0
+  previousNodeUnlocked: 0
   skillRequirements: 1
   UnlockButton: {fileID: 408711538755145774}
   m_raycaster: {fileID: 8000058971654900701}
@@ -51284,7 +51284,7 @@ MonoBehaviour:
   requirementTXTGO: {fileID: 408711538957229425}
   SkillDescriptionGO: {fileID: 408711540026195427}
   UnlockSlider: {fileID: 408711539109585256}
-  previousNode: 0
+  previousNodeUnlocked: 0
   skillRequirements: 1
   UnlockButton: {fileID: 408711538573180199}
   m_raycaster: {fileID: 8000058971654900701}
@@ -53493,7 +53493,7 @@ MonoBehaviour:
   requirementTXTGO: {fileID: 408711540196188593}
   SkillDescriptionGO: {fileID: 408711540159171927}
   UnlockSlider: {fileID: 408711539428040747}
-  previousNode: 0
+  previousNodeUnlocked: 0
   skillRequirements: 1
   UnlockButton: {fileID: 408711538848001861}
   m_raycaster: {fileID: 8000058971654900701}
@@ -54263,7 +54263,7 @@ MonoBehaviour:
   requirementTXTGO: {fileID: 408711540171194066}
   SkillDescriptionGO: {fileID: 408711538214939926}
   UnlockSlider: {fileID: 408711538939988220}
-  previousNode: 0
+  previousNodeUnlocked: 0
   skillRequirements: 1
   UnlockButton: {fileID: 408711538307379678}
   m_raycaster: {fileID: 8000058971654900701}
@@ -55796,7 +55796,7 @@ MonoBehaviour:
   requirementTXTGO: {fileID: 408711540261324236}
   SkillDescriptionGO: {fileID: 408711538419566106}
   UnlockSlider: {fileID: 408711538764370849}
-  previousNode: 0
+  previousNodeUnlocked: 0
   skillRequirements: 1
   UnlockButton: {fileID: 408711538938885771}
   m_raycaster: {fileID: 8000058971654900701}
@@ -60270,7 +60270,7 @@ RectTransform:
   - {fileID: 408711538793036147}
   - {fileID: 408711539894252029}
   m_Father: {fileID: 8000058971654900702}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
@@ -61225,6 +61225,142 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!1 &1940356944081079610
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1633616932670293235}
+  - component: {fileID: 2033831099508790203}
+  - component: {fileID: 3679939441863874593}
+  m_Layer: 5
+  m_Name: Gold
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1633616932670293235
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1940356944081079610}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -11.999499}
+  m_LocalScale: {x: 1.7905505, y: 2.0919003, z: 1.7905505}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 7001307300494865142}
+  m_Father: {fileID: 8000058971654900702}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 174, y: 50}
+  m_SizeDelta: {x: 200, y: 50}
+  m_Pivot: {x: 0, y: 0}
+--- !u!222 &2033831099508790203
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1940356944081079610}
+  m_CullTransparentMesh: 1
+--- !u!114 &3679939441863874593
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1940356944081079610}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: 'Gold:'
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 36
+  m_fontSizeBase: 36
+  m_fontWeight: 400
+  m_enableAutoSizing: 0
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
+  m_fontStyle: 0
+  m_HorizontalAlignment: 1
+  m_VerticalAlignment: 256
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_enableWordWrapping: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 1
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_hasFontAssetChanged: 0
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &2007640179124676232
 GameObject:
   m_ObjectHideFlags: 0
@@ -63240,6 +63376,82 @@ Transform:
   m_Father: {fileID: 8374171093261570604}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &3214529118185839274
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7001307300494865142}
+  - component: {fileID: 9179273080850385399}
+  - component: {fileID: 2089145304497728574}
+  m_Layer: 5
+  m_Name: Image
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &7001307300494865142
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3214529118185839274}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.6238976, y: 0.6238976, z: 0.6238976}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1633616932670293235}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -69, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0, y: 0}
+--- !u!222 &9179273080850385399
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3214529118185839274}
+  m_CullTransparentMesh: 1
+--- !u!114 &2089145304497728574
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3214529118185839274}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
 --- !u!1 &3230239631309834434
 GameObject:
   m_ObjectHideFlags: 0
@@ -69371,7 +69583,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6697902658157260006}
   m_LocalRotation: {x: 0.6427876, y: -0, z: -0, w: 0.7660445}
-  m_LocalPosition: {x: 0, y: 10.848078, z: -0.73648214}
+  m_LocalPosition: {x: 0, y: 10.848078, z: -0.73648244}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -69985,7 +70197,9 @@ MonoBehaviour:
   m_AnimatedTarget: {fileID: 6697902659047330067}
   m_LayerIndex: 0
   m_ShowDebugText: 0
-  m_ChildCameras: []
+  m_ChildCameras:
+  - {fileID: 6697902659544355669}
+  - {fileID: 6697902659085609074}
   m_Instructions:
   - m_FullHash: 1791551656
     m_VirtualCamera: {fileID: 6697902659544355669}
@@ -70142,7 +70356,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6697902659544355666}
   m_LocalRotation: {x: 0.6427876, y: -0, z: -0, w: 0.7660445}
-  m_LocalPosition: {x: -0.047727086, y: 0.070222855, z: 0.35905635}
+  m_LocalPosition: {x: -0.047727086, y: 0.070222855, z: 0.35905606}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -72506,6 +72720,7 @@ RectTransform:
   - {fileID: 408711538193164181}
   - {fileID: 1875458000036082337}
   - {fileID: 8000058972037079289}
+  - {fileID: 1633616932670293235}
   - {fileID: 1559016305559162950}
   - {fileID: 408711538957938286}
   - {fileID: 408711538786158519}
@@ -75931,7 +76146,7 @@ RectTransform:
   m_Children:
   - {fileID: 8742280242412239212}
   m_Father: {fileID: 8000058971654900702}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}

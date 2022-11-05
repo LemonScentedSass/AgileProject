@@ -32,7 +32,8 @@ public class ProjectileMotion : MonoBehaviour
       // Update is called once per frame
       void Update()
       {
-
+            //Checks comesback bool and starts timer
+            //Looks at player when time is reached
             if (comesBack == true)
             {
                   comebackTime -= Time.deltaTime;
@@ -43,6 +44,7 @@ public class ProjectileMotion : MonoBehaviour
                   }
             }
 
+            //Travels for a duration if player is not using and explodes bool is false
             if (travelTime == true && explodes == false && GameManager.PlayerManager.pm.usingItem == true)
             {
                   TravelTime -= Time.deltaTime;
@@ -54,15 +56,11 @@ public class ProjectileMotion : MonoBehaviour
                   }
             }
 
+            //If game object doesn't explode, continue to travel
             if (Exploded != true)
             {
                   transform.position += (transform.forward * speed * Time.deltaTime);
             }
-            else
-            {
-                  transform.position = transform.position;
-            }
-
 
             if (explodes)
             {
@@ -76,15 +74,16 @@ public class ProjectileMotion : MonoBehaviour
             Debug.Log(gameObject.transform.localScale.magnitude);
             if (explodes)
             {
+                  //Damages enemy
                   if (collision.gameObject.tag == "Enemy")
                   {
-                        //Debug.Log("Fireball hit enemy");
                         Hit = true;
                         //fireballExplosion = Instantiate(ExplosionPrefab, transform.position, Quaternion.identity);      // Create explosion prefab
                         collision.gameObject.GetComponent<IHittable>().GetHit(fireballDamage);                          // Apply Damage to enemy
                         //Destroy(fireballExplosion, 0.25f);
                   }
 
+                  //Fireball reset to object pool and explodes
                   if (collision.gameObject.tag == "Wall")
                   {
                         Hit = true;
@@ -94,13 +93,16 @@ public class ProjectileMotion : MonoBehaviour
                   }
             }
 
+            
             if (comesBack == true)
             {
+                  //Colliding with something returns time to 0
                   if (collision.gameObject.tag != "Player")
                   {
                         comebackTime = 0;
                   }
 
+                  //Pools object and sets to not using
                   if (collision.gameObject.tag == "Player")
                   {
                         GameManager.PlayerManager.pm.usingItem = false;
@@ -109,11 +111,13 @@ public class ProjectileMotion : MonoBehaviour
 
                   }
 
+                  //Stuns enemy
                   if (collision.gameObject.tag == "Enemy")
                   {
                         collision.gameObject.GetComponent<EnemyStats>().GetStunned(1f);
                   }
 
+                  //Destroys Destructables
                   if (collision.gameObject.tag == "Destructable")
                   {
                         collision.gameObject.GetComponent<IHittable>().GetHit(1);
@@ -138,7 +142,7 @@ public class ProjectileMotion : MonoBehaviour
             //explosion prefab time
             if (Exploded == true)
             {
-
+                  //Checks the explosion time, once reached, destroy explosion
                   if (timeTracker2 >= explosionTime)
                   {
                         Destroy(fireballExplosion);
@@ -163,6 +167,7 @@ public class ProjectileMotion : MonoBehaviour
             //explosion after travel time
             if (Exploded != true && travelTime == true && Hit == false)
             {
+                  //tracks time and if time is reached, explode fireball and reset position to object pool
                   if (timeTracker >= TravelTime)
                   {
                         Debug.Log("explosion");
@@ -171,6 +176,7 @@ public class ProjectileMotion : MonoBehaviour
                         Exploded = true;
                   }
 
+                  //tracks the time from use
                   if (Exploded != true)
                   {
                         timeTracker += Time.deltaTime;
@@ -182,7 +188,7 @@ public class ProjectileMotion : MonoBehaviour
 
             }
 
-
+            //Explodes fireball by incrasing scale to explode radius
             if (fireballExplosion != null)
             {
                   if (fireballExplosion.transform.localScale.magnitude < explodeRadius)
@@ -192,11 +198,4 @@ public class ProjectileMotion : MonoBehaviour
                   }
             }
       }
-
-
-      private void OnDrawGizmos()
-      {
-            Gizmos.DrawWireSphere(this.transform.position, explodeRadius);
-      }
-
 }

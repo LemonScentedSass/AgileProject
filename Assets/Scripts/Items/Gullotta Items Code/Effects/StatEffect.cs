@@ -11,12 +11,13 @@ public class StatEffect : EffectBase
 
     public override void UseEffect(Transform user)
     {
-        //Make this better
+        //Make this better - Gullota
         if(user.gameObject.GetComponent<GameManager.PlayerManager>() == null)
         {
             return;
         }
-          //make better might want enemies to use this as well
+          //make better might want enemies to use this as well - Gullota
+          //Select stat type to affect 
         switch (statType)
         {
             case StatType.Health:
