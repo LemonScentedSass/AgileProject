@@ -2269,11 +2269,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de0663d9162789a45a5909f7029bb5e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spaceSize: {x: 5, y: 5, z: 5}
+  spaceSize: {x: 20, y: 5, z: 20}
   layerMask:
     serializedVersion: 2
     m_Bits: 257
-  maxDistance: 5
+  maxDistance: 20
   Map: {fileID: 1347300747}
 --- !u!4 &2092725468
 Transform:
