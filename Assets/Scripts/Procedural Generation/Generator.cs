@@ -200,7 +200,30 @@ namespace MapGeneration
             List<Edge> corridors = CalculateCorridors(mst, rooms);
             StartCoroutine(DrawContent(rooms, corridors));
             StartAndEnd.instance.FindStartAndEnd(rooms);
-            _gizmoMST = mst;            
+
+            /*
+            Vector3 bottomLeft = new Vector3(rooms[0].Position.x, 0f, rooms[0].Position.y);
+            Vector3 topRight = new Vector3(rooms[0].Position.x, 0f, rooms[0].Position.y);
+            //Debug.Log("bLeft: " + bottomLeft + " tRight: " + topRight);
+
+            for (int i = 0; i < rooms.Count; i++)
+            {
+                if (bottomLeft.x > (rooms[i].Position.x - rooms[i].GetWidth) && bottomLeft.z > (rooms[i].Position.y - rooms[i].GetHeight))
+                {
+                    bottomLeft = rooms[i].Position;
+                    continue;
+                }
+
+                if (topRight.x < (rooms[i].Position.x + rooms[i].GetWidth) && topRight.z < (rooms[i].Position.y + rooms[i].GetHeight))
+                {
+                    topRight = rooms[i].Position;
+                }
+            }
+
+            Debug.Log("bLeft: " + bottomLeft + " tRight: " + topRight);
+            */
+            SpaceManager.instance.CalculateSpace();
+            _gizmoMST = mst;
         }
 
         private IEnumerator DrawContent(List<Room> rooms, List<Edge> corridors)

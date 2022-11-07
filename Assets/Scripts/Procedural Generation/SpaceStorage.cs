@@ -2,35 +2,41 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(BoxCollider))]
 public class SpaceStorage : MonoBehaviour
 {
-    [SerializeField]private Transform[] _myTransforms;
-    public SpaceStorage[] neighbours;
+    [SerializeField] private List<Transform> _myTransforms = new List<Transform>();
 
     private void Awake()
     {
-        if(SpaceManager.instance == null)
+        if (SpaceManager.instance == null)
         {
             return;
         }
 
-        GetComponent<BoxCollider>().isTrigger = true;
+        //GetComponent<BoxCollider>().isTrigger = true;
 
-        RaycastHit[] hits = Physics.BoxCastAll(transform.position, SpaceManager.instance.spaceSize, transform.up, Quaternion.identity, SpaceManager.instance.maxDistance, SpaceManager.instance.layerMask);
-
-        Debug.Log(hits.Length);
-
-        _myTransforms = new Transform[hits.Length];
+        Collider[] hits = Physics.OverlapBox(transform.position, SpaceManager.instance.spaceSize);
 
         for (int i = 0; i < hits.Length; i++)
         {
-            _myTransforms[i] = hits[i].transform;
+            if (_myTransforms.Contains(hits[i].transform) == false)
+            {
+                _myTransforms.Add(hits[i].transform);
+            }
+        }
+
+    }
+
+    public void Visulize(bool flag)
+    {
+        for (int i = 0; i < _myTransforms.Count; i++)
+        {
+            _myTransforms[i].gameObject.SetActive(flag);
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnDrawGizmos()
     {
-        
+        Gizmos.DrawCube(transform.position, SpaceManager.instance.spaceSize);
     }
 }

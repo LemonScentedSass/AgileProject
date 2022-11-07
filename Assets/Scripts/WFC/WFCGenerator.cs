@@ -199,7 +199,7 @@ namespace WFC
             int rng = Random.Range(0, _options.Count);
             
             _selectedModule = _options[rng];
-            Debug.Log(_selectedModule);
+            //Debug.Log(_selectedModule);
 
 
             Vector3Int offsetPosition = (Vector3Int)_position + (Vector3Int)_offset;
@@ -213,7 +213,7 @@ namespace WFC
                 if (_selectedModule.detailModule.Length != 0)
                 {
                     threeDTilemap.SetTile(offsetPosition, _selectedModule.detailModule[0].tilebase);
-                    Debug.Log("Spawned Crate " + random);
+                    //Debug.Log("Spawned Crate " + random);
                 }
             }
 

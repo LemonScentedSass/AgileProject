@@ -279,7 +279,7 @@ GameObject:
   - component: {fileID: 239836365}
   - component: {fileID: 239836364}
   m_Layer: 0
-  m_Name: SapceTest
+  m_Name: SpaceTest
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -298,7 +298,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _myTransforms: []
-  neighbours: []
 --- !u!65 &239836365
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -320,7 +319,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 239836363}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.425783, y: 3.8377457, z: -4.9412985}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -353,7 +352,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 266828767}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 3, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -485,6 +484,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _tileset: {fileID: 11400000, guid: 7f32d74d6af134845b1f175f2e948a56, type: 2}
   _tilemap: {fileID: 1347300747}
+  _3dTileMap: {fileID: 266828770}
+  spawnChance: 0.5
 --- !u!114 &838691013
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -633,7 +634,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1098257649
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2272,7 +2273,8 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 257
-  maxDistance: 10
+  maxDistance: 5
+  Map: {fileID: 1347300747}
 --- !u!4 &2092725468
 Transform:
   m_ObjectHideFlags: 0
