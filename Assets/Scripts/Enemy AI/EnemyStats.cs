@@ -39,11 +39,13 @@ public class EnemyStats : MonoBehaviour, IHittable
       {
             if(isDead == false)
             {
+                  GetComponent<EnemyHealthUI>().healthSlider.enabled = true;
                   currentHealth -= damage;
 
                   if(currentHealth <= 0)
                   {
-                        isDead = true;
+                      GetComponent<EnemyHealthUI>().healthSlider.enabled = true;
+                      isDead = true;
                   }
             }
       }
