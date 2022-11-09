@@ -490,7 +490,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _tileset: {fileID: 11400000, guid: 7f32d74d6af134845b1f175f2e948a56, type: 2}
   _tilemap: {fileID: 472672302}
-  _3dTileMap: {fileID: 733559953}
+  _detailTilemap: {fileID: 733559953}
   spawnChance: 0.221
 --- !u!114 &518638963
 MonoBehaviour:
@@ -1635,6 +1635,10 @@ PrefabInstance:
     - target: {fileID: 6697902659544355668, guid: 695be3c7a7eb8884582e6327564fcdc3, type: 3}
       propertyPath: m_LocalPosition.z
       value: 0.35905588
+      objectReference: {fileID: 0}
+    - target: {fileID: 7001307300494865142, guid: 695be3c7a7eb8884582e6327564fcdc3, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 19.623291
       objectReference: {fileID: 0}
     - target: {fileID: 7992057965395269861, guid: 695be3c7a7eb8884582e6327564fcdc3, type: 3}
       propertyPath: m_Enabled

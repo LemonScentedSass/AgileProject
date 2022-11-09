@@ -6,6 +6,8 @@ public class SpaceStorage : MonoBehaviour
 {
     [SerializeField] private Collider[] _myTransforms;
 
+    public bool isVisualized = true;
+
     private void Awake()
     {
         if (SpaceManager.instance == null)
@@ -17,6 +19,11 @@ public class SpaceStorage : MonoBehaviour
 
         //_myTransforms = Physics.OverlapBox(transform.position, SpaceManager.instance.spaceSize);
         //_myTransforms = Physics.OverlapBox(transform.position, SpaceManager.instance.spaceSize, Quaternion.identity, SpaceManager.instance.layerMask);
+    }
+
+    private void Update()
+    {
+        Visualize(isVisualized);
     }
 
     /*
@@ -37,7 +44,7 @@ public class SpaceStorage : MonoBehaviour
         _myTransforms = Physics.OverlapBox(transform.position, SpaceManager.instance.spaceSize / 2, Quaternion.identity, SpaceManager.instance.layerMask);
     }
 
-    public void Visulize(bool flag)
+    public void Visualize(bool flag)
     {
         for (int i = 0; i < _myTransforms.Length; i++)
         {

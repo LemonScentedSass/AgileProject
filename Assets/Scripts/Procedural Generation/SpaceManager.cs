@@ -31,6 +31,7 @@ public class SpaceManager : MonoBehaviour
         input = GetComponent<InputHandler>();
     }
 
+    
     private void Update()
     {
         if (input.testKey)
@@ -38,6 +39,7 @@ public class SpaceManager : MonoBehaviour
             CalculateSpace();
         }
     }
+    
 
     public void CalculateSpace()
     {
@@ -67,12 +69,13 @@ public class SpaceManager : MonoBehaviour
             for (int y = 0; y < _spaces.GetLength(1); y++)
             {
                 Vector3 newPosition = startPos + new Vector3(x * maxDistance, 0f, y * maxDistance);
-                GameObject go = new GameObject("x:" + x + "x y:" + y);
+                GameObject go = new GameObject("x:" + x + " y:" + y);
                 //Debug.Log(go.transform.position);
-                //go.SetActive(false);
+                go.SetActive(false);
                 go.transform.position = newPosition;
                 //Debug.Log(go.transform.position);
                 _spaces[x, y] = go.AddComponent<SpaceStorage>();
+                go.SetActive(true);
                 go.GetComponent<SpaceStorage>().FillTransforms();
                 //Collider[] hits = Physics.OverlapBox(newPosition, spaceSize);
                 //Collider[] hits = Physics.OverlapBox(newPosition, spaceSize, Quaternion.identity, layerMask);

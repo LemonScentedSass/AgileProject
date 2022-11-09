@@ -45,7 +45,7 @@ namespace LevelData
             Vector2 sRoomCenter = new Vector2((sRoomBottomLeft.x + sRoomTopRight.x) * .5f, (sRoomBottomLeft.y + sRoomTopRight.y) * .5f);
             if (startRoomObject != null)
             {
-                startRoomObject.transform.position = new Vector3(sRoomCenter.x, 2f, sRoomCenter.y);
+                startRoomObject.transform.position = new Vector3(sRoomCenter.x, .5f, sRoomCenter.y);
             }
 
             float minDistance = 0;
@@ -69,7 +69,7 @@ namespace LevelData
                         //Debug.Log("end Room Center: " + eRoomCenter);
                         if (endRoomObject != null)
                         {
-                            endRoomObject.transform.position = new Vector3(eRoomCenter.x, 2f, eRoomCenter.y);
+                            endRoomObject.transform.position = new Vector3(eRoomCenter.x, .5f, eRoomCenter.y);
                         }
                         minDistance = newDistance;
                     }

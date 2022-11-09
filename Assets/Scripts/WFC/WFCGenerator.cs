@@ -12,7 +12,7 @@ namespace WFC
         [SerializeField] private Tileset _tileset;
         [SerializeField] private Tilemap _tilemap;
 
-        [SerializeField] private Tilemap _3dTileMap;
+        [SerializeField] private Tilemap _detailTilemap;
         [Range(0f, 1f)] public float spawnChance = .5f;
 
         public static WFCGenerator instance;
@@ -95,7 +95,7 @@ namespace WFC
             }
 
             curElement.SpawnChance = spawnChance;
-            curElement.Collapse(_tilemap, _3dTileMap);            
+            curElement.Collapse(_tilemap, _detailTilemap);            
 
             // Manages removing valid neighbors
             for (int y = -1; y <= 1; y++)
@@ -188,7 +188,7 @@ namespace WFC
             }
         }
 
-        public void Collapse(Tilemap tilemap, Tilemap threeDTilemap)
+        public void Collapse(Tilemap tilemap, Tilemap detailTilemap)
         {
             if(_options.Count == 0)
             {
@@ -205,19 +205,21 @@ namespace WFC
             Vector3Int offsetPosition = (Vector3Int)_position + (Vector3Int)_offset;
             tilemap.SetTile(offsetPosition, _selectedModule.tilebase);
 
+            
             float random = Random.Range(0f, 1f);
             //Debug.Log("Random value: " + random + " Spawn Chance: " + _spawnChance);
 
             if (random < _spawnChance)
             {
-                if (_selectedModule.detailModule.Length != 0)
+                if (_selectedModule.detailModule.Length != 0 && _selectedModule.detailModule != null)
                 {
-                    threeDTilemap.SetTile(offsetPosition, _selectedModule.detailModule[0].tilebase);
+                    detailTilemap.SetTile(offsetPosition, _selectedModule.detailModule[0].tilebase);
                     //Debug.Log("Spawned Crate " + random);
                 }
             }
 
             //tilemap.SetTile((Vector3Int)_position, _selectedModule.tilebase);
+            
         }
     }
 }
