@@ -15,6 +15,8 @@ public class SpaceManager : MonoBehaviour
 
     public SpaceStorage[,] _spaces;
 
+    public InputHandler input;
+
     private void Awake()
     {
         if (SpaceManager.instance == null)
@@ -24,6 +26,16 @@ public class SpaceManager : MonoBehaviour
         else if (SpaceManager.instance != this)
         {
             Destroy(this);
+        }
+
+        input = GetComponent<InputHandler>();
+    }
+
+    private void Update()
+    {
+        if (input.testKey)
+        {
+            CalculateSpace();
         }
     }
 
@@ -37,8 +49,8 @@ public class SpaceManager : MonoBehaviour
 
         Map.ResizeBounds();
 
-        Debug.Log(Map.localBounds.min.x + "," + Map.localBounds.max.z);
-        Debug.Log(Map.localBounds.min.y + "," + Map.localBounds.max.z);
+        Debug.Log(Map.localBounds.min.x + "," + Map.localBounds.min.z);
+        Debug.Log(Map.localBounds.max.x + "," + Map.localBounds.max.z);
 
         float xRange = GenericNumbers.Distance(Map.localBounds.min.x, Map.localBounds.max.x);
         float yRange = GenericNumbers.Distance(Map.localBounds.min.z, Map.localBounds.max.z);
@@ -56,10 +68,15 @@ public class SpaceManager : MonoBehaviour
             {
                 Vector3 newPosition = startPos + new Vector3(x * maxDistance, 0f, y * maxDistance);
                 GameObject go = new GameObject("x:" + x + "x y:" + y);
+                //Debug.Log(go.transform.position);
+                //go.SetActive(false);
                 go.transform.position = newPosition;
-                //_spaces[x, y] = go.AddComponent<SpaceStorage>();
-                Collider[] hits = Physics.OverlapBox(newPosition, spaceSize);
-                Debug.Log(hits.Length);
+                //Debug.Log(go.transform.position);
+                _spaces[x, y] = go.AddComponent<SpaceStorage>();
+                go.GetComponent<SpaceStorage>().FillTransforms();
+                //Collider[] hits = Physics.OverlapBox(newPosition, spaceSize);
+                //Collider[] hits = Physics.OverlapBox(newPosition, spaceSize, Quaternion.identity, layerMask);
+                //Debug.Log(hits.Length);
             }
         }
     }

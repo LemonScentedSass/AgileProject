@@ -222,7 +222,7 @@ namespace MapGeneration
 
             Debug.Log("bLeft: " + bottomLeft + " tRight: " + topRight);
             */
-            SpaceManager.instance.CalculateSpace();
+            //SpaceManager.instance.CalculateSpace();
             _gizmoMST = mst;
         }
 

@@ -15,8 +15,26 @@ public class SpaceStorage : MonoBehaviour
 
         //GetComponent<BoxCollider>().isTrigger = true;
 
-        _myTransforms = Physics.OverlapBox(transform.position, SpaceManager.instance.spaceSize);
+        //_myTransforms = Physics.OverlapBox(transform.position, SpaceManager.instance.spaceSize);
+        //_myTransforms = Physics.OverlapBox(transform.position, SpaceManager.instance.spaceSize, Quaternion.identity, SpaceManager.instance.layerMask);
+    }
 
+    /*
+    private void OnEnable()
+    {
+        _myTransforms = Physics.OverlapBox(transform.position, SpaceManager.instance.spaceSize, Quaternion.identity, SpaceManager.instance.layerMask);
+    }
+
+    
+    private void Start()
+    {
+        _myTransforms = Physics.OverlapBox(transform.position, SpaceManager.instance.spaceSize, Quaternion.identity, SpaceManager.instance.layerMask);
+    }
+    */
+
+    public void FillTransforms()
+    {
+        _myTransforms = Physics.OverlapBox(transform.position, SpaceManager.instance.spaceSize / 2, Quaternion.identity, SpaceManager.instance.layerMask);
     }
 
     public void Visulize(bool flag)
@@ -29,6 +47,7 @@ public class SpaceStorage : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-        Gizmos.DrawCube(transform.position, SpaceManager.instance.spaceSize);
+        //Gizmos.DrawCube(transform.position, SpaceManager.instance.spaceSize);
+        Gizmos.DrawWireCube(transform.position, SpaceManager.instance.spaceSize);
     }
 }
