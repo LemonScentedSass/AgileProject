@@ -71,7 +71,7 @@ public class ProjectileMotion : MonoBehaviour
 
       private void OnCollisionEnter(Collision collision)
       {
-            Debug.Log(gameObject.transform.localScale.magnitude);
+            //Debug.Log(gameObject.transform.localScale.magnitude); Disabled by Patrick temporarily
             if (explodes)
             {
                   //Damages enemy

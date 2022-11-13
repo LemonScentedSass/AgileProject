@@ -209,9 +209,7 @@ namespace MapGeneration
 
             for (int i = 0; i < rooms.Count; i++)
             {
-                Room curRoom = rooms[i];
-
-                GenerationStages.instance.roomsGenerated++;
+                Room curRoom = rooms[i];                
 
                 Vector2Int intPosition = Vector2Int.RoundToInt(curRoom.Position); // Finds the integer value of the current room's position
 
@@ -223,6 +221,8 @@ namespace MapGeneration
                 if (curRoom.TurnedOff == false)
                 {
                     curWFCRooms.Add(curRoom); // Adds the current rooms to the list of rooms to perform WFC on top of
+
+                    GenerationStages.instance.roomsGenerated++;
 
                     // Draws the room floors
                     MapVisualController.RectFill(intPosition, curRoom.GetWidth, curRoom.GetHeight, _floorTile, _tilemap);

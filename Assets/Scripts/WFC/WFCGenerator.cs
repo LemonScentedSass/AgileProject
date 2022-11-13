@@ -86,6 +86,7 @@ namespace WFC
                 yield return null;
             }
             GenerationStages.instance.curWFCRooms--;
+            GenerationStages.instance.finWFCRooms++;
         }
 
         private void CollapseElement(Element curElement, Element[,] grid)

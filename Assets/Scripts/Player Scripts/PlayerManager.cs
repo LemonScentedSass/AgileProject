@@ -160,7 +160,7 @@ namespace GameManager
                     time = 0;
                 }
 
-                Debug.Log(time);
+                //Debug.Log(time); Disabled by Patrick temporarily
             }
 
             GoldAmountTXT.text = "Gold: " + goldAmount;
