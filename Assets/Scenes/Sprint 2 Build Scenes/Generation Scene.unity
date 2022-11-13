@@ -465,6 +465,7 @@ GameObject:
   - component: {fileID: 838691013}
   - component: {fileID: 838691012}
   - component: {fileID: 838691015}
+  - component: {fileID: 838691016}
   m_Layer: 0
   m_Name: Generator
   m_TagString: Untagged
@@ -553,6 +554,20 @@ MonoBehaviour:
   loadingScreen: {fileID: 2123817907}
   readyToSpawn: 0
   groundPlane: {fileID: 212696491}
+--- !u!114 &838691016
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 838691011}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5842e060d4ae81c45bcec15e420d0753, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RoomsGenerated: 0
+  CurWFCRooms: 0
 --- !u!1 &843739278
 GameObject:
   m_ObjectHideFlags: 0
@@ -2406,7 +2421,6 @@ MonoBehaviour:
     m_Bits: 6144
   maxDistance: 20
   Map: {fileID: 1347300747}
-  input: {fileID: 0}
 --- !u!4 &2092725468
 Transform:
   m_ObjectHideFlags: 0

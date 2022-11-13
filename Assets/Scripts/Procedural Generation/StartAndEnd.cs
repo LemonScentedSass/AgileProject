@@ -23,7 +23,7 @@ namespace LevelData
         private void Awake()
         {
             readyToSpawn = false; // Not ready to 'spawn' the player
-            groundPlane.SetActive(false); // Because the player already exists though, turn off the ground so they can't walk bwahaha
+            groundPlane.SetActive(false); // Because the player already exists though, turn off the ground so they can't walk bwahaha *rubs hands like villain*
             
             if (StartAndEnd.instance == null)
             {
@@ -64,9 +64,7 @@ namespace LevelData
                     float newDistance = Vector2.Distance(curRoomCenter, sRoomCenter);
                     if (newDistance > minDistance)
                     {
-                        //Debug.Log("End Room Found @ " + i);
                         Vector2 eRoomCenter = curRoomCenter;
-                        //Debug.Log("end Room Center: " + eRoomCenter);
                         if (endRoomObject != null)
                         {
                             endRoomObject.transform.position = new Vector3(eRoomCenter.x, .5f, eRoomCenter.y);
@@ -96,8 +94,7 @@ namespace LevelData
             playerPrefab.transform.position = startRoomObject.transform.position;
             groundPlane.SetActive(true);
 
-            if (loadingScreen != null)
-            loadingScreen.gameObject.SetActive(false);
+            GenerationStages.instance.startEndFound = true;
         }
     }
 }

@@ -8,7 +8,6 @@ namespace WFC
 {
     public class WFCGenerator : MonoBehaviour
     {
-        //[SerializeField] private Vector2Int _worldSize;
         [SerializeField] private Tileset _tileset;
         [SerializeField] private Tilemap _tilemap;
 
@@ -37,6 +36,7 @@ namespace WFC
 
         private IEnumerator CreateWorld(Vector2Int position, Vector2Int size)
         {
+            GenerationStages.instance.curWFCRooms++;
             Element[,] grid = new Element[size.x, size.y];
             List<Vector2Int> unreachedPositions = new List<Vector2Int>();
 
@@ -85,7 +85,7 @@ namespace WFC
 
                 yield return null;
             }
-            Debug.Log("WFC Finished");
+            GenerationStages.instance.curWFCRooms--;
         }
 
         private void CollapseElement(Element curElement, Element[,] grid)
@@ -200,27 +200,19 @@ namespace WFC
             int rng = Random.Range(0, _options.Count);
             
             _selectedModule = _options[rng];
-            //Debug.Log(_selectedModule);
-
 
             Vector3Int offsetPosition = (Vector3Int)_position + (Vector3Int)_offset;
             tilemap.SetTile(offsetPosition, _selectedModule.tilebase);
-
             
             float random = Random.Range(0f, 1f);
-            //Debug.Log("Random value: " + random + " Spawn Chance: " + _spawnChance);
 
             if (random < _spawnChance)
             {
                 if (_selectedModule.detailModule.Length != 0 && _selectedModule.detailModule != null)
                 {
                     detailTilemap.SetTile(offsetPosition, _selectedModule.detailModule[0].tilebase);
-                    //Debug.Log("Spawned Crate " + random);
                 }
-            }
-
-            //tilemap.SetTile((Vector3Int)_position, _selectedModule.tilebase);
-            
+            }                        
         }
     }
 }

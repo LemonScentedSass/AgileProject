@@ -200,29 +200,6 @@ namespace MapGeneration
             List<Edge> corridors = CalculateCorridors(mst, rooms);
             StartCoroutine(DrawContent(rooms, corridors));
             StartAndEnd.instance.FindStartAndEnd(rooms);
-
-            /*
-            Vector3 bottomLeft = new Vector3(rooms[0].Position.x, 0f, rooms[0].Position.y);
-            Vector3 topRight = new Vector3(rooms[0].Position.x, 0f, rooms[0].Position.y);
-            //Debug.Log("bLeft: " + bottomLeft + " tRight: " + topRight);
-
-            for (int i = 0; i < rooms.Count; i++)
-            {
-                if (bottomLeft.x > (rooms[i].Position.x - rooms[i].GetWidth) && bottomLeft.z > (rooms[i].Position.y - rooms[i].GetHeight))
-                {
-                    bottomLeft = rooms[i].Position;
-                    continue;
-                }
-
-                if (topRight.x < (rooms[i].Position.x + rooms[i].GetWidth) && topRight.z < (rooms[i].Position.y + rooms[i].GetHeight))
-                {
-                    topRight = rooms[i].Position;
-                }
-            }
-
-            Debug.Log("bLeft: " + bottomLeft + " tRight: " + topRight);
-            */
-            //SpaceManager.instance.CalculateSpace();
             _gizmoMST = mst;
         }
 
@@ -233,6 +210,8 @@ namespace MapGeneration
             for (int i = 0; i < rooms.Count; i++)
             {
                 Room curRoom = rooms[i];
+
+                GenerationStages.instance.roomsGenerated++;
 
                 Vector2Int intPosition = Vector2Int.RoundToInt(curRoom.Position); // Finds the integer value of the current room's position
 
@@ -283,7 +262,6 @@ namespace MapGeneration
                     pos.x -= curRoom.GetWidth;
                     pos.y -= curRoom.GetHeight;
                     Vector2Int size = new Vector2Int(curRoom.GetWidth * 2, curRoom.GetHeight * 2);
-                    //Vector2Int size = Vector2Int.RoundToInt(curRoom.GetSize);
                     WFCGenerator.instance.Generate(pos, size);
                 }
 

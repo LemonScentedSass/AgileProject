@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using MathsHelper;
 using UnityEngine.Tilemaps;
-
+using MapGeneration;
 public class SpaceManager : MonoBehaviour
 {
     public static SpaceManager instance;
@@ -15,8 +15,6 @@ public class SpaceManager : MonoBehaviour
 
     public SpaceStorage[,] _spaces;
 
-    public InputHandler input;
-
     private void Awake()
     {
         if (SpaceManager.instance == null)
@@ -27,17 +25,12 @@ public class SpaceManager : MonoBehaviour
         {
             Destroy(this);
         }
-
-        input = GetComponent<InputHandler>();
     }
 
     
     private void Update()
     {
-        if (input.testKey)
-        {
-            CalculateSpace();
-        }
+
     }
     
 
@@ -70,16 +63,11 @@ public class SpaceManager : MonoBehaviour
             {
                 Vector3 newPosition = startPos + new Vector3(x * maxDistance, 0f, y * maxDistance);
                 GameObject go = new GameObject("x:" + x + " y:" + y);
-                //Debug.Log(go.transform.position);
                 go.SetActive(false);
                 go.transform.position = newPosition;
-                //Debug.Log(go.transform.position);
                 _spaces[x, y] = go.AddComponent<SpaceStorage>();
                 go.SetActive(true);
                 go.GetComponent<SpaceStorage>().FillTransforms();
-                //Collider[] hits = Physics.OverlapBox(newPosition, spaceSize);
-                //Collider[] hits = Physics.OverlapBox(newPosition, spaceSize, Quaternion.identity, layerMask);
-                //Debug.Log(hits.Length);
             }
         }
     }

@@ -1,18 +1,38 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class GenerationStages : MonoBehaviour
+namespace MapGeneration
 {
-    // Start is called before the first frame update
-    void Start()
+    public class GenerationStages : MonoBehaviour
     {
-        
-    }
+        public int roomsGenerated = 0;
+        public int curWFCRooms = 0;
+        public bool startEndFound = false;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        private bool spaceManagerCalled = false;
+
+        public Image loadingScreen;
+
+        public static GenerationStages instance;
+
+        void Start()
+        {
+            if (GenerationStages.instance == null)
+                GenerationStages.instance = this;
+            if (GenerationStages.instance != this)
+                Destroy(this);
+        }
+
+        void Update()
+        {
+            if (roomsGenerated > 0 && curWFCRooms == 0 && spaceManagerCalled == false)
+            {
+                Debug.Log("Ready for SpaceManager @ " + Time.time);
+                SpaceManager.instance.CalculateSpace();
+                spaceManagerCalled = true;
+            }
+        }
     }
 }
