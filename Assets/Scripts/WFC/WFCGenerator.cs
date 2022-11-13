@@ -85,6 +85,7 @@ namespace WFC
 
                 yield return null;
             }
+            Debug.Log("WFC Finished");
         }
 
         private void CollapseElement(Element curElement, Element[,] grid)
