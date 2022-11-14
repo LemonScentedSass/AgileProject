@@ -1458,7 +1458,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5085285084819341518, guid: 695be3c7a7eb8884582e6327564fcdc3, type: 3}
       propertyPath: m_CullingMask.m_Bits
-      value: 383
+      value: 7679
       objectReference: {fileID: 0}
     - target: {fileID: 5227866298396306767, guid: 695be3c7a7eb8884582e6327564fcdc3, type: 3}
       propertyPath: m_Layer
@@ -1626,7 +1626,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7001307300494865142, guid: 695be3c7a7eb8884582e6327564fcdc3, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 19.623291
+      value: 19.623047
       objectReference: {fileID: 0}
     - target: {fileID: 7210605601491430847, guid: 695be3c7a7eb8884582e6327564fcdc3, type: 3}
       propertyPath: m_Layer
@@ -2655,6 +2655,8 @@ MonoBehaviour:
     m_Bits: 6144
   maxDistance: 20
   Map: {fileID: 1347300747}
+  radius: 30
+  _player: {fileID: 0}
 --- !u!4 &2092725468
 Transform:
   m_ObjectHideFlags: 0
@@ -2776,7 +2778,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1001 &5510237212103076948
 PrefabInstance:
   m_ObjectHideFlags: 0
