@@ -1548,6 +1548,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: -0.7364826
       objectReference: {fileID: 0}
+    - target: {fileID: 6697902658378724397, guid: 695be3c7a7eb8884582e6327564fcdc3, type: 3}
+      propertyPath: cooldownTime
+      value: 0.7
+      objectReference: {fileID: 0}
     - target: {fileID: 6697902658923446080, guid: 695be3c7a7eb8884582e6327564fcdc3, type: 3}
       propertyPath: m_RootOrder
       value: 7
