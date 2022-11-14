@@ -76,6 +76,22 @@ public class AudioManager : MonoBehaviour
         }
     }
 
+    public void PlaySFX(AudioClip clipToPlay, float volume)
+    {
+        _sfxSources[_sfxIndex].clip = clipToPlay;
+        _sfxSources[_sfxIndex].volume = volume;
+        _sfxSources[_sfxIndex].Play();
+
+        _sfxIndex++;
+
+        //Check to see if the index goes out of array bounds
+        if (_sfxIndex > _sfxSources.Length - 1)
+        {
+            //if so, reset index to 0
+            _sfxIndex = 0;
+        }
+    }
+
     public void PlaySFX(AudioClip clipToPlay, Vector3 position, float volume, float spatialBlend = 1)
     {
         if (_audioObject != null)

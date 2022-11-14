@@ -11,6 +11,7 @@ TagManager:
   - Enemy
   - Destructable
   - Obstacle
+  - AudioManager
   layers:
   - Default
   - TransparentFX
