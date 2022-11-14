@@ -67,7 +67,7 @@ GameObject:
   - component: {fileID: 271678328331475822}
   m_Layer: 3
   m_Name: Slayer Prefab (Medium)
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -149,7 +149,7 @@ Animator:
   m_GameObject: {fileID: 7478567149231383114}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: a50cd06a0668d1a418d586a2944e3ed5, type: 3}
-  m_Controller: {fileID: 9100000, guid: 67f884f60c6a7464795a580885b9a992, type: 2}
+  m_Controller: {fileID: 9100000, guid: 4102811e0a3e4e64da0c491f68674a2e, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
