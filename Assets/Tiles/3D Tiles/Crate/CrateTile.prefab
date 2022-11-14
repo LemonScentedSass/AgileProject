@@ -39,33 +39,9 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6189327628106331789}
     m_Modifications:
-    - target: {fileID: 442168333445784429, guid: 0cc228b621b8c2a4694177627e67069c, type: 3}
-      propertyPath: m_Mass
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2360325743964289084, guid: 0cc228b621b8c2a4694177627e67069c, type: 3}
-      propertyPath: m_Layer
-      value: 11
-      objectReference: {fileID: 0}
-    - target: {fileID: 2360325743964289084, guid: 0cc228b621b8c2a4694177627e67069c, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 3032585674497909224, guid: 0cc228b621b8c2a4694177627e67069c, type: 3}
       propertyPath: m_RootOrder
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3032585674497909224, guid: 0cc228b621b8c2a4694177627e67069c, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3032585674497909224, guid: 0cc228b621b8c2a4694177627e67069c, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3032585674497909224, guid: 0cc228b621b8c2a4694177627e67069c, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 3032585674497909224, guid: 0cc228b621b8c2a4694177627e67069c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -107,61 +83,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3032585674497909224, guid: 0cc228b621b8c2a4694177627e67069c, type: 3}
-      propertyPath: m_ConstrainProportionsScale
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3032585674497909230, guid: 0cc228b621b8c2a4694177627e67069c, type: 3}
-      propertyPath: m_Size.x
-      value: 1.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3032585674497909230, guid: 0cc228b621b8c2a4694177627e67069c, type: 3}
-      propertyPath: m_Size.y
-      value: 1.42
-      objectReference: {fileID: 0}
-    - target: {fileID: 3032585674497909230, guid: 0cc228b621b8c2a4694177627e67069c, type: 3}
-      propertyPath: m_Size.z
-      value: 1.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3032585674497909230, guid: 0cc228b621b8c2a4694177627e67069c, type: 3}
-      propertyPath: m_Center.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3032585674497909230, guid: 0cc228b621b8c2a4694177627e67069c, type: 3}
-      propertyPath: m_Center.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3032585674497909230, guid: 0cc228b621b8c2a4694177627e67069c, type: 3}
-      propertyPath: m_Center.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3032585674497909230, guid: 0cc228b621b8c2a4694177627e67069c, type: 3}
-      propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 5673654229813619097, guid: 0cc228b621b8c2a4694177627e67069c, type: 3}
       propertyPath: m_Name
       value: Crate Prefab
-      objectReference: {fileID: 0}
-    - target: {fileID: 5673654229813619097, guid: 0cc228b621b8c2a4694177627e67069c, type: 3}
-      propertyPath: m_Layer
-      value: 11
-      objectReference: {fileID: 0}
-    - target: {fileID: 5673654229813619097, guid: 0cc228b621b8c2a4694177627e67069c, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 8543845801638260719, guid: 0cc228b621b8c2a4694177627e67069c, type: 3}
-      propertyPath: m_Convex
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8543845801638260719, guid: 0cc228b621b8c2a4694177627e67069c, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8543845801638260719, guid: 0cc228b621b8c2a4694177627e67069c, type: 3}
-      propertyPath: m_IsTrigger
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0cc228b621b8c2a4694177627e67069c, type: 3}

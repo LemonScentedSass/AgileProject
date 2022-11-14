@@ -25,6 +25,8 @@ public class CrateBreak : MonoBehaviour, IHittable
 
     public void GetHit(int damage)
     {
+        Debug.Log("Crate Hit");
+
         if (isBroken == false)
         {
             crateHealth -= damage;
