@@ -104,103 +104,111 @@ namespace MapGeneration
 
         }
 
+        /// <summary>
+        /// PrimMinimumSpanning() is an algorithm that finds the shortest path from point to point
+        /// without any looping. In this method, we are using edges and room lists to iterate. 
+        /// </summary>
+        /// <param name="edges"></param>
+        /// <param name="rooms"></param>
+        /// <returns></returns>
         private IEnumerator PrimMinimumSpanning(List<Edge> edges, List<Room> rooms)
         {
-            List<Edge> mst = new List<Edge>();
+            List<Edge> mst = new List<Edge>();                                                                          // Create a new list for the Minimum Spanning Tree (mst)
 
-            List<Room> unreached = new List<Room>(rooms);
+            List<Room> unreached = new List<Room>(rooms);                                                               // Create a new list of rooms to represent rooms unreached by the algorithm 
 
-            for (int i = unreached.Count - 1; i >= 0; i--)
+            for (int i = unreached.Count - 1; i >= 0; i--)                                                              // Reverse for loop, starting from the end of the list,
             {
-                if (unreached[i].TurnedOff == true)
+                if (unreached[i].TurnedOff == true)                                                                     // Check if the room at the current index is turned off, if so,
                 {
-                    unreached.RemoveAt(i);
+                    unreached.RemoveAt(i);                                                                              // Remove this room from the unreached list
                 }
             }
 
-            List<Room> reached = new List<Room>();
+            List<Room> reached = new List<Room>();                                                                      // Create a new list of rooms to represent the rooms the algorithm has already reached
 
-            Dictionary<Room, List<Edge>> roomDict = new Dictionary<Room, List<Edge>>();
+            Dictionary<Room, List<Edge>> roomDict = new Dictionary<Room, List<Edge>>();                                 // Create a new Dictionary with a type Room as a key and List of edges as a value
 
-            for (int i = 0; i < rooms.Count; i++)
+            for (int i = 0; i < rooms.Count; i++)                                                                       // For loop, each room in rooms list
             {
-                List<Edge> edgesFound = DelaunayCalculator.CollectAllEdgesConnectedToPoint(edges, rooms[i].Position);
+                List<Edge> edgesFound = DelaunayCalculator.CollectAllEdgesConnectedToPoint(edges, rooms[i].Position);   // List edgesFound saved the returned results from Delaunay
 
-                if (roomDict.ContainsKey(rooms[i]) == false)
+                if (roomDict.ContainsKey(rooms[i]) == false)                                                            // If the roomDictionary does not contain the currently evaluated room,
                 {
-                    roomDict.Add(rooms[i], edgesFound);
+                    roomDict.Add(rooms[i], edgesFound);                                                                 // Add it to the dictionary
                 }
                 else
                 {
-                    roomDict[rooms[i]] = edgesFound;
+                    roomDict[rooms[i]] = edgesFound;                                                                    // Else set the current index of roomDict to be equal to the value returned by Delaunay
                 }
             }
 
-            reached.Add(unreached[0]);
-            unreached.RemoveAt(0);
+            reached.Add(unreached[0]);                                                                                  // Now we can add the evaluated room to the reached list
+            unreached.RemoveAt(0);                                                                                      // Remove the evaluated room from the unreached list
 
-            while (unreached.Count > 0)
+            while (unreached.Count > 0)                                                                                 // While rooms are still unreached,
             {
-                float curBestDistance = Mathf.Infinity;
+                float curBestDistance = Mathf.Infinity;                                                                 // Set our current best distance to be infinite, this way any number is less than the beginning value
 
-                int reachedIndex = 0;
-                int unreachedIndex = 0;
-                int localEdgeIndex = 0;
-                Edge curEdge = null;
+                int reachedIndex = 0;                                                                                   // Create reachedIndex variable to iterate through the lists
+                int unreachedIndex = 0;                                                                                 // Create unreachedIndex to iterate through lists
+                int localEdgeIndex = 0;                                                                                 // Create localEdgeIndex to iterate though lists
+                Edge curEdge = null;                                                                                    // Create curEdge to track which edge is being evaluated
 
-                for (int i = 0; i < reached.Count; i++)
+                for (int i = 0; i < reached.Count; i++)                                                                 // For the rooms in the reached list,
                 {
-                    for (int j = 0; j < unreached.Count; j++)
+                    for (int j = 0; j < unreached.Count; j++)                                                           // For the rooms in the unreached list,
                     {
-                        Room reachedRoom = reached[i];
-                        Room unreachedRoom = unreached[j];
+                        Room reachedRoom = reached[i];                                                                  // Set reachedRoom to be equal to the value at index i of our reached list used previously
+                        Room unreachedRoom = unreached[j];                                                              // Do the same for unreached rooms
 
-                        List<Edge> edgesOfRoom = roomDict[reachedRoom];
-
-                        for (int e = 0; e < edgesOfRoom.Count; e++)
+                        List<Edge> edgesOfRoom = roomDict[reachedRoom];                                                 // Pull the value from the roomDictionary with the key of 'reachedRoom'
+                        
+                        for (int e = 0; e < edgesOfRoom.Count; e++)                                                     // For the rooms in the edgesOfRoom list,
                         {
-                            if (edgesOfRoom[e].SharesEdge(reachedRoom.Position, unreachedRoom.Position) && curBestDistance > edgesOfRoom[e].GetDistance)
+                            if (edgesOfRoom[e].SharesEdge(reachedRoom.Position, unreachedRoom.Position)                 // If the edge at index e shares an edge with our reached room or unreached room
+                                && curBestDistance > edgesOfRoom[e].GetDistance)                                        // AND the current best distance is greater than the distance of the edge at current index,
                             {
-                                curBestDistance = edgesOfRoom[e].GetDistance;
-                                reachedIndex = i;
-                                unreachedIndex = j;
-                                curEdge = edgesOfRoom[e];
-                                localEdgeIndex = e;
+                                curBestDistance = edgesOfRoom[e].GetDistance;                                           // Assign the currently evaluated room as the currentBestDistance for comparison in next iteration
+                                reachedIndex = i;                                                                       // Assign reachedIndex to the value of i, which is incrimented by 1 each loop.
+                                unreachedIndex = j;                                                                     // Assign unreachedIndex to the value of j, which is incrimented by 1 each loop.
+                                curEdge = edgesOfRoom[e];                                                               // Assign the curEdge to the currently evaluated index of edgesOfRoom list.
+                                localEdgeIndex = e;                                                                     // Assign the localEdgeIndex to the value of e, which is incrimented by 1 each loop.
                             }
                         }
                     }
                 }
 
-                if (curEdge != null)
+                if (curEdge != null)                                                                                    // If we do not have a current edge,
                 {
-                    Room reachedNode = reached[reachedIndex];
-                    Room unreachedNode = unreached[unreachedIndex];
+                    Room reachedNode = reached[reachedIndex];                                                           // Create a reachedNode variable of type Room to store the room value from reached list at index reachedIndex
+                    Room unreachedNode = unreached[unreachedIndex];                                                     // Create an unreachedNode variable of type Room to store the room value from unreached list at index unreachedIndex
 
-                    for (int i = roomDict[unreachedNode].Count - 1; i >= 0; i--)
+                    for (int i = roomDict[unreachedNode].Count - 1; i >= 0; i--)                                        // Reverse for loop to iterate backwards,
                     {
-                        if (roomDict[unreachedNode][i].SharesEdge(unreachedNode.Position, reachedNode.Position))
+                        if (roomDict[unreachedNode][i].SharesEdge(unreachedNode.Position, reachedNode.Position))        // If the value at key unreachedNode @ index i shares an edges,
                         {
-                            roomDict[unreachedNode].RemoveAt(i);
+                            roomDict[unreachedNode].RemoveAt(i);                                                        // Remove the unreachedNode from the roomDictionary
                         }
                     }
 
-                    roomDict[reachedNode].RemoveAt(localEdgeIndex);
-                    reached.Add(unreachedNode);
-                    unreached.RemoveAt(unreachedIndex);
-                    mst.Add(curEdge);
-                    edges.Remove(curEdge);
+                    roomDict[reachedNode].RemoveAt(localEdgeIndex);                                                     // Remove the localEdgeIndex from the roomDictionary at the reachedNode index
+                    reached.Add(unreachedNode);                                                                         // Add the now evaluated unreachedNode to the reached room list
+                    unreached.RemoveAt(unreachedIndex);                                                                 // Remove the now evaluated unreachedIndex from the unreached room list
+                    mst.Add(curEdge);                                                                                   // Add the currentEdge to the minimum spanning tree list
+                    edges.Remove(curEdge);                                                                              // Remove the currentEdge from the list of edges
 
                 }
 
-                yield return null;
+                yield return null;                                                                                      // Coroutine must have yield return, but we dont want to wait so just return null
 
             }
 
-            AddRandomEdges(edges, mst);
-            List<Edge> corridors = CalculateCorridors(mst, rooms);
-            StartCoroutine(DrawContent(rooms, corridors));
-            StartAndEnd.instance.FindStartAndEnd(rooms);
-            _gizmoMST = mst;
+            AddRandomEdges(edges, mst);                                                                                 // Not part of Prim's algorithm but used to add in more edges to hallways
+            List<Edge> corridors = CalculateCorridors(mst, rooms);                                                      // Generate corridors using mst and rooms as parameters
+            StartCoroutine(DrawContent(rooms, corridors));                                                              // Begin delaunay drawing
+            StartAndEnd.instance.FindStartAndEnd(rooms);                                                                // Idk
+            _gizmoMST = mst;                                                                                            // Creates yellow gizmo representing mst pathing
         }
 
         private IEnumerator DrawContent(List<Room> rooms, List<Edge> corridors)
