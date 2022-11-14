@@ -13,8 +13,12 @@ public class SpaceManager : MonoBehaviour
     public float maxDistance;
     public Tilemap Map;
 
+    [Range(0f, 100f)] public float radius = 1f;
+
     public SpaceStorage[,] _spaces;
 
+
+    [SerializeField]private Transform _player;
     private void Awake()
     {
         if (SpaceManager.instance == null)
@@ -27,12 +31,35 @@ public class SpaceManager : MonoBehaviour
         }
     }
 
-    
-    private void Update()
-    {
 
+    private void FixedUpdate()
+    {
+        if(_spaces == null || _spaces.Length == 0)
+        {
+            return;
+        }
+
+        if (_player == null)
+        {
+            _player = GameObject.FindGameObjectWithTag("Player").transform;
+        }
+
+        if (_player == null)
+        {
+            return;
+        }
+
+        Debug.Log("X: " + _spaces.GetLength(0) + ", Y: " + _spaces.GetLength(1));
+
+        for (int x = 0; x < _spaces.GetLength(0); x++)
+        {
+            for (int y = 0; y < _spaces.GetLength(1); y++)
+            {
+                _spaces[x, y].Visualize(Vector3.Distance(_player.position, _spaces[x,y].transform.position) <= radius);
+            }
+        }
     }
-    
+
 
     public void CalculateSpace()
     {

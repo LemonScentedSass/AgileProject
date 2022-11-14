@@ -21,11 +21,12 @@ public class SpaceStorage : MonoBehaviour
         //_myTransforms = Physics.OverlapBox(transform.position, SpaceManager.instance.spaceSize, Quaternion.identity, SpaceManager.instance.layerMask);
     }
 
+    /*
     private void Update()
     {
         Visualize(isVisualized);
     }
-
+    */
     /*
     private void OnEnable()
     {
