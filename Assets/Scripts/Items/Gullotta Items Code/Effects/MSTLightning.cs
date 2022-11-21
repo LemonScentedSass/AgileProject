@@ -44,6 +44,11 @@ public class MSTLightning : MonoBehaviour
         List<Collider> unsorted = new List<Collider>(Physics.OverlapSphere(transform.position, radius, layerMask));
         List<Collider> sorted = new List<Collider>();
 
+        if(GetComponent<Collider>() != null)
+        {
+            unsorted.Insert(0, GetComponent<Collider>());
+        }
+
         sorted.Add(unsorted[0]);
         unsorted.RemoveAt(0);
 
