@@ -21,7 +21,6 @@ namespace EffectSystem
         public float TravelTime = 0f;
         public GameObject ExplosionPrefab;
        
-
         public override void UseEffect(Transform user)
         {
             //Spawns item if it doesn't exist
@@ -29,6 +28,11 @@ namespace EffectSystem
             {
                 objectPool = (GameManager.PlayerManager.pm.transform.position + GameManager.PlayerManager.pm.transform.up * 50);
                 ITEM = Instantiate(projectileObject, user.transform.forward, Quaternion.identity);
+
+                if(ITEM.GetComponent<ProjectileBase>() != null)
+                {
+                    ITEM.GetComponent<ProjectileBase>().Source = user;
+                }
             }
             ITEM.SetActive(true);
 
