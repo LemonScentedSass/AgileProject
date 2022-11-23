@@ -54,6 +54,7 @@ public class LevelSystem : MonoBehaviour
             if (experience >= experienceToNextLevel)
             {
                   SetLevel(level + 1);
+                  GameManager.PlayerManager.pm.skillPoints++;
                   UpdateText();
 
             return true;

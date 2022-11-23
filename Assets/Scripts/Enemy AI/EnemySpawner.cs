@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-      [SerializeField] private GameObject enemyPrefab;                                                      // Prefab to instantiate
+      [SerializeField] private List<GameObject> enemyPrefabs;                                                      // Prefabs to instantiate
       [SerializeField] private List<GameObject> spawnPoints;                                                // Hold spawnpoints
       [SerializeField] private int count = 20;                                                              // Number of enemies to spawn
       [SerializeField] private float minDelay = 0.8f, maxDelay = 1.5f;                                      // Delay between enemies spawning
@@ -28,7 +28,7 @@ public class EnemySpawner : MonoBehaviour
 
       private void SpawnEnemy(Vector3 spawnPoint)
       {
-            Instantiate(enemyPrefab, spawnPoint, Quaternion.identity);                                      // Spawn enemy @ spawn point
+            Instantiate(enemyPrefabs[Random.Range(0, enemyPrefabs.Count)], spawnPoint, Quaternion.identity);  // Spawn enemy @ spawn point
       }
 
       private void Update()
@@ -42,6 +42,9 @@ public class EnemySpawner : MonoBehaviour
 
       private void Start()
       {
+
+            Debug.Log($"numOfPrefabs: {enemyPrefabs.Count}");
+
             if(spawnPoints.Count > 0)                                                                       // If we have spawnPoints,
             {
                   foreach ( var spawnPoint in spawnPoints)                                                  // Loop through each spawnPoint
