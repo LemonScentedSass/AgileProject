@@ -89,7 +89,7 @@ public class Hotbar : MonoBehaviour
       // Update is called once per frame
       void Update()
       {
-        //Checks player input for magic key; Checks to make sure player is not on cooldown or using item
+            //Checks player input for magic key; Checks to make sure player is not on cooldown or using item
             if (Input.GetKeyDown(Magic) && GameManager.PlayerManager.pm.usingItem == false && magiccooldownImage.fillAmount == 0)
             {
                 //Plays specific fireball animation in layer

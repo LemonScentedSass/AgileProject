@@ -21,7 +21,16 @@ public class ProjectileMotion : ProjectileBase
       private float timeTracker;
       private float timeTracker2;
       private bool Hit;
-      public int fireballDamage = 5;
+
+      [Header("Fireball Settings By Level: ")]
+      [SerializeField] public int fireballDamage = 5;
+      [SerializeField] public int fireballLevel = 1;
+
+      [Header("Boomerang Settings By Level: ")]
+      [SerializeField] private int boomerangLevel = 1;
+      [SerializeField] private float stunLengthLvl1 = 1f;
+      [SerializeField] private float stunLengthLvl2 = 1.5f;
+
 
       private bool Exploded = false;
 
@@ -78,9 +87,15 @@ public class ProjectileMotion : ProjectileBase
                   if (collision.gameObject.tag == "Enemy")
                   {
                         Hit = true;
-                        //fireballExplosion = Instantiate(ExplosionPrefab, transform.position, Quaternion.identity);      // Create explosion prefab
                         collision.gameObject.GetComponent<IHittable>().GetHit(fireballDamage);                          // Apply Damage to enemy
-                        //Destroy(fireballExplosion, 0.25f);
+                        
+                        if(fireballLevel == 3)
+                        {
+                              fireballExplosion = Instantiate(ExplosionPrefab, transform.position, Quaternion.identity);      // Create explosion prefab
+                              Destroy(fireballExplosion, 0.25f);
+                        }
+
+
                   }
 
                   //Fireball reset to object pool and explodes
@@ -91,6 +106,7 @@ public class ProjectileMotion : ProjectileBase
                         transform.position = objectPool;
                         Exploded = true;
                   }
+
             }
 
             
@@ -112,9 +128,13 @@ public class ProjectileMotion : ProjectileBase
                   }
 
                   //Stuns enemy
-                  if (collision.gameObject.tag == "Enemy")
+                  if (collision.gameObject.tag == "Enemy" && boomerangLevel == 1)
                   {
-                        collision.gameObject.GetComponent<EnemyStats>().GetStunned(1f);
+                        collision.gameObject.GetComponent<EnemyStats>().GetStunned(stunLengthLvl1);
+                  }
+                  else if (collision.gameObject.tag == "Enemy" && boomerangLevel == 2)
+                  {
+                        collision.gameObject.GetComponent<EnemyStats>().GetStunned(stunLengthLvl2);
                   }
 
                   //Destroys Destructables

@@ -720,7 +720,7 @@ MonoBehaviour:
   - {fileID: 1627314478}
   - {fileID: 945586699}
   - {fileID: 1240323298}
-  count: 30
+  count: 15
   minDelay: 0.8
   maxDelay: 1.5
 --- !u!4 &901776091

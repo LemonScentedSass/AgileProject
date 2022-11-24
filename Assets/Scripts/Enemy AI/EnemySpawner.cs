@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-      [SerializeField] private List<GameObject> enemyPrefabs;                                                      // Prefabs to instantiate
+      [SerializeField] private List<GameObject> enemyPrefabs;                                               // Prefabs to instantiate
       [SerializeField] private List<GameObject> spawnPoints;                                                // Hold spawnpoints
       [SerializeField] private int count = 20;                                                              // Number of enemies to spawn
       [SerializeField] private float minDelay = 0.8f, maxDelay = 1.5f;                                      // Delay between enemies spawning
