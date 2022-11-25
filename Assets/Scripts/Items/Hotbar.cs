@@ -8,7 +8,6 @@ using ItemSystem;
 
 public class Hotbar : MonoBehaviour
 {
-      private float ResetCooldown;
       
       private Animator anim;
 

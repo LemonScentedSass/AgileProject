@@ -140,9 +140,17 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5042959768639920982, guid: abb98fa96810c7844a34baf48c338a08, type: 3}
+      propertyPath: itemsToDrop.Array.data[0].itemPrefab
+      value: 
+      objectReference: {fileID: 1082281756869296683, guid: d2c63c929e0d20042908be5ba5112ccf, type: 3}
+    - target: {fileID: 5042959768639920982, guid: abb98fa96810c7844a34baf48c338a08, type: 3}
+      propertyPath: itemsToDrop.Array.data[1].itemPrefab
+      value: 
+      objectReference: {fileID: 523988259828364559, guid: 07a37aa03f306764186a96ef14f44118, type: 3}
     - target: {fileID: 5042959769241852578, guid: abb98fa96810c7844a34baf48c338a08, type: 3}
       propertyPath: m_Name
-      value: Enemy - Ancient Warrior
+      value: Spirit Demon (Small)
       objectReference: {fileID: 0}
     - target: {fileID: 5042959769241852580, guid: abb98fa96810c7844a34baf48c338a08, type: 3}
       propertyPath: m_RootOrder

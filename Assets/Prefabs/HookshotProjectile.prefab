@@ -111,7 +111,11 @@ MonoBehaviour:
   comebackTime: 0
   comesBack: 0
   fireballDamage: 5
-  hookshotLevel: 3
+  fireballLevel: 1
+  boomerangLevel: 1
+  stunLengthLvl1: 1
+  stunLengthLvl2: 1.5
+  hookshotLevel: 2
   _pullSpeed: 15
 --- !u!65 &-7938448778742040221
 BoxCollider:

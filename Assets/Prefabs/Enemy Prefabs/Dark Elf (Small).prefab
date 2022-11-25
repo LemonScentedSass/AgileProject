@@ -46,12 +46,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemsToDrop:
   - rate: 0.456
-    itemPrefab: {fileID: 7711871126866027623, guid: 0b42f3b0582f0ca42b7f95f4f873753a, type: 3}
+    itemPrefab: {fileID: 8170575242828918156, guid: c99ede7ec6927b64286ffbfb10a01030, type: 3}
   - rate: 0.64
-    itemPrefab: {fileID: 6165752449646131301, guid: 0419638252102e84b85ab5be50c099ba, type: 3}
+    itemPrefab: {fileID: 523988259828364559, guid: 07a37aa03f306764186a96ef14f44118, type: 3}
   - rate: 0.38
-    itemPrefab: {fileID: 0}
-  dropChance: 1
+    itemPrefab: {fileID: 1082281756869296683, guid: d2c63c929e0d20042908be5ba5112ccf, type: 3}
+  dropChance: 0.505
 --- !u!1 &980792078484698054
 GameObject:
   m_ObjectHideFlags: 0
@@ -141,6 +141,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
+  attackRange: 2
 --- !u!95 &980792078484698061
 Animator:
   serializedVersion: 4

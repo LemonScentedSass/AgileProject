@@ -42,9 +42,6 @@ public class EnemySpawner : MonoBehaviour
 
       private void Start()
       {
-
-            Debug.Log($"numOfPrefabs: {enemyPrefabs.Count}");
-
             if(spawnPoints.Count > 0)                                                                       // If we have spawnPoints,
             {
                   foreach ( var spawnPoint in spawnPoints)                                                  // Loop through each spawnPoint

@@ -287,7 +287,7 @@ public class Attack : State
       GameManager.PlayerManager pm;
       float rotationSpeed = 10.0f;
       //AudioSource attackAudio;
-      bool isAttacking = false;
+
 
       public Attack(GameObject _npc, NavMeshAgent _agent, Animator _anim, Transform _player) : base(_npc, _agent, _anim, _player)
       {
@@ -297,7 +297,6 @@ public class Attack : State
 
       public override void Enter()
       {
-            isAttacking = true;
             agent.isStopped = true;
             player = GameObject.FindGameObjectWithTag("Player").transform;
             pm = player.GetComponent<GameManager.PlayerManager>();
@@ -308,7 +307,7 @@ public class Attack : State
       }
 
       public override void Update()
-      {         
+      {
             Vector3 direction = player.position - npc.transform.position;                                   // Determine the direction vector between the player and the AI agent
             float angle = Vector3.Angle(direction, npc.transform.forward);                                  // Determing the angle between the direction vector and the AI agents forward vector
             direction.y = 0;                                                                                // Lock the Y axis to prevent any tilting
@@ -352,7 +351,6 @@ public class Wander : State
 
       Transform target;
       float timer;
-      float timeIdle = 2f;
 
       public Wander(GameObject _npc, NavMeshAgent _agent, Animator _anim, Transform _player) : base(_npc, _agent, _anim, _player)
       {
@@ -382,7 +380,6 @@ public class Wander : State
                   var rotation = agent.transform.rotation;
                   var rotationMod = Quaternion.AngleAxis((i / ((float)numberOfRays - 1)) * angle * 2 - angle, agent.transform.up);
                   var direction = rotation * rotationMod * Vector3.forward;
-                  //Debug.DrawRay(agent.transform.position, direction);
 
 
                   var ray = new Ray(agent.transform.position + new Vector3(0, 1, 0), direction);
@@ -396,7 +393,6 @@ public class Wander : State
                         {
                               if (hitInfo.distance < 1 && count == 0)
                               {
-                                    Debug.Log("Obstacle Detected, Selecting new location");
                                     agent.SetDestination(SetNewPos());
                                     count++;
                               }
@@ -453,28 +449,3 @@ public class Wander : State
 
 
 }
-
-//public class Dead : State
-//{
-//      public Dead(GameObject _npc, NavMeshAgent _agent, Animator _anim, Transform _player) : base(_npc, _agent, _anim, _player)
-//      {
-//            name = STATE.DEAD;
-//      }
-
-//      public override void Enter()
-//      {
-//            anim.SetTrigger("isDead");
-//            agent.isStopped = true;
-//            base.Enter();
-//      }
-
-//      public override void Update()
-//      {
-//            return;
-//      }
-
-//      public override void Exit()
-//      {
-//            return;
-//      }
-//}

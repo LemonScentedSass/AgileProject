@@ -21,12 +21,9 @@ namespace EffectSystem
             public float TravelTime = 0f;
             public GameObject ExplosionPrefab;
 
-            public ProjectileMotion projMotion;
-
             public override void UseEffect(Transform user)
             {
-                  //Sets all variables to equal this script
-                  ProjectileMotion pm = ITEM.GetComponent<ProjectileMotion>();
+
 
                   //Spawns item if it doesn't exist
                   if (ITEM == null)
@@ -68,7 +65,8 @@ namespace EffectSystem
                         ITEM.AddComponent<ProjectileMotion>();
                   }
 
-
+                  //Sets all variables to equal this script
+                  ProjectileMotion pm = ITEM.GetComponent<ProjectileMotion>();
 
                   pm.speed = speed;
                   pm.comesBack = doesComeBack;

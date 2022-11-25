@@ -287,7 +287,6 @@ namespace GameManager
                                     case ResourceTypeEnum.Mana:
                                           _manaPotionAmount += resource.ResourceData.GetAmount();
                                           resource.PickupResource();
-                                          Debug.Log($"ManaPotionAmount: {_manaPotionAmount}");
                                           break;
                               }
                         }

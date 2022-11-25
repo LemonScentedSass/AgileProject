@@ -19,6 +19,22 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 980792077887058482, guid: 28275f29d6c34004aa31085a9e28a2d5, type: 3}
+      propertyPath: dropChance
+      value: 0.516
+      objectReference: {fileID: 0}
+    - target: {fileID: 980792077887058482, guid: 28275f29d6c34004aa31085a9e28a2d5, type: 3}
+      propertyPath: itemsToDrop.Array.data[0].itemPrefab
+      value: 
+      objectReference: {fileID: 523988259828364559, guid: 07a37aa03f306764186a96ef14f44118, type: 3}
+    - target: {fileID: 980792077887058482, guid: 28275f29d6c34004aa31085a9e28a2d5, type: 3}
+      propertyPath: itemsToDrop.Array.data[1].itemPrefab
+      value: 
+      objectReference: {fileID: 1082281756869296683, guid: d2c63c929e0d20042908be5ba5112ccf, type: 3}
+    - target: {fileID: 980792077887058482, guid: 28275f29d6c34004aa31085a9e28a2d5, type: 3}
+      propertyPath: itemsToDrop.Array.data[2].itemPrefab
+      value: 
+      objectReference: {fileID: 8170575242828918156, guid: c99ede7ec6927b64286ffbfb10a01030, type: 3}
     - target: {fileID: 980792078484698048, guid: 28275f29d6c34004aa31085a9e28a2d5, type: 3}
       propertyPath: m_RootOrder
       value: 0

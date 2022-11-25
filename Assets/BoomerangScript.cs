@@ -6,7 +6,6 @@ using UnityEngine;
 public class BoomerangScript : MonoBehaviour
 {
       bool isThrown;                                              // Has the player thrown the boomerang?
-      int currentItemLevel;                                       // Current Level of boomerang
       public GameObject player;                                   // Reference to player
       public GameObject BoomerangPrefab;                          // Reference to Boomerang
       public float boomerangTimer = 1.5f;                         // How long the boomerang remains in air
@@ -25,7 +24,7 @@ public class BoomerangScript : MonoBehaviour
             itemToRotate = gameObject.transform.GetChild(0);      // Find boomerang model
             locationInFrontOfPlayer = new Vector3(player.transform.position.x, player.transform.position.y + 1, player.transform.position.z) + player.transform.forward * travelDistance;
 
-            StartCoroutine(ThrowBoomerang(currentItemLevel));
+            StartCoroutine(ThrowBoomerang());
       }
 
       private void Update()
@@ -48,7 +47,7 @@ public class BoomerangScript : MonoBehaviour
             }
       }
 
-      IEnumerator ThrowBoomerang(int currentItemLevel)
+      IEnumerator ThrowBoomerang()
       {
             isThrown = true;
             yield return new WaitForSeconds(boomerangTimer);

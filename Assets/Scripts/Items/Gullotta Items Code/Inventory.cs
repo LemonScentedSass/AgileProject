@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using ItemSystem;
 using UnityEngine.UI;
-using ItemSystem;
 using System;
 
 //Should be standalone in character, unless you have a real reason to keep it as a mono
