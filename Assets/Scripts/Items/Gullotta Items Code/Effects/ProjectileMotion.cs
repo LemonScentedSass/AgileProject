@@ -38,6 +38,7 @@ public class ProjectileMotion : ProjectileBase
 
       private Vector3 scale = new Vector3(0.5f, 0.5f, 0.5f);
 
+
       // Update is called once per frame
       void Update()
       {
@@ -51,6 +52,7 @@ public class ProjectileMotion : ProjectileBase
                   {
                         transform.LookAt(user.position + new Vector3(0, 1, 0));
                   }
+
             }
 
             //Travels for a duration if player is not using and explodes bool is false
@@ -112,8 +114,9 @@ public class ProjectileMotion : ProjectileBase
             
             if (comesBack == true)
             {
+
                   //Colliding with something returns time to 0
-                  if (collision.gameObject.tag != "Player")
+                  if (collision.gameObject.tag != "Enemy" || collision.gameObject.tag != "Player")
                   {
                         comebackTime = 0;
                   }
@@ -217,4 +220,5 @@ public class ProjectileMotion : ProjectileBase
                   }
             }
       }
+
 }

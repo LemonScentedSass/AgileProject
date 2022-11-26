@@ -6,8 +6,8 @@ public class GiveLightning : MonoBehaviour
 {
     public int LightningLevel = 0;
 
-
     public float SnapRadius = 1.00f;
+    public int InitialDamage = 1;
     public Material Lightning;
     private Transform snapTarget;
 
@@ -28,6 +28,7 @@ public class GiveLightning : MonoBehaviour
         if(LightningLevel == 0)
         {
             SnapRadius = 1f;
+            InitialDamage = 1;
             if(GetComponent<ProjectileMotion>() == true)
             {
                 GetComponent<ProjectileMotion>().speed = 10;
@@ -37,6 +38,7 @@ public class GiveLightning : MonoBehaviour
         if(LightningLevel == 1)
         {
             SnapRadius = 1.1f;
+            InitialDamage = 2;
             if (GetComponent<ProjectileMotion>() == true)
             {
                 GetComponent<ProjectileMotion>().speed = 15;
@@ -45,6 +47,7 @@ public class GiveLightning : MonoBehaviour
         if (LightningLevel == 2)
         {
             SnapRadius = 1.2f;
+            InitialDamage = 3;
             if (GetComponent<ProjectileMotion>() == true)
             {
                 GetComponent<ProjectileMotion>().speed = 20;
@@ -53,6 +56,7 @@ public class GiveLightning : MonoBehaviour
         if(LightningLevel == 3)
         {
             SnapRadius = 1.3f;
+            InitialDamage = 4;
             if (GetComponent<ProjectileMotion>() == true)
             {
                 GetComponent<ProjectileMotion>().speed = 25;
@@ -68,6 +72,7 @@ public class GiveLightning : MonoBehaviour
             collision.gameObject.AddComponent<MSTLightning>();
             collision.gameObject.GetComponent<MSTLightning>().LightningLVL = LightningLevel;
             collision.gameObject.GetComponent<MSTLightning>().material = Lightning;
+            collision.gameObject.GetComponent<EnemyStats>().currentHealth -= InitialDamage;
             snapTarget = null;
         }
     }

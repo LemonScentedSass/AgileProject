@@ -30,16 +30,19 @@ public class MSTLightning : MonoBehaviour
     {
         if(LightningLVL == 1)
         {
+            LightningDamage = 2;
             radius = 10;
             MaxEnemyHit = 4;
         }
         if(LightningLVL == 2)
         {
+            LightningDamage = 3;
             radius = 15;
             MaxEnemyHit = 5;
         }
         if(LightningLVL == 3)
         {
+            LightningDamage = 5;
             radius = 20;
             MaxEnemyHit = 5;
         }
@@ -67,6 +70,8 @@ public class MSTLightning : MonoBehaviour
         {
             _lineRenderer.positionCount = points.Count;
         }
+
+
         _lineRenderer.SetPositions(points.ToArray());
     }
 
@@ -112,6 +117,7 @@ public class MSTLightning : MonoBehaviour
 
         Debug.Log(sorted.Count);
         _hits = sorted;
+
         StartCoroutine(Delay());
     }
 
@@ -122,6 +128,8 @@ public class MSTLightning : MonoBehaviour
 
     private IEnumerator Delay()
     {
+        
+        yield return new WaitForSeconds(0.2f);
         for (int i = 0; i < _lineRenderer.positionCount; i++)
         {
             if (_hits[i].GetComponent<EnemyStats>() == true)
@@ -129,8 +137,6 @@ public class MSTLightning : MonoBehaviour
                 _hits[i].GetComponent<EnemyStats>().currentHealth -= LightningDamage;
             }
         }
-        yield return new WaitForSeconds(0.5f);
-
         Destroy(this);
         Destroy(_lineRenderer);
     }
