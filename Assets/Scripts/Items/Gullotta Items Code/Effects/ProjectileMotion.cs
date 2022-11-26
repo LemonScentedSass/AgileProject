@@ -152,7 +152,6 @@ public class ProjectileMotion : ProjectileBase
                         transform.position = objectPool;
                         gameObject.SetActive(false);
                   }
-
             }
 
       }

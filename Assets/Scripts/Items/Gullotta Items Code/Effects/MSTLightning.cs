@@ -5,7 +5,12 @@ using UnityEngine;
 [RequireComponent(typeof(LineRenderer))]
 public class MSTLightning : MonoBehaviour
 {
-    [SerializeField] private float radius = 3f;
+    public int LightningLVL = 0;
+    public int MaxEnemyHit = 3;
+    public int LightningDamage = 1;
+    public Material material;
+
+    [SerializeField] private float radius = 5f;
     [SerializeField] private LayerMask layerMask;
 
     [SerializeField] private LineRenderer _lineRenderer;
@@ -15,12 +20,31 @@ public class MSTLightning : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        layerMask = LayerMask.GetMask("Enemy");
         _lineRenderer = GetComponent<LineRenderer>();
+        _lineRenderer.material = material;
         Cast();
     }
 
     private void Update()
     {
+        if(LightningLVL == 1)
+        {
+            radius = 10;
+            MaxEnemyHit = 4;
+        }
+        if(LightningLVL == 2)
+        {
+            radius = 15;
+            MaxEnemyHit = 5;
+        }
+        if(LightningLVL == 3)
+        {
+            radius = 20;
+            MaxEnemyHit = 5;
+        }
+
+
         if(_lineRenderer == null || _hits == null)
         {
             return;
@@ -32,10 +56,17 @@ public class MSTLightning : MonoBehaviour
         for(int i = 0; i < _hits.Count; i++)
         {
             points.Add(_hits[i].transform.position);
+
         }
 
-
-        _lineRenderer.positionCount = points.Count;
+        if(points.Count > MaxEnemyHit)
+        {
+            _lineRenderer.positionCount = MaxEnemyHit + 1;
+        }
+        else
+        {
+            _lineRenderer.positionCount = points.Count;
+        }
         _lineRenderer.SetPositions(points.ToArray());
     }
 
@@ -81,10 +112,27 @@ public class MSTLightning : MonoBehaviour
 
         Debug.Log(sorted.Count);
         _hits = sorted;
+        StartCoroutine(Delay());
     }
 
     private void OnDrawGizmos()
     {
         Gizmos.DrawWireSphere(transform.position, radius);
     }
+
+    private IEnumerator Delay()
+    {
+        for (int i = 0; i < _lineRenderer.positionCount; i++)
+        {
+            if (_hits[i].GetComponent<EnemyStats>() == true)
+            {
+                _hits[i].GetComponent<EnemyStats>().currentHealth -= LightningDamage;
+            }
+        }
+        yield return new WaitForSeconds(0.5f);
+
+        Destroy(this);
+        Destroy(_lineRenderer);
+    }
+
 }
