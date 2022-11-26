@@ -61,6 +61,8 @@ public class Hotbar : MonoBehaviour
       public Button monsterMeatButton;
       public UseItem useMonsterMeat;
 
+      private float ResetCooldown;
+
       // Start is called before the first frame update
       void Start()
       {
@@ -97,7 +99,7 @@ public class Hotbar : MonoBehaviour
                 //Uses item and starts cooldown
                   GameManager.PlayerManager.pm.usingItem = true;
                   GameManager.PlayerManager.pm.CurrentMana -= 10f;
-                  StartCoroutine(StartCoolDown(MagicCooldownDuration, ResetCooldown, magiccooldownImage));
+                  StartCoroutine(StartCoolDown(MagicCooldownDuration, magiccooldownImage));
             }
 
             //Checks player input for item key; 
@@ -106,7 +108,7 @@ public class Hotbar : MonoBehaviour
                   anim.Play("Bow", 1);
                   GameManager.PlayerManager.pm.usingItem = true;
                   GameManager.PlayerManager.pm.CurrentStamina -= 15f;
-                  StartCoroutine(StartCoolDown(ItemCooldownDuration, ResetCooldown, itemcooldownImage));
+                  StartCoroutine(StartCoolDown(ItemCooldownDuration, itemcooldownImage));
             }
 
 
@@ -182,7 +184,7 @@ public class Hotbar : MonoBehaviour
             if (GameManager.PlayerManager.pm.HealthPotionAmount != 0 && healthcooldownImage.fillAmount == 0)
             {
                   healthPotionButton.interactable = false;
-                  StartCoroutine(StartCoolDown(HealthPotionCooldownDuration, ResetCooldown, healthcooldownImage, healthPotionButton));
+                  StartCoroutine(StartCoolDown(HealthPotionCooldownDuration, healthcooldownImage, healthPotionButton));
                   GameManager.PlayerManager.pm.HealthPotionAmount -= 1;
                   healthPotionAmounTXT.text = "x" + GameManager.PlayerManager.pm.HealthPotionAmount;
             }
@@ -193,7 +195,7 @@ public class Hotbar : MonoBehaviour
             if (GameManager.PlayerManager.pm.ManaPotionAmount != 0 && manacooldownImage.fillAmount == 0)
             {
                   manaPotionButton.interactable = false;
-                  StartCoroutine(StartCoolDown(ManaPotionCooldownDuration, ResetCooldown, manacooldownImage, manaPotionButton));
+                  StartCoroutine(StartCoolDown(ManaPotionCooldownDuration, manacooldownImage, manaPotionButton));
                   GameManager.PlayerManager.pm.ManaPotionAmount -= 1;
                   manaPotionAmountTXT.text = "x" + GameManager.PlayerManager.pm.ManaPotionAmount;
             }
@@ -205,7 +207,7 @@ public class Hotbar : MonoBehaviour
             if (GameManager.PlayerManager.pm.BuffPotionAmount != 0 && buffcooldownImage.fillAmount == 0)
             {
                   buffPotionButton.interactable = false;
-                  StartCoroutine(StartCoolDown(BuffPotionCooldownDuration, ResetCooldown, buffcooldownImage, buffPotionButton));
+                  StartCoroutine(StartCoolDown(BuffPotionCooldownDuration, buffcooldownImage, buffPotionButton));
                   GameManager.PlayerManager.pm.BuffPotionAmount -= 1;
                   buffPotionAmountTXT.text = "x" + GameManager.PlayerManager.pm.BuffPotionAmount;
             }
@@ -217,7 +219,7 @@ public class Hotbar : MonoBehaviour
             if (GameManager.PlayerManager.pm.MonsterMeatAmount != 0 && meatcooldownImage.fillAmount == 0)
             {
                   monsterMeatButton.interactable = false;
-                  StartCoroutine(StartCoolDown(MeatCooldownDuration, ResetCooldown, meatcooldownImage, monsterMeatButton));
+                  StartCoroutine(StartCoolDown(MeatCooldownDuration, meatcooldownImage, monsterMeatButton));
                   GameManager.PlayerManager.pm.MonsterMeatAmount -= 1;
                   meatAmountTXT.text = "x" + GameManager.PlayerManager.pm.MonsterMeatAmount;
             }
@@ -226,7 +228,7 @@ public class Hotbar : MonoBehaviour
 
     //Starts cooldown for specific hotbar buttons and its cooldown 
     //Disables hotbar button press
-      public IEnumerator StartCoolDown(float duration, float reset, Image fill, Button button)
+      public IEnumerator StartCoolDown(float duration, Image fill, Button button)
       {
             GameManager.PlayerManager.pm.usingItem = false;
             float t = 0;
@@ -234,9 +236,8 @@ public class Hotbar : MonoBehaviour
             while (t < duration)
             {
                   Debug.Log("trigger");
-                  Debug.Log(reset);
                   t += Time.deltaTime;
-                  reset = t / duration;
+                  float reset = t / duration;
                   fill.fillAmount = reset;
                   yield return null;
             }
@@ -247,7 +248,7 @@ public class Hotbar : MonoBehaviour
 
 
     //Starts cooldown for specific hotbar and its cooldown
-      public IEnumerator StartCoolDown(float duration, float reset, Image fill)
+      public IEnumerator StartCoolDown(float duration, Image fill)
       {
             GameManager.PlayerManager.pm.usingItem = false;
             float t = 0;
@@ -255,7 +256,7 @@ public class Hotbar : MonoBehaviour
             while (t < duration)
             {
                   t += Time.deltaTime;
-                  reset = t / duration;
+                  float reset = t / duration;
                   fill.fillAmount = reset;
                   yield return null;
             }
