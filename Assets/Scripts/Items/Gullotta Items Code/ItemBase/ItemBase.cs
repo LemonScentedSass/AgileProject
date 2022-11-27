@@ -8,6 +8,7 @@ namespace ItemSystem
     public class ItemBase : DatabaseElement
     {
         public string itemName;
+        public int itemLVL;
         public string itemDescription;
         public Sprite itemIcon;
         public int itemCost;
