@@ -14,8 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _index: 0
   itemName: 
+  itemLVL: 0
   itemDescription: 
-  itemIcon: {fileID: 0}
+  itemIcon: {fileID: 21300000, guid: cce2edf8bfacaa94d9fed67171622f87, type: 3}
   itemCost: 0
   effectsOnUse:
   - {fileID: 11400000, guid: 153db80feef782442adb9622725531aa, type: 2}

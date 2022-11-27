@@ -105,7 +105,19 @@ public class Hotbar : MonoBehaviour
             //Checks player input for item key; 
             if (Input.GetKeyDown(Item) && GameManager.PlayerManager.pm.usingItem == false && itemcooldownImage.fillAmount == 0)
             {
-                  anim.Play("Bow", 1);
+
+
+                  if (useItem.itemName == "Bow")
+                  {
+                      anim.Play("Bow", 1);
+                  }
+                  else
+                  {
+                      anim.Play("Boomerang", 1);
+                  }
+
+
+
                   GameManager.PlayerManager.pm.usingItem = true;
                   GameManager.PlayerManager.pm.CurrentStamina -= 15f;
                   StartCoroutine(StartCoolDown(ItemCooldownDuration, itemcooldownImage));

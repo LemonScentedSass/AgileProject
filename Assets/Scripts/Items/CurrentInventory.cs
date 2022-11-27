@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using ItemSystem;
+using UnityEngine.UI;
 
 public class CurrentInventory : MonoBehaviour
 {
@@ -10,19 +11,44 @@ public class CurrentInventory : MonoBehaviour
 
     private Hotbar hotbar;
 
+    public Image hotbarItemImage;
+    public Image hotbarMagicImage;
+
     public int CurrentItemLVL;
     public int CurrentMagicLVL;
     // Start is called before the first frame update
     void Start()
     {
         hotbar = GetComponentInChildren<Hotbar>();
-        CurrentItem = hotbar.useItem;
-        CurrentMagic = hotbar.useMagic;
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        CurrentItem = hotbar.useItem;
+        CurrentMagic = hotbar.useMagic;
+
+        if (CurrentItem == null)
+        {
+
+            return;
+        }
+        else
+        {
+            hotbarItemImage.sprite = CurrentItem.itemIcon;
+        }
+
+        if (CurrentMagic == null)
+        {
+            return;
+        }
+        else
+        {
+            hotbarMagicImage.sprite = CurrentMagic.itemIcon;
+        }
+
+
+
     }
 }

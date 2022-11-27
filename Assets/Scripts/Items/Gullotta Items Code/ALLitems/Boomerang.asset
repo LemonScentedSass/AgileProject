@@ -14,8 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _index: 2
   itemName: Boomerang
+  itemLVL: 0
   itemDescription: boombeagn
-  itemIcon: {fileID: 0}
+  itemIcon: {fileID: 21300000, guid: a427f04471e051341b75c83723c91f62, type: 3}
   itemCost: 100000
   effectsOnUse:
   - {fileID: 11400000, guid: 27b87d39bd43973499ccacb8e9257088, type: 2}

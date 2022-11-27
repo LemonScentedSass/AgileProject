@@ -14,8 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _index: 3
   itemName: Hookshot
+  itemLVL: 0
   itemDescription: Hookshot
-  itemIcon: {fileID: 0}
+  itemIcon: {fileID: 21300000, guid: b4bae71128d3b2d4eb7cbda5c5c5dae0, type: 3}
   itemCost: 100000
   effectsOnUse:
   - {fileID: 11400000, guid: 90c5c65a9bd107e4dad71ffbcd8647ac, type: 2}

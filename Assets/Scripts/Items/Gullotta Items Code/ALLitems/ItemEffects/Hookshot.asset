@@ -18,9 +18,9 @@ MonoBehaviour:
   explodeRadius: 0
   explosionTime: 0
   projectileObject: {fileID: 2785775420407046515, guid: 2d6b1837bce1591418b6df408e3d4bf0, type: 3}
-  objectPool: {x: 0, y: 0, z: 0}
-  speed: 1
+  objectPool: {x: 21.36135, y: 50.940086, z: 17.37988}
+  speed: 11
   direction: 0
-  hasTravelTime: 0
-  TravelTime: 0
+  hasTravelTime: 1
+  TravelTime: 0.1
   ExplosionPrefab: {fileID: 0}
