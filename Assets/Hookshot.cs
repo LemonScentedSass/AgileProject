@@ -31,6 +31,7 @@ public class Hookshot : ProjectileMotion
 
       private void OnCollisionEnter(Collision other)
       {
+            
             playerManager = user.GetComponent<GameManager.PlayerManager>();
 
             if (_flag == false)
