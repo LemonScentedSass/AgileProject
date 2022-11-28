@@ -826,7 +826,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1098257649
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1476,6 +1476,38 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5131169609173433497, guid: 695be3c7a7eb8884582e6327564fcdc3, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5131169609173433497, guid: 695be3c7a7eb8884582e6327564fcdc3, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5131169609173433497, guid: 695be3c7a7eb8884582e6327564fcdc3, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5131169609173433497, guid: 695be3c7a7eb8884582e6327564fcdc3, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5131169609173433497, guid: 695be3c7a7eb8884582e6327564fcdc3, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 17.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5131169609173433497, guid: 695be3c7a7eb8884582e6327564fcdc3, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 350
+      objectReference: {fileID: 0}
+    - target: {fileID: 5131169609173433497, guid: 695be3c7a7eb8884582e6327564fcdc3, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5131169609173433497, guid: 695be3c7a7eb8884582e6327564fcdc3, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5227866298396306767, guid: 695be3c7a7eb8884582e6327564fcdc3, type: 3}
       propertyPath: m_Layer
       value: 7
@@ -2053,7 +2085,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1bb44cc35cd94964bb0b6e5c0a837015, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  backgroundMusic: {fileID: 0}
+  backgroundMusic: {fileID: 8300000, guid: 4481f9ff682822b418b10831fd34e705, type: 3}
   _sfxAmount: 4
   _audioObject: {fileID: 0}
   backgroundVolume: 0.5

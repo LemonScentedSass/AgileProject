@@ -15,12 +15,6 @@ public class MainMenuAudio : MonoBehaviour
         _am = AudioManager.instance;
 
         //_am.PlayBGM(bgm, 0f);
-        _am.PlayBGM(torchSFX, 0f);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        _am.PlaySFX(torchSFX);
     }
 }
