@@ -17,9 +17,6 @@ public class MenuButtonClicks : MonoBehaviour
     public TMPro.TMP_Text magicTXT;
     public TMPro.TMP_Text magicUpgradeTXT;
 
-    public Button ItemUpgradeButton;
-    public Button MagicUpgradeButton;
-
     public Image ItemImage;
     public Image MagicImage;
 
@@ -32,7 +29,7 @@ public class MenuButtonClicks : MonoBehaviour
     public Button quitToDesktopButton;
 
     private Hotbar hotbar;
-    private CurrentInventory inventory;
+    private CurrentUpgrades inventory;
 
     public GameObject ItemLock;
     public GameObject MagicLock;
@@ -41,7 +38,7 @@ public class MenuButtonClicks : MonoBehaviour
     void Start()
     {
         hotbar = PlayerManager.pm.GetComponentInChildren<Hotbar>();
-        inventory = PlayerManager.pm.GetComponent<CurrentInventory>();
+        inventory = PlayerManager.pm.GetComponent<CurrentUpgrades>();
         OptionMenu.SetActive(false);
         anim = GetComponent<Animator>();
         for (int i = 0; i < Skills.Length; i++)

@@ -9,7 +9,7 @@ public class GiveLightning : MonoBehaviour
     public float SnapRadius = 1.00f;
     public int InitialDamage = 1;
     public Material Lightning;
-    private Transform snapTarget;
+    public Transform snapTarget;
 
     // Start is called before the first frame update
     void Start()
@@ -21,6 +21,8 @@ public class GiveLightning : MonoBehaviour
     void Update()
     {
         GetComponent<SphereCollider>().radius = SnapRadius;
+        LightningLevel = GameManager.PlayerManager.pm.GetComponent<CurrentUpgrades>().CurrentMagicLVL;
+        Debug.Log(LightningLevel);
         if (snapTarget != null)
         {
             transform.LookAt(snapTarget.transform.position);
@@ -69,12 +71,13 @@ public class GiveLightning : MonoBehaviour
     {
         if(collision.gameObject.tag == "Enemy")
         {
+            snapTarget = null;
             collision.gameObject.AddComponent<MSTLightning>();
             collision.gameObject.GetComponent<MSTLightning>().LightningLVL = LightningLevel;
             collision.gameObject.GetComponent<MSTLightning>().material = Lightning;
             collision.gameObject.GetComponent<EnemyStats>().currentHealth -= InitialDamage;
-            snapTarget = null;
         }
+
     }
 
     private void OnTriggerEnter(Collider other)
@@ -82,6 +85,7 @@ public class GiveLightning : MonoBehaviour
         if (other.tag == "Enemy" && snapTarget == null)
         {
             snapTarget = other.transform;
+
         }
     }
 }

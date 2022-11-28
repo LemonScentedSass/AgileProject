@@ -5,6 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(LineRenderer))]
 public class MSTLightning : MonoBehaviour
 {
+
     public int LightningLVL = 0;
     public int MaxEnemyHit = 3;
     public int LightningDamage = 1;
@@ -23,6 +24,7 @@ public class MSTLightning : MonoBehaviour
         layerMask = LayerMask.GetMask("Enemy");
         _lineRenderer = GetComponent<LineRenderer>();
         _lineRenderer.material = material;
+        LightningLVL = GameManager.PlayerManager.pm.GetComponent<CurrentUpgrades>().CurrentMagicLVL;
         Cast();
     }
 
@@ -44,7 +46,7 @@ public class MSTLightning : MonoBehaviour
         {
             LightningDamage = 5;
             radius = 20;
-            MaxEnemyHit = 5;
+            MaxEnemyHit = 6;
         }
 
 

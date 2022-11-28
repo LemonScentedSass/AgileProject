@@ -5946,8 +5946,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 30.402527, y: 2.2008095}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: 15.5778, y: -0.5497}
+  m_SizeDelta: {x: 224.073, y: 45.2344}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &864093326204065535
 CanvasRenderer:
@@ -5971,7 +5971,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -6004,15 +6004,15 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
+  m_fontSize: 38.95
   m_fontSizeBase: 36
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
-  m_VerticalAlignment: 256
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -6040,7 +6040,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -10.278038, y: 10.557369, z: 66.75822, w: -3.035537}
+  m_margin: {x: -0.51875335, y: -0.5618639, z: 2.3474007, w: 2.2593446}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -16265,7 +16265,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: insert skill name here
+  m_text: Consumable Upgrade
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -19805,7 +19805,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: insert skill name here
+  m_text: Consumable Upgrade II
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -23088,7 +23088,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6697902658157260006}
   m_LocalRotation: {x: 0.6427876, y: -0, z: -0, w: 0.7660445}
-  m_LocalPosition: {x: 0, y: 10.848078, z: -0.7364826}
+  m_LocalPosition: {x: 0, y: 10.848078, z: -0.73648214}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -23426,9 +23426,15 @@ MonoBehaviour:
   CurrentMagic: {fileID: 0}
   hotbarItemImage: {fileID: 824631289384258792}
   hotbarMagicImage: {fileID: 8784754391482307735}
+  menuItemUpgrade: {fileID: 8000058972586202380}
+  menuMagicUpgrade: {fileID: 8000058971253183989}
+  itemLVLTXT: {fileID: 6275656530381901780}
+  magicLVLTXT: {fileID: 3910076844762218980}
   CurrentItemLVL: 0
   CurrentMagicLVL: 0
   skillpointTXT: {fileID: 8111059528090615832}
+  itemSkillRequirement: 1
+  magicSkillRequirement: 1
 --- !u!1 &6697902658488600160
 GameObject:
   m_ObjectHideFlags: 0
@@ -23818,7 +23824,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6697902659085609075}
   m_LocalRotation: {x: 0.6427876, y: 0, z: 0, w: 0.7660445}
-  m_LocalPosition: {x: -0.047727086, y: 9.918301, z: -1.3774267}
+  m_LocalPosition: {x: -0.047727086, y: 9.918301, z: -1.377426}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -23889,7 +23895,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6697902659544355666}
   m_LocalRotation: {x: 0.6427876, y: -0, z: -0, w: 0.7660445}
-  m_LocalPosition: {x: -0.047727086, y: 0.070222855, z: 0.35905588}
+  m_LocalPosition: {x: -0.047727086, y: 0.070222855, z: 0.35905635}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -27278,9 +27284,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1321700110386593821}
-        m_TargetAssemblyTypeName: MenuButtonClicks, Assembly-CSharp
-        m_MethodName: ButtonclickRed
+      - m_Target: {fileID: 8484303479302833952}
+        m_TargetAssemblyTypeName: CurrentUpgrades, Assembly-CSharp
+        m_MethodName: IncreaseMagicLevel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -27515,8 +27521,6 @@ MonoBehaviour:
   itemUpgradeTXT: {fileID: 6275656530381901780}
   magicTXT: {fileID: 8000058972856792922}
   magicUpgradeTXT: {fileID: 3910076844762218980}
-  ItemUpgradeButton: {fileID: 8000058972586202380}
-  MagicUpgradeButton: {fileID: 8000058971253183989}
   ItemImage: {fileID: 8657781764734091631}
   MagicImage: {fileID: 1289929472349083893}
   OptionMenu: {fileID: 408711538786158518}
@@ -30977,7 +30981,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: insert skill name here
+  m_text: Combat Upgrade III
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -31987,8 +31991,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 23.7, y: 2.8}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: 12.0763, y: 0.12386}
+  m_SizeDelta: {x: 246.6898, y: 60.749}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7760787591734930632
 CanvasRenderer:
@@ -32012,7 +32016,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -32045,15 +32049,15 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
+  m_fontSize: 52.85
   m_fontSizeBase: 36
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
-  m_VerticalAlignment: 256
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -32081,7 +32085,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -10.278038, y: 10.557369, z: 66.75822, w: -3.035537}
+  m_margin: {x: -0.51875335, y: -0.5618639, z: 2.3474007, w: 2.2593446}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0

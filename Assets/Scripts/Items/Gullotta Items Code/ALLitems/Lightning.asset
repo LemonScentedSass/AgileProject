@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _index: 4
   itemName: 
-  itemLVL: 0
+  itemLVL: 3
   itemDescription: 
   itemIcon: {fileID: 21300000, guid: 5a67c7aaf7158c74087e725e09583ef4, type: 3}
   itemCost: 0

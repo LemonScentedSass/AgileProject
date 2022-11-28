@@ -42,8 +42,12 @@ public class ProjectileMotion : ProjectileBase
       // Update is called once per frame
       void Update()
       {
-            //Checks comesback bool and starts timer
-            //Looks at player when time is reached
+
+        
+        fireballLevel = GameManager.PlayerManager.pm.GetComponent<CurrentUpgrades>().CurrentMagicLVL;
+        boomerangLevel = GameManager.PlayerManager.pm.GetComponent<CurrentUpgrades>().CurrentItemLVL;
+        //Checks comesback bool and starts timer
+        //Looks at player when time is reached
             if (comesBack == true)
             {
                   comebackTime -= Time.deltaTime;
@@ -107,6 +111,12 @@ public class ProjectileMotion : ProjectileBase
                         //fireballExplosion = Instantiate(ExplosionPrefab, transform.position, Quaternion.identity);
                         transform.position = objectPool;
                         Exploded = true;
+
+                       if (fireballLevel == 3)
+                       {
+                            fireballExplosion = Instantiate(ExplosionPrefab, transform.position, Quaternion.identity);      // Create explosion prefab
+                            Destroy(fireballExplosion, 0.25f);
+                       }
                   }
 
             }
@@ -193,7 +203,11 @@ public class ProjectileMotion : ProjectileBase
                   if (timeTracker >= TravelTime)
                   {
                         Debug.Log("explosion");
-                        //fireballExplosion = Instantiate(ExplosionPrefab, transform.position, Quaternion.identity);
+                        if(fireballLevel == 3)
+                        {
+                            fireballExplosion = Instantiate(ExplosionPrefab, transform.position, Quaternion.identity);
+                        }
+
                         transform.position = objectPool;
                         Exploded = true;
                   }
