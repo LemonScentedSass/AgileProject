@@ -90,42 +90,52 @@ public class Hotbar : MonoBehaviour
       // Update is called once per frame
       void Update()
       {
-            //Checks player input for magic key; Checks to make sure player is not on cooldown or using item
-            if (Input.GetKeyDown(Magic) && GameManager.PlayerManager.pm.usingItem == false && magiccooldownImage.fillAmount == 0)
+            if(useMagic != null)
             {
-                //Plays specific fireball animation in layer
-                  anim.Play("Fireball", 2);
+                 //Checks player input for magic key; Checks to make sure player is not on cooldown or using item
+                   if (Input.GetKeyDown(Magic) && GameManager.PlayerManager.pm.usingItem == false && magiccooldownImage.fillAmount == 0)
+                   {
+                        //Plays specific fireball animation in layer
+                        anim.Play("Fireball", 2);
 
-                //Uses item and starts cooldown
-                  GameManager.PlayerManager.pm.usingItem = true;
-                  GameManager.PlayerManager.pm.CurrentMana -= 10f;
-                  StartCoroutine(StartCoolDown(MagicCooldownDuration, magiccooldownImage));
-            }
+                       //Uses item and starts cooldown
+                        GameManager.PlayerManager.pm.usingItem = true;
+                        GameManager.PlayerManager.pm.CurrentMana -= 10f;
+                        StartCoroutine(StartCoolDown(MagicCooldownDuration, magiccooldownImage));
+                   }
+              }
 
-            //Checks player input for item key; 
-            if (Input.GetKeyDown(Item) && GameManager.PlayerManager.pm.usingItem == false && itemcooldownImage.fillAmount == 0)
+           
+
+
+            if(useItem != null)
             {
+                  //Checks player input for item key; 
+                   if (Input.GetKeyDown(Item) && GameManager.PlayerManager.pm.usingItem == false && itemcooldownImage.fillAmount == 0)
+                   {
+
+                        if (useItem.itemName == "Bow")
+                        {
+                            anim.Play("Bow", 1);
+                        }
+                        else
+                        {
+                            anim.Play("Boomerang", 1);
+                        }
 
 
-                  if (useItem.itemName == "Bow")
-                  {
-                      anim.Play("Bow", 1);
-                  }
-                  else
-                  {
-                      anim.Play("Boomerang", 1);
-                  }
 
-
-
-                  GameManager.PlayerManager.pm.usingItem = true;
-                  GameManager.PlayerManager.pm.CurrentStamina -= 15f;
-                  StartCoroutine(StartCoolDown(ItemCooldownDuration, itemcooldownImage));
-            }
+                       GameManager.PlayerManager.pm.usingItem = true;
+                      GameManager.PlayerManager.pm.CurrentStamina -= 15f;
+                       StartCoroutine(StartCoolDown(ItemCooldownDuration, itemcooldownImage));
+                   }
 
 
             PotionUse();
             PotionAmountText();
+        }
+
+            
       }
 
     //Uses current item

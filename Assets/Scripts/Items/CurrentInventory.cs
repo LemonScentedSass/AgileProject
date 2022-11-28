@@ -20,18 +20,36 @@ public class CurrentInventory : MonoBehaviour
     void Start()
     {
         hotbar = GetComponentInChildren<Hotbar>();
-
     }
 
     // Update is called once per frame
     void Update()
     {
-        CurrentItem = hotbar.useItem;
-        CurrentMagic = hotbar.useMagic;
+        //checks to make sure there is an item, if not put nothing image
+        if(hotbar.useItem != null)
+        {
+            CurrentItem = hotbar.useItem;
+        }
+        else
+        {
+            CurrentItem = null;
+            hotbarItemImage = null;
+        }
 
+        if (hotbar.useItem != null)
+        {
+            CurrentMagic = hotbar.useMagic;
+        }
+        else
+        {
+            CurrentMagic = null;
+            hotbarMagicImage = null;
+        }
+
+
+        //Replaces current item/magic hotbar images
         if (CurrentItem == null)
         {
-
             return;
         }
         else
@@ -47,8 +65,5 @@ public class CurrentInventory : MonoBehaviour
         {
             hotbarMagicImage.sprite = CurrentMagic.itemIcon;
         }
-
-
-
     }
 }
