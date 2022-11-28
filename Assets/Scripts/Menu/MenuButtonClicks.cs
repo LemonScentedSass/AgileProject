@@ -101,13 +101,19 @@ public class MenuButtonClicks : MonoBehaviour
 
     public void ButtonclickBlue()
     {
-        canCloseMenu = false;
-        anim.SetBool("open", true);
-        for (int i = 0; i < Skills.Length; i++)
+
+        if (canCloseMenu == false)
         {
-            Skills[i].SetActive(false);
+            anim.SetBool("open", false);
+            canCloseMenu = true;
         }
-        characterSkills.SetActive(true);
+        else
+        {
+            canCloseMenu = false;
+            anim.SetBool("open", true);
+
+            characterSkills.SetActive(true);
+        }
     }
     public void ButtonclickGreen()
     {
