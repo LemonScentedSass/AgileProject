@@ -13,7 +13,6 @@ public class SkillPoints : Selectable
     //IF CONTINUING NODE, PUT PREVIOUS NODE'S SCRIPT
 
     public string SKILLNAME;
-    public string SKILLDESCRIPTION;
     public int POINTREQUIREMENT = 1;
     public SkillPoints PREVIOUSNODESCRIPT;
 
@@ -24,8 +23,9 @@ public class SkillPoints : Selectable
     public GameObject SkillDescriptionGO;
     public Slider UnlockSlider;
     private bool _spentSkill = false;
-    public bool previousNodeUnlocked = false;
+    public bool thisNodeUnlocked = false;
 
+    public GameObject unlockedSkillImage;
 
     public bool skillRequirements = true;
 
@@ -42,20 +42,28 @@ public class SkillPoints : Selectable
     // Start is called before the first frame update
     void Start()
     {
+        m_EventSystem = GameObject.Find("EventSystem").GetComponent<EventSystem>();
+
         //checks for an unlock slider
         if(UnlockSlider!=null)
         {
             UnlockSlider.interactable = false;
-            descriptionTXTGO.text = SKILLDESCRIPTION;
             nameTXTGO.text = SKILLNAME;
             UnlockButton.SetActive(false);
             UnlockSlider.value = 0;
         }
-        descriptionTXTGO.text = SKILLDESCRIPTION;
         nameTXTGO.text = SKILLNAME;
         requirementTXTGO.text = "Skill Points: " + POINTREQUIREMENT;
 
-
+        if(_spentSkill == true)
+        {
+            
+            unlockedSkillImage.SetActive(true);
+        }
+        else
+        {
+            unlockedSkillImage.SetActive(false);
+        }
     }
 
     // Update is called once per frame
@@ -113,6 +121,16 @@ public class SkillPoints : Selectable
                 _spentSkill = false;
             }
         }
+
+        if(LevelSystem.instance.skillPoints >= POINTREQUIREMENT)
+        {
+            skillRequirements = true;
+        }
+        else
+        {
+            skillRequirements = false;
+        }
+
     }
 
     //Clicks SkillNode
@@ -131,7 +149,7 @@ public class SkillPoints : Selectable
             else
             {
                 //checks if previous node is unlocked
-                if(PREVIOUSNODESCRIPT.previousNodeUnlocked == true)
+                if(PREVIOUSNODESCRIPT.thisNodeUnlocked == true)
                 {
                     UnlockButton.SetActive(true);
                 }
@@ -142,8 +160,10 @@ public class SkillPoints : Selectable
     //unlocks skill
     public  void UnlockSkill(Image clickedButton)
     {
-        previousNodeUnlocked = true;
+        LevelSystem.instance.skillPoints -= POINTREQUIREMENT;
+        thisNodeUnlocked = true;
         UnlockButton.GetComponentInChildren<TMP_Text>().text = "Unlocked";
+        unlockedSkillImage.SetActive(true);
 
         //fill slider
         if (UnlockSlider != null)
@@ -152,5 +172,45 @@ public class SkillPoints : Selectable
         }
         UnlockButton.GetComponent<Button>().interactable = false;
     }
+
+    public void UpgradeMaxHealth(float amount)
+    {
+        GameManager.PlayerManager.pm.MaxHealth += amount;
+        GameManager.PlayerManager.pm.CurrentHealth = GameManager.PlayerManager.pm.MaxHealth;
+    }
+
+    public void UpgradeStamina(float amount)
+    {
+        GameManager.PlayerManager.pm.MaxStamina += amount;
+        GameManager.PlayerManager.pm.CurrentStamina = GameManager.PlayerManager.pm.MaxStamina;
+    }
+
+    public void UpgradeMana(float amount)
+    {
+        GameManager.PlayerManager.pm.MaxMana += amount;
+        GameManager.PlayerManager.pm.CurrentMana = GameManager.PlayerManager.pm.MaxMana;
+    }
+
+    public void UpgradeMaxAttack(int amount)
+    {
+        GameManager.PlayerManager.pm.MaxAttack += amount;
+    }
+
+    public void UpgradeMinAttack(int amount)
+    {
+        GameManager.PlayerManager.pm.MinAttack += amount;
+    }
+
+    public void UpgradeHealthPotion(int amount)
+    {
+        GameManager.PlayerManager.pm.HealthPotionHeal += amount;
+    }
+    public void UpgradeManaPotion(int amount)
+    {
+        GameManager.PlayerManager.pm.ManaPotionHeal += amount;
+    }
+
+
+
 
 }

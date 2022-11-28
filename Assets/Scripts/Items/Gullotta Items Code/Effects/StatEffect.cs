@@ -16,15 +16,18 @@ public class StatEffect : EffectBase
         {
             return;
         }
+
+        
+
           //make better might want enemies to use this as well - Gullota
           //Select stat type to affect 
         switch (statType)
         {
             case StatType.Health:
-                GameManager.PlayerManager.pm.CurrentHealth += amount;
+                GameManager.PlayerManager.pm.CurrentHealth += GameManager.PlayerManager.pm.HealthPotionHeal;
                 break;
             case StatType.Mana:
-                GameManager.PlayerManager.pm.CurrentMana += amount;
+                GameManager.PlayerManager.pm.CurrentMana += GameManager.PlayerManager.pm.ManaPotionHeal;
                 break;
             case StatType.Stamina:
                 GameManager.PlayerManager.pm.CurrentStamina += amount;
