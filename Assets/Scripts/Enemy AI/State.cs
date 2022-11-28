@@ -286,8 +286,8 @@ public class Attack : State
       EnemyStats enemyStats;
       GameManager.PlayerManager pm;
       float rotationSpeed = 10.0f;
-      //AudioSource attackAudio;
-
+    //AudioSource attackAudio;
+    
 
       public Attack(GameObject _npc, NavMeshAgent _agent, Animator _anim, Transform _player) : base(_npc, _agent, _anim, _player)
       {

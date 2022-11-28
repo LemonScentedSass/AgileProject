@@ -95,9 +95,34 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ancient Warrior (Small)
       objectReference: {fileID: 0}
+    - target: {fileID: 1662341069275245550, guid: 28275f29d6c34004aa31085a9e28a2d5, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1662341069275245550, guid: 28275f29d6c34004aa31085a9e28a2d5, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3667183827688858488, guid: 28275f29d6c34004aa31085a9e28a2d5, type: 3}
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 28275f29d6c34004aa31085a9e28a2d5, type: 3}
+--- !u!1 &5042959769241852578 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 980792078484698054, guid: 28275f29d6c34004aa31085a9e28a2d5, type: 3}
+  m_PrefabInstance: {fileID: 5215247542235162980}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &7053501328887045634
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5042959769241852578}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cfdf49a374bd7848bb135f9a21c6833, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
