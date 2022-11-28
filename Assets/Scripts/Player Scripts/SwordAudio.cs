@@ -12,6 +12,7 @@ public class SwordAudio : MonoBehaviour
     private void Start()
     {
         //_am = GameObject.FindGameObjectWithTag("AudioManager").GetComponent<AudioManager>();
+        _am = AudioManager.instance;
     }
 
     public void PlaySwishOne()
