@@ -12,11 +12,13 @@ public class MenuButtonClicks : MonoBehaviour
 
     public GameObject characterSkills;
 
-    public TMPro.TMP_Text swordUpgradeTXT;
     public TMPro.TMP_Text itemTXT;
     public TMPro.TMP_Text itemUpgradeTXT;
     public TMPro.TMP_Text magicTXT;
     public TMPro.TMP_Text magicUpgradeTXT;
+
+    public Button ItemUpgradeButton;
+    public Button MagicUpgradeButton;
 
     public Image ItemImage;
     public Image MagicImage;
@@ -31,6 +33,9 @@ public class MenuButtonClicks : MonoBehaviour
 
     private Hotbar hotbar;
     private CurrentInventory inventory;
+
+    public GameObject ItemLock;
+    public GameObject MagicLock;
 
     // Start is called before the first frame update
     void Start()
@@ -48,8 +53,27 @@ public class MenuButtonClicks : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        ItemImage = inventory.hotbarItemImage;
-        MagicImage = inventory.hotbarMagicImage;
+
+        if(ItemImage.sprite == null)
+        {
+            ItemLock.SetActive(true);
+        }
+        else
+        {
+            ItemLock.SetActive(false);
+        }
+
+        if (MagicImage.sprite == null)
+        {
+            MagicLock.SetActive(true);
+        }
+        else
+        {
+            MagicLock.SetActive(false);
+        }
+
+        ItemImage.sprite = inventory.hotbarItemImage.sprite;
+        MagicImage.sprite = inventory.hotbarMagicImage.sprite;
 
         if (Input.GetKeyDown(KeyCode.Tab))
         {
@@ -88,6 +112,7 @@ public class MenuButtonClicks : MonoBehaviour
     public void ButtonclickGreen()
     {
        //increase base damage
+
     }
     public void ButtonclickOrange()
     {
