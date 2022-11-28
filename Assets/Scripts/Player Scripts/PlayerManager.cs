@@ -12,6 +12,7 @@ namespace GameManager
         public static PlayerManager pm;
         Animator anim;
         PlayerLocomotion playerLoco;
+        private AudioManager _am;
 
         [Header("Player Health / Stamina / Mana")]
         [SerializeField] public float _curHealth;
@@ -103,6 +104,7 @@ namespace GameManager
         // Start is called before the first frame update
         void Start()
         {
+            _am = AudioManager.instance;
             Debug.Log($"Starting ManaPotionAmount: {_manaPotionAmount}");
             //Sets current health and stamina to max
             _curHealth = _maxHealth;
@@ -282,14 +284,17 @@ namespace GameManager
                         case ResourceTypeEnum.Gold:
                             goldAmount += resource.ResourceData.GetAmount();
                             resource.PickupResource();
+                            _am.PlaySFX(goldPickup);
                             break;
                         case ResourceTypeEnum.Health:
                             _healthPotionAmount += resource.ResourceData.GetAmount();
                             resource.PickupResource();
+                            _am.PlaySFX(bottlePickup);
                             break;
                         case ResourceTypeEnum.Mana:
                             _manaPotionAmount += resource.ResourceData.GetAmount();
                             resource.PickupResource();
+                            _am.PlaySFX(bottlePickup);
                             break;
                     }
                 }

@@ -49,15 +49,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 881771886, guid: 0cc228b621b8c2a4694177627e67069c, type: 3}
       propertyPath: itemsToDrop.Array.data[0].rate
-      value: 0.5
+      value: 0.75
       objectReference: {fileID: 0}
     - target: {fileID: 881771886, guid: 0cc228b621b8c2a4694177627e67069c, type: 3}
       propertyPath: itemsToDrop.Array.data[1].rate
-      value: 0.3
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 881771886, guid: 0cc228b621b8c2a4694177627e67069c, type: 3}
       propertyPath: itemsToDrop.Array.data[2].rate
-      value: 0.3
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 881771886, guid: 0cc228b621b8c2a4694177627e67069c, type: 3}
       propertyPath: itemsToDrop.Array.data[3].rate

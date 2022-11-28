@@ -33,6 +33,13 @@ namespace MapGeneration
         private List<Room> _gizmoRooms = new List<Room>();
         private List<Edge> _gizmoEdges = new List<Edge>();
         private List<Edge> _gizmoMST = new List<Edge>();
+        private void Awake()
+        {
+            if (_wfcTileset != null)
+            {
+                _wfcTileset.SetNeighbors();
+            }
+        }
 
         private void Start()
         {

@@ -12,29 +12,37 @@ using UnityEngine;
 /// </summary>
 public class LevelSystem : MonoBehaviour
 {
-      public static LevelSystem instance;                               // Can be referenced from other scripts
+    public static LevelSystem instance;                               // Can be referenced from other scripts
 
-      public int level = 0;                                             // Player current level
-      public int experience;                                            // Player current EXP
-      public int experienceToNextLevel;                                 // EXP to next level
-      public int perLevelSkillpoint = 2;
-      public int skillPoints;
-        
-      public TMPro.TMP_Text[] LevelTXT;                                 //All level texts in game
-      public TMPro.TMP_Text[] ExpTXT;                                   //All Exp texts in game
-      public UnityEngine.UI.Image[] ExpSlider;                          //All Exp sliders in game
+    public int level = 0;                                             // Player current level
+    public int experience;                                            // Player current EXP
+    public int experienceToNextLevel;                                 // EXP to next level
+    public int perLevelSkillpoint = 2;
+    public int skillPoints;
 
-      private void Awake()
-      {
-            if (instance != null)                                       // Check for more than one player with LevelSystem script
-            {
-                  Debug.Log("More than one LevelSystem in scene.");
-                  return;
-            }
+    public TMPro.TMP_Text[] LevelTXT;                                 //All level texts in game
+    public TMPro.TMP_Text[] ExpTXT;                                   //All Exp texts in game
+    public UnityEngine.UI.Image[] ExpSlider;                          //All Exp sliders in game
+    public AudioClip expSFX;
 
-            instance = this;                                            // instance variable = this object.
-            SetLevel(1);                                                // Set Level at 1 upon startup.
-      }
+    private AudioManager _am;
+
+    private void Awake()
+    {
+        if (instance != null)                                       // Check for more than one player with LevelSystem script
+        {
+            Debug.Log("More than one LevelSystem in scene.");
+            return;
+        }
+
+        instance = this;                                            // instance variable = this object.
+        SetLevel(1);                                                // Set Level at 1 upon startup.
+    }
+
+    private void Start()
+    {
+        _am = AudioManager.instance;
+    }
 
     private void Update()
     {
@@ -50,35 +58,36 @@ public class LevelSystem : MonoBehaviour
     /// <param name="experienceToAdd"></param>
     /// <returns></returns>
     public bool AddExperience(int experienceToAdd)
-      {
-            experience += experienceToAdd;
+    {
+        experience += experienceToAdd;
+        _am.PlaySFX(expSFX);
 
-            if (experience >= experienceToNextLevel)
-            {
-                  skillPoints += perLevelSkillpoint;
-                  SetLevel(level + 1);
-                  GameManager.PlayerManager.pm.skillPoints++;
-                  UpdateText();
+        if (experience >= experienceToNextLevel)
+        {
+            skillPoints += perLevelSkillpoint;
+            SetLevel(level + 1);
+            GameManager.PlayerManager.pm.skillPoints++;
+            UpdateText();
 
             return true;
-            }
+        }
 
-            return false;
-      }
+        return false;
+    }
 
 
-      /// <summary>
-      /// SetLevel calculates the amount of xp needed per level after updating
-      /// the current player level accordingly. 
-      /// </summary>
-      /// <param name="value"></param>
-      private void SetLevel(int value)
-      {
-            this.level = value;
-            experience = experience - experienceToNextLevel;
-            experienceToNextLevel = (int)(50f * (Mathf.Pow(level + 1, 2) - (5 * (level + 1)) + 8));
+    /// <summary>
+    /// SetLevel calculates the amount of xp needed per level after updating
+    /// the current player level accordingly. 
+    /// </summary>
+    /// <param name="value"></param>
+    private void SetLevel(int value)
+    {
+        this.level = value;
+        experience = experience - experienceToNextLevel;
+        experienceToNextLevel = (int)(50f * (Mathf.Pow(level + 1, 2) - (5 * (level + 1)) + 8));
 
-      }
+    }
 
     private void UpdateText() //Updates all text UI
     {
@@ -98,12 +107,12 @@ public class LevelSystem : MonoBehaviour
         //Grabs each slider and checks if slider equals current stat, if not increase stat to current
         foreach (var slider in ExpSlider)
         {
-            if(slider.fillAmount != (float)experience / (float)experienceToNextLevel)
+            if (slider.fillAmount != (float)experience / (float)experienceToNextLevel)
             {
                 slider.fillAmount = Mathf.Lerp(slider.fillAmount, ((float)experience / (float)experienceToNextLevel), 0.005f);
             }
 
-            if(slider.fillAmount >= (float)experience / (float)experienceToNextLevel - 0.005)
+            if (slider.fillAmount >= (float)experience / (float)experienceToNextLevel - 0.005)
             {
                 slider.fillAmount = (float)experience / (float)experienceToNextLevel;
             }

@@ -25435,6 +25435,7 @@ GameObject:
   - component: {fileID: 1857513367620291533}
   - component: {fileID: 8210732652131037548}
   - component: {fileID: 1377745570618470022}
+  - component: {fileID: 1910904054430397180}
   m_Layer: 0
   m_Name: PlayerModel
   m_TagString: Untagged
@@ -25552,6 +25553,20 @@ MonoBehaviour:
   meatcooldownImage: {fileID: 860459079360039834}
   monsterMeatButton: {fileID: 7226308189807774746}
   useMonsterMeat: {fileID: 0}
+--- !u!114 &1910904054430397180
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5778913451418372175}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6025603a6e53f004c932f9cba8134ec8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  footstep1: {fileID: 8300000, guid: aff4997c9c80df24d98bdb5c826ce698, type: 3}
+  footstep2: {fileID: 8300000, guid: 0fdb44f8d30abe744bc90472af9c125f, type: 3}
 --- !u!1 &5793436509962083373
 GameObject:
   m_ObjectHideFlags: 0
@@ -26942,7 +26957,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6697902658157260006}
   m_LocalRotation: {x: 0.6427876, y: -0, z: -0, w: 0.7660445}
-  m_LocalPosition: {x: 0, y: 10.848078, z: -0.73648214}
+  m_LocalPosition: {x: 0, y: 10.848078, z: -0.7364826}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -27174,6 +27189,7 @@ MonoBehaviour:
   ExpSlider:
   - {fileID: 408711539894252018}
   - {fileID: 8000058972555951096}
+  expSFX: {fileID: 0}
 --- !u!114 &408711540140877816
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27204,6 +27220,9 @@ MonoBehaviour:
   meatAmount: 4
   goldAmount: 0
   GoldAmountTXT: {fileID: 3679939441863874593}
+  goldPickup: {fileID: 8300000, guid: ca7c93e683af3cf4e9f79f5274202850, type: 3}
+  expPickup: {fileID: 0}
+  bottlePickup: {fileID: 8300000, guid: 1b7ae1e73dc5bcd4ca0328bd92d69361, type: 3}
   usingItem: 0
   healthbar:
   - {fileID: 8000058973003857341}
@@ -27668,7 +27687,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6697902659085609075}
   m_LocalRotation: {x: 0.6427876, y: 0, z: 0, w: 0.7660445}
-  m_LocalPosition: {x: -0.047727086, y: 9.918301, z: -1.377426}
+  m_LocalPosition: {x: -0.047727086, y: 9.918301, z: -1.3774267}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -27739,7 +27758,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6697902659544355666}
   m_LocalRotation: {x: 0.6427876, y: -0, z: -0, w: 0.7660445}
-  m_LocalPosition: {x: -0.047727086, y: 0.070222855, z: 0.35905635}
+  m_LocalPosition: {x: -0.047727086, y: 0.070222855, z: 0.35905588}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

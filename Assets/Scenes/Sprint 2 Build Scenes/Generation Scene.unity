@@ -2022,7 +2022,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   backgroundMusic: {fileID: 0}
-  _sfxAmount: 1
+  _sfxAmount: 4
   _audioObject: {fileID: 0}
   backgroundVolume: 0.5
   soundEffectVolume: 0.25

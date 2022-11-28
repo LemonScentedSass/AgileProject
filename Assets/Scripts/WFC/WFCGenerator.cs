@@ -213,7 +213,12 @@ namespace WFC
                 {
                     detailTilemap.SetTile(offsetPosition, _selectedModule.detailModule[0].tilebase);
                 }
-            }                        
+                else
+                {
+                    return;
+                }
+            }
+            else { return; }
         }
     }
 }
