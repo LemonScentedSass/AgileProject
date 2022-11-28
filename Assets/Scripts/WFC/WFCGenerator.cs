@@ -207,17 +207,21 @@ namespace WFC
             
             float random = Random.Range(0f, 1f);
 
-            if (random < _spawnChance)
+            if ( _selectedModule.detailModule != null)
             {
-                if (_selectedModule.detailModule.Length != 0 && _selectedModule.detailModule != null)
+                if (random < _spawnChance)
                 {
-                    detailTilemap.SetTile(offsetPosition, _selectedModule.detailModule[0].tilebase);
-                }
-                else
-                {
-                    return;
+                    if (_selectedModule.detailModule.Length != 0 && _selectedModule.detailModule != null)
+                    {
+                        detailTilemap.SetTile(offsetPosition, _selectedModule.detailModule[0].tilebase);
+                    }
+                    else
+                    {
+                        return;
+                    }
                 }
             }
+            
             else { return; }
         }
     }
