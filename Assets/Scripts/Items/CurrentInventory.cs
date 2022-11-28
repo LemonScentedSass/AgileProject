@@ -16,6 +16,9 @@ public class CurrentInventory : MonoBehaviour
 
     public int CurrentItemLVL;
     public int CurrentMagicLVL;
+
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -25,45 +28,31 @@ public class CurrentInventory : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        CurrentMagic = hotbar.useMagic;
+        CurrentItem = hotbar.useItem;
         //checks to make sure there is an item, if not put nothing image
-        if(hotbar.useItem != null)
+
+        if (hotbar.useItem == null)
         {
-            CurrentItem = hotbar.useItem;
+            hotbarItemImage.sprite = null;
         }
         else
         {
-            CurrentItem = null;
-            hotbarItemImage = null;
+            hotbarItemImage.sprite = hotbar.useItem.itemIcon;
         }
 
-        if (hotbar.useItem != null)
+        if (hotbar.useMagic == null)
         {
-            CurrentMagic = hotbar.useMagic;
+            hotbarMagicImage.sprite = null;
         }
         else
         {
-            CurrentMagic = null;
-            hotbarMagicImage = null;
+            hotbarMagicImage.sprite = hotbar.useMagic.itemIcon;
         }
 
+     
 
-        //Replaces current item/magic hotbar images
-        if (CurrentItem == null)
-        {
-            return;
-        }
-        else
-        {
-            hotbarItemImage.sprite = CurrentItem.itemIcon;
-        }
 
-        if (CurrentMagic == null)
-        {
-            return;
-        }
-        else
-        {
-            hotbarMagicImage.sprite = CurrentMagic.itemIcon;
-        }
+
     }
 }

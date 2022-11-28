@@ -17,6 +17,8 @@ public class LevelSystem : MonoBehaviour
       public int level = 0;                                             // Player current level
       public int experience;                                            // Player current EXP
       public int experienceToNextLevel;                                 // EXP to next level
+      public int perLevelSkillpoint = 2;
+      public int skillPoints;
         
       public TMPro.TMP_Text[] LevelTXT;                                 //All level texts in game
       public TMPro.TMP_Text[] ExpTXT;                                   //All Exp texts in game
@@ -53,6 +55,7 @@ public class LevelSystem : MonoBehaviour
 
             if (experience >= experienceToNextLevel)
             {
+                  skillPoints += perLevelSkillpoint;
                   SetLevel(level + 1);
                   GameManager.PlayerManager.pm.skillPoints++;
                   UpdateText();
