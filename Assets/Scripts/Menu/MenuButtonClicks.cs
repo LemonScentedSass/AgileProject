@@ -17,6 +17,9 @@ public class MenuButtonClicks : MonoBehaviour
     public TMPro.TMP_Text magicTXT;
     public TMPro.TMP_Text magicUpgradeTXT;
 
+    public Slider BackgroundVolume;
+    public Slider SFXVolume;
+
     public Image ItemImage;
     public Image MagicImage;
 
@@ -37,6 +40,8 @@ public class MenuButtonClicks : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        BackgroundVolume.value = 1;
+        SFXVolume.value = 1;
         hotbar = PlayerManager.pm.GetComponentInChildren<Hotbar>();
         inventory = PlayerManager.pm.GetComponent<CurrentUpgrades>();
         OptionMenu.SetActive(false);
@@ -50,6 +55,15 @@ public class MenuButtonClicks : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        foreach (var source in AudioManager.instance._sfxSources)
+        {
+            source.volume = SFXVolume.value;
+        }
+
+        AudioManager.instance._bgm.volume = BackgroundVolume.value;
+        
+ 
+
 
         if(ItemImage.sprite == null)
         {

@@ -51,6 +51,8 @@ public class CurrentUpgrades : MonoBehaviour
         skillpointTXT.text = "Skill Points: " + LevelSystem.instance.skillPoints;
         itemLVLTXT.text = "Lvl: " + hotbar.useItem.itemLVL;
 
+        SkillPointCheck();
+        UpdateSkillRequirement();
         //Makes current
         if (CurrentMagic != hotbar.useMagic)
         {
@@ -80,69 +82,6 @@ public class CurrentUpgrades : MonoBehaviour
         {
             hotbarMagicImage.sprite = hotbar.useMagic.itemIcon;
         }
-
-        if (magicSkillRequirement >= LevelSystem.instance.skillPoints)
-        {
-            menuItemUpgrade.interactable = false;
-        }
-        else
-        {
-            menuItemUpgrade.interactable = true;
-        }
-
-        if (magicSkillRequirement >= LevelSystem.instance.skillPoints)
-        {
-            menuMagicUpgrade.interactable = false;
-        }
-        else
-        {
-            menuMagicUpgrade.interactable = true;
-        }
-
-        if(hotbar.useItem.itemLVL == 0)
-        {
-            itemSkillRequirement = 1;
-        }
-        else if (hotbar.useItem.itemLVL == 1)
-        {
-            itemSkillRequirement = 3;
-        }
-        else if (hotbar.useItem.itemLVL == 2)
-        {
-            itemSkillRequirement = 5;
-        }
-
-        if (hotbar.useMagic.itemLVL == 0)
-        {
-            magicSkillRequirement = 1;
-        }
-        else if (hotbar.useMagic.itemLVL == 1)
-        {
-            magicSkillRequirement = 3;
-        }
-        else if (hotbar.useMagic.itemLVL == 2)
-        {
-            magicSkillRequirement = 5;
-        }
-
-        if (hotbar.useItem.itemLVL != 3)
-        {
-            menuItemUpgrade.GetComponentInChildren<TMPro.TMP_Text>().text = "Skill Points: " + itemSkillRequirement;
-        }
-        else
-        {
-            menuItemUpgrade.GetComponentInChildren<TMPro.TMP_Text>().text = "Max";
-        }
-
-        if(hotbar.useMagic.itemLVL != 3)
-        {
-            menuMagicUpgrade.GetComponentInChildren<TMPro.TMP_Text>().text = "Skill Points: " + magicSkillRequirement;
-        }
-        else
-        {
-            menuMagicUpgrade.GetComponentInChildren<TMPro.TMP_Text>().text = "Max";
-        }
-
 
 
     }
@@ -196,6 +135,79 @@ public class CurrentUpgrades : MonoBehaviour
             CurrentMagicLVL = hotbar.useMagic.itemLVL;
             magicLVLTXT.text = "Lvl: " + hotbar.useMagic.itemLVL;
         }
+    }
+
+    private void SkillPointCheck()
+    {
+
+        if (itemSkillRequirement <= LevelSystem.instance.skillPoints)
+        {
+            menuItemUpgrade.interactable = true;
+        }
+        else
+        {
+            menuItemUpgrade.interactable = false;
+        }
+
+        if (magicSkillRequirement <= LevelSystem.instance.skillPoints)
+        {
+            menuMagicUpgrade.interactable = true;
+        }
+        else
+        {
+            menuMagicUpgrade.interactable = false;
+        }
+
+    }
+
+    private void UpdateSkillRequirement()
+    {
+
+        if (hotbar.useItem.itemLVL == 0)
+        {
+            itemSkillRequirement = 1;
+        }
+        else if (hotbar.useItem.itemLVL == 1)
+        {
+            itemSkillRequirement = 3;
+        }
+        else if (hotbar.useItem.itemLVL == 2)
+        {
+            itemSkillRequirement = 5;
+        }
+
+        if (hotbar.useMagic.itemLVL == 0)
+        {
+            magicSkillRequirement = 1;
+        }
+        else if (hotbar.useMagic.itemLVL == 1)
+        {
+            magicSkillRequirement = 3;
+        }
+        else if (hotbar.useMagic.itemLVL == 2)
+        {
+            magicSkillRequirement = 5;
+        }
+
+        if (hotbar.useItem.itemLVL != 3)
+        {
+            menuItemUpgrade.GetComponentInChildren<TMPro.TMP_Text>().text = "Skill Points: " + itemSkillRequirement;
+        }
+        else
+        {
+            menuItemUpgrade.GetComponentInChildren<TMPro.TMP_Text>().text = "Max";
+        }
+
+        if (hotbar.useMagic.itemLVL != 3)
+        {
+            menuMagicUpgrade.GetComponentInChildren<TMPro.TMP_Text>().text = "Skill Points: " + magicSkillRequirement;
+        }
+        else
+        {
+            menuMagicUpgrade.GetComponentInChildren<TMPro.TMP_Text>().text = "Max";
+        }
+
+
     }
 
 }

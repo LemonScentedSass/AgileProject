@@ -131,9 +131,9 @@ public class Hotbar : MonoBehaviour
                    }
 
 
-            PotionUse();
-            PotionAmountText();
-        }
+                   PotionUse();
+                   PotionAmountText();
+            }
 
             
       }

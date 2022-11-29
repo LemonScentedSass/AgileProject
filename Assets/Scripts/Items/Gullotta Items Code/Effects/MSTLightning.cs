@@ -33,19 +33,19 @@ public class MSTLightning : MonoBehaviour
         if(LightningLVL == 1)
         {
             LightningDamage = 2;
-            radius = 10;
+            radius = 15;
             MaxEnemyHit = 4;
         }
         if(LightningLVL == 2)
         {
             LightningDamage = 3;
-            radius = 15;
+            radius = 20;
             MaxEnemyHit = 5;
         }
         if(LightningLVL == 3)
         {
             LightningDamage = 5;
-            radius = 20;
+            radius = 30;
             MaxEnemyHit = 6;
         }
 

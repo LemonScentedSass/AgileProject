@@ -48,7 +48,7 @@ public class GiveLightning : MonoBehaviour
         }
         if (LightningLevel == 2)
         {
-            SnapRadius = 1.2f;
+            SnapRadius = 1.15f;
             InitialDamage = 3;
             if (GetComponent<ProjectileMotion>() == true)
             {
@@ -57,7 +57,7 @@ public class GiveLightning : MonoBehaviour
         }
         if(LightningLevel == 3)
         {
-            SnapRadius = 1.3f;
+            SnapRadius = 1.2f;
             InitialDamage = 4;
             if (GetComponent<ProjectileMotion>() == true)
             {

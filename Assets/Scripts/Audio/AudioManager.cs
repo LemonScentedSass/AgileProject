@@ -9,10 +9,10 @@ public class AudioManager : MonoBehaviour
     public AudioClip backgroundMusic;
     [SerializeField, Range(1, 15)] private int _sfxAmount = 1; //Determines the amount of SFX sources we can use
     [SerializeField] private GameObject _audioObject;
-    [SerializeField, Range(0, 1)] private float backgroundVolume = 0.5f;
-    [SerializeField, Range(0, 1)] private float soundEffectVolume = 0.25f;
+    [SerializeField, Range(0, 1)] public float backgroundVolume = 0.5f;
+    [SerializeField, Range(0, 1)] public float soundEffectVolume = 0.25f;
 
-    private AudioSource[] _sfxSources; //Store all of our SFX sources
+    public AudioSource[] _sfxSources; //Store all of our SFX sources
     public AudioSource _bgm;
     private int _sfxIndex = 0; //Store the current sfx index
 
