@@ -2010,7 +2010,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8484303479302833952, guid: 695be3c7a7eb8884582e6327564fcdc3, type: 3}
   m_PrefabInstance: {fileID: 1151462466}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 2094643075}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d105876b57439b24c9579755107fc311, type: 3}
@@ -2276,6 +2276,26 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 41.114, z: 0}
+--- !u!1 &2094643075 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6697902658378724393, guid: 695be3c7a7eb8884582e6327564fcdc3, type: 3}
+  m_PrefabInstance: {fileID: 1151462466}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2094643076
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2094643075}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a61349cf5e9c5f4ba477c5ddef3fabd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Level: 1
+  Health: 10
+  Damage: 2
 --- !u!1 &2125031513
 GameObject:
   m_ObjectHideFlags: 0

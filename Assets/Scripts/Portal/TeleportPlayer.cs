@@ -23,6 +23,10 @@ public class TeleportPlayer : MonoBehaviour
     {
         if(other.tag == "Player")
         {
+            if (other.gameObject.GetComponent<FakePlayerManager>() == true)
+            {
+                other.gameObject.GetComponent<FakePlayerManager>().Save();
+            }
             SceneManager.LoadScene(SceneInt);
         }
     }

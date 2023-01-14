@@ -225,7 +225,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8484303479302833952, guid: 695be3c7a7eb8884582e6327564fcdc3, type: 3}
   m_PrefabInstance: {fileID: 1387511481}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1700062576}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d105876b57439b24c9579755107fc311, type: 3}
@@ -1547,6 +1547,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player 3.2
       objectReference: {fileID: 0}
+    - target: {fileID: 6697902658923446081, guid: 695be3c7a7eb8884582e6327564fcdc3, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 6697902659047330066, guid: 695be3c7a7eb8884582e6327564fcdc3, type: 3}
       propertyPath: m_ChildCameras.Array.size
       value: 0
@@ -2016,6 +2020,26 @@ Transform:
   m_Father: {fileID: 1255358885}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1700062576 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6697902658378724393, guid: 695be3c7a7eb8884582e6327564fcdc3, type: 3}
+  m_PrefabInstance: {fileID: 1387511481}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1700062587
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1700062576}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a61349cf5e9c5f4ba477c5ddef3fabd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Level: 1
+  Health: 10
+  Damage: 2
 --- !u!1001 &1803700565
 PrefabInstance:
   m_ObjectHideFlags: 0
