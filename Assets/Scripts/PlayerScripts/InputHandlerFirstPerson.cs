@@ -7,6 +7,7 @@ public class InputHandlerFirstPerson : MonoBehaviour
     // Mostly identical to the original Input Handler, but with unused features stripped away for now.
 
     public Vector2 inputVector { get; private set; }
+    public bool swordKey { get; private set; }
 
     void Update()
     {
@@ -14,5 +15,8 @@ public class InputHandlerFirstPerson : MonoBehaviour
         var h = Input.GetAxis("Horizontal");
         var v = Input.GetAxis("Vertical");
         inputVector = new Vector2(h, v);
+
+        // Sword Swing
+        swordKey = Input.GetMouseButtonDown(0);
     }
 }
