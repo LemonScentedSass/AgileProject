@@ -2,9 +2,10 @@ using UnityEngine;
 
 public class FPPlayerLocomotion : MonoBehaviour
 {
-    private InputHandlerFirstPerson input;
+    private InputHandlerFirstPerson input; // Input Handler script that is used for first person inputs
 
-    [SerializeField] public Transform orientation;
+    [SerializeField] public Transform orientation; // New orientation object's transform, child of the Player prefab parent
+
 
     [Header("Movement Settings")]
     [SerializeField] public float moveSpeed; // Player Move Speed
@@ -14,10 +15,10 @@ public class FPPlayerLocomotion : MonoBehaviour
         input = GetComponent<InputHandlerFirstPerson>();
     }
 
-    private void Start()
-    {
-
-    }
+    // Everything below here operates exactly like the original movement, but is now relative
+    // to the Orientation object's transform. The transform's rotation is set to the y rotation
+    // of the camera, in the PlayerCam script. If we go with this camera angle, the orientation
+    // object will be a one-stop shop for finding relative angles from the player.
 
     private void Update()
     {
@@ -26,8 +27,7 @@ public class FPPlayerLocomotion : MonoBehaviour
 
     private void MyInput()
     {
-        var targetVector = new Vector3(input.inputVector.x, 0, input.inputVector.y);
-        Debug.Log(targetVector);
+        var targetVector = new Vector3(input.inputVector.x, 0, input.inputVector.y); 
 
         Movement(targetVector);
     }
