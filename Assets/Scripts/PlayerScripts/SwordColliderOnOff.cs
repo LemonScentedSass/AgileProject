@@ -5,30 +5,35 @@ using UnityEngine;
 public class SwordColliderOnOff : MonoBehaviour
 {
     public MeshCollider swordCollider;
+    public BoxCollider swordColliderBox;
+
+    public bool useBoxCollider;
 
     public void EnableSwordCollider()
     {
-        if (swordCollider != null)
+        if (useBoxCollider)
         {
-            //Debug.Log("Collider enabled");
-            swordCollider.enabled = true;
+            Debug.Log("Box Collider On");
+            swordColliderBox.enabled = true;
         }
         else
         {
-            Debug.Log("swordCollider not set");            
+            Debug.Log("Mesh Collider On");
+            swordCollider.enabled = true;
         }
     }
 
     public void DisableSwordCollider()
     {
-        if (swordCollider != null)
+        if (useBoxCollider)
         {
-            //Debug.Log("Collider disabled");
-            swordCollider.enabled = false;
+            Debug.Log("Box Collider Off");
+            swordColliderBox.enabled = false;
         }
         else
         {
-            Debug.Log("swordCollider not set");
+            Debug.Log("Mesh Collider Off");
+            swordCollider.enabled = false;
         }
     }
 }
