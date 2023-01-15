@@ -26,8 +26,8 @@ TagManager:
   - 2D Generation
   - Obstacle
   - 3D Generation
-  - 
-  - 
+  - SeenByFPCam
+  - InvisToFPCam
   - 
   - 
   - 

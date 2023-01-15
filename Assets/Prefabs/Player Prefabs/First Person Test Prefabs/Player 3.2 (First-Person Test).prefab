@@ -72,7 +72,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 533963338794651421}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: heel.02.R_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1386,7 +1386,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 814566664339833048}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: thigh.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1449,7 +1449,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2188714571180290830}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: spine.004
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4285,7 +4285,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4247497807635058411}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: heel.02.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4608,7 +4608,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6683687263168242613}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: spine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4823,7 +4823,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7216606057197853533}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: pelvis.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5303,7 +5303,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8695977575387238244}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: breast.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5442,7 +5442,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2634111059513884364}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: thigh.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8202,6 +8202,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   swordCollider: {fileID: 2286774750714467464}
+  swordColliderBox: {fileID: 0}
+  useBoxCollider: 0
 --- !u!114 &4257449034739937218
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8761,7 +8763,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5617828811931699918}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: HairFolic2b_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9461,7 +9463,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8490677311139224568}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: heel.02.L_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11220,7 +11222,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8149174354226912063}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: foot.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14780,7 +14782,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6590957563368044002}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: face
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14876,7 +14878,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3721855536800990504}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: toe.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14989,7 +14991,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5828083810377534083}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: toe.L_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15020,7 +15022,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5434559403534111213}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: breast.R_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15083,7 +15085,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3299417205292821842}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: HairFolic1b_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15337,7 +15339,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3032478788350006978}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: pelvis.R_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15635,7 +15637,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 308407760329634651}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: spine.005
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15667,7 +15669,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3353455221473439834}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: foot.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15867,7 +15869,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2617856912406516342}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: toe.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16370,7 +16372,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9149510429710079646}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: spine.006
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17966,7 +17968,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2687533555754124879}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: spine.003
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18412,7 +18414,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4114583140087888576}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: HairFolic3b_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20701,7 +20703,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8677268753639051667}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: breast.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20988,7 +20990,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7434181335894028364}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: metarig
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -21392,7 +21394,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4227999287752201533}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: HairFolic1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26063,7 +26065,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3638018791611935452}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: HairFolic1a
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27410,7 +27412,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 607109776460320134}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: pelvis.L_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -28069,7 +28071,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6323400312795663606}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: HairFolic2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -28912,7 +28914,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5660284049949551889}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: breast.L_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29074,7 +29076,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4072327392706982716}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: heel.02.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29106,7 +29108,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6175557936160447889}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Hair
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29140,7 +29142,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9034536600488997386}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: spine.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29172,7 +29174,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4881250435261262917}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: spine.002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29546,7 +29548,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9202609070913224158}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: HairFolic3b
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29897,7 +29899,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8629632425936767363}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: HairFolic2a
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -30285,7 +30287,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8939389040479233172}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: HairFolic2b
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -30482,7 +30484,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2247445185114700415}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: shin.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -31391,7 +31393,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4597958277590869516}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: shin.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -31562,7 +31564,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2086516257862212908}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: HairFolic3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -31656,7 +31658,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4097318038095386149}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: face_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -31719,7 +31721,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7682129561070857898}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: toe.R_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -32256,7 +32258,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4069701257635336806}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: HairFolic1b
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -32288,7 +32290,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2509111319538809043}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: pelvis.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -34126,7 +34128,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5184532818972893743}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: HairFolic3a
   m_TagString: Untagged
   m_Icon: {fileID: 0}
