@@ -3,6 +3,7 @@ using UnityEngine;
 public class FPPlayerLocomotion : MonoBehaviour
 {
     private InputHandlerFirstPerson input; // Input Handler script that is used for first person inputs
+    private Animator anim;
 
     [SerializeField] public Transform orientation; // New orientation object's transform, child of the Player prefab parent
 
@@ -13,6 +14,7 @@ public class FPPlayerLocomotion : MonoBehaviour
     private void Awake()
     {
         input = GetComponent<InputHandlerFirstPerson>();
+        anim = GetComponentInChildren<Animator>();
     }
 
     // Everything below here operates exactly like the original movement, but is now relative
@@ -35,6 +37,8 @@ public class FPPlayerLocomotion : MonoBehaviour
     private void Movement(Vector3 targetVector)
     {
         var movementVector = MoveTowardTarget(targetVector);
+
+        AnimatePlayer(movementVector);
     }
 
     private Vector3 MoveTowardTarget(Vector3 targetVector)
@@ -46,5 +50,11 @@ public class FPPlayerLocomotion : MonoBehaviour
         var targetPosition = transform.position + targetVector * speed;
         transform.position = targetPosition;
         return targetVector;
+    }
+
+    private void AnimatePlayer(Vector3 movementVector)
+    {
+        anim.SetFloat("veloX", input.inputVector.x, 0.2f, Time.deltaTime);
+        anim.SetFloat("veloY", input.inputVector.y, 0.2f, Time.deltaTime);
     }
 }
