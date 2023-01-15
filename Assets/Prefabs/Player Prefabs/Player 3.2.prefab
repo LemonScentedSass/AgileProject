@@ -20943,6 +20943,8 @@ GameObject:
   - component: {fileID: 8210732652131037548}
   - component: {fileID: 1377745570618470022}
   - component: {fileID: 1910904054430397180}
+  - component: {fileID: 519446315095257141}
+  - component: {fileID: 1172764005717335764}
   m_Layer: 0
   m_Name: PlayerModel
   m_TagString: Untagged
@@ -21000,6 +21002,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   swordCollider: {fileID: 6150614213989714470}
+  swordColliderBox: {fileID: 0}
+  useBoxCollider: 0
 --- !u!114 &8210732652131037548
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21035,30 +21039,16 @@ MonoBehaviour:
   Item: 324
   Magic: 113
   MagicCooldownDuration: 5
-  magiccooldownImage: {fileID: 1539921086469522267}
   useMagic: {fileID: 11400000, guid: 79697e42ac629f64cb29f102bcb9957d, type: 2}
   ItemCooldownDuration: 5
-  itemcooldownImage: {fileID: 9090646197825541672}
   useItem: {fileID: 11400000, guid: 75513d07cc3bfe84aa55edea530e7548, type: 2}
   HealthPotionCooldownDuration: 5
-  healthPotionAmounTXT: {fileID: 6542410845419961586}
-  healthcooldownImage: {fileID: 8995510296069927922}
-  healthPotionButton: {fileID: 6257703957547878008}
   useHealthPotion: {fileID: 11400000, guid: 09f5cd577f6b4a54fa5cd911c342c604, type: 2}
   ManaPotionCooldownDuration: 5
-  manaPotionAmountTXT: {fileID: 4344986060712676062}
-  manacooldownImage: {fileID: 288345361242791779}
-  manaPotionButton: {fileID: 1267252622715248485}
   useManaPotion: {fileID: 11400000, guid: a585734b8e5348a4cb9d4ec8f9951dc0, type: 2}
   BuffPotionCooldownDuration: 5
-  buffPotionAmountTXT: {fileID: 2995274595150936915}
-  buffcooldownImage: {fileID: 5818225947869925407}
-  buffPotionButton: {fileID: 5607136909548035752}
   useBuffPotion: {fileID: 0}
   MeatCooldownDuration: 5
-  meatAmountTXT: {fileID: 8836043595392661983}
-  meatcooldownImage: {fileID: 860459079360039834}
-  monsterMeatButton: {fileID: 7226308189807774746}
   useMonsterMeat: {fileID: 0}
 --- !u!114 &1910904054430397180
 MonoBehaviour:
@@ -21074,6 +21064,62 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   footstep1: {fileID: 8300000, guid: aff4997c9c80df24d98bdb5c826ce698, type: 3}
   footstep2: {fileID: 8300000, guid: 0fdb44f8d30abe744bc90472af9c125f, type: 3}
+--- !u!114 &519446315095257141
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5778913451418372175}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8170f25faf8c04443a4e12502a1a0b71, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  magiccooldownImage: {fileID: 0}
+  itemcooldownImage: {fileID: 0}
+  healthPotionAmounTXT: {fileID: 0}
+  healthcooldownImage: {fileID: 0}
+  healthPotionButton: {fileID: 0}
+  manaPotionAmountTXT: {fileID: 0}
+  manacooldownImage: {fileID: 0}
+  manaPotionButton: {fileID: 0}
+  buffPotionAmountTXT: {fileID: 0}
+  buffcooldownImage: {fileID: 0}
+  buffPotionButton: {fileID: 0}
+  meatAmountTXT: {fileID: 0}
+  meatcooldownImage: {fileID: 0}
+  monsterMeatButton: {fileID: 0}
+--- !u!114 &1172764005717335764
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5778913451418372175}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2cf04dd178f6f14591510370954ce65, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthbar: []
+  staminabar: []
+  manabar: []
+  staminaFILLAMOUNT: 0
+  healthFILLAMOUNT: 0
+  manaFillAMOUNT: 0
+  _MAXFILLAMOUNT: 1
+  GoldAmountTXT: {fileID: 0}
+  LevelTXT: []
+  ExpTXT: []
+  ExpSlider: []
+  hotbarItemImage: {fileID: 0}
+  hotbarMagicImage: {fileID: 0}
+  menuItemUpgrade: {fileID: 0}
+  menuMagicUpgrade: {fileID: 0}
+  itemLVLTXT: {fileID: 0}
+  magicLVLTXT: {fileID: 0}
+  skillpointTXT: {fileID: 0}
 --- !u!1 &5793436509962083373
 GameObject:
   m_ObjectHideFlags: 0
@@ -24223,13 +24269,6 @@ MonoBehaviour:
   experienceToNextLevel: 0
   perLevelSkillpoint: 2
   skillPoints: 0
-  LevelTXT:
-  - {fileID: 408711539938509245}
-  ExpTXT:
-  - {fileID: 408711539625109077}
-  ExpSlider:
-  - {fileID: 408711539894252018}
-  - {fileID: 8000058972555951096}
   expSFX: {fileID: 0}
 --- !u!114 &408711540140877816
 MonoBehaviour:
@@ -24260,23 +24299,10 @@ MonoBehaviour:
   _manaPotionHeal: 40
   meatAmount: 4
   goldAmount: 0
-  GoldAmountTXT: {fileID: 3679939441863874593}
   goldPickup: {fileID: 8300000, guid: ca7c93e683af3cf4e9f79f5274202850, type: 3}
   expPickup: {fileID: 0}
   bottlePickup: {fileID: 8300000, guid: 1b7ae1e73dc5bcd4ca0328bd92d69361, type: 3}
   usingItem: 0
-  healthbar:
-  - {fileID: 8000058973003857341}
-  - {fileID: 408711538585133857}
-  staminabar:
-  - {fileID: 8000058973066042527}
-  - {fileID: 408711539463421138}
-  manabar:
-  - {fileID: 8000058971608328250}
-  - {fileID: 408711538793036144}
-  staminaFILLAMOUNT: 0
-  healthFILLAMOUNT: 0
-  manaFillAMOUNT: 0
 --- !u!54 &6697902658378724396
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -24335,15 +24361,8 @@ MonoBehaviour:
   CurrentItem: {fileID: 0}
   CurrentMagic: {fileID: 0}
   hotbar: {fileID: 0}
-  hotbarItemImage: {fileID: 824631289384258792}
-  hotbarMagicImage: {fileID: 8784754391482307735}
-  menuItemUpgrade: {fileID: 8000058972586202380}
-  menuMagicUpgrade: {fileID: 8000058971253183989}
-  itemLVLTXT: {fileID: 6275656530381901780}
-  magicLVLTXT: {fileID: 3910076844762218980}
   CurrentItemLVL: 0
   CurrentMagicLVL: 0
-  skillpointTXT: {fileID: 8111059528090615832}
   itemSkillRequirement: 1
   magicSkillRequirement: 1
 --- !u!1 &6697902658488600160
