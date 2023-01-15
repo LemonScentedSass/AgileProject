@@ -1,72 +1,60 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using StatsSave;
 
-public class FakePlayerManager : MonoBehaviour
-{
-    public static FakePlayerManager instance;
 
-    public int Level = 1;
-    public int Health = 10;
-    public int Damage = 2;
 
-    private void Awake()
+//Fake manager mimicking simple saves
+    public class FakePlayerManager : MonoBehaviour
     {
-        if (FakePlayerManager.instance == null)
+        public static FakePlayerManager instance;
+
+        public int Level = 1;
+        public int Health = 10;
+        public int Damage = 2;
+
+        private void Awake()
         {
-            FakePlayerManager.instance = this;
+            if (FakePlayerManager.instance == null)
+            {
+                FakePlayerManager.instance = this;
+            }
+            else if (FakePlayerManager.instance != this)
+            {
+                Destroy(this);
+            }
         }
-        else if (FakePlayerManager.instance != this)
+
+        // Start is called before the first frame update
+        void Start()
         {
-            Destroy(this);
+        //Load upon start
+            Load();
         }
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        Load();
-    }
 
 
-
-    // Update is called once per frame
-    void Update()
-    {
+        //Saves the stats on the StatsToken script
+        public void Save()
+        {
+            StatsSave.StatsSaveLoad.Save(instance);
+        }
         
-    }
-
-    [System.Serializable]
-    public class FakeManagerToken
-    {
-        public int SaveLevel;
-        public int SaveHealth;
-        public int SaveDamage;
-
-        public FakeManagerToken(FakePlayerManager manager)
+        //Loads save from StatsToken script if there is one
+        public void Load()
         {
-            SaveLevel = manager.Level;
-            SaveHealth = manager.Health;
-            SaveDamage = manager.Damage;
+            StatsSave.StatsToken.FakeManagerToken data = StatsSaveLoad.Load();
+
+            if (data != null)
+            {
+                Level = data.SaveLevel;
+                Health = data.SaveHealth;
+                Damage = data.SaveDamage;
+
+            }
         }
-    }
 
-    public void Save()
-    {
-        SaveLoad.Save(instance);
-    }
-    public void Load()
-    {
-        FakeManagerToken data = SaveLoad.Load();
 
-        if(data != null)
-        {
-            Level = data.SaveLevel;
-            Health = data.SaveHealth;
-            Damage = data.SaveDamage;
-
-        }
     }
 
 
-}
