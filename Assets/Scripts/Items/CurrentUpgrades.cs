@@ -11,19 +11,8 @@ public class CurrentUpgrades : MonoBehaviour
 
     public Hotbar hotbar;
 
-    public Image hotbarItemImage;
-    public Image hotbarMagicImage;
-
-    public Button menuItemUpgrade;
-    public Button menuMagicUpgrade;
-
-    public TMPro.TMP_Text itemLVLTXT;
-    public TMPro.TMP_Text magicLVLTXT;
-
     public int CurrentItemLVL;
     public int CurrentMagicLVL;
-
-    public TMPro.TMP_Text skillpointTXT;
 
     public int itemSkillRequirement = 1;
     public int magicSkillRequirement = 1;
@@ -31,10 +20,6 @@ public class CurrentUpgrades : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
-        itemLVLTXT.text = "Lvl: " + CurrentItemLVL;
-        magicLVLTXT.text = "Lvl: " + CurrentMagicLVL;
-
         hotbar = GetComponentInChildren<Hotbar>();
         CurrentMagic = hotbar.useMagic;
         CurrentItem = hotbar.useItem;
@@ -48,11 +33,8 @@ public class CurrentUpgrades : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        skillpointTXT.text = "Skill Points: " + LevelSystem.instance.skillPoints;
-        itemLVLTXT.text = "Lvl: " + hotbar.useItem.itemLVL;
-
-        SkillPointCheck();
         UpdateSkillRequirement();
+
         //Makes current
         if (CurrentMagic != hotbar.useMagic)
         {
@@ -63,27 +45,6 @@ public class CurrentUpgrades : MonoBehaviour
         {
             CurrentItem = hotbar.useItem;
         }
-
-        //checks to make sure there is an item, if not put nothing image
-        if (hotbar.useItem == null)
-        {
-            hotbarItemImage.sprite = null;
-        }
-        else
-        {
-            hotbarItemImage.sprite = hotbar.useItem.itemIcon;
-        }
-
-        if (hotbar.useMagic == null)
-        {
-            hotbarMagicImage.sprite = null;
-        }
-        else
-        {
-            hotbarMagicImage.sprite = hotbar.useMagic.itemIcon;
-        }
-
-
     }
 
     public void IncreaseItemLevel()
@@ -93,21 +54,21 @@ public class CurrentUpgrades : MonoBehaviour
             LevelSystem.instance.skillPoints -= itemSkillRequirement;
             hotbar.useItem.itemLVL += 1;
             CurrentItemLVL = hotbar.useItem.itemLVL;
-            itemLVLTXT.text = "Lvl: " + hotbar.useItem.itemLVL;
+            //itemLVLTXT.text = "Lvl: " + hotbar.useItem.itemLVL;
         }
         else if(hotbar.useItem.itemLVL == 1)
         {
             LevelSystem.instance.skillPoints -= itemSkillRequirement;
             hotbar.useItem.itemLVL += 1;
             CurrentItemLVL = hotbar.useItem.itemLVL;
-            itemLVLTXT.text = "Lvl: " + hotbar.useItem.itemLVL;
+            //itemLVLTXT.text = "Lvl: " + hotbar.useItem.itemLVL;
         }
         else if (hotbar.useItem.itemLVL == 2)
         {
             LevelSystem.instance.skillPoints -= itemSkillRequirement;
             hotbar.useItem.itemLVL += 1;
             CurrentItemLVL = hotbar.useItem.itemLVL;
-            itemLVLTXT.text = "Lvl: " + hotbar.useItem.itemLVL;
+            //itemLVLTXT.text = "Lvl: " + hotbar.useItem.itemLVL;
         }
     }
 
@@ -119,52 +80,30 @@ public class CurrentUpgrades : MonoBehaviour
             LevelSystem.instance.skillPoints -= magicSkillRequirement;
             hotbar.useMagic.itemLVL += 1;
             CurrentMagicLVL = hotbar.useMagic.itemLVL;
-            magicLVLTXT.text = "Lvl: " + hotbar.useMagic.itemLVL;
+            //magicLVLTXT.text = "Lvl: " + hotbar.useMagic.itemLVL;
         }
         else if (hotbar.useMagic.itemLVL == 1)
         {
             LevelSystem.instance.skillPoints -= magicSkillRequirement;
             hotbar.useMagic.itemLVL += 1;
             CurrentMagicLVL = hotbar.useMagic.itemLVL;
-            magicLVLTXT.text = "Lvl: " + hotbar.useMagic.itemLVL;
+            //magicLVLTXT.text = "Lvl: " + hotbar.useMagic.itemLVL;
         }
         else if (hotbar.useMagic.itemLVL == 2)
         {
             LevelSystem.instance.skillPoints -= magicSkillRequirement;
             hotbar.useMagic.itemLVL += 1;
             CurrentMagicLVL = hotbar.useMagic.itemLVL;
-            magicLVLTXT.text = "Lvl: " + hotbar.useMagic.itemLVL;
+            //magicLVLTXT.text = "Lvl: " + hotbar.useMagic.itemLVL;
         }
-    }
-
-    private void SkillPointCheck()
-    {
-
-        if (itemSkillRequirement <= LevelSystem.instance.skillPoints)
-        {
-            menuItemUpgrade.interactable = true;
-        }
-        else
-        {
-            menuItemUpgrade.interactable = false;
-        }
-
-        if (magicSkillRequirement <= LevelSystem.instance.skillPoints)
-        {
-            menuMagicUpgrade.interactable = true;
-        }
-        else
-        {
-            menuMagicUpgrade.interactable = false;
-        }
-
     }
 
     private void UpdateSkillRequirement()
     {
-
+        //Checks current item level
         if (hotbar.useItem.itemLVL == 0)
         {
+            //skill points required to unlock upgrade
             itemSkillRequirement = 1;
         }
         else if (hotbar.useItem.itemLVL == 1)
@@ -188,26 +127,6 @@ public class CurrentUpgrades : MonoBehaviour
         {
             magicSkillRequirement = 5;
         }
-
-        if (hotbar.useItem.itemLVL != 3)
-        {
-            menuItemUpgrade.GetComponentInChildren<TMPro.TMP_Text>().text = "Skill Points: " + itemSkillRequirement;
-        }
-        else
-        {
-            menuItemUpgrade.GetComponentInChildren<TMPro.TMP_Text>().text = "Max";
-        }
-
-        if (hotbar.useMagic.itemLVL != 3)
-        {
-            menuMagicUpgrade.GetComponentInChildren<TMPro.TMP_Text>().text = "Skill Points: " + magicSkillRequirement;
-        }
-        else
-        {
-            menuMagicUpgrade.GetComponentInChildren<TMPro.TMP_Text>().text = "Max";
-        }
-
-
     }
 
 }
