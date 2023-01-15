@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 
@@ -25,7 +24,6 @@ namespace GameManager
 
         [SerializeField] public int skillPoints = 0;
 
-
         [Header("Attack Settings?")]
         [SerializeField] public int _minAttack = 1;
         [SerializeField] public int _maxAttack = 2;
@@ -42,11 +40,6 @@ namespace GameManager
         [SerializeField] public float meatAmount = 0;
         [SerializeField] public int goldAmount = 0;
 
-
-        [Header("Others")]
-        private float _MAXFILLAMOUNT = 1.0f;
-        [SerializeField] private TMPro.TMP_Text GoldAmountTXT;
-
         [Header("Audio")]
         public AudioClip goldPickup, expPickup, bottlePickup;
 
@@ -54,14 +47,6 @@ namespace GameManager
         public bool usingItem = false;
         private float time;
         private float placeholder;
-
-        public Image[] healthbar;
-        public Image[] staminabar;
-        public Image[] manabar;
-
-        public float staminaFILLAMOUNT;
-        public float healthFILLAMOUNT;
-        public float manaFillAMOUNT;
 
         public float MaxHealth { get { return _maxHealth; } set { _maxHealth = value; } }
         public float CurrentHealth { get { return _curHealth; } set { _curHealth = value; } }
@@ -83,9 +68,6 @@ namespace GameManager
         public int ManaPotionAmount { get { return _manaPotionAmount; } set { _manaPotionAmount = value; } }
         public int BuffPotionAmount { get { return _buffPotionAmount; } set { _buffPotionAmount = value; } }
         public int MonsterMeatAmount { get { return (int)meatAmount; } set { meatAmount = value; } }
-
-
-
 
         private void Awake()
         {
@@ -110,36 +92,11 @@ namespace GameManager
             _curHealth = _maxHealth;
             _curStamina = _maxStamina;
             _curMana = _maxMana;
-            //sets the healthbar and staminabar to max
-            foreach (Image bar in healthbar)
-            {
-                bar.fillAmount = _MAXFILLAMOUNT;
-            }
-
-            foreach (Image bar in staminabar)
-            {
-                bar.fillAmount = _MAXFILLAMOUNT;
-            }
-
-            foreach (Image bar in manabar)
-            {
-                bar.fillAmount = _MAXFILLAMOUNT;
-            }
-
         }
 
         // Update is called once per frame
         void Update()
         {
-            //Displays current fill amount
-            staminaFILLAMOUNT = DamageConversion(CurrentStamina, MaxStamina);
-            healthFILLAMOUNT = DamageConversion(CurrentHealth, MaxHealth);
-            manaFillAMOUNT = DamageConversion(CurrentMana, MaxMana);
-
-
-            DisplayStatConversion(); //Converts health, stamina, and mana into fillamount for health, stamina, and mana bars
-            StatsCheck(); // Checks to make sure numbers dont go below or above 0 and 100
-
             if (CurrentHealth <= 0)
             {
                 Die();
@@ -170,97 +127,9 @@ namespace GameManager
                 //Debug.Log(time); Disabled by Patrick temporarily
             }
 
-            GoldAmountTXT.text = "Gold: " + goldAmount;
+  
 
         }
-
-
-        //Converts regular values into values that can be used for the health and staminabar
-        private float DamageConversion(float curStat, float maxStat)
-        {
-            var conversion = (curStat * _MAXFILLAMOUNT) / maxStat;
-
-            return conversion;
-        }
-
-        private void StatsCheck()
-        {
-            //Makes sure health doesn't go over max and under 0
-            if (CurrentHealth > MaxHealth)
-            {
-                CurrentHealth = MaxHealth;
-            }
-            if (CurrentHealth < 0)
-            {
-                CurrentHealth = 0;
-            }
-
-            //Makes sure stamina doesn't go over max and under 0
-            if (CurrentStamina > MaxStamina)
-            {
-                CurrentStamina = MaxStamina;
-            }
-            if (CurrentStamina < 0)
-            {
-                CurrentStamina = 0;
-            }
-
-            //Makes sure mana doesn't go over max and under 0
-            if (CurrentMana > MaxMana)
-            {
-                CurrentMana = MaxMana;
-            }
-            if (CurrentMana < 0)
-            {
-                CurrentMana = 0;
-            }
-        }
-
-        private void DisplayStatConversion()
-        {
-            //converts amount and fluidly change health with lerp
-            foreach (var bar in healthbar)
-            {
-                if (bar.fillAmount != DamageConversion(CurrentHealth, MaxHealth))
-                {
-                    bar.fillAmount = Mathf.Lerp(bar.fillAmount, DamageConversion(CurrentHealth, MaxHealth), 0.005f);
-                }
-                if (bar.fillAmount >= DamageConversion(CurrentHealth, MaxHealth) - 0.05)
-                {
-                    bar.fillAmount = DamageConversion(CurrentHealth, MaxHealth);
-                }
-
-            }
-
-            foreach (var bar in staminabar)
-            {
-                if (bar.fillAmount != DamageConversion(CurrentStamina, MaxStamina))
-                {
-                    bar.fillAmount = Mathf.Lerp(bar.fillAmount, DamageConversion(CurrentStamina, MaxStamina), 0.005f);
-                }
-
-                if (bar.fillAmount >= DamageConversion(CurrentStamina, MaxStamina) - 0.05)
-                {
-                    bar.fillAmount = DamageConversion(CurrentStamina, MaxStamina);
-                }
-
-            }
-
-            foreach (var bar in manabar)
-            {
-                if (bar.fillAmount != DamageConversion(CurrentMana, MaxMana))
-                {
-                    bar.fillAmount = Mathf.Lerp(bar.fillAmount, DamageConversion(CurrentMana, MaxMana), 0.005f);
-                }
-                if (bar.fillAmount >= DamageConversion(CurrentMana, MaxMana) - 0.05)
-                {
-                    bar.fillAmount = DamageConversion(CurrentMana, MaxMana);
-                }
-            }
-
-        }
-
-
 
         /// <summary>
         /// Used to detect pickups from mob drops, will be added to as we have more to pickup :D
