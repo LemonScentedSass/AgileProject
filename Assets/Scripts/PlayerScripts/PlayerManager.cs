@@ -164,8 +164,6 @@ namespace GameManager
                             break;
                     }
                 }
-
-
             }
         }
 

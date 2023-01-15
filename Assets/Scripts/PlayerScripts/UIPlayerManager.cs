@@ -19,9 +19,28 @@ public class UIPlayerManager : MonoBehaviour
 
     [SerializeField] private TMPro.TMP_Text GoldAmountTXT;
 
+    public TMPro.TMP_Text[] LevelTXT;                                 //All level texts in game
+    public TMPro.TMP_Text[] ExpTXT;                                   //All Exp texts in game
+    public Image[] ExpSlider;                                         //All Exp sliders in game
+
+    public Image hotbarItemImage;
+    public Image hotbarMagicImage;
+
+    public Button menuItemUpgrade;
+    public Button menuMagicUpgrade;
+
+    public TMPro.TMP_Text itemLVLTXT;
+    public TMPro.TMP_Text magicLVLTXT;
+
+    public TMPro.TMP_Text skillpointTXT;
+
+
     // Start is called before the first frame update
     void Start()
     {
+        itemLVLTXT.text = "Lvl: " + PlayerManager.pm.GetComponent<CurrentUpgrades>().CurrentItemLVL;
+        magicLVLTXT.text = "Lvl: " + PlayerManager.pm.GetComponent<CurrentUpgrades>().CurrentMagicLVL;
+
         //sets the healthbar and staminabar to max
         foreach (Image bar in healthbar)
         {
@@ -53,6 +72,32 @@ public class UIPlayerManager : MonoBehaviour
         StatsCheck(); // Checks to make sure numbers dont go below or above 0 and 100
 
         GoldAmountTXT.text = "Gold: " + PlayerManager.pm.goldAmount;
+
+        UpdateSlidertxt(); //Updates all sliders to current stat
+
+        skillpointTXT.text = "Skill Points: " + LevelSystem.instance.skillPoints;
+        itemLVLTXT.text = "Lvl: " + PlayerManager.pm.GetComponent<CurrentUpgrades>().hotbar.useItem.itemLVL;
+
+        //checks to make sure there is an item, if not put nothing image
+        if (PlayerManager.pm.GetComponent<CurrentUpgrades>().hotbar.useItem == null)
+        {
+            hotbarItemImage.sprite = null;
+        }
+        else
+        {
+            hotbarItemImage.sprite = PlayerManager.pm.GetComponent<CurrentUpgrades>().hotbar.useItem.itemIcon;
+        }
+
+        if (PlayerManager.pm.GetComponent<CurrentUpgrades>().hotbar.useMagic == null)
+        {
+            hotbarMagicImage.sprite = null;
+        }
+        else
+        {
+            hotbarMagicImage.sprite = PlayerManager.pm.GetComponent<CurrentUpgrades>().hotbar.useMagic.itemIcon;
+        }
+
+
     }
 
 
@@ -97,6 +142,7 @@ public class UIPlayerManager : MonoBehaviour
         }
     }
 
+    //MAIN STATS slider conversion
     private void DisplayStatConversion()
     {
         //converts amount and fluidly change health with lerp
@@ -140,5 +186,83 @@ public class UIPlayerManager : MonoBehaviour
         }
 
     }
+
+    private void UpdateLVLtxt() //Updates all text UI
+    {
+        for (int i = 0; i < LevelTXT.Length; i++)
+        {
+            LevelTXT[i].text = "Level: " + GameManager.PlayerManager.pm.GetComponent<LevelSystem>().level;
+        }
+
+        for (int i = 0; i < ExpTXT.Length; i++)
+        {
+            ExpTXT[i].text = "EXP: " + GameManager.PlayerManager.pm.GetComponent<LevelSystem>().experience + "/" + GameManager.PlayerManager.pm.GetComponent<LevelSystem>().experienceToNextLevel;
+        }
+    }
+
+    private void UpdateSlidertxt()
+    {
+        //Grabs each slider and checks if slider equals current stat, if not increase stat to current
+        foreach (var slider in ExpSlider)
+        {
+            if (slider.fillAmount != (float)GameManager.PlayerManager.pm.GetComponent<LevelSystem>().experience / (float)GameManager.PlayerManager.pm.GetComponent<LevelSystem>().experienceToNextLevel)
+            {
+                slider.fillAmount = Mathf.Lerp(slider.fillAmount,
+                    ((float)GameManager.PlayerManager.pm.GetComponent<LevelSystem>().experience / (float)GameManager.PlayerManager.pm.GetComponent<LevelSystem>().experienceToNextLevel), 0.005f);
+            }
+
+            if (slider.fillAmount >= (float)GameManager.PlayerManager.pm.GetComponent<LevelSystem>().experience / (float)GameManager.PlayerManager.pm.GetComponent<LevelSystem>().experienceToNextLevel - 0.005)
+            {
+                slider.fillAmount = (float)GameManager.PlayerManager.pm.GetComponent<LevelSystem>().experience / (float)GameManager.PlayerManager.pm.GetComponent<LevelSystem>().experienceToNextLevel;
+            }
+        }
+
+    }
+
+    private void UpdateUpgradeSkillRequirement()
+    {
+        if (PlayerManager.pm.GetComponent<CurrentUpgrades>().hotbar.useItem.itemLVL != 3)
+        {
+            menuItemUpgrade.GetComponentInChildren<TMPro.TMP_Text>().text = "Skill Points: " + PlayerManager.pm.GetComponent<CurrentUpgrades>().itemSkillRequirement;
+        }
+        else
+        {
+            menuItemUpgrade.GetComponentInChildren<TMPro.TMP_Text>().text = "Max";
+        }
+
+        if (PlayerManager.pm.GetComponent<CurrentUpgrades>().hotbar.useMagic.itemLVL != 3)
+        {
+            menuMagicUpgrade.GetComponentInChildren<TMPro.TMP_Text>().text = "Skill Points: " + PlayerManager.pm.GetComponent<CurrentUpgrades>().magicSkillRequirement;
+        }
+        else
+        {
+            menuMagicUpgrade.GetComponentInChildren<TMPro.TMP_Text>().text = "Max";
+        }
+
+    }
+
+    private void SkillPointCheck()
+    {
+
+        if (PlayerManager.pm.GetComponent<CurrentUpgrades>().itemSkillRequirement <= LevelSystem.instance.skillPoints)
+        {
+            menuItemUpgrade.interactable = true;
+        }
+        else
+        {
+            menuItemUpgrade.interactable = false;
+        }
+
+        if (PlayerManager.pm.GetComponent<CurrentUpgrades>().magicSkillRequirement <= LevelSystem.instance.skillPoints)
+        {
+            menuMagicUpgrade.interactable = true;
+        }
+        else
+        {
+            menuMagicUpgrade.interactable = false;
+        }
+
+    }
+
 
 }

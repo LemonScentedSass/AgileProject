@@ -61,9 +61,6 @@ public class MenuButtonClicks : MonoBehaviour
         }
 
         AudioManager.instance._bgm.volume = BackgroundVolume.value;
-        
- 
-
 
         if(ItemImage.sprite == null)
         {
@@ -82,9 +79,6 @@ public class MenuButtonClicks : MonoBehaviour
         {
             MagicLock.SetActive(false);
         }
-
-        ItemImage.sprite = inventory.hotbarItemImage.sprite;
-        MagicImage.sprite = inventory.hotbarMagicImage.sprite;
 
         if (Input.GetKeyDown(KeyCode.Tab))
         {

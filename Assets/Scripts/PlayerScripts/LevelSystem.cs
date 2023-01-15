@@ -20,9 +20,6 @@ public class LevelSystem : MonoBehaviour
     public int perLevelSkillpoint = 2;
     public int skillPoints;
 
-    public TMPro.TMP_Text[] LevelTXT;                                 //All level texts in game
-    public TMPro.TMP_Text[] ExpTXT;                                   //All Exp texts in game
-    public UnityEngine.UI.Image[] ExpSlider;                          //All Exp sliders in game
     public AudioClip expSFX;
 
     private AudioManager _am;
@@ -44,12 +41,6 @@ public class LevelSystem : MonoBehaviour
         _am = AudioManager.instance;
     }
 
-    private void Update()
-    {
-        UpdateSlider(); //Updates all sliders to current stat
-    }
-
-
     /// <summary>
     /// AddExperience() will add the value of the parameter passed
     /// to the players current xp amount. Checks for level up and 
@@ -67,7 +58,6 @@ public class LevelSystem : MonoBehaviour
             skillPoints += perLevelSkillpoint;
             SetLevel(level + 1);
             GameManager.PlayerManager.pm.skillPoints++;
-            UpdateText();
 
             return true;
         }
@@ -88,36 +78,4 @@ public class LevelSystem : MonoBehaviour
         experienceToNextLevel = (int)(50f * (Mathf.Pow(level + 1, 2) - (5 * (level + 1)) + 8));
 
     }
-
-    private void UpdateText() //Updates all text UI
-    {
-        for (int i = 0; i < LevelTXT.Length; i++)
-        {
-            LevelTXT[i].text = "Level: " + level;
-        }
-
-        for (int i = 0; i < ExpTXT.Length; i++)
-        {
-            ExpTXT[i].text = "EXP: " + experience + "/" + experienceToNextLevel;
-        }
-    }
-
-    private void UpdateSlider()
-    {
-        //Grabs each slider and checks if slider equals current stat, if not increase stat to current
-        foreach (var slider in ExpSlider)
-        {
-            if (slider.fillAmount != (float)experience / (float)experienceToNextLevel)
-            {
-                slider.fillAmount = Mathf.Lerp(slider.fillAmount, ((float)experience / (float)experienceToNextLevel), 0.005f);
-            }
-
-            if (slider.fillAmount >= (float)experience / (float)experienceToNextLevel - 0.005)
-            {
-                slider.fillAmount = (float)experience / (float)experienceToNextLevel;
-            }
-        }
-
-    }
-
 }
