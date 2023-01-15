@@ -126,9 +126,6 @@ namespace GameManager
 
                 //Debug.Log(time); Disabled by Patrick temporarily
             }
-
-  
-
         }
 
         /// <summary>
