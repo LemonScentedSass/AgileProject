@@ -9,6 +9,8 @@ namespace UIManager
 {
     public class UIPlayerManager : MonoBehaviour
     {
+        public static UIPlayerManager UI;
+
         [Header("Main Stats UI")]
         //Insert all UI StatBars that track player stats
         [SerializeField] private Image[] healthbar;
@@ -39,6 +41,18 @@ namespace UIManager
 
         [SerializeField] private TMP_Text itemLVLTXT;
         [SerializeField] private TMP_Text magicLVLTXT;
+
+        private void Awake()
+        {
+            if (UI == null)
+            {
+                UI = this;
+            }
+            else if (UI != this)
+            {
+                Destroy(this);
+            }
+        }
 
         // Start is called before the first frame update
         void Start()

@@ -54,7 +54,7 @@ public class Hotbar : MonoBehaviour
       // Start is called before the first frame update
       void Start()
       {
-            UIhotbar = UIHotbar.hotbarUI;
+            UIhotbar = UIPlayerManager.UI.GetComponent<UIHotbar>();
             anim = GetComponent<Animator>();
       }
 

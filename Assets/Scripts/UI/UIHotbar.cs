@@ -7,9 +7,7 @@ using TMPro;
 namespace UIManager
 {
     public class UIHotbar : MonoBehaviour
-    {
-        public static UIHotbar hotbarUI;
-
+    { 
         [Header("Item/Magic Cooldown UI")]
         public Image magiccooldownImage;
         public Image itemcooldownImage;
@@ -34,17 +32,7 @@ namespace UIManager
         public Image meatcooldownImage;
         public Button monsterMeatButton;
 
-        private void Awake()
-        {
-            if(hotbarUI == null)
-            {
-                hotbarUI = this;
-            }
-            else if(hotbarUI != this)
-            {
-                Destroy(this);
-            }
-        }
+       
 
         // Start is called before the first frame update
         void Start()
