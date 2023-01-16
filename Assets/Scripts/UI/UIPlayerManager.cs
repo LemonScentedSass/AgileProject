@@ -9,34 +9,36 @@ namespace UIManager
 {
     public class UIPlayerManager : MonoBehaviour
     {
+        [Header("Main Stats UI")]
         //Insert all UI StatBars that track player stats
         [SerializeField] private Image[] healthbar;
         [SerializeField] private Image[] staminabar;
         [SerializeField] private Image[] manabar;
 
-        [SerializeField] private float staminaFILLAMOUNT;
-        [SerializeField] private float healthFILLAMOUNT;
-        [SerializeField] private float manaFillAMOUNT;
-
-        [SerializeField] private float _MAXFILLAMOUNT = 1.0f;
+        [SerializeField] private TMP_Text[] LevelTXT;                                 //All level texts in game
+        [SerializeField] private TMP_Text[] ExpTXT;                                   //All Exp texts in game
+        [SerializeField] private Image[] ExpSlider;
 
         [SerializeField] private TMP_Text GoldAmountTXT;
 
-        public TMP_Text[] LevelTXT;                                 //All level texts in game
-        public TMP_Text[] ExpTXT;                                   //All Exp texts in game
-        public Image[] ExpSlider;                                         //All Exp sliders in game
+        [SerializeField] private TMP_Text skillpointTXT;
 
-        public Image hotbarItemImage;
-        public Image hotbarMagicImage;
+        private float staminaFILLAMOUNT;
+        private float healthFILLAMOUNT;
+        private float manaFillAMOUNT;
 
-        public Button menuItemUpgrade;
-        public Button menuMagicUpgrade;
+        private float _MAXFILLAMOUNT = 1.0f;
 
-        public TMP_Text itemLVLTXT;
-        public TMP_Text magicLVLTXT;
+        //Displays in menu
+        [Header("Item/Magic UI")]
+        [SerializeField] private Image[] DisplayItemImage;
+        [SerializeField] private Image[] DisplayMagicImage;
 
-        public TMP_Text skillpointTXT;
+        [SerializeField] private Button menuItemUpgrade;
+        [SerializeField] private Button menuMagicUpgrade;
 
+        [SerializeField] private TMP_Text itemLVLTXT;
+        [SerializeField] private TMP_Text magicLVLTXT;
 
         // Start is called before the first frame update
         void Start()
@@ -84,20 +86,32 @@ namespace UIManager
             //checks to make sure there is an item, if not put nothing image
             if (PlayerManager.pm.GetComponent<CurrentUpgrades>().hotbar.useItem == null)
             {
-                hotbarItemImage.sprite = null;
+                foreach (var item in DisplayItemImage)
+                {
+                    item.sprite = null;
+                }
             }
             else
             {
-                hotbarItemImage.sprite = PlayerManager.pm.GetComponent<CurrentUpgrades>().hotbar.useItem.itemIcon;
+                foreach (var item in DisplayItemImage)
+                {
+                    item.sprite = PlayerManager.pm.GetComponent<CurrentUpgrades>().hotbar.useItem.itemIcon; ;
+                }
             }
 
             if (PlayerManager.pm.GetComponent<CurrentUpgrades>().hotbar.useMagic == null)
             {
-                hotbarMagicImage.sprite = null;
+                foreach (var item in DisplayMagicImage)
+                {
+                    item.sprite = null;
+                }
             }
             else
             {
-                hotbarMagicImage.sprite = PlayerManager.pm.GetComponent<CurrentUpgrades>().hotbar.useMagic.itemIcon;
+                foreach (var item in DisplayMagicImage)
+                {
+                    item.sprite = PlayerManager.pm.GetComponent<CurrentUpgrades>().hotbar.useMagic.itemIcon; ;
+                }
             }
 
 

@@ -4,13 +4,14 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using ItemSystem;
+using UIManager;
 
 
 public class Hotbar : MonoBehaviour
 {
       
       private Animator anim;
-      private UIHotbar UIhotbar;
+      [SerializeField]private UIHotbar UIhotbar;
 
       [Header("Hotbar Keys")]
       public KeyCode HealthPotion = KeyCode.Alpha1;
@@ -53,8 +54,8 @@ public class Hotbar : MonoBehaviour
       // Start is called before the first frame update
       void Start()
       {
+            UIhotbar = UIHotbar.hotbarUI;
             anim = GetComponent<Animator>();
-            UIhotbar = GetComponent<UIHotbar>();
       }
 
 

@@ -31,7 +31,6 @@ public class MenuButtonClicks : MonoBehaviour
     public Button exitToMenuButton;
     public Button quitToDesktopButton;
 
-    private Hotbar hotbar;
     private CurrentUpgrades inventory;
 
     public GameObject ItemLock;
@@ -42,7 +41,6 @@ public class MenuButtonClicks : MonoBehaviour
     {
         BackgroundVolume.value = 1;
         SFXVolume.value = 1;
-        hotbar = PlayerManager.pm.GetComponentInChildren<Hotbar>();
         inventory = PlayerManager.pm.GetComponent<CurrentUpgrades>();
         OptionMenu.SetActive(false);
         anim = GetComponent<Animator>();
