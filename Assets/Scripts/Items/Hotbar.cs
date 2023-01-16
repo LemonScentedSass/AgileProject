@@ -65,8 +65,8 @@ public class Hotbar : MonoBehaviour
             if(useMagic != null)
             {
                  //Checks player input for magic key; Checks to make sure player is not on cooldown or using item
-                   if (Input.GetKeyDown(Magic) && GameManager.PlayerManager.pm.usingItem == false && UIhotbar.magiccooldownImage.fillAmount == 0)
-                   {
+                   if (Input.GetKeyDown(Magic) && GameManager.PlayerManager.pm.usingItem == false) // && UIhotbar.magiccooldownImage.fillAmount == 0
+            {
                         //Plays specific fireball animation in layer
                         anim.Play("Fireball", 2);
 
@@ -83,8 +83,8 @@ public class Hotbar : MonoBehaviour
             if(useItem != null)
             {
                   //Checks player input for item key; 
-                   if (Input.GetKeyDown(Item) && GameManager.PlayerManager.pm.usingItem == false && UIhotbar.itemcooldownImage.fillAmount == 0)
-                   {
+                   if (Input.GetKeyDown(Item) && GameManager.PlayerManager.pm.usingItem == false) //&& UIhotbar.itemcooldownImage.fillAmount == 0
+            {
 
                         if (useItem.itemName == "Bow")
                         {
