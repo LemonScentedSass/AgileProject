@@ -4979,13 +4979,6 @@ MonoBehaviour:
   experienceToNextLevel: 0
   perLevelSkillpoint: 2
   skillPoints: 0
-  LevelTXT:
-  - {fileID: 5713685247227010835}
-  ExpTXT:
-  - {fileID: 5713685246164957435}
-  ExpSlider:
-  - {fileID: 5713685246969884508}
-  - {fileID: 2730014462813136214}
   expSFX: {fileID: 0}
 --- !u!114 &5713685246756223318
 MonoBehaviour:
@@ -5078,15 +5071,8 @@ MonoBehaviour:
   CurrentItem: {fileID: 0}
   CurrentMagic: {fileID: 0}
   hotbar: {fileID: 0}
-  hotbarItemImage: {fileID: 4726161975230566982}
-  hotbarMagicImage: {fileID: 3679063883762584121}
-  menuItemUpgrade: {fileID: 2730014462782540706}
-  menuMagicUpgrade: {fileID: 2730014464115034971}
-  itemLVLTXT: {fileID: 2157368060086735226}
-  magicLVLTXT: {fileID: 8981440600002797386}
   CurrentItemLVL: 0
   CurrentMagicLVL: 0
-  skillpointTXT: {fileID: 4212936195012550326}
   itemSkillRequirement: 1
   magicSkillRequirement: 1
 --- !u!1 &1591077387794372814
@@ -8178,7 +8164,7 @@ Animator:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1933677727160506081}
   m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: 2b66ba8e904f00042929d386734db354, type: 3}
+  m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 31715034c41f2c443ac021cdc8c00fb1, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
@@ -8239,30 +8225,16 @@ MonoBehaviour:
   Item: 324
   Magic: 113
   MagicCooldownDuration: 5
-  magiccooldownImage: {fileID: 6897817665740348917}
   useMagic: {fileID: 11400000, guid: 79697e42ac629f64cb29f102bcb9957d, type: 2}
   ItemCooldownDuration: 5
-  itemcooldownImage: {fileID: 3805374568736868486}
   useItem: {fileID: 11400000, guid: 75513d07cc3bfe84aa55edea530e7548, type: 2}
   HealthPotionCooldownDuration: 5
-  healthPotionAmounTXT: {fileID: 1165392781700702812}
-  healthcooldownImage: {fileID: 3905015032192544092}
-  healthPotionButton: {fileID: 2031345633919162582}
   useHealthPotion: {fileID: 11400000, guid: 09f5cd577f6b4a54fa5cd911c342c604, type: 2}
   ManaPotionCooldownDuration: 5
-  manaPotionAmountTXT: {fileID: 8551037454628803696}
-  manacooldownImage: {fileID: 5685642914449473997}
-  manaPotionButton: {fileID: 6589101625341084107}
   useManaPotion: {fileID: 11400000, guid: a585734b8e5348a4cb9d4ec8f9951dc0, type: 2}
   BuffPotionCooldownDuration: 5
-  buffPotionAmountTXT: {fileID: 7166991520342566397}
-  buffcooldownImage: {fileID: 1898657720077586097}
-  buffPotionButton: {fileID: 520046738626560006}
   useBuffPotion: {fileID: 0}
   MeatCooldownDuration: 5
-  meatAmountTXT: {fileID: 3492805784621213553}
-  meatcooldownImage: {fileID: 4690473130970027316}
-  monsterMeatButton: {fileID: 3363660658989421236}
   useMonsterMeat: {fileID: 0}
 --- !u!114 &5792750157239233618
 MonoBehaviour:
