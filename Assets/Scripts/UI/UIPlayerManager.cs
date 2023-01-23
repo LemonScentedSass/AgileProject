@@ -57,8 +57,8 @@ namespace UIManager
         // Start is called before the first frame update
         void Start()
         {
-            itemLVLTXT.text = "Lvl: " + PlayerManager.pm.GetComponent<CurrentUpgrades>().CurrentItemLVL;
-            magicLVLTXT.text = "Lvl: " + PlayerManager.pm.GetComponent<CurrentUpgrades>().CurrentMagicLVL;
+            itemLVLTXT.text = "Lvl: " + GameManager.PlayerManager.pm.GetComponent<CurrentUpgrades>().CurrentItemLVL;
+            magicLVLTXT.text = "Lvl: " + GameManager.PlayerManager.pm.GetComponent<CurrentUpgrades>().CurrentMagicLVL;
 
             //sets the healthbar and staminabar to max
             foreach (Image bar in healthbar)
@@ -82,23 +82,23 @@ namespace UIManager
         void Update()
         {
             //Displays current fill amount
-            staminaFILLAMOUNT = DamageConversion(PlayerManager.pm.CurrentStamina, PlayerManager.pm.MaxStamina);
-            healthFILLAMOUNT = DamageConversion(PlayerManager.pm.CurrentHealth, PlayerManager.pm.MaxHealth);
-            manaFillAMOUNT = DamageConversion(PlayerManager.pm.CurrentMana, PlayerManager.pm.MaxMana);
+            staminaFILLAMOUNT = DamageConversion(GameManager.PlayerManager.pm.CurrentStamina, GameManager.PlayerManager.pm.MaxStamina);
+            healthFILLAMOUNT = DamageConversion(GameManager.PlayerManager.pm.CurrentHealth, GameManager.PlayerManager.pm.MaxHealth);
+            manaFillAMOUNT = DamageConversion(GameManager.PlayerManager.pm.CurrentMana, GameManager.PlayerManager.pm.MaxMana);
 
 
             DisplayStatConversion(); //Converts health, stamina, and mana into fillamount for health, stamina, and mana bars
             StatsCheck(); // Checks to make sure numbers dont go below or above 0 and 100
 
-            GoldAmountTXT.text = "Gold: " + PlayerManager.pm.goldAmount;
+            GoldAmountTXT.text = "Gold: " + GameManager.PlayerManager.pm.goldAmount;
 
             UpdateLVLSlidertxt(); //Updates all sliders to current stat
 
             skillpointTXT.text = "Skill Points: " + LevelSystem.instance.skillPoints;
-            itemLVLTXT.text = "Lvl: " + PlayerManager.pm.GetComponent<CurrentUpgrades>().hotbar.useItem.itemLVL;
+            itemLVLTXT.text = "Lvl: " + GameManager.PlayerManager.pm.GetComponent<CurrentUpgrades>().hotbar.useItem.itemLVL;
 
             //checks to make sure there is an item, if not put nothing image
-            if (PlayerManager.pm.GetComponent<CurrentUpgrades>().hotbar.useItem == null)
+            if (GameManager.PlayerManager.pm.GetComponent<CurrentUpgrades>().hotbar.useItem == null)
             {
                 foreach (var item in DisplayItemImage)
                 {
@@ -109,11 +109,11 @@ namespace UIManager
             {
                 foreach (var item in DisplayItemImage)
                 {
-                    item.sprite = PlayerManager.pm.GetComponent<CurrentUpgrades>().hotbar.useItem.itemIcon; ;
+                    item.sprite = GameManager.PlayerManager.pm.GetComponent<CurrentUpgrades>().hotbar.useItem.itemIcon; ;
                 }
             }
 
-            if (PlayerManager.pm.GetComponent<CurrentUpgrades>().hotbar.useMagic == null)
+            if (GameManager.PlayerManager.pm.GetComponent<CurrentUpgrades>().hotbar.useMagic == null)
             {
                 foreach (var item in DisplayMagicImage)
                 {
@@ -124,7 +124,7 @@ namespace UIManager
             {
                 foreach (var item in DisplayMagicImage)
                 {
-                    item.sprite = PlayerManager.pm.GetComponent<CurrentUpgrades>().hotbar.useMagic.itemIcon; ;
+                    item.sprite = GameManager.PlayerManager.pm.GetComponent<CurrentUpgrades>().hotbar.useMagic.itemIcon; ;
                 }
             }
 
@@ -143,33 +143,33 @@ namespace UIManager
         private void StatsCheck()
         {
             //Makes sure health doesn't go over max and under 0
-            if (PlayerManager.pm.CurrentHealth > PlayerManager.pm.MaxHealth)
+            if (GameManager.PlayerManager.pm.CurrentHealth > GameManager.PlayerManager.pm.MaxHealth)
             {
-                PlayerManager.pm.CurrentHealth = PlayerManager.pm.MaxHealth;
+                GameManager.PlayerManager.pm.CurrentHealth = GameManager.PlayerManager.pm.MaxHealth;
             }
-            if (PlayerManager.pm.CurrentHealth < 0)
+            if (GameManager.PlayerManager.pm.CurrentHealth < 0)
             {
-                PlayerManager.pm.CurrentHealth = 0;
+                GameManager.PlayerManager.pm.CurrentHealth = 0;
             }
 
             //Makes sure stamina doesn't go over max and under 0
-            if (PlayerManager.pm.CurrentStamina > PlayerManager.pm.MaxStamina)
+            if (GameManager.PlayerManager.pm.CurrentStamina > GameManager.PlayerManager.pm.MaxStamina)
             {
-                PlayerManager.pm.CurrentStamina = PlayerManager.pm.MaxStamina;
+                GameManager.PlayerManager.pm.CurrentStamina = GameManager.PlayerManager.pm.MaxStamina;
             }
-            if (PlayerManager.pm.CurrentStamina < 0)
+            if (GameManager.PlayerManager.pm.CurrentStamina < 0)
             {
-                PlayerManager.pm.CurrentStamina = 0;
+                GameManager.PlayerManager.pm.CurrentStamina = 0;
             }
 
             //Makes sure mana doesn't go over max and under 0
-            if (PlayerManager.pm.CurrentMana > PlayerManager.pm.MaxMana)
+            if (GameManager.PlayerManager.pm.CurrentMana > GameManager.PlayerManager.pm.MaxMana)
             {
-                PlayerManager.pm.CurrentMana = PlayerManager.pm.MaxMana;
+                GameManager.PlayerManager.pm.CurrentMana = GameManager.PlayerManager.pm.MaxMana;
             }
-            if (PlayerManager.pm.CurrentMana < 0)
+            if (GameManager.PlayerManager.pm.CurrentMana < 0)
             {
-                PlayerManager.pm.CurrentMana = 0;
+                GameManager.PlayerManager.pm.CurrentMana = 0;
             }
         }
 
@@ -179,40 +179,40 @@ namespace UIManager
             //converts amount and fluidly change health with lerp
             foreach (var bar in healthbar)
             {
-                if (bar.fillAmount != DamageConversion(PlayerManager.pm.CurrentHealth, PlayerManager.pm.MaxHealth))
+                if (bar.fillAmount != DamageConversion(GameManager.PlayerManager.pm.CurrentHealth, GameManager.PlayerManager.pm.MaxHealth))
                 {
-                    bar.fillAmount = Mathf.Lerp(bar.fillAmount, DamageConversion(PlayerManager.pm.CurrentHealth, PlayerManager.pm.MaxHealth), 0.005f);
+                    bar.fillAmount = Mathf.Lerp(bar.fillAmount, DamageConversion(GameManager.PlayerManager.pm.CurrentHealth, GameManager.PlayerManager.pm.MaxHealth), 0.005f);
                 }
-                if (bar.fillAmount >= DamageConversion(PlayerManager.pm.CurrentHealth, PlayerManager.pm.MaxHealth) - 0.05)
+                if (bar.fillAmount >= DamageConversion(GameManager.PlayerManager.pm.CurrentHealth, GameManager.PlayerManager.pm.MaxHealth) - 0.05)
                 {
-                    bar.fillAmount = DamageConversion(PlayerManager.pm.CurrentHealth, PlayerManager.pm.MaxHealth);
+                    bar.fillAmount = DamageConversion(GameManager.PlayerManager.pm.CurrentHealth, GameManager.PlayerManager.pm.MaxHealth);
                 }
 
             }
 
             foreach (var bar in staminabar)
             {
-                if (bar.fillAmount != DamageConversion(PlayerManager.pm.CurrentStamina, PlayerManager.pm.MaxStamina))
+                if (bar.fillAmount != DamageConversion(GameManager.PlayerManager.pm.CurrentStamina, GameManager.PlayerManager.pm.MaxStamina))
                 {
-                    bar.fillAmount = Mathf.Lerp(bar.fillAmount, DamageConversion(PlayerManager.pm.CurrentStamina, PlayerManager.pm.MaxStamina), 0.005f);
+                    bar.fillAmount = Mathf.Lerp(bar.fillAmount, DamageConversion(GameManager.PlayerManager.pm.CurrentStamina, GameManager.PlayerManager.pm.MaxStamina), 0.005f);
                 }
 
-                if (bar.fillAmount >= DamageConversion(PlayerManager.pm.CurrentStamina, PlayerManager.pm.MaxStamina) - 0.05)
+                if (bar.fillAmount >= DamageConversion(GameManager.PlayerManager.pm.CurrentStamina, GameManager.PlayerManager.pm.MaxStamina) - 0.05)
                 {
-                    bar.fillAmount = DamageConversion(PlayerManager.pm.CurrentStamina, PlayerManager.pm.MaxStamina);
+                    bar.fillAmount = DamageConversion(GameManager.PlayerManager.pm.CurrentStamina, GameManager.PlayerManager.pm.MaxStamina);
                 }
 
             }
 
             foreach (var bar in manabar)
             {
-                if (bar.fillAmount != DamageConversion(PlayerManager.pm.CurrentMana, PlayerManager.pm.MaxMana))
+                if (bar.fillAmount != DamageConversion(GameManager.PlayerManager.pm.CurrentMana, GameManager.PlayerManager.pm.MaxMana))
                 {
-                    bar.fillAmount = Mathf.Lerp(bar.fillAmount, DamageConversion(PlayerManager.pm.CurrentMana, PlayerManager.pm.MaxMana), 0.005f);
+                    bar.fillAmount = Mathf.Lerp(bar.fillAmount, DamageConversion(GameManager.PlayerManager.pm.CurrentMana, GameManager.PlayerManager.pm.MaxMana), 0.005f);
                 }
-                if (bar.fillAmount >= DamageConversion(PlayerManager.pm.CurrentMana, PlayerManager.pm.MaxMana) - 0.05)
+                if (bar.fillAmount >= DamageConversion(GameManager.PlayerManager.pm.CurrentMana, GameManager.PlayerManager.pm.MaxMana) - 0.05)
                 {
-                    bar.fillAmount = DamageConversion(PlayerManager.pm.CurrentMana, PlayerManager.pm.MaxMana);
+                    bar.fillAmount = DamageConversion(GameManager.PlayerManager.pm.CurrentMana, GameManager.PlayerManager.pm.MaxMana);
                 }
             }
 
@@ -222,12 +222,12 @@ namespace UIManager
         {
             for (int i = 0; i < LevelTXT.Length; i++)
             {
-                LevelTXT[i].text = "Level: " + PlayerManager.pm.GetComponent<LevelSystem>().level;
+                LevelTXT[i].text = "Level: " + GameManager.PlayerManager.pm.GetComponent<LevelSystem>().level;
             }
 
             for (int i = 0; i < ExpTXT.Length; i++)
             {
-                ExpTXT[i].text = "EXP: " + PlayerManager.pm.GetComponent<LevelSystem>().experience + "/" + PlayerManager.pm.GetComponent<LevelSystem>().experienceToNextLevel;
+                ExpTXT[i].text = "EXP: " + GameManager.PlayerManager.pm.GetComponent<LevelSystem>().experience + "/" + GameManager.PlayerManager.pm.GetComponent<LevelSystem>().experienceToNextLevel;
             }
         }
 
@@ -236,15 +236,15 @@ namespace UIManager
             //Grabs each slider and checks if slider equals current stat, if not increase stat to current
             foreach (var slider in ExpSlider)
             {
-                if (slider.fillAmount != (float)PlayerManager.pm.GetComponent<LevelSystem>().experience / (float)PlayerManager.pm.GetComponent<LevelSystem>().experienceToNextLevel)
+                if (slider.fillAmount != (float)GameManager.PlayerManager.pm.GetComponent<LevelSystem>().experience / (float)GameManager.PlayerManager.pm.GetComponent<LevelSystem>().experienceToNextLevel)
                 {
                     slider.fillAmount = Mathf.Lerp(slider.fillAmount,
-                        ((float)PlayerManager.pm.GetComponent<LevelSystem>().experience / (float)PlayerManager.pm.GetComponent<LevelSystem>().experienceToNextLevel), 0.005f);
+                        ((float)GameManager.PlayerManager.pm.GetComponent<LevelSystem>().experience / (float)GameManager.PlayerManager.pm.GetComponent<LevelSystem>().experienceToNextLevel), 0.005f);
                 }
 
-                if (slider.fillAmount >= (float)PlayerManager.pm.GetComponent<LevelSystem>().experience / (float)PlayerManager.pm.GetComponent<LevelSystem>().experienceToNextLevel - 0.005)
+                if (slider.fillAmount >= (float)GameManager.PlayerManager.pm.GetComponent<LevelSystem>().experience / (float)GameManager.PlayerManager.pm.GetComponent<LevelSystem>().experienceToNextLevel - 0.005)
                 {
-                    slider.fillAmount = (float)PlayerManager.pm.GetComponent<LevelSystem>().experience / (float)PlayerManager.pm.GetComponent<LevelSystem>().experienceToNextLevel;
+                    slider.fillAmount = (float)GameManager.PlayerManager.pm.GetComponent<LevelSystem>().experience / (float)GameManager.PlayerManager.pm.GetComponent<LevelSystem>().experienceToNextLevel;
                 }
             }
 
@@ -252,18 +252,18 @@ namespace UIManager
 
         private void UpdateUpgradeSkillRequirement()
         {
-            if (PlayerManager.pm.GetComponent<CurrentUpgrades>().hotbar.useItem.itemLVL != 3)
+            if (GameManager.PlayerManager.pm.GetComponent<CurrentUpgrades>().hotbar.useItem.itemLVL != 3)
             {
-                menuItemUpgrade.GetComponentInChildren<TMPro.TMP_Text>().text = "Skill Points: " + PlayerManager.pm.GetComponent<CurrentUpgrades>().itemSkillRequirement;
+                menuItemUpgrade.GetComponentInChildren<TMPro.TMP_Text>().text = "Skill Points: " + GameManager.PlayerManager.pm.GetComponent<CurrentUpgrades>().itemSkillRequirement;
             }
             else
             {
                 menuItemUpgrade.GetComponentInChildren<TMPro.TMP_Text>().text = "Max";
             }
 
-            if (PlayerManager.pm.GetComponent<CurrentUpgrades>().hotbar.useMagic.itemLVL != 3)
+            if (GameManager.PlayerManager.pm.GetComponent<CurrentUpgrades>().hotbar.useMagic.itemLVL != 3)
             {
-                menuMagicUpgrade.GetComponentInChildren<TMPro.TMP_Text>().text = "Skill Points: " + PlayerManager.pm.GetComponent<CurrentUpgrades>().magicSkillRequirement;
+                menuMagicUpgrade.GetComponentInChildren<TMPro.TMP_Text>().text = "Skill Points: " + GameManager.PlayerManager.pm.GetComponent<CurrentUpgrades>().magicSkillRequirement;
             }
             else
             {
@@ -275,7 +275,7 @@ namespace UIManager
         private void SkillPointCheck()
         {
 
-            if (PlayerManager.pm.GetComponent<CurrentUpgrades>().itemSkillRequirement <= LevelSystem.instance.skillPoints)
+            if (GameManager.PlayerManager.pm.GetComponent<CurrentUpgrades>().itemSkillRequirement <= LevelSystem.instance.skillPoints)
             {
                 menuItemUpgrade.interactable = true;
             }
@@ -284,7 +284,7 @@ namespace UIManager
                 menuItemUpgrade.interactable = false;
             }
 
-            if (PlayerManager.pm.GetComponent<CurrentUpgrades>().magicSkillRequirement <= LevelSystem.instance.skillPoints)
+            if (GameManager.PlayerManager.pm.GetComponent<CurrentUpgrades>().magicSkillRequirement <= LevelSystem.instance.skillPoints)
             {
                 menuMagicUpgrade.interactable = true;
             }

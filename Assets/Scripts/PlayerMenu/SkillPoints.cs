@@ -121,16 +121,17 @@ public class SkillPoints : Selectable
                 _spentSkill = false;
             }
         }
-
-        if(LevelSystem.instance.skillPoints >= POINTREQUIREMENT)
+        if(GameManager.PlayerManager.pm != null)
         {
-            skillRequirements = true;
+            if (GameManager.PlayerManager.pm.gameObject.GetComponent<LevelSystem>().skillPoints >= POINTREQUIREMENT)
+            {
+                skillRequirements = true;
+            }
+            else
+            {
+                skillRequirements = false;
+            }
         }
-        else
-        {
-            skillRequirements = false;
-        }
-
     }
 
     //Clicks SkillNode

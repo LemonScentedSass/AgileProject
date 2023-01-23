@@ -201,5 +201,22 @@ namespace GameManager
         {
             return;
         }
+
+        public void SavePlayerManager()
+        {
+            PlayerSaving.StatsSaveLoad.Save(GameManager.PlayerManager.pm);
+        }
+
+
+        public void LoadPlayerManager()
+        {
+            PlayerSaving.SaveToken.PlayerSaveToken data = PlayerSaving.StatsSaveLoad.Load();
+
+            if(data != null)
+            {
+
+            }
+        }
     }
+
 }

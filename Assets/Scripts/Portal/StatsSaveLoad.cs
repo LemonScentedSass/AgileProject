@@ -5,28 +5,28 @@ using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
 
 
-namespace StatsSave
+namespace PlayerSaving
 {
     public class StatsSaveLoad
     {
-        public static void Save(FakePlayerManager gm)
+        public static void Save(GameManager.PlayerManager gm)
         {
             string filePath = Application.persistentDataPath + "/PlayerStats.pps";
             FileStream stream = new FileStream(filePath, FileMode.Create);
             BinaryFormatter bf = new BinaryFormatter();
-            StatsSave.StatsToken.FakeManagerToken data = new StatsSave.StatsToken.FakeManagerToken(gm);
+            PlayerSaving.SaveToken.PlayerSaveToken data = new PlayerSaving.SaveToken.PlayerSaveToken(gm);
             bf.Serialize(stream, data);
             stream.Close();
         }
 
-        public static StatsSave.StatsToken.FakeManagerToken Load()
+        public static PlayerSaving.SaveToken.PlayerSaveToken Load()
         {
             string filePath = Application.persistentDataPath + "/Playerstats.pps";
             if (File.Exists(filePath))
             {
                 FileStream stream = new FileStream(filePath, FileMode.Open);
                 BinaryFormatter bf = new BinaryFormatter();
-                StatsSave.StatsToken.FakeManagerToken data = (StatsSave.StatsToken.FakeManagerToken)bf.Deserialize(stream);
+                PlayerSaving.SaveToken.PlayerSaveToken data = (PlayerSaving.SaveToken.PlayerSaveToken)bf.Deserialize(stream);
                 stream.Close();
                 return data;
 

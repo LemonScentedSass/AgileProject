@@ -41,7 +41,7 @@ public class MenuButtonClicks : MonoBehaviour
     {
         BackgroundVolume.value = 1;
         SFXVolume.value = 1;
-        inventory = PlayerManager.pm.GetComponent<CurrentUpgrades>();
+        inventory = GameManager.PlayerManager.pm.GetComponent<CurrentUpgrades>();
         OptionMenu.SetActive(false);
         anim = GetComponent<Animator>();
         for (int i = 0; i < Skills.Length; i++)
