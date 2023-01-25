@@ -5,6 +5,8 @@ public class FPPlayerLocomotion : MonoBehaviour
     private InputHandlerFirstPerson input; // Input Handler script that is used for first person inputs
     private Animator anim;
 
+    [HideInInspector] public bool canMove = true;
+
     [SerializeField] public Transform orientation; // New orientation object's transform, child of the Player prefab parent
     [SerializeField] public Transform camHolder;
 
@@ -27,9 +29,10 @@ public class FPPlayerLocomotion : MonoBehaviour
     // of the camera, in the PlayerCam script. If we go with this camera angle, the orientation
     // object will be a one-stop shop for finding relative angles from the player.
 
-    private void Update()
+    private void FixedUpdate()
     {
-        MyInput();
+        if (canMove)
+            MyInput();
     }
 
     private void MyInput()
@@ -58,7 +61,7 @@ public class FPPlayerLocomotion : MonoBehaviour
     }
 
     private void AnimatePlayer(Vector3 movementVector)
-    {
+    {    
         anim.SetFloat("veloX", input.inputVector.x, 0.2f, Time.deltaTime);
         anim.SetFloat("veloY", input.inputVector.y, 0.2f, Time.deltaTime);
     }

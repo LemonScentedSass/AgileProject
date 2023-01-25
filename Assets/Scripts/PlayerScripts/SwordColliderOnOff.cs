@@ -13,12 +13,10 @@ public class SwordColliderOnOff : MonoBehaviour
     {
         if (useBoxCollider)
         {
-            Debug.Log("Box Collider On");
             swordColliderBox.enabled = true;
         }
         else
         {
-            Debug.Log("Mesh Collider On");
             swordCollider.enabled = true;
         }
     }
@@ -27,12 +25,10 @@ public class SwordColliderOnOff : MonoBehaviour
     {
         if (useBoxCollider)
         {
-            Debug.Log("Box Collider Off");
             swordColliderBox.enabled = false;
         }
         else
         {
-            Debug.Log("Mesh Collider Off");
             swordCollider.enabled = false;
         }
     }

@@ -10,7 +10,7 @@ namespace GameManager
     {
         public static PlayerManager pm;
         Animator anim;
-        PlayerLocomotion playerLoco;
+        FPPlayerLocomotion playerLoco;
         private AudioManager _am;
 
         [Header("Player Health / Stamina / Mana")]
@@ -72,7 +72,7 @@ namespace GameManager
         private void Awake()
         {
             anim = GetComponentInChildren<Animator>();
-            playerLoco = GetComponent<PlayerLocomotion>();
+            playerLoco = GetComponent<FPPlayerLocomotion>();
 
             if (PlayerManager.pm == null)
             {
