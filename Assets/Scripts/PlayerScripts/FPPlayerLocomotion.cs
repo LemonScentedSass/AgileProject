@@ -6,6 +6,7 @@ public class FPPlayerLocomotion : MonoBehaviour
     private Animator anim;
 
     [SerializeField] public Transform orientation; // New orientation object's transform, child of the Player prefab parent
+    [SerializeField] public Transform camHolder;
 
 
     [Header("Movement Settings")]
@@ -15,6 +16,10 @@ public class FPPlayerLocomotion : MonoBehaviour
     {
         input = GetComponent<InputHandlerFirstPerson>();
         anim = GetComponentInChildren<Animator>();
+    }
+    private void Start()
+    {
+        camHolder = MoveCamera.instance.gameObject.transform;
     }
 
     // Everything below here operates exactly like the original movement, but is now relative
@@ -45,7 +50,7 @@ public class FPPlayerLocomotion : MonoBehaviour
     {
         var speed = moveSpeed * Time.deltaTime;
 
-        targetVector = Quaternion.Euler(0, orientation.eulerAngles.y, 0) * targetVector;
+        targetVector = Quaternion.Euler(0, camHolder.eulerAngles.y, 0) * targetVector;
         targetVector = Vector3.Normalize(targetVector);
         var targetPosition = transform.position + targetVector * speed;
         transform.position = targetPosition;

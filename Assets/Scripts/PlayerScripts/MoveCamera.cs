@@ -6,6 +6,20 @@ public class MoveCamera : MonoBehaviour
 {
     // This script is just used to allow us to change the CameraPos object independently of any other objects
 
+    public static MoveCamera instance;
+
+    private void Awake()
+    {
+        if (MoveCamera.instance == null)
+        {
+            MoveCamera.instance = this;
+        }
+        else if (MoveCamera.instance != this)
+        {
+            Destroy(this);
+        }
+    }
+
     public Transform cameraPosition;
 
     private void Update()
