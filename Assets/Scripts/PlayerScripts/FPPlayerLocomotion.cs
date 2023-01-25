@@ -7,7 +7,6 @@ public class FPPlayerLocomotion : MonoBehaviour
 
     [HideInInspector] public bool canMove = true;
 
-    [SerializeField] public Transform orientation; // New orientation object's transform, child of the Player prefab parent
     [SerializeField] public Transform camHolder;
 
 

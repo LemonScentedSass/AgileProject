@@ -22,6 +22,11 @@ public class MoveCamera : MonoBehaviour
 
     public Transform cameraPosition;
 
+    private void Start()
+    {
+        cameraPosition = CameraPosition.instance.transform;
+    }
+
     private void Update()
     {
         transform.position = cameraPosition.position;

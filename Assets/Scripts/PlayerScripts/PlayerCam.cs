@@ -7,7 +7,6 @@ public class PlayerCam : MonoBehaviour
     public float sensitivityX;
     public float sensitivityY;
 
-    public Transform orientation; // Transform of the Player's orientation object, will be used for finding angles from the player's y rotation
     public Transform camHolder; // Transform of the Camera Holder object   
     public Transform playerModel;
 
@@ -18,7 +17,10 @@ public class PlayerCam : MonoBehaviour
     {
         // Locks and hides the cursor on game start, supposedly
         Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false; 
+        Cursor.visible = false;
+
+        camHolder = GetComponentInParent<Transform>();
+        playerModel = Hotbar.instance.GetComponent<Transform>();
     }
 
     private void FixedUpdate()
@@ -34,7 +36,6 @@ public class PlayerCam : MonoBehaviour
 
         // Rotate Cam and Orientation
         camHolder.rotation = Quaternion.Euler(xRotation, yRotation, 0);
-        orientation.rotation = Quaternion.Euler(0, yRotation, 0);
         playerModel.rotation = Quaternion.Euler(0, yRotation, 0);
     }
 }
