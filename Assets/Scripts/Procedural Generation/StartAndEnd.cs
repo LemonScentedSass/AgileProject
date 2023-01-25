@@ -35,6 +35,11 @@ namespace LevelData
             }
         }
 
+        private void Start()
+        {
+            playerPrefab = PlayerPrefab.instance.gameObject;
+        }
+
         public void FindStartAndEnd(List<Room> rooms)
         {
             Room startRoom = rooms[0];
