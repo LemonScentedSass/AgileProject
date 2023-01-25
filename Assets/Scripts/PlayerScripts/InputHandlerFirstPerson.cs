@@ -8,6 +8,7 @@ public class InputHandlerFirstPerson : MonoBehaviour
 
     public Vector2 inputVector { get; private set; }
     public bool swordKey { get; private set; }
+    public bool sprintKey { get; private set; }
 
     void Update()
     {
@@ -18,5 +19,8 @@ public class InputHandlerFirstPerson : MonoBehaviour
 
         // Sword Swing
         swordKey = Input.GetMouseButtonDown(0);
+
+        // Sprinting
+        sprintKey = Input.GetKey(KeyCode.LeftShift);
     }
 }

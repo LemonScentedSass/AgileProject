@@ -7,6 +7,8 @@ public class PlayerAudio : MonoBehaviour
     public AudioClip footstep1;
     public AudioClip footstep2;
 
+    public AudioClip[] footsteps;
+
     private InputHandlerFirstPerson input;
 
     private AudioManager _am;
@@ -28,4 +30,13 @@ public class PlayerAudio : MonoBehaviour
         if (input.inputVector.x != 0 || input.inputVector.y != 0)
             _am.PlaySFX(footstep2, 0.3f);
     }    
+
+    public void PlayRandomFootstep()
+    {
+        if (input.inputVector.x != 0 || input.inputVector.y != 0)
+        {
+            AudioClip rng = footsteps[Random.Range(0, footsteps.Length)];
+            _am.PlaySFX(rng);
+        }
+    }
 }
