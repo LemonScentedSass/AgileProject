@@ -11,8 +11,8 @@ public class MainMenuUI : MonoBehaviour
     public float fadeTime = 1;
     public float alpha;    
 
-    public Button loadGenerationButton;
-    public Button loadFeaturesButton;
+    public Button newGameButton;
+    public Button loadGameButton;
     public Button quitButton;
 
     void Start()
@@ -39,12 +39,12 @@ public class MainMenuUI : MonoBehaviour
     }
     
 
-    public void LoadGenerationScene()
+    public void NewGameButton()
     {
         SceneManager.LoadSceneAsync(1);
     }
 
-    public void LoadFeaturesScene()
+    public void LoadGameButton()
     {
         SceneManager.LoadSceneAsync(2);
     }
