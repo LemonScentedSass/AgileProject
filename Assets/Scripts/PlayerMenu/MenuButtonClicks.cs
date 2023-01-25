@@ -32,6 +32,7 @@ public class MenuButtonClicks : MonoBehaviour
     public Button quitToDesktopButton;
 
     private CurrentUpgrades inventory;
+    public InputHandlerFirstPerson input;
 
     public GameObject ItemLock;
     public GameObject MagicLock;
@@ -44,6 +45,7 @@ public class MenuButtonClicks : MonoBehaviour
         inventory = GameManager.PlayerManager.pm.GetComponent<CurrentUpgrades>();
         OptionMenu.SetActive(false);
         anim = GetComponent<Animator>();
+        input = InputHandlerFirstPerson.instance;
         for (int i = 0; i < Skills.Length; i++)
         {
             Skills[i].SetActive(false);
@@ -78,26 +80,32 @@ public class MenuButtonClicks : MonoBehaviour
             MagicLock.SetActive(false);
         }
 
-        if (Input.GetKeyDown(KeyCode.Tab))
+        if (input.openMenuKey)
         {
+            PlayerManager.pm.gameplayPaused = true;
+            PlayerManager.pm.EnableCursor();
             Time.timeScale = 0;
             anim.SetBool("Menu", true);
             canCloseMenu = true;
         }
-        if (Input.GetKeyUp(KeyCode.Escape))
+        if (input.escapeKey)
         {
             canCloseMenu = true;
             anim.SetBool("open", false);
         }
 
-        if (Input.GetKeyDown(KeyCode.Escape) && canCloseMenu == true && OptionMenu.activeSelf == false)
+        if (input.escapeKey && canCloseMenu == true && OptionMenu.activeSelf == false)
         {
+            PlayerManager.pm.gameplayPaused = false;
+            PlayerManager.pm.DisableCursor();
             anim.SetBool("Menu", false);
             Time.timeScale = 1;
 
         }
-        if (Input.GetKeyDown(KeyCode.Escape) && OptionMenu.activeSelf == true)
+        if (input.escapeKey && OptionMenu.activeSelf == true)
         {
+            PlayerManager.pm.gameplayPaused = false;
+            PlayerManager.pm.DisableCursor();
             OptionMenu.SetActive(false);
         }
     }

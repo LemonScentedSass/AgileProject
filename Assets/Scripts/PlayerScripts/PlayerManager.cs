@@ -43,6 +43,7 @@ namespace GameManager
         public bool usingItem = false;
         private float time;
         private float placeholder;
+        public bool gameplayPaused;
 
         public float MaxHealth { get { return _maxHealth; } set { _maxHealth = value; } }
         public float CurrentHealth { get { return _curHealth; } set { _curHealth = value; } }
@@ -91,7 +92,7 @@ namespace GameManager
                 LoadPlayerManager();
             }
 
-
+            gameplayPaused = false;
         }
 
         // Update is called once per frame
@@ -200,6 +201,18 @@ namespace GameManager
         public void GetStunned(float length)
         {
             return;
+        }
+
+        public void EnableCursor()
+        {
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+        }
+
+        public void DisableCursor()
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
         }
 
         public void SavePlayerManager()
