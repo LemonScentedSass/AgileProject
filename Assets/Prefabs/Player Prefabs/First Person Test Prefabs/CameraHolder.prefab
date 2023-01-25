@@ -145,6 +145,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sensitivityX: 300
   sensitivityY: 300
-  orientation: {fileID: 0}
-  camHolder: {fileID: 5728582172284964681}
+  camHolder: {fileID: 0}
   playerModel: {fileID: 0}

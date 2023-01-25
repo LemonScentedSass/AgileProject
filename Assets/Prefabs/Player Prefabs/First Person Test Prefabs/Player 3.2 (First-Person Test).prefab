@@ -5014,7 +5014,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canMove: 1
-  orientation: {fileID: 0}
   camHolder: {fileID: 0}
   moveSpeed: 5
 --- !u!114 &4564771641234332047
@@ -5080,8 +5079,6 @@ MonoBehaviour:
   _curMana: 0
   _maxMana: 100
   skillPoints: 0
-  _minAttack: 1
-  _maxAttack: 2
   _healthPotionAmount: 2
   _manaPotionAmount: 4
   _buffPotionAmount: 4
@@ -21975,6 +21972,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5397316278485275480}
+  - component: {fileID: 967425442}
   m_Layer: 7
   m_Name: CameraPos
   m_TagString: Untagged
@@ -21997,6 +21995,18 @@ Transform:
   m_Father: {fileID: 2427855670104141452}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &967425442
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5397316278485275495}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e6554f20653a8a458cd5adc5018eddc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5416801967291772949
 GameObject:
   m_ObjectHideFlags: 0
