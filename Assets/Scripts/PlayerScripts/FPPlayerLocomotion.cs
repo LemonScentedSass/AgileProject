@@ -54,6 +54,7 @@ public class FPPlayerLocomotion : MonoBehaviour
 
         targetVector = Quaternion.Euler(0, camHolder.eulerAngles.y, 0) * targetVector;
         targetVector = Vector3.Normalize(targetVector);
+        Debug.Log(targetVector);
         var targetPosition = transform.position + targetVector * speed;
         transform.position = targetPosition;
         return targetVector;

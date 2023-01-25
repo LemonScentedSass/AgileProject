@@ -19,7 +19,7 @@ public class PlayerCam : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
 
-        camHolder = GetComponentInParent<Transform>();
+        camHolder = MoveCamera.instance.transform;
         playerModel = Hotbar.instance.GetComponent<Transform>();
     }
 
