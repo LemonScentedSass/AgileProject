@@ -35,7 +35,6 @@ public class StatsScript : MonoBehaviour
         Health.text = "Health: " + GameManager.PlayerManager.pm.CurrentHealth + "/" + GameManager.PlayerManager.pm.MaxHealth;
         Stamina.text = "Stamina: " + GameManager.PlayerManager.pm.CurrentStamina + "/" + GameManager.PlayerManager.pm.MaxStamina;
         Mana.text = "Mana: " + GameManager.PlayerManager.pm.CurrentMana + "/" + GameManager.PlayerManager.pm.MaxMana;
-        AttackDamage.text = "Attack Damage: " + GameManager.PlayerManager.pm.MinAttack + "-" + GameManager.PlayerManager.pm.MaxAttack;
         HealthPotion.text = "Heal: " + GameManager.PlayerManager.pm.HealthPotionHeal;
         ManaPotion.text = "Mana Heal: " + GameManager.PlayerManager.pm.ManaPotionHeal;
     }
