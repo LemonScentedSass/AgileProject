@@ -95,7 +95,11 @@ namespace UIManager
             UpdateLVLSlidertxt(); //Updates all sliders to current stat
 
             skillpointTXT.text = "Skill Points: " + LevelSystem.instance.skillPoints;
-            itemLVLTXT.text = "Lvl: " + GameManager.PlayerManager.pm.GetComponent<CurrentUpgrades>().hotbar.useItem.itemLVL;
+            if(GameManager.PlayerManager.pm.GetComponent<CurrentUpgrades>().hotbar.useItem != null)
+            {
+                itemLVLTXT.text = "Lvl: " + GameManager.PlayerManager.pm.GetComponent<CurrentUpgrades>().hotbar.useItem.itemLVL;
+            }
+           
 
             //checks to make sure there is an item, if not put nothing image
             if (GameManager.PlayerManager.pm.GetComponent<CurrentUpgrades>().hotbar.useItem == null)

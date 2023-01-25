@@ -12,6 +12,8 @@ TagManager:
   - Destructable
   - Obstacle
   - AudioManager
+  - Item
+  - BuyItem
   layers:
   - Default
   - TransparentFX
@@ -28,7 +30,7 @@ TagManager:
   - 3D Generation
   - SeenByFPCam
   - InvisToFPCam
-  - 
+  - Interactable
   - 
   - 
   - 

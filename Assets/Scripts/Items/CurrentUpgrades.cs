@@ -23,11 +23,6 @@ public class CurrentUpgrades : MonoBehaviour
         hotbar = GetComponentInChildren<Hotbar>();
         CurrentMagic = hotbar.useMagic;
         CurrentItem = hotbar.useItem;
-
-        Debug.Log(CurrentMagic);
-
-        hotbar.useItem.itemLVL = 0;
-        hotbar.useMagic.itemLVL = 0;
     }
 
     // Update is called once per frame
@@ -101,31 +96,37 @@ public class CurrentUpgrades : MonoBehaviour
     private void UpdateSkillRequirement()
     {
         //Checks current item level
-        if (hotbar.useItem.itemLVL == 0)
+        if (hotbar.useItem != null)
         {
-            //skill points required to unlock upgrade
-            itemSkillRequirement = 1;
-        }
-        else if (hotbar.useItem.itemLVL == 1)
-        {
-            itemSkillRequirement = 3;
-        }
-        else if (hotbar.useItem.itemLVL == 2)
-        {
-            itemSkillRequirement = 5;
+            if (hotbar.useItem.itemLVL == 0)
+            {
+                //skill points required to unlock upgrade
+                itemSkillRequirement = 1;
+            }
+            else if (hotbar.useItem.itemLVL == 1)
+            {
+                itemSkillRequirement = 3;
+            }
+            else if (hotbar.useItem.itemLVL == 2)
+            {
+                itemSkillRequirement = 5;
+            }
         }
 
-        if (hotbar.useMagic.itemLVL == 0)
+        if(hotbar.useMagic != null)
         {
-            magicSkillRequirement = 1;
-        }
-        else if (hotbar.useMagic.itemLVL == 1)
-        {
-            magicSkillRequirement = 3;
-        }
-        else if (hotbar.useMagic.itemLVL == 2)
-        {
-            magicSkillRequirement = 5;
+            if (hotbar.useMagic.itemLVL == 0)
+            {
+                magicSkillRequirement = 1;
+            }
+            else if (hotbar.useMagic.itemLVL == 1)
+            {
+                magicSkillRequirement = 3;
+            }
+            else if (hotbar.useMagic.itemLVL == 2)
+            {
+                magicSkillRequirement = 5;
+            }
         }
     }
 
