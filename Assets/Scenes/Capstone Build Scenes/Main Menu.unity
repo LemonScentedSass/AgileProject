@@ -449,6 +449,7 @@ GameObject:
   - component: {fileID: 169962823}
   - component: {fileID: 169962822}
   - component: {fileID: 169962821}
+  - component: {fileID: 169962824}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -540,6 +541,18 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!114 &169962824
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 169962819}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6d933ee344dad945a1f15bd7d9c5ad0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &270865013
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2445,7 +2458,7 @@ MonoBehaviour:
   fadeTime: 1
   alpha: 0
   newGameButton: {fileID: 0}
-  loadGameButton: {fileID: 0}
+  loadGameButton: {fileID: 361032612}
   quitButton: {fileID: 1196423295}
 --- !u!4 &945207789
 Transform:
@@ -2738,7 +2751,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1068422271
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5852,6 +5865,7 @@ GameObject:
   m_Component:
   - component: {fileID: 543450652191519674}
   - component: {fileID: 5866666020397754816}
+  - component: {fileID: 5866666020397754817}
   m_Layer: 0
   m_Name: PlayerModel
   m_TagString: Untagged
@@ -7404,6 +7418,37 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &5866666020397754817
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919132148523608320}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 950977d9e96b0334891fe10613012b70, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _curHealth: 0
+  _maxHealth: 10
+  _curStamina: 0
+  _maxStamina: 100
+  _staminaRegenTime: 4
+  _curMana: 0
+  _maxMana: 100
+  skillPoints: 0
+  _healthPotionAmount: 0
+  _manaPotionAmount: 0
+  _buffPotionAmount: 0
+  _healthPotionHeal: 40
+  _manaPotionHeal: 40
+  meatAmount: 0
+  goldAmount: 0
+  goldPickup: {fileID: 0}
+  expPickup: {fileID: 0}
+  bottlePickup: {fileID: 0}
+  usingItem: 0
 --- !u!4 &5881863417679986859
 Transform:
   m_ObjectHideFlags: 0

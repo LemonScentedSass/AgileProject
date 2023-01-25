@@ -86,7 +86,11 @@ namespace GameManager
             _curStamina = _maxStamina;
             _curMana = _maxMana;
 
-            LoadPlayerManager();
+            if(PlayerPrefs.GetString("Save") == "true")
+            {
+                LoadPlayerManager();
+            }
+
 
         }
 

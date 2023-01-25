@@ -15,6 +15,19 @@ public class MainMenuUI : MonoBehaviour
     public Button loadGameButton;
     public Button quitButton;
 
+
+    private void Awake()
+    {
+        PlayerSaving.SaveToken.PlayerSaveToken data = PlayerSaving.StatsSaveLoad.Load();
+        if (data == null)
+        {
+            loadGameButton.interactable = false;
+        }
+        else
+        {
+            loadGameButton.interactable = true;
+        }
+    }
     void Start()
     {
         StartCoroutine(FadeImage());
@@ -41,17 +54,24 @@ public class MainMenuUI : MonoBehaviour
 
     public void NewGameButton()
     {
+        PlayerPrefs.SetString("Save", "false");
+        PlayerPrefs.Save();
         SceneManager.LoadSceneAsync(1);
     }
 
     public void LoadGameButton()
     {
         // This do be where we will put the code for loading
+        PlayerPrefs.SetString("Save", "true");
+        PlayerPrefs.Save();
+        SceneManager.LoadSceneAsync(2);
     }
 
     public void Quit()
     {
         Application.Quit();
     }
+
+
 
 }

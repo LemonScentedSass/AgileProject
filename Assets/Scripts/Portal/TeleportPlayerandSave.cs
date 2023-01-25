@@ -3,29 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class TeleportPlayer : MonoBehaviour
+public class TeleportPlayerandSave : MonoBehaviour
 {
     [SerializeField]private int SceneInt;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     private void OnTriggerEnter(Collider other)
     {
         if(other.tag == "Player")
         {
-            if (other.gameObject.GetComponent<FakePlayerManager>() == true)
+            if (other.gameObject.GetComponent<GameManager.PlayerManager>() == true)
             {
                 other.gameObject.GetComponent<GameManager.PlayerManager>().SavePlayerManager();
+                PlayerPrefs.SetString("Save", "true");
+                PlayerPrefs.Save();
             }
             SceneManager.LoadScene(SceneInt);
         }
