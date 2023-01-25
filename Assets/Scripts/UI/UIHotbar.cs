@@ -15,22 +15,18 @@ namespace UIManager
         [Header("Health Potion UI")]
         public TMP_Text healthPotionAmounTXT;
         public Image healthcooldownImage;
-        public Button healthPotionButton;
 
         [Header("Mana Potion UI")]
         public TMP_Text manaPotionAmountTXT;
         public Image manacooldownImage;
-        public Button manaPotionButton;
 
         [Header("Buff Potion UI")]
         public TMP_Text buffPotionAmountTXT;
         public Image buffcooldownImage;
-        public Button buffPotionButton;
 
         [Header("Meat UI")]
         public TMP_Text meatAmountTXT;
         public Image meatcooldownImage;
-        public Button monsterMeatButton;
 
        
 

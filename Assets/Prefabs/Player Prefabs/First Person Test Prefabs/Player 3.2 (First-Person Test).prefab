@@ -4667,7 +4667,7 @@ GameObject:
   - component: {fileID: 6557715451396714013}
   - component: {fileID: 4726161975230566982}
   m_Layer: 5
-  m_Name: SlotBackground
+  m_Name: sloticonimage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11137,7 +11137,7 @@ GameObject:
   - component: {fileID: 7191305380686748434}
   - component: {fileID: 8981440600002797386}
   m_Layer: 5
-  m_Name: Text (TMP) (3)
+  m_Name: MagicLVL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13979,6 +13979,8 @@ GameObject:
   - component: {fileID: 2730014464518821235}
   - component: {fileID: 140783134648856522}
   - component: {fileID: 6390750465189502643}
+  - component: {fileID: 1530267684121747087}
+  - component: {fileID: 3353049782690948982}
   m_Layer: 5
   m_Name: MenuUICanvas
   m_TagString: Untagged
@@ -14126,6 +14128,74 @@ MonoBehaviour:
   input: {fileID: 0}
   ItemLock: {fileID: 4008220346673241087}
   MagicLock: {fileID: 4534102437020022454}
+--- !u!114 &1530267684121747087
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2730014464518821236}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2cf04dd178f6f14591510370954ce65, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthbar:
+  - {fileID: 5713685247472713103}
+  - {fileID: 2730014463136260883}
+  staminabar:
+  - {fileID: 2730014463108268593}
+  - {fileID: 5713685246628176508}
+  manabar:
+  - {fileID: 2730014464532051604}
+  - {fileID: 5713685248104261598}
+  LevelTXT:
+  - {fileID: 2730014464149585691}
+  - {fileID: 5713685247227010835}
+  ExpTXT:
+  - {fileID: 5713685247928460421}
+  - {fileID: 5713685246164957435}
+  ExpSlider:
+  - {fileID: 5713685246969884508}
+  - {fileID: 2730014462813136214}
+  GoldAmountTXT: {fileID: 8788453493242758799}
+  skillpointTXT: {fileID: 4212936195012550326}
+  DisplayItemImage:
+  - {fileID: 3657345297579564993}
+  - {fileID: 4726161975230566982}
+  DisplayMagicImage:
+  - {fileID: 6557767216821225051}
+  - {fileID: 3679063883762584121}
+  menuItemUpgrade: {fileID: 2730014462782540706}
+  menuMagicUpgrade: {fileID: 2730014464115034971}
+  itemLVLTXT: {fileID: 2157368060086735226}
+  magicLVLTXT: {fileID: 8981440600002797386}
+--- !u!114 &3353049782690948982
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2730014464518821236}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8170f25faf8c04443a4e12502a1a0b71, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  magiccooldownImage: {fileID: 6897817665740348917}
+  itemcooldownImage: {fileID: 3805374568736868486}
+  healthPotionAmounTXT: {fileID: 1165392781700702812}
+  healthcooldownImage: {fileID: 3905015032192544092}
+  healthPotionButton: {fileID: 2031345633919162582}
+  manaPotionAmountTXT: {fileID: 8551037454628803696}
+  manacooldownImage: {fileID: 5685642914449473997}
+  manaPotionButton: {fileID: 0}
+  buffPotionAmountTXT: {fileID: 7166991520342566397}
+  buffcooldownImage: {fileID: 1898657720077586097}
+  buffPotionButton: {fileID: 0}
+  meatAmountTXT: {fileID: 3492805784621213553}
+  meatcooldownImage: {fileID: 4690473130970027316}
+  monsterMeatButton: {fileID: 0}
 --- !u!1 &2730014464532051606
 GameObject:
   m_ObjectHideFlags: 0
@@ -15616,7 +15686,7 @@ GameObject:
   - component: {fileID: 122456154309968837}
   - component: {fileID: 8893733907529025813}
   m_Layer: 5
-  m_Name: QSlot
+  m_Name: LeftSlot(was Magic)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16901,7 +16971,7 @@ GameObject:
   - component: {fileID: 7369403421743622462}
   - component: {fileID: 2157368060086735226}
   m_Layer: 5
-  m_Name: Text (TMP) (2)
+  m_Name: ItemLVL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -25203,7 +25273,7 @@ GameObject:
   - component: {fileID: 8975199255740115204}
   - component: {fileID: 7089191572376287409}
   m_Layer: 5
-  m_Name: RightClick
+  m_Name: RightSlot(was Item)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -31164,7 +31234,7 @@ GameObject:
   - component: {fileID: 54874860328800891}
   - component: {fileID: 3679063883762584121}
   m_Layer: 5
-  m_Name: SlotBackground
+  m_Name: sloticonimage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
