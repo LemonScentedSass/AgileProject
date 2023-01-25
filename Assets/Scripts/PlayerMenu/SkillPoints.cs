@@ -192,16 +192,6 @@ public class SkillPoints : Selectable
         GameManager.PlayerManager.pm.CurrentMana = GameManager.PlayerManager.pm.MaxMana;
     }
 
-    public void UpgradeMaxAttack(int amount)
-    {
-        GameManager.PlayerManager.pm.MaxAttack += amount;
-    }
-
-    public void UpgradeMinAttack(int amount)
-    {
-        GameManager.PlayerManager.pm.MinAttack += amount;
-    }
-
     public void UpgradeHealthPotion(int amount)
     {
         GameManager.PlayerManager.pm.HealthPotionHeal += amount;

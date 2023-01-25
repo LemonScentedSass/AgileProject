@@ -24,10 +24,6 @@ namespace GameManager
 
         [SerializeField] public int skillPoints = 0;
 
-        [Header("Attack Settings?")]
-        [SerializeField] public int _minAttack = 1;
-        [SerializeField] public int _maxAttack = 2;
-
         [Header("Consumable Settings")]
         [SerializeField] private int _healthPotionAmount;
         [SerializeField] private int _manaPotionAmount;
@@ -37,7 +33,7 @@ namespace GameManager
         [SerializeField] private float _manaPotionHeal = 40f;
 
         [Header("Collectables")]
-        [SerializeField] public float meatAmount = 0;
+        [SerializeField] public int meatAmount = 0;
         [SerializeField] public int goldAmount = 0;
 
         [Header("Audio")]
@@ -58,16 +54,13 @@ namespace GameManager
         public float MaxMana { get { return _maxMana; } set { _maxMana = value; } }
         public float CurrentMana { get { return _curMana; } set { _curMana = value; } }
 
-        public int MinAttack { get { return _minAttack; } set { _minAttack = value; } }
-        public int MaxAttack { get { return _maxAttack; } set { _maxAttack = value; } }
-
         public float HealthPotionHeal { get { return _healthPotionHeal; } set { _healthPotionHeal = value; } }
         public float ManaPotionHeal { get { return _manaPotionHeal; } set { _manaPotionHeal = value; } }
 
         public int HealthPotionAmount { get { return _healthPotionAmount; } set { _healthPotionAmount = value; } }
         public int ManaPotionAmount { get { return _manaPotionAmount; } set { _manaPotionAmount = value; } }
         public int BuffPotionAmount { get { return _buffPotionAmount; } set { _buffPotionAmount = value; } }
-        public int MonsterMeatAmount { get { return (int)meatAmount; } set { meatAmount = value; } }
+        public int MonsterMeatAmount { get { return meatAmount; } set { meatAmount = value; } }
 
         private void Awake()
         {
@@ -92,6 +85,9 @@ namespace GameManager
             _curHealth = _maxHealth;
             _curStamina = _maxStamina;
             _curMana = _maxMana;
+
+            LoadPlayerManager();
+
         }
 
         // Update is called once per frame
@@ -214,7 +210,28 @@ namespace GameManager
 
             if(data != null)
             {
+                pm.GetComponent<LevelSystem>().level = data.Level;
+                pm.GetComponent<LevelSystem>().experience = data.EXP;
+                pm.GetComponent<LevelSystem>().experienceToNextLevel = data.MaxEXP;
 
+                pm.CurrentHealth = data.CurrentHealth;
+                pm.MaxHealth = data.MaxHealth;
+                pm.CurrentStamina = data.CurrentStamina;
+                pm.MaxStamina = data.MaxStamina;
+                pm.CurrentMana = data.CurrentMana;
+                pm.MaxMana = data.MaxMana;
+
+                pm.skillPoints = data.SkillPoints;
+
+                pm.HealthPotionAmount = data.HealthPotionAmount;
+                pm.ManaPotionAmount = data.ManaPotionAmount;
+                pm.BuffPotionAmount = data.BuffPotionAmount;
+
+                pm.HealthPotionHeal = data.HealthPotionHeal;
+                pm.ManaPotionHeal = data.ManaPotionHeal;
+
+                pm.meatAmount = data.MeatAmount;
+                pm.goldAmount = data.GoldAmount;
             }
         }
     }

@@ -157,10 +157,10 @@ public class Hotbar : MonoBehaviour
       {
             if (GameManager.PlayerManager.pm.HealthPotionAmount != 0 && UIhotbar.healthcooldownImage.fillAmount == 0)
             {
-            UIhotbar.healthPotionButton.interactable = false;
-                  StartCoroutine(StartCoolDown(HealthPotionCooldownDuration, UIhotbar.healthcooldownImage, UIhotbar.healthPotionButton));
+                  UIhotbar.healthPotionButton.interactable = false;
+                  StartCoroutine(StartCoolDown(HealthPotionCooldownDuration, UIhotbar.healthcooldownImage));
                   GameManager.PlayerManager.pm.HealthPotionAmount -= 1;
-            UIhotbar.healthPotionAmounTXT.text = "x" + GameManager.PlayerManager.pm.HealthPotionAmount;
+                  UIhotbar.healthPotionAmounTXT.text = "x" + GameManager.PlayerManager.pm.HealthPotionAmount;
             }
 
       }
@@ -169,7 +169,7 @@ public class Hotbar : MonoBehaviour
             if (GameManager.PlayerManager.pm.ManaPotionAmount != 0 && UIhotbar.manacooldownImage.fillAmount == 0)
             {
                   UIhotbar.manaPotionButton.interactable = false;
-                  StartCoroutine(StartCoolDown(ManaPotionCooldownDuration, UIhotbar.manacooldownImage, UIhotbar.manaPotionButton));
+                  StartCoroutine(StartCoolDown(ManaPotionCooldownDuration, UIhotbar.manacooldownImage));
                   GameManager.PlayerManager.pm.ManaPotionAmount -= 1;
                   UIhotbar.manaPotionAmountTXT.text = "x" + GameManager.PlayerManager.pm.ManaPotionAmount;
             }
@@ -181,7 +181,7 @@ public class Hotbar : MonoBehaviour
             if (GameManager.PlayerManager.pm.BuffPotionAmount != 0 && UIhotbar.buffcooldownImage.fillAmount == 0)
             {
                   UIhotbar.buffPotionButton.interactable = false;
-                  StartCoroutine(StartCoolDown(BuffPotionCooldownDuration, UIhotbar.buffcooldownImage, UIhotbar.buffPotionButton));
+                  StartCoroutine(StartCoolDown(BuffPotionCooldownDuration, UIhotbar.buffcooldownImage));
                   GameManager.PlayerManager.pm.BuffPotionAmount -= 1;
                   UIhotbar.buffPotionAmountTXT.text = "x" + GameManager.PlayerManager.pm.BuffPotionAmount;
             }
@@ -193,33 +193,12 @@ public class Hotbar : MonoBehaviour
             if (GameManager.PlayerManager.pm.MonsterMeatAmount != 0 && UIhotbar.meatcooldownImage.fillAmount == 0)
             {
                   UIhotbar.monsterMeatButton.interactable = false;
-                  StartCoroutine(StartCoolDown(MeatCooldownDuration, UIhotbar.meatcooldownImage, UIhotbar.monsterMeatButton));
+                  StartCoroutine(StartCoolDown(MeatCooldownDuration, UIhotbar.meatcooldownImage));
                   GameManager.PlayerManager.pm.MonsterMeatAmount -= 1;
                   UIhotbar.meatAmountTXT.text = "x" + GameManager.PlayerManager.pm.MonsterMeatAmount;
             }
 
       }
-
-    //Starts cooldown for specific hotbar buttons and its cooldown 
-    //Disables hotbar button press
-      public IEnumerator StartCoolDown(float duration, Image fill, Button button)
-      {
-            GameManager.PlayerManager.pm.usingItem = false;
-            float t = 0;
-
-            while (t < duration)
-            {
-                  Debug.Log("trigger");
-                  t += Time.deltaTime;
-                  float reset = t / duration;
-                  fill.fillAmount = reset;
-                  yield return null;
-            }
-
-            button.interactable = true;
-            fill.fillAmount = 0;
-      }
-
 
     //Starts cooldown for specific hotbar and its cooldown
       public IEnumerator StartCoolDown(float duration, Image fill)
