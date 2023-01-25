@@ -46,7 +46,7 @@ public class MainMenuUI : MonoBehaviour
 
     public void LoadGameButton()
     {
-        SceneManager.LoadSceneAsync(2);
+        // This do be where we will put the code for loading
     }
 
     public void Quit()
