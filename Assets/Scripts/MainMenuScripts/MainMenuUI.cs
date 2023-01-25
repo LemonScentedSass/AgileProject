@@ -31,6 +31,9 @@ public class MainMenuUI : MonoBehaviour
     void Start()
     {
         StartCoroutine(FadeImage());
+
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
     }
 
     private IEnumerator FadeImage()

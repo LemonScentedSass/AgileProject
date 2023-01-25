@@ -104,8 +104,6 @@ public class MenuButtonClicks : MonoBehaviour
         }
         if (input.escapeKey && OptionMenu.activeSelf == true)
         {
-            PlayerManager.pm.gameplayPaused = false;
-            PlayerManager.pm.DisableCursor();
             OptionMenu.SetActive(false);
         }
     }
