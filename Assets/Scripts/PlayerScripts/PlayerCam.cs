@@ -21,6 +21,9 @@ public class PlayerCam : MonoBehaviour
 
         camHolder = MoveCamera.instance.transform;
         playerModel = Hotbar.instance.GetComponent<Transform>();
+
+        xRotation = 0;
+        yRotation = 0;
     }
 
     private void FixedUpdate()
@@ -32,7 +35,7 @@ public class PlayerCam : MonoBehaviour
         // Assign Rotation Variables Based On Mouse Input
         yRotation += mouseX;
         xRotation -= mouseY;
-        xRotation = Mathf.Clamp(xRotation, -90f, 90f);
+        xRotation = Mathf.Clamp(xRotation, -90f, 70f);
 
         // Rotate Cam and Orientation
         camHolder.rotation = Quaternion.Euler(xRotation, yRotation, 0);
