@@ -12,7 +12,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Capstone Build Scenes/First Person Test Scene.unity
     guid: c3ea800e584b36845be19994420181e3
   - enabled: 1
-    path: Assets/Scenes/Capstone Build Scenes/MerchantScene.unity
+    path: Assets/Scenes/MerchantScene.unity
     guid: 54cadb8e61dacd54bbd26677384c1f15
   - enabled: 0
     path: Assets/Scenes/Sprint 2 Build Scenes/Generation Scene.unity
