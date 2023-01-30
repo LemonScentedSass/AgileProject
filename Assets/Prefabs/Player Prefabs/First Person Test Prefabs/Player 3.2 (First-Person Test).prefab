@@ -5135,14 +5135,14 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1591077387602668167}
   serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
+  m_Mass: 10
+  m_Drag: 5
+  m_AngularDrag: 5
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 1
   m_Constraints: 116
-  m_CollisionDetection: 1
+  m_CollisionDetection: 2
 --- !u!136 &5989831621346263935
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -5169,6 +5169,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8844b90ae723b884abc2a74932287061, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ObjectLookingAt: {fileID: 0}
   interactionPrompt: {fileID: 4308180860083987550}
   InteractionRadius: 5
   layermask:
@@ -5183,6 +5184,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1591077388165243374}
+  - component: {fileID: 36818625}
   m_Layer: 0
   m_Name: Player 3.2 (First-Person Test)
   m_TagString: Untagged
@@ -5208,6 +5210,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &36818625
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1591077388165243375}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9e7808429a4b6d43b750326657e547c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1628112944024282400
 GameObject:
   m_ObjectHideFlags: 0
