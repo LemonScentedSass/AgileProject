@@ -11,6 +11,7 @@ public class AI : MonoBehaviour
     public State currentState;
 
     [SerializeField] public float attackRange = 2f;
+    [SerializeField] private float turnSlerpSpeed = 5f;
 
     private void Start()
     {
@@ -27,6 +28,16 @@ public class AI : MonoBehaviour
         {
             currentState.Exit();
         }
+    }
+    
+    private void OnAnimatorMove()
+    {
+        agent.updatePosition = false;
+        agent.updateRotation = false;
+        agent.velocity = anim.deltaPosition / Time.deltaTime;
+
+        Quaternion newRot = Quaternion.LookRotation(agent.desiredVelocity);
+        transform.rotation = Quaternion.Slerp(transform.rotation, newRot, turnSlerpSpeed * Time.deltaTime);
     }
 
 
