@@ -16,9 +16,35 @@ MonoBehaviour:
   image: {fileID: -250025053, guid: 2e9090b67ae67a14199532372935e233, type: 3}
   filledTile: {fileID: 11400000, guid: d07f274daeb987e48a39d73046c2ab13, type: 2}
   uncoloredTwin: {fileID: 11400000, guid: 5e093688ac6ee4448a3847d694abf0c7, type: 2}
-  chanceToSpawn: 22.4
-  north: []
-  east: []
-  south: []
-  west: []
+  chanceToSpawn: 45.9
+  north:
+  - {fileID: 11400000}
+  - {fileID: 11400000, guid: 5e093688ac6ee4448a3847d694abf0c7, type: 2}
+  - {fileID: 11400000, guid: 9e4486fdb0ccce74f891a7717441ecf1, type: 2}
+  - {fileID: 11400000, guid: 25ddf22b69b45c940870d1ac6280b671, type: 2}
+  - {fileID: 11400000, guid: 6907e81d9f0927640b67e0859c7708c1, type: 2}
+  - {fileID: 11400000, guid: 0a2ae2113e0d3024da7c5a32992380b8, type: 2}
+  east:
+  - {fileID: 11400000}
+  - {fileID: 11400000, guid: addba9b55e3a6294a9d0ea3750e77930, type: 2}
+  - {fileID: 11400000, guid: 5e093688ac6ee4448a3847d694abf0c7, type: 2}
+  - {fileID: 11400000, guid: b27cd654736bea74781c0ccab4001a59, type: 2}
+  - {fileID: 11400000, guid: 25ddf22b69b45c940870d1ac6280b671, type: 2}
+  - {fileID: 11400000, guid: b9b546e838ebe3c4888d9a48d6140395, type: 2}
+  south:
+  - {fileID: 11400000}
+  - {fileID: 11400000, guid: 5e093688ac6ee4448a3847d694abf0c7, type: 2}
+  - {fileID: 11400000, guid: c09bb7f90bb71a7439c5f0196b8b6c51, type: 2}
+  - {fileID: 11400000, guid: b27cd654736bea74781c0ccab4001a59, type: 2}
+  - {fileID: 11400000, guid: 83700636b472bbf45b5b76a104c9bad0, type: 2}
+  - {fileID: 11400000, guid: b9b546e838ebe3c4888d9a48d6140395, type: 2}
+  - {fileID: 11400000, guid: 8efbaad9e7110c047a620f4e4979a2ed, type: 2}
+  - {fileID: 11400000, guid: b7f4df0639eebbb4e9754326ea8454e8, type: 2}
+  west:
+  - {fileID: 11400000}
+  - {fileID: 11400000, guid: 5e093688ac6ee4448a3847d694abf0c7, type: 2}
+  - {fileID: 11400000, guid: c09bb7f90bb71a7439c5f0196b8b6c51, type: 2}
+  - {fileID: 11400000, guid: 6907e81d9f0927640b67e0859c7708c1, type: 2}
+  - {fileID: 11400000, guid: 8efbaad9e7110c047a620f4e4979a2ed, type: 2}
+  - {fileID: 11400000, guid: 8254c699c89e3934f9742fa00d67192f, type: 2}
   detailModule: []

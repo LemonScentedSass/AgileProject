@@ -943,7 +943,7 @@ MonoBehaviour:
   _tileset: {fileID: 11400000, guid: 7f32d74d6af134845b1f175f2e948a56, type: 2}
   _tilemap: {fileID: 1347300747}
   _detailTilemap: {fileID: 1414214863}
-  spawnChance: 0.5
+  spawnChance: 1
 --- !u!114 &838691013
 MonoBehaviour:
   m_ObjectHideFlags: 0
