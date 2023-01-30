@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using WFC;
 
 namespace MapGeneration
 {
@@ -13,6 +14,7 @@ namespace MapGeneration
         [HideInInspector] public bool startEndFound = false;
         private bool spaceManagerCalled = false;
 
+        public List<Element> elementPool = new List<Element>();
         private float finWFCPercent = 0f;
         private float finRoomGenFloat = 0f;
         private float finStartEndFloat = 0f;
@@ -46,6 +48,17 @@ namespace MapGeneration
             {
                 finStartEndFloat = 1f;
             }
+
+            /*
+            if (roomsGenerated > 0 && curWFCRooms == 0 && elementPool.Count > 0)
+            {
+                for (int i = 0; i < elementPool.Count; i++)
+                {
+                    WFCGenerator.instance.FillTile(elementPool[i]);
+                    elementPool.RemoveAt(i);
+                }
+            }
+            */
 
             if (roomsGenerated > 0 && curWFCRooms == 0 && spaceManagerCalled == false)
             {

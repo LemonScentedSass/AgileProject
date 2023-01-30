@@ -39,6 +39,7 @@ namespace WFC
             GenerationStages.instance.curWFCRooms++;
             Element[,] grid = new Element[size.x, size.y];
             List<Vector2Int> unreachedPositions = new List<Vector2Int>();
+            List<Element> tilesToFill = new List<Element>();
 
             for (int y = 0; y < size.y; y++)
             {
@@ -50,9 +51,13 @@ namespace WFC
                 }
             }
 
-            int rng = Random.Range(0, unreachedPositions.Count);
+            // This is probably the best spot to throw in the code for calculating and drawing the pillar tiles
 
-            CollapseElement(grid[unreachedPositions[rng].x, unreachedPositions[rng].y], grid);
+            int rng = Random.Range(0, unreachedPositions.Count);
+            Element initElement = (grid[unreachedPositions[rng].x, unreachedPositions[rng].y]);
+
+            CollapseElement(initElement, grid);
+            GenerationStages.instance.elementPool.Add(initElement);
             unreachedPositions.RemoveAt(rng);
 
             while (unreachedPositions.Count > 0)
@@ -81,10 +86,31 @@ namespace WFC
                 curElement = lowEntropyElements[rng];
 
                 CollapseElement(curElement, grid);
+                GenerationStages.instance.elementPool.Add(curElement);
                 unreachedPositions.Remove(curElement.GetPosition);
 
                 yield return null;
             }
+
+            /*
+            while (tilesToFill.Count > 0 && unreachedPositions.Count == 0)
+            {
+                for (int i = 0; i < tilesToFill.Count; i++)
+                {
+                    if (tilesToFill[i].GetSelectedModule.filledSprite != null)
+                    {
+                        tilesToFill[i].GetSelectedModule.image = tilesToFill[i].GetSelectedModule.filledSprite;
+                        Debug.Log("Sprite Filled");
+                    }
+                    else
+                        Debug.Log("Hey buddy, you just roll in from stupid town?");
+
+                    tilesToFill.RemoveAt(i);
+
+                    yield return null;
+                }
+            }
+            */
             GenerationStages.instance.curWFCRooms--;
             GenerationStages.instance.finWFCRooms++;
         }
@@ -143,6 +169,21 @@ namespace WFC
                 }
             }
         }
+
+        public void FillTile(Element curElement)
+        {
+            if (curElement.GetSelectedModule.filledTile == null)
+            {
+                Debug.Log("Ain't no fill sprite DUMMY");
+                return;
+            }
+
+
+
+            Vector3Int offsetPosition = (Vector3Int)curElement.GetPosition + (Vector3Int)curElement.GetOffset;
+            _tilemap.SetTile(offsetPosition, curElement.GetSelectedModule.filledTile.tilebase);
+            Debug.Log("FilledtheSprite");
+        }
     }
 
     public class Element
@@ -159,6 +200,7 @@ namespace WFC
         private float _spawnChance;
 
         public Vector2Int GetPosition { get { return _position; } }
+        public Vector2Int GetOffset { get { return _offset; } }
         public Module GetSelectedModule { get { return _selectedModule; } }
         public int GetEntropy { get { return _options.Count; } }
         public float SpawnChance { get { return _spawnChance; } set { _spawnChance = value; } }
@@ -198,9 +240,22 @@ namespace WFC
                 return;
             }
 
+
+            // Finds a random module from the list of best options
             int rng = Random.Range(0, _options.Count);
             
             _selectedModule = _options[rng];
+
+            // If the selected module has a twin, test against rng to switch to that module
+            if (_selectedModule.uncoloredTwin != null)
+            {
+                float ran = Random.Range(0f, 100f);
+                if (ran > _selectedModule.chanceToSpawn)
+                {
+                    Debug.Log(_selectedModule.name + " switching to: " + _selectedModule.uncoloredTwin.name);
+                    _selectedModule = _selectedModule.uncoloredTwin;
+                }
+            }
 
             Vector3Int offsetPosition = (Vector3Int)_position + (Vector3Int)_offset;
             tilemap.SetTile(offsetPosition, _selectedModule.tilebase);

@@ -12,8 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6735d6a4b7fc3c349b71a8569af42932, type: 3}
   m_Name: TestTile Blue
   m_EditorClassIdentifier: 
-  tilebase: {fileID: 11400000, guid: a55ac8fe526a2504694e3765d96b41c9, type: 2}
-  image: {fileID: -1279037515, guid: 2e9090b67ae67a14199532372935e233, type: 3}
+  tilebase: {fileID: 0}
+  image: {fileID: 1545559646, guid: 2e9090b67ae67a14199532372935e233, type: 3}
+  filledTile: {fileID: 11400000, guid: 660f2cc502201a94fa927a876a36f42c, type: 2}
+  uncoloredTwin: {fileID: 11400000, guid: 2ccaae6bed4c33043abecb66f7ff30f3, type: 2}
+  chanceToSpawn: 10.2
   north:
   - {fileID: 11400000, guid: c00afe691c0a68b4ab2f3b07df139780, type: 2}
   - {fileID: 11400000, guid: 172dda3d94691414da86e101031be8c2, type: 2}

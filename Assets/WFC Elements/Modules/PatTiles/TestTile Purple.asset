@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6735d6a4b7fc3c349b71a8569af42932, type: 3}
+  m_Name: TestTile Purple
+  m_EditorClassIdentifier: 
+  tilebase: {fileID: 11400000, guid: b663cd8d4d7b44140b0a66764cbbf317, type: 2}
+  image: {fileID: 644879855, guid: 2e9090b67ae67a14199532372935e233, type: 3}
+  filledTile: {fileID: 11400000, guid: a1c6aafc94bf5c640b39e72f5d8fa5fa, type: 2}
+  uncoloredTwin: {fileID: 11400000, guid: 9e4486fdb0ccce74f891a7717441ecf1, type: 2}
+  chanceToSpawn: 58.2
+  north: []
+  east: []
+  south: []
+  west: []
+  detailModule: []
