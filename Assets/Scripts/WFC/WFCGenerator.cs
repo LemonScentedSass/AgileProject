@@ -253,6 +253,7 @@ namespace WFC
                 if (ran > _selectedModule.chanceToSpawn)
                 {
                     Debug.Log(_selectedModule.name + " switching to: " + _selectedModule.uncoloredTwin.name);
+                    _selectedModule.image = _selectedModule.uncoloredTwin.image;
                     _selectedModule = _selectedModule.uncoloredTwin;
                 }
             }

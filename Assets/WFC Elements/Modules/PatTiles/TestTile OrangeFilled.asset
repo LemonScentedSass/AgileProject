@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6735d6a4b7fc3c349b71a8569af42932, type: 3}
   m_Name: TestTile OrangeFilled
   m_EditorClassIdentifier: 
-  tilebase: {fileID: 11400000, guid: 2c22cc57d0794e34aa14bd6c0086ffc9, type: 2}
+  tilebase: {fileID: 11400000, guid: 0587cf8419907414d9e550c23da10b6c, type: 2}
   image: {fileID: 544577253, guid: 2e9090b67ae67a14199532372935e233, type: 3}
   filledTile: {fileID: 0}
   uncoloredTwin: {fileID: 0}

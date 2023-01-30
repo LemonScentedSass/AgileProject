@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6735d6a4b7fc3c349b71a8569af42932, type: 3}
   m_Name: TestTile Maroon
   m_EditorClassIdentifier: 
-  tilebase: {fileID: 0}
-  image: {fileID: 1807941051, guid: 2e9090b67ae67a14199532372935e233, type: 3}
+  tilebase: {fileID: 11400000, guid: 91d7401ff908ddb4189282653eabc3d4, type: 2}
+  image: {fileID: 579929230, guid: 2e9090b67ae67a14199532372935e233, type: 3}
   filledTile: {fileID: 11400000, guid: 01502963470bb8f429d808413e7cde3e, type: 2}
   uncoloredTwin: {fileID: 11400000, guid: b9b546e838ebe3c4888d9a48d6140395, type: 2}
   chanceToSpawn: 56.4

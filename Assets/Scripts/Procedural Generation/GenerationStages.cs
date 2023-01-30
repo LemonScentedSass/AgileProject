@@ -49,7 +49,6 @@ namespace MapGeneration
                 finStartEndFloat = 1f;
             }
 
-            /*
             if (roomsGenerated > 0 && curWFCRooms == 0 && elementPool.Count > 0)
             {
                 for (int i = 0; i < elementPool.Count; i++)
@@ -58,7 +57,6 @@ namespace MapGeneration
                     elementPool.RemoveAt(i);
                 }
             }
-            */
 
             if (roomsGenerated > 0 && curWFCRooms == 0 && spaceManagerCalled == false)
             {

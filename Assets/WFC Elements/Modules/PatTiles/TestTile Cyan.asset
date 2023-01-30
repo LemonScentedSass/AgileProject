@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6735d6a4b7fc3c349b71a8569af42932, type: 3}
   m_Name: TestTile Cyan
   m_EditorClassIdentifier: 
-  tilebase: {fileID: 11400000, guid: 64358be37058e304abf6f2589d656f96, type: 2}
-  image: {fileID: -250025053, guid: 2e9090b67ae67a14199532372935e233, type: 3}
+  tilebase: {fileID: 11400000, guid: c157cdfe3201f04428fedf04f9cfeb85, type: 2}
+  image: {fileID: 249234879, guid: 2e9090b67ae67a14199532372935e233, type: 3}
   filledTile: {fileID: 11400000, guid: d07f274daeb987e48a39d73046c2ab13, type: 2}
   uncoloredTwin: {fileID: 11400000, guid: 5e093688ac6ee4448a3847d694abf0c7, type: 2}
   chanceToSpawn: 45.9

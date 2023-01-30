@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6735d6a4b7fc3c349b71a8569af42932, type: 3}
   m_Name: TestTile MaroonFilled
   m_EditorClassIdentifier: 
-  tilebase: {fileID: 0}
+  tilebase: {fileID: 11400000, guid: e997885d83cbb564cb19c94ad789b76e, type: 2}
   image: {fileID: 1106018256, guid: 2e9090b67ae67a14199532372935e233, type: 3}
   filledTile: {fileID: 0}
   uncoloredTwin: {fileID: 0}
-  chanceToSpawn: 0
+  chanceToSpawn: 51.6
   north: []
   east: []
   south: []

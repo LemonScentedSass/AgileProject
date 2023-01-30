@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6735d6a4b7fc3c349b71a8569af42932, type: 3}
   m_Name: TestTile Orange
   m_EditorClassIdentifier: 
-  tilebase: {fileID: 0}
-  image: {fileID: 521833432, guid: 2e9090b67ae67a14199532372935e233, type: 3}
+  tilebase: {fileID: 11400000, guid: eba76df924049f34a997cff2cc46edaa, type: 2}
+  image: {fileID: -558225155, guid: 2e9090b67ae67a14199532372935e233, type: 3}
   filledTile: {fileID: 11400000, guid: 839d423e22bb8f8488ac1db8aad466a6, type: 2}
   uncoloredTwin: {fileID: 11400000, guid: c00afe691c0a68b4ab2f3b07df139780, type: 2}
-  chanceToSpawn: 0
+  chanceToSpawn: 45.1
   north:
   - {fileID: 11400000, guid: c00afe691c0a68b4ab2f3b07df139780, type: 2}
   - {fileID: 11400000}

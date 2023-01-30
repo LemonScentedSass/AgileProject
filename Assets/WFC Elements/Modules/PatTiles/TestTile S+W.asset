@@ -12,20 +12,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6735d6a4b7fc3c349b71a8569af42932, type: 3}
   m_Name: TestTile S+W
   m_EditorClassIdentifier: 
-  tilebase: {fileID: 11400000, guid: 4b044b237295b404d9f1069769dac7a0, type: 2}
+  tilebase: {fileID: 11400000, guid: 3d0f39c4f2aea974eb38c374059d2510, type: 2}
   image: {fileID: -606538682, guid: 2e9090b67ae67a14199532372935e233, type: 3}
   filledTile: {fileID: 11400000, guid: 83aff296e73bf9849877b1e732461c7a, type: 2}
   uncoloredTwin: {fileID: 0}
   chanceToSpawn: 0
   north:
   - {fileID: 11400000, guid: 172f7b1e2454933438c9f6dc0ae3704a, type: 2}
+  - {fileID: 11400000, guid: c09bb7f90bb71a7439c5f0196b8b6c51, type: 2}
   - {fileID: 11400000, guid: 2ccaae6bed4c33043abecb66f7ff30f3, type: 2}
   - {fileID: 11400000, guid: 8efbaad9e7110c047a620f4e4979a2ed, type: 2}
   - {fileID: 11400000, guid: 8254c699c89e3934f9742fa00d67192f, type: 2}
   east:
+  - {fileID: 11400000, guid: c09bb7f90bb71a7439c5f0196b8b6c51, type: 2}
   - {fileID: 11400000, guid: c6692fbd557e36940b5fa9e9b83ee2b1, type: 2}
   - {fileID: 11400000, guid: 83700636b472bbf45b5b76a104c9bad0, type: 2}
   - {fileID: 11400000, guid: 8efbaad9e7110c047a620f4e4979a2ed, type: 2}
+  - {fileID: 11400000, guid: b7f4df0639eebbb4e9754326ea8454e8, type: 2}
   south:
   - {fileID: 11400000, guid: 172f7b1e2454933438c9f6dc0ae3704a, type: 2}
   - {fileID: 11400000, guid: c00afe691c0a68b4ab2f3b07df139780, type: 2}
@@ -33,6 +36,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 2ccaae6bed4c33043abecb66f7ff30f3, type: 2}
   - {fileID: 11400000, guid: 9e4486fdb0ccce74f891a7717441ecf1, type: 2}
   - {fileID: 11400000, guid: 172dda3d94691414da86e101031be8c2, type: 2}
+  - {fileID: 11400000, guid: 0a2ae2113e0d3024da7c5a32992380b8, type: 2}
   west:
   - {fileID: 11400000, guid: addba9b55e3a6294a9d0ea3750e77930, type: 2}
   - {fileID: 11400000, guid: c00afe691c0a68b4ab2f3b07df139780, type: 2}
