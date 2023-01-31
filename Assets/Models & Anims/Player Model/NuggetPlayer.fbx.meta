@@ -1,8 +1,14 @@
 fileFormatVersion: 2
 guid: c89895d323700f644b4cfadb0db8461b
 ModelImporter:
-  serializedVersion: 21300
-  internalIDToNameTable: []
+  serializedVersion: 21202
+  internalIDToNameTable:
+  - first:
+      74: -3869112259107283495
+    second: metarig|metarig|metarig|metarig|metarig|HairAnimation
+  - first:
+      74: 5145032904920240439
+    second: metarig|metarig|metarig|metarig|metarig|HairAnimation.001
   externalObjects: {}
   materials:
     materialImportMode: 2
@@ -99,7 +105,6 @@ ModelImporter:
   humanoidOversampling: 1
   avatarSetup: 0
   addHumanoidExtraRootOnlyWhenUsingAvatar: 1
-  remapMaterialsIfMaterialImportModeIsNone: 0
   additionalBone: 0
   userData: 
   assetBundleName: 
