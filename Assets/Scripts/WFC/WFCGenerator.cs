@@ -39,7 +39,6 @@ namespace WFC
             GenerationStages.instance.curWFCRooms++;
             Element[,] grid = new Element[size.x, size.y];
             List<Vector2Int> unreachedPositions = new List<Vector2Int>();
-            List<Element> tilesToFill = new List<Element>();
 
             for (int y = 0; y < size.y; y++)
             {
@@ -91,26 +90,6 @@ namespace WFC
 
                 yield return null;
             }
-
-            /*
-            while (tilesToFill.Count > 0 && unreachedPositions.Count == 0)
-            {
-                for (int i = 0; i < tilesToFill.Count; i++)
-                {
-                    if (tilesToFill[i].GetSelectedModule.filledSprite != null)
-                    {
-                        tilesToFill[i].GetSelectedModule.image = tilesToFill[i].GetSelectedModule.filledSprite;
-                        Debug.Log("Sprite Filled");
-                    }
-                    else
-                        Debug.Log("Hey buddy, you just roll in from stupid town?");
-
-                    tilesToFill.RemoveAt(i);
-
-                    yield return null;
-                }
-            }
-            */
             GenerationStages.instance.curWFCRooms--;
             GenerationStages.instance.finWFCRooms++;
         }

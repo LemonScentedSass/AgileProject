@@ -44,4 +44,5 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 83700636b472bbf45b5b76a104c9bad0, type: 2}
   - {fileID: 11400000, guid: b9b546e838ebe3c4888d9a48d6140395, type: 2}
   - {fileID: 11400000}
-  detailModule: []
+  detailModule:
+  - {fileID: 11400000, guid: f599b29073cce124cb8707987a3eed99, type: 2}
