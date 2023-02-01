@@ -231,7 +231,7 @@ namespace WFC
                 float ran = Random.Range(0f, 100f);
                 if (ran > _selectedModule.chanceToSpawn)
                 {
-                    Debug.Log(_selectedModule.name + " switching to: " + _selectedModule.uncoloredTwin.name);
+                    //Debug.Log(_selectedModule.name + " switching to: " + _selectedModule.uncoloredTwin.name);
                     _selectedModule.image = _selectedModule.uncoloredTwin.image;
                     _selectedModule = _selectedModule.uncoloredTwin;
                 }

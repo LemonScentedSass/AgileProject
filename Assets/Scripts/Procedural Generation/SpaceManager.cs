@@ -49,7 +49,7 @@ public class SpaceManager : MonoBehaviour
             return;
         }
 
-        Debug.Log("X: " + _spaces.GetLength(0) + ", Y: " + _spaces.GetLength(1));
+        //Debug.Log("X: " + _spaces.GetLength(0) + ", Y: " + _spaces.GetLength(1));
 
         for (int x = 0; x < _spaces.GetLength(0); x++)
         {
