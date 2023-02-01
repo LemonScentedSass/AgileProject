@@ -26,13 +26,13 @@ public class PlayerCam : MonoBehaviour
         yRotation = 0;
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
         if (PlayerManager.pm.gameplayPaused == false)
         {
             // Get mouse input
-            float mouseX = Input.GetAxisRaw("Mouse X") * Time.deltaTime * sensitivityX;
-            float mouseY = Input.GetAxisRaw("Mouse Y") * Time.deltaTime * sensitivityY;
+            float mouseX = Input.GetAxis("Mouse X") * Time.deltaTime * sensitivityX;
+            float mouseY = Input.GetAxis("Mouse Y") * Time.deltaTime * sensitivityY;
 
             // Assign Rotation Variables Based On Mouse Input
             yRotation += mouseX;
