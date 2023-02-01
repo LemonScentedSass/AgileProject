@@ -280,6 +280,8 @@ namespace MapGeneration
                     WFCGenerator.instance.Generate(pos, size);
                 }
 
+                Grid.instance.CreateGrid();
+                //Grid.instance.GetComponent<Pathfinding>().enabled = true;
                 yield return null;
             }
         }

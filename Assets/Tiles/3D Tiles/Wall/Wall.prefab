@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5715097019707755511}
   - component: {fileID: 26998355261019377}
-  m_Layer: 12
+  m_Layer: 11
   m_Name: Wall
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -53,7 +53,7 @@ GameObject:
   - component: {fileID: 2769675137893679033}
   - component: {fileID: 732570716955484786}
   - component: {fileID: 6101689219400527071}
-  m_Layer: 12
+  m_Layer: 11
   m_Name: Cube
   m_TagString: Wall
   m_Icon: {fileID: 0}
