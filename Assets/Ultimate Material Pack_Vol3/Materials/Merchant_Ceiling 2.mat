@@ -7,12 +7,13 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: MAT_Brick_14_aged
+  m_Name: Merchant_Ceiling 2
   m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
   m_ValidKeywords:
   - _METALLICGLOSSMAP
   - _NORMALMAP
-  m_InvalidKeywords: []
+  m_InvalidKeywords:
+  - _SPECGLOSSMAP
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -23,7 +24,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _BumpMap:
-        m_Texture: {fileID: 2800000, guid: 32bb0f5b22a7da3428bc18d15edd3d52, type: 3}
+        m_Texture: {fileID: 2800000, guid: 8bfe9906f6ea5a84189c28620d59e857, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _DetailAlbedoMap:
@@ -40,14 +41,14 @@ Material:
         m_Offset: {x: 0, y: 0}
     - _EmissionMap:
         m_Texture: {fileID: 0}
-        m_Scale: {x: 2, y: 1}
+        m_Scale: {x: 5, y: 5}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 2d50f13d9975756488fac2aef7eb010e, type: 3}
-        m_Scale: {x: 2, y: 1}
+        m_Texture: {fileID: 2800000, guid: f35d3d58813fca8408b87e95997f094f, type: 3}
+        m_Scale: {x: 5, y: 5}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
-        m_Texture: {fileID: 2800000, guid: a858f3d997133d1448b296c0fa2072ac, type: 3}
+        m_Texture: {fileID: 2800000, guid: 37a81bafbae1af44ba563120c9c36444, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _OcclusionMap:
