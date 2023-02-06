@@ -541,6 +541,14 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: -0.219
       objectReference: {fileID: 0}
+    - target: {fileID: 4198266699868045599, guid: 896bea3ca28bfdc4abf6ad877300a29f, type: 3}
+      propertyPath: sensitivityX
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 4198266699868045599, guid: 896bea3ca28bfdc4abf6ad877300a29f, type: 3}
+      propertyPath: sensitivityY
+      value: 200
+      objectReference: {fileID: 0}
     - target: {fileID: 4198266699884254802, guid: 896bea3ca28bfdc4abf6ad877300a29f, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -13087,6 +13095,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   _rightHandWeaponMount: {fileID: 0}
+  test: {fileID: 0}
   _curHealth: 0
   _maxHealth: 10
   _curStamina: 0

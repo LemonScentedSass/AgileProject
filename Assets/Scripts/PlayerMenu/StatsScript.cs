@@ -23,10 +23,10 @@ public class StatsScript : MonoBehaviour
     private void UpdateStats()
     {
 
-        foreach (var EXPtext in EXP)
-        {
-            EXPtext.text = "EXP: " + LevelSystem.instance.experience + "/" + LevelSystem.instance.experienceToNextLevel;
-        }
+        //foreach (var EXPtext in EXP)
+        //{
+        //    EXPtext.text = "EXP: " + LevelSystem.instance.experience + "/" + LevelSystem.instance.experienceToNextLevel;
+        //}
 
         foreach (var levelTXT in Level)
         {
