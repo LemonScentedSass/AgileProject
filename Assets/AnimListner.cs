@@ -17,7 +17,7 @@ public class AnimListner : MonoBehaviour
 
       //private void OnDrawGizmos()
       //{
-      //      Gizmos.color = Color.red;
-      //      Gizmos.DrawSphere(transform.position + transform.forward, 2f);
+      //     Gizmos.color = Color.red;
+      //     Gizmos.DrawSphere(transform.position + transform.forward, 2f);
       //}
 }

@@ -23,4 +23,4 @@ MonoBehaviour:
   damageTypes: 3
   hitEffects:
   - {fileID: 11400000, guid: 879c02d0ef1b616489d946ca93b1e724, type: 2}
-  weaponModel: {fileID: 626282352945076595, guid: 07386ea35b0703b4b860da37b73db8c3, type: 3}
+  weaponModel: {fileID: 7777574110952061847, guid: 5b1a4d7de7ba5f24796eabaa6265ce5a, type: 3}
