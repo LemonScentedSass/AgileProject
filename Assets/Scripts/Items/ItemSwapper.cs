@@ -1,12 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using ItemSystem;
+//using ItemSystem;
 
 public class ItemSwapper : MonoBehaviour
 {
       private Hotbar hotbar;
-      [SerializeField] private UseItem itemToApply;
+      //[SerializeField] private UseItem itemToApply;
 
       private void OnTriggerEnter(Collider other)
       {
@@ -15,7 +15,7 @@ public class ItemSwapper : MonoBehaviour
                   hotbar = other.GetComponentInChildren<Hotbar>();
                   Debug.Log($"ItemSwapper Active + {hotbar}");
 
-                  hotbar.useItem = itemToApply;
+                  //hotbar.useItem = itemToApply;
                   Destroy(gameObject);
             }
       }

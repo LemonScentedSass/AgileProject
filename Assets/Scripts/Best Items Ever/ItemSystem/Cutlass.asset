@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2993d5eb6548523448a31133198d5987, type: 3}
+  m_Name: Cutlass
+  m_EditorClassIdentifier: 
+  itemName: 
+  itemDescription: 
+  itemCost: 0
+  itemImage: {fileID: 0}
+  passiveEffects: []
+  minimumDamageRange: {x: 1, y: 6}
+  maximumDamageRange: {x: 7, y: 8}
+  attackSpeed: 3
+  damageTypes: 3
+  hitEffects:
+  - {fileID: 11400000, guid: 879c02d0ef1b616489d946ca93b1e724, type: 2}
+  weaponModel: {fileID: 626282352945076595, guid: 07386ea35b0703b4b860da37b73db8c3, type: 3}

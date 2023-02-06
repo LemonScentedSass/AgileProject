@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2993d5eb6548523448a31133198d5987, type: 3}
+  m_Name: Dagger
+  m_EditorClassIdentifier: 
+  itemName: Dagger
+  itemDescription: akjfshklf
+  itemCost: 150
+  itemImage: {fileID: 0}
+  passiveEffects: []
+  minimumDamageRange: {x: 5, y: 10}
+  maximumDamageRange: {x: 11, y: 15}
+  attackSpeed: 4
+  damageTypes: 0
+  hitEffects:
+  - {fileID: 0}
+  weaponModel: {fileID: 1871405460404132, guid: 078c594a202dd5445b1b631a305844dd, type: 3}

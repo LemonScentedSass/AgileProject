@@ -455,6 +455,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 950977d9e96b0334891fe10613012b70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  equipItem: {fileID: 0}
+  _rightHandWeaponMount: {fileID: 4985106758679387083}
   _curHealth: 0
   _maxHealth: 10
   _curStamina: 0
@@ -487,8 +489,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d105876b57439b24c9579755107fc311, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CurrentItem: {fileID: 11400000, guid: 75513d07cc3bfe84aa55edea530e7548, type: 2}
-  CurrentMagic: {fileID: 11400000, guid: 79697e42ac629f64cb29f102bcb9957d, type: 2}
   hotbar: {fileID: 4932791214143022609}
   CurrentItemLVL: 0
   CurrentMagicLVL: 0
@@ -9704,6 +9704,7 @@ Transform:
   - {fileID: 4550563033100271158}
   - {fileID: 5358035537527908455}
   - {fileID: 7191849365977367419}
+  - {fileID: 4985106758679387083}
   m_Father: {fileID: 7440563501215539824}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -19107,17 +19108,11 @@ MonoBehaviour:
   Item: 324
   Magic: 113
   MagicCooldownDuration: 5
-  useMagic: {fileID: 0}
   ItemCooldownDuration: 5
-  useItem: {fileID: 0}
   HealthPotionCooldownDuration: 5
-  useHealthPotion: {fileID: 0}
   ManaPotionCooldownDuration: 5
-  useManaPotion: {fileID: 0}
   BuffPotionCooldownDuration: 5
-  useBuffPotion: {fileID: 0}
   MeatCooldownDuration: 5
-  useMonsterMeat: {fileID: 0}
 --- !u!1 &4616217965621488886
 GameObject:
   m_ObjectHideFlags: 0
@@ -25338,6 +25333,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 433668263442283889}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &6397991974040118261
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4985106758679387083}
+  m_Layer: 0
+  m_Name: RightHandMount
+  m_TagString: Untagged
+  m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4985106758679387083
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6397991974040118261}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.00081, z: -0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7792388694804427133}
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6401592032164410972
 GameObject:

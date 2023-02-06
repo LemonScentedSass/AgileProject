@@ -137,7 +137,7 @@ public class Idle : State
 
     public override void Exit()
     {
-        anim.ResetTrigger("isIdle");                                            // When exiting this state, Reset Animator Controller Trigger
+        //anim.ResetTrigger("isIdle");                                            // When exiting this state, Reset Animator Controller Trigger
         base.Exit();
     }
 }
@@ -270,7 +270,7 @@ public class Pursue : State
     {
         UnityEngine.UI.Slider healthSlider = npc.GetComponent<EnemyHealthUI>().healthSlider;
         healthSlider.enabled = false;
-        anim.ResetTrigger("isRunning");                                                                 // When exiting the Pursue state, reset the running animation trigger
+        //anim.ResetTrigger("isRunning");                                                                 // When exiting the Pursue state, reset the running animation trigger
         base.Exit();
     }
 }
@@ -337,7 +337,7 @@ public class Attack : State
 
     public override void Exit()
     {
-        anim.ResetTrigger("isAttacking");                                                               // Upon exiting the Attack State, reset the animation trigger for the attack
+        //anim.ResetTrigger("isAttacking");                                                               // Upon exiting the Attack State, reset the animation trigger for the attack
                                                                                                         //attackAudio.Stop();
         base.Exit();
     }
@@ -416,7 +416,7 @@ public class Wander : State
 
             agent.isStopped = false;
             timer = 0;
-            anim.SetTrigger("isWalking");
+            //anim.SetTrigger("isWalking");
         }
 
         if (CanSeePlayer())                                                                             // If the AI agent can see the player,
@@ -435,7 +435,7 @@ public class Wander : State
 
     public override void Exit()
     {
-        anim.ResetTrigger("isWalking");                                                                 // Reset Walking animation
+        //anim.ResetTrigger("isWalking");                                                                 // Reset Walking animation
         base.Exit();
     }
 

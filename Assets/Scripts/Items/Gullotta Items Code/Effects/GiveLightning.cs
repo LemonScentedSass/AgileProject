@@ -18,54 +18,54 @@ public class GiveLightning : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        GetComponent<SphereCollider>().radius = SnapRadius;
-        LightningLevel = GameManager.PlayerManager.pm.GetComponent<CurrentUpgrades>().CurrentMagicLVL;
-        Debug.Log(LightningLevel);
-        if (snapTarget != null)
-        {
-            transform.LookAt(snapTarget.transform.position);
-        }
-        if(LightningLevel == 0)
-        {
-            SnapRadius = 1f;
-            InitialDamage = 1;
-            if(GetComponent<ProjectileMotion>() == true)
-            {
-                GetComponent<ProjectileMotion>().speed = 10;
-            }
+    //void Update()
+    //{
+    //    GetComponent<SphereCollider>().radius = SnapRadius;
+    //    LightningLevel = GameManager.PlayerManager.pm.GetComponent<CurrentUpgrades>().CurrentMagicLVL;
+    //    Debug.Log(LightningLevel);
+    //    if (snapTarget != null)
+    //    {
+    //        transform.LookAt(snapTarget.transform.position);
+    //    }
+    //    if(LightningLevel == 0)
+    //    {
+    //        SnapRadius = 1f;
+    //        InitialDamage = 1;
+    //        if(GetComponent<ProjectileMotion>() == true)
+    //        {
+    //            GetComponent<ProjectileMotion>().speed = 10;
+    //        }
 
-        }
-        if(LightningLevel == 1)
-        {
-            SnapRadius = 1.1f;
-            InitialDamage = 2;
-            if (GetComponent<ProjectileMotion>() == true)
-            {
-                GetComponent<ProjectileMotion>().speed = 15;
-            }
-        }
-        if (LightningLevel == 2)
-        {
-            SnapRadius = 1.15f;
-            InitialDamage = 3;
-            if (GetComponent<ProjectileMotion>() == true)
-            {
-                GetComponent<ProjectileMotion>().speed = 20;
-            }
-        }
-        if(LightningLevel == 3)
-        {
-            SnapRadius = 1.2f;
-            InitialDamage = 4;
-            if (GetComponent<ProjectileMotion>() == true)
-            {
-                GetComponent<ProjectileMotion>().speed = 25;
-            }
-        }
+    //    }
+    //    if(LightningLevel == 1)
+    //    {
+    //        SnapRadius = 1.1f;
+    //        InitialDamage = 2;
+    //        if (GetComponent<ProjectileMotion>() == true)
+    //        {
+    //            GetComponent<ProjectileMotion>().speed = 15;
+    //        }
+    //    }
+    //    if (LightningLevel == 2)
+    //    {
+    //        SnapRadius = 1.15f;
+    //        InitialDamage = 3;
+    //        if (GetComponent<ProjectileMotion>() == true)
+    //        {
+    //            GetComponent<ProjectileMotion>().speed = 20;
+    //        }
+    //    }
+    //    if(LightningLevel == 3)
+    //    {
+    //        SnapRadius = 1.2f;
+    //        InitialDamage = 4;
+    //        if (GetComponent<ProjectileMotion>() == true)
+    //        {
+    //            GetComponent<ProjectileMotion>().speed = 25;
+    //        }
+    //    }
 
-    }
+    //}
 
     private void OnCollisionEnter(Collision collision)
     {

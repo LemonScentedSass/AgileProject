@@ -51,7 +51,7 @@ public class LevelSystem : MonoBehaviour
     public bool AddExperience(int experienceToAdd)
     {
         experience += experienceToAdd;
-        _am.PlaySFX(expSFX);
+        //_am.PlaySFX(expSFX);
 
         if (experience >= experienceToNextLevel)
         {

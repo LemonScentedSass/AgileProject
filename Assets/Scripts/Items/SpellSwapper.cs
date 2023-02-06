@@ -1,12 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using ItemSystem;
+using ItemSystemV2;
 
 public class SpellSwapper : MonoBehaviour
 {
       private Hotbar hotbar;
-      [SerializeField] private UseItem itemToApply;
+      //[SerializeField] private UseItem itemToApply;
 
       private void OnTriggerEnter(Collider other)
       {
@@ -17,7 +17,7 @@ public class SpellSwapper : MonoBehaviour
                   // Activate UI
                   //if (Input.GetKeyDown(KeyCode.E))
                   //{
-                        hotbar.useMagic = itemToApply;
+                        //hotbar.useMagic = itemToApply;
                         Destroy(gameObject);
                   //}
             }

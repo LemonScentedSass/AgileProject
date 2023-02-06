@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0be0d06c1dfae5147a1855a18fac7427, type: 3}
+  m_Name: Mage
+  m_EditorClassIdentifier: 
+  itemName: Fireball
+  itemDescription: ball o fire
+  itemCost: 500
+  itemImage: {fileID: 0}
+  passiveEffects: []
+  minimumDamageRange: {x: 1, y: 6}
+  maximumDamageRange: {x: 9, y: 12}
+  attackSpeed: 0
+  damageTypes: 0
+  hitEffects: []
+  weaponModel: {fileID: 8419733843793758202, guid: ebba6f9f9105beb47a22b288d369daa6, type: 3}
+  spellPrefab: {fileID: 2037118276499928948, guid: 29ebda7414ac6144cae7825d382edb81, type: 3}
+  speed: 10
+  distance: 20

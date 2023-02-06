@@ -2,8 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using GameManager;
 
-public class EnemyStats : MonoBehaviour, IHittable
+public class EnemyStats : Character, IHittable
 {
       [SerializeField] public int currentHealth;
       [SerializeField] public int maxHealth = 5;
@@ -12,11 +13,11 @@ public class EnemyStats : MonoBehaviour, IHittable
 
       ResourceDropper resourceDropper;
       NavMeshAgent agent;
-      
+
       Animator anim;
       AI ai;
 
-      private void Start()
+      private new void Start()
       {
             currentHealth = maxHealth;
             anim = GetComponent<Animator>();
@@ -27,43 +28,47 @@ public class EnemyStats : MonoBehaviour, IHittable
 
       private void Update()
       {
-            if (isDead)
-            {
-                  StartCoroutine(Die());
-
-            }
+            
       }
 
       // Can be used later to scale enemy damage, health, or any other value decided.
       public void GetHit(int damage)
       {
-            if(isDead == false)
+            Debug.Log("GetHit - EnemyStats");
+            if (isDead == false)
             {
+                  //switch (type)
+                  //{
+                  //      case DamageTypes.Fire:
+                  //            gameObject.GetComponentInChildren<ParticleSystem>().Play();
+                  //            break;
+                  //}
+
                   GetComponent<EnemyHealthUI>().healthSlider.enabled = true;
+
                   currentHealth -= damage;
 
-                  if(currentHealth <= 0)
+                  if (currentHealth <= 0)
                   {
-                      GetComponent<EnemyHealthUI>().healthSlider.enabled = true;
-                      isDead = true;
+                        GetComponent<EnemyHealthUI>().healthSlider.enabled = false;
+                        isDead = true;
+                        Die();
                   }
             }
       }
 
-      IEnumerator Die()
+      void Die()
       {
-            
-            anim.SetTrigger("isDead");
+            anim.SetBool("isDead", true);
             agent.isStopped = true;
-            yield return new WaitForSeconds(3f);
             resourceDropper.DropItem();
             LevelSystem.instance.AddExperience(30);
-            Destroy(gameObject);
+            Destroy(this.gameObject, 3f);
       }
 
       public void GetStunned(float length)
       {
-            if(length > 0)
+            if (length > 0)
             {
                   agent.speed = 0f;
                   anim.ResetTrigger("isWalking");
@@ -73,7 +78,7 @@ public class EnemyStats : MonoBehaviour, IHittable
                   length -= Time.deltaTime;
             }
 
-            if(length <= 0)
+            if (length <= 0)
             {
                   agent.speed = 2f;
             }

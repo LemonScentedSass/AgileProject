@@ -32,7 +32,7 @@ TagManager:
   - InvisToFPCam
   - Interactable
   - Unwalkable
-  - 
+  - IHittable
   - 
   - 
   - 

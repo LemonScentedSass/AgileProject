@@ -79,61 +79,61 @@ namespace UIManager
         }
 
         // Update is called once per frame
-        void Update()
-        {
-            //Displays current fill amount
-            staminaFILLAMOUNT = DamageConversion(GameManager.PlayerManager.pm.CurrentStamina, GameManager.PlayerManager.pm.MaxStamina);
-            healthFILLAMOUNT = DamageConversion(GameManager.PlayerManager.pm.CurrentHealth, GameManager.PlayerManager.pm.MaxHealth);
-            manaFillAMOUNT = DamageConversion(GameManager.PlayerManager.pm.CurrentMana, GameManager.PlayerManager.pm.MaxMana);
+        //void Update()
+        //{
+        //    //Displays current fill amount
+        //    staminaFILLAMOUNT = DamageConversion(GameManager.PlayerManager.pm.CurrentStamina, GameManager.PlayerManager.pm.MaxStamina);
+        //    healthFILLAMOUNT = DamageConversion(GameManager.PlayerManager.pm.CurrentHealth, GameManager.PlayerManager.pm.MaxHealth);
+        //    manaFillAMOUNT = DamageConversion(GameManager.PlayerManager.pm.CurrentMana, GameManager.PlayerManager.pm.MaxMana);
 
 
-            DisplayStatConversion(); //Converts health, stamina, and mana into fillamount for health, stamina, and mana bars
-            StatsCheck(); // Checks to make sure numbers dont go below or above 0 and 100
+        //    DisplayStatConversion(); //Converts health, stamina, and mana into fillamount for health, stamina, and mana bars
+        //    StatsCheck(); // Checks to make sure numbers dont go below or above 0 and 100
 
-            GoldAmountTXT.text = "Gold: " + GameManager.PlayerManager.pm.goldAmount;
+        //    GoldAmountTXT.text = "Gold: " + GameManager.PlayerManager.pm.goldAmount;
 
-            UpdateLVLSlidertxt(); //Updates all sliders to current stat
+        //    UpdateLVLSlidertxt(); //Updates all sliders to current stat
 
-            skillpointTXT.text = "Skill Points: " + LevelSystem.instance.skillPoints;
-            if(GameManager.PlayerManager.pm.GetComponent<CurrentUpgrades>().hotbar.useItem != null)
-            {
-                itemLVLTXT.text = "Lvl: " + GameManager.PlayerManager.pm.GetComponent<CurrentUpgrades>().hotbar.useItem.itemLVL;
-            }
+        //    skillpointTXT.text = "Skill Points: " + LevelSystem.instance.skillPoints;
+        //    if(GameManager.PlayerManager.pm.GetComponent<CurrentUpgrades>().hotbar.useItem != null)
+        //    {
+        //        itemLVLTXT.text = "Lvl: " + GameManager.PlayerManager.pm.GetComponent<CurrentUpgrades>().hotbar.useItem.itemLVL;
+        //    }
            
 
-            //checks to make sure there is an item, if not put nothing image
-            if (GameManager.PlayerManager.pm.GetComponent<CurrentUpgrades>().hotbar.useItem == null)
-            {
-                foreach (var item in DisplayItemImage)
-                {
-                    item.sprite = null;
-                }
-            }
-            else
-            {
-                foreach (var item in DisplayItemImage)
-                {
-                    item.sprite = GameManager.PlayerManager.pm.GetComponent<CurrentUpgrades>().hotbar.useItem.itemIcon; ;
-                }
-            }
+        //    //checks to make sure there is an item, if not put nothing image
+        //    if (GameManager.PlayerManager.pm.GetComponent<CurrentUpgrades>().hotbar.useItem == null)
+        //    {
+        //        foreach (var item in DisplayItemImage)
+        //        {
+        //            item.sprite = null;
+        //        }
+        //    }
+        //    else
+        //    {
+        //        foreach (var item in DisplayItemImage)
+        //        {
+        //            item.sprite = GameManager.PlayerManager.pm.GetComponent<CurrentUpgrades>().hotbar.useItem.itemIcon; ;
+        //        }
+        //    }
 
-            if (GameManager.PlayerManager.pm.GetComponent<CurrentUpgrades>().hotbar.useMagic == null)
-            {
-                foreach (var item in DisplayMagicImage)
-                {
-                    item.sprite = null;
-                }
-            }
-            else
-            {
-                foreach (var item in DisplayMagicImage)
-                {
-                    item.sprite = GameManager.PlayerManager.pm.GetComponent<CurrentUpgrades>().hotbar.useMagic.itemIcon; ;
-                }
-            }
+        //    if (GameManager.PlayerManager.pm.GetComponent<CurrentUpgrades>().hotbar.useMagic == null)
+        //    {
+        //        foreach (var item in DisplayMagicImage)
+        //        {
+        //            item.sprite = null;
+        //        }
+        //    }
+        //    else
+        //    {
+        //        foreach (var item in DisplayMagicImage)
+        //        {
+        //            item.sprite = GameManager.PlayerManager.pm.GetComponent<CurrentUpgrades>().hotbar.useMagic.itemIcon; ;
+        //        }
+        //    }
 
 
-        }
+        //}
 
 
         //Converts regular values into values that can be used for the health and staminabar
@@ -254,27 +254,27 @@ namespace UIManager
 
         }
 
-        private void UpdateUpgradeSkillRequirement()
-        {
-            if (GameManager.PlayerManager.pm.GetComponent<CurrentUpgrades>().hotbar.useItem.itemLVL != 3)
-            {
-                menuItemUpgrade.GetComponentInChildren<TMPro.TMP_Text>().text = "Skill Points: " + GameManager.PlayerManager.pm.GetComponent<CurrentUpgrades>().itemSkillRequirement;
-            }
-            else
-            {
-                menuItemUpgrade.GetComponentInChildren<TMPro.TMP_Text>().text = "Max";
-            }
+        //private void UpdateUpgradeSkillRequirement()
+        //{
+        //    if (GameManager.PlayerManager.pm.GetComponent<CurrentUpgrades>().hotbar.useItem.itemLVL != 3)
+        //    {
+        //        menuItemUpgrade.GetComponentInChildren<TMPro.TMP_Text>().text = "Skill Points: " + GameManager.PlayerManager.pm.GetComponent<CurrentUpgrades>().itemSkillRequirement;
+        //    }
+        //    else
+        //    {
+        //        menuItemUpgrade.GetComponentInChildren<TMPro.TMP_Text>().text = "Max";
+        //    }
 
-            if (GameManager.PlayerManager.pm.GetComponent<CurrentUpgrades>().hotbar.useMagic.itemLVL != 3)
-            {
-                menuMagicUpgrade.GetComponentInChildren<TMPro.TMP_Text>().text = "Skill Points: " + GameManager.PlayerManager.pm.GetComponent<CurrentUpgrades>().magicSkillRequirement;
-            }
-            else
-            {
-                menuMagicUpgrade.GetComponentInChildren<TMPro.TMP_Text>().text = "Max";
-            }
+        //    if (GameManager.PlayerManager.pm.GetComponent<CurrentUpgrades>().hotbar.useMagic.itemLVL != 3)
+        //    {
+        //        menuMagicUpgrade.GetComponentInChildren<TMPro.TMP_Text>().text = "Skill Points: " + GameManager.PlayerManager.pm.GetComponent<CurrentUpgrades>().magicSkillRequirement;
+        //    }
+        //    else
+        //    {
+        //        menuMagicUpgrade.GetComponentInChildren<TMPro.TMP_Text>().text = "Max";
+        //    }
 
-        }
+        //}
 
         private void SkillPointCheck()
         {

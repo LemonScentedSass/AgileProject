@@ -20,11 +20,11 @@ public class ResourceDropper : MonoBehaviour
       public void DropItem()
       {
             var dropValue = Random.value;
-            if(dropValue < dropChance)
+            if (dropValue < dropChance)
             {
-                        int index = GetRandomWeightedIndex(itemWeights);
-                        Instantiate(itemsToDrop[index].itemPrefab, transform.position, Quaternion.identity);
-                        Debug.Log("Enemy Dropped Item");
+                  int index = GetRandomWeightedIndex(itemWeights);
+                  Instantiate(itemsToDrop[index].itemPrefab, transform.position, Quaternion.identity);
+                  Debug.Log("Enemy Dropped Item");
             }
       }
 
@@ -41,7 +41,7 @@ public class ResourceDropper : MonoBehaviour
 
             for (int i = 0; i < itemsToDrop.Count; i++)
             {
-                  if(randomValue >= tempSum && randomValue < tempSum + itemWeights[i])
+                  if (randomValue >= tempSum && randomValue < tempSum + itemWeights[i])
                   {
                         return i;
                   }

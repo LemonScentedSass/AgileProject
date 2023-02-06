@@ -8,28 +8,28 @@ public class EnemyMeleeAttack : MonoBehaviour
 
       EnemyStats enemy;
 
-      Collider collider;
+      //Collider collider;
 
       private void Awake()
       {
             enemy = GetComponentInParent<EnemyStats>();
-            collider = GetComponent<MeshCollider>();
+            //collider = GetComponent<MeshCollider>();
       }
 
       private void Update()
       {
             if (enemy.isDead)
             {
-                  collider.enabled = false;
+                  GetComponent<Collider>().enabled = false;
             }
       }
 
-      private void OnTriggerEnter(Collider other)
-      {
-            if(other.gameObject.tag == "Player")
-            {
-                  other.GetComponent<IHittable>().GetHit(damageAmount);
-                  Debug.Log("Hit Player");
-            }
-      }
+      //private void OnTriggerEnter(Collider other)
+      //{
+      //      if(other.gameObject.tag == "Player")
+      //      {
+      //            other.GetComponent<IHittable>().GetHit(damageAmount);
+      //            Debug.Log("Hit Player");
+      //      }
+      //}
 }
