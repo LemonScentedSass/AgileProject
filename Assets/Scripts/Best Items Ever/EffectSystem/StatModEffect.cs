@@ -15,9 +15,10 @@ public class StatModEffect : EffectBase
       public int movementSpeedAmount;
       public StatModType statModType;
 
+    public override string GetEffectType { get { return "StatModEffect"; } }
 
-      // Apply the effect
-      public override void OnTrigger(Character character)
+    // Apply the effect
+    public override void OnTrigger(Character source, Character target)
       {
             if(numberOfEffects > 0)
             {

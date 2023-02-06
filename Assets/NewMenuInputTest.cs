@@ -9,17 +9,16 @@ public class NewMenuInputTest : MonoBehaviour
 
     public bool Mirrored;
 
-
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(Mirrored == true)
+        if (Mirrored == true)
         {
             HandsAnimator.SetBool("Mirrored", true);
         }
@@ -28,41 +27,41 @@ public class NewMenuInputTest : MonoBehaviour
             HandsAnimator.SetBool("Mirrored", false);
         }
 
-        if(Input.GetKeyDown(KeyCode.Tab) == true)
+        if (Input.GetKeyDown(KeyCode.Tab) == true)
         {
             MenuBookAnimator.Play("BookOpening");
             HandsAnimator.Play("OpenBookMenu", 2);
         }
-        if(Mirrored == false && Input.GetKeyDown(KeyCode.Escape) == true)
+        if (Mirrored == false && Input.GetKeyDown(KeyCode.Escape) == true)
         {
             MenuBookAnimator.Play("New State");
             HandsAnimator.Play("LeftArmMagicIdle", 2);
         }
 
-        if(Mirrored == false && Input.GetKeyDown(KeyCode.M))
+        if (Mirrored == false && Input.GetKeyDown(KeyCode.M))
         {
             Mirrored = true;
         }
-        else if( Mirrored == true == Input.GetKeyDown(KeyCode.M))
+        else if (Mirrored == true == Input.GetKeyDown(KeyCode.M))
         {
             Mirrored = false;
         }
 
-        if(Mirrored == false && Input.GetMouseButtonDown(1) == true)
+        if (Mirrored == false && Input.GetMouseButtonDown(1) == true)
         {
             HandsAnimator.Play("LeftArmMagicShoot", 2);
         }
-        else if(Mirrored == true && Input.GetMouseButtonDown(0)==true)
+        else if (Mirrored == true && Input.GetMouseButtonDown(0) == true)
         {
             HandsAnimator.Play("RightArmMagicShoot", 1);
         }
 
 
         //Right Hand weapon swings on click
-        if(Input.GetMouseButtonDown(0) == true && Mirrored == false)
+        if (Input.GetMouseButtonDown(0) == true && Mirrored == false)
         {
             //Checks to see if the player is in idle; Plays attack 1
-            if(HandsAnimator.GetCurrentAnimatorStateInfo(1).IsName("RightArmWeaponLeftNothing-Idle"))
+            if (HandsAnimator.GetCurrentAnimatorStateInfo(1).IsName("RightArmWeaponLeftNothing-Idle"))
             {
                 HandsAnimator.Play("RightArmWeaponLeftNothing-Attack1", 1);
             }
@@ -127,7 +126,7 @@ public class NewMenuInputTest : MonoBehaviour
     IEnumerator AttackWait(float timewait)
     {
         yield return new WaitForSeconds(0.5f);
-        if(Input.GetMouseButtonDown(0) == false)
+        if (Input.GetMouseButtonDown(0) == false)
         {
             HandsAnimator.SetBool("isAttacking", false);
         }
