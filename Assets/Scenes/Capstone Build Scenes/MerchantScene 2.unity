@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 0.35
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.26886776, g: 0.30104554, b: 0.35167104, a: 0.35}
+  m_IndirectSpecularColor: {r: 0.26355296, g: 0.29458144, b: 0.3464149, a: 0.35}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 112000000, guid: e2218f4a46be0704eb0d616f3b8f6299, type: 2}
+  m_LightingDataAsset: {fileID: 112000000, guid: 9106c3ee5eb51164d90b9257a077dff0, type: 2}
   m_LightingSettings: {fileID: 4890085278179872738, guid: 8430a9565326cd3479e6f3664a0cc0e4, type: 2}
 --- !u!196 &4
 NavMeshSettings:
@@ -560,7 +560,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh44206
+  m_Name: pb_Mesh128188
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -1636,7 +1636,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh43750
+  m_Name: pb_Mesh127732
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -2461,6 +2461,7 @@ GameObject:
   m_Component:
   - component: {fileID: 224079362}
   - component: {fileID: 224079363}
+  - component: {fileID: 224079364}
   m_Layer: 0
   m_Name: Point Light
   m_TagString: Untagged
@@ -2495,7 +2496,7 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 1, g: 0.46095705, b: 0, a: 1}
-  m_Intensity: 1
+  m_Intensity: 2
   m_Range: 17.3
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -2529,7 +2530,7 @@ Light:
   m_Cookie: {fileID: 0}
   m_DrawHalo: 0
   m_Flare: {fileID: 0}
-  m_RenderMode: 0
+  m_RenderMode: 1
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -2545,6 +2546,22 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &224079364
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 224079361}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 897d44f341edd0842b6da0c31b502c6f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  torch: {fileID: 0}
+  minIntensity: 0.95
+  maxIntensity: 1.05
+  flickerRate: 0.1
 --- !u!1 &225712860
 GameObject:
   m_ObjectHideFlags: 0
@@ -2852,6 +2869,7 @@ GameObject:
   m_Component:
   - component: {fileID: 277377891}
   - component: {fileID: 277377892}
+  - component: {fileID: 277377893}
   m_Layer: 0
   m_Name: Point Light
   m_TagString: Untagged
@@ -2936,6 +2954,22 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &277377893
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 277377890}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 897d44f341edd0842b6da0c31b502c6f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  torch: {fileID: 0}
+  minIntensity: 0.95
+  maxIntensity: 1.32
+  flickerRate: 0.1
 --- !u!1 &291523499
 GameObject:
   m_ObjectHideFlags: 0
@@ -5097,7 +5131,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh43044
+  m_Name: pb_Mesh127026
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -5365,6 +5399,7 @@ GameObject:
   m_Component:
   - component: {fileID: 523219284}
   - component: {fileID: 523219285}
+  - component: {fileID: 523219286}
   m_Layer: 0
   m_Name: Point Light
   m_TagString: Untagged
@@ -5449,6 +5484,22 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &523219286
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 523219283}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 897d44f341edd0842b6da0c31b502c6f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  torch: {fileID: 0}
+  minIntensity: 0.95
+  maxIntensity: 1.18
+  flickerRate: 0.1
 --- !u!1 &529977644
 GameObject:
   m_ObjectHideFlags: 0
@@ -5559,6 +5610,7 @@ GameObject:
   m_Component:
   - component: {fileID: 546818314}
   - component: {fileID: 546818315}
+  - component: {fileID: 546818316}
   m_Layer: 0
   m_Name: Point Light
   m_TagString: Untagged
@@ -5643,6 +5695,22 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &546818316
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 546818313}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 897d44f341edd0842b6da0c31b502c6f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  torch: {fileID: 0}
+  minIntensity: 0.95
+  maxIntensity: 1.05
+  flickerRate: 0.1
 --- !u!1 &552945788
 GameObject:
   m_ObjectHideFlags: 0
@@ -6026,6 +6094,7 @@ GameObject:
   m_Component:
   - component: {fileID: 581902068}
   - component: {fileID: 581902069}
+  - component: {fileID: 581902070}
   m_Layer: 0
   m_Name: Point Light
   m_TagString: Untagged
@@ -6110,6 +6179,22 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &581902070
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 581902067}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 897d44f341edd0842b6da0c31b502c6f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  torch: {fileID: 0}
+  minIntensity: 0.95
+  maxIntensity: 1.05
+  flickerRate: 0.1
 --- !u!1 &591509379
 GameObject:
   m_ObjectHideFlags: 0
@@ -6120,6 +6205,7 @@ GameObject:
   m_Component:
   - component: {fileID: 591509380}
   - component: {fileID: 591509381}
+  - component: {fileID: 591509382}
   m_Layer: 0
   m_Name: Point Light
   m_TagString: Untagged
@@ -6188,7 +6274,7 @@ Light:
   m_Cookie: {fileID: 0}
   m_DrawHalo: 0
   m_Flare: {fileID: 0}
-  m_RenderMode: 0
+  m_RenderMode: 1
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -6204,13 +6290,29 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &591509382
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 591509379}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 897d44f341edd0842b6da0c31b502c6f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  torch: {fileID: 0}
+  minIntensity: 0.8
+  maxIntensity: 1.28
+  flickerRate: 0.1
 --- !u!43 &597069766
 Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh44080
+  m_Name: pb_Mesh128062
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -7865,6 +7967,7 @@ GameObject:
   m_Component:
   - component: {fileID: 844876646}
   - component: {fileID: 844876647}
+  - component: {fileID: 844876648}
   m_Layer: 0
   m_Name: Point Light
   m_TagString: Untagged
@@ -7949,6 +8052,22 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &844876648
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 844876645}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 897d44f341edd0842b6da0c31b502c6f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  torch: {fileID: 0}
+  minIntensity: 0.95
+  maxIntensity: 1.05
+  flickerRate: 0.1
 --- !u!1 &900384509
 GameObject:
   m_ObjectHideFlags: 0
@@ -7959,6 +8078,7 @@ GameObject:
   m_Component:
   - component: {fileID: 900384510}
   - component: {fileID: 900384511}
+  - component: {fileID: 900384512}
   m_Layer: 0
   m_Name: Point Light
   m_TagString: Untagged
@@ -8043,6 +8163,22 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &900384512
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 900384509}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 897d44f341edd0842b6da0c31b502c6f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  torch: {fileID: 0}
+  minIntensity: 1.01
+  maxIntensity: 1.17
+  flickerRate: 0.1
 --- !u!1001 &902248460
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8991,7 +9127,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh43842
+  m_Name: pb_Mesh127824
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -9799,6 +9935,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1116814795}
   - component: {fileID: 1116814796}
+  - component: {fileID: 1116814797}
   m_Layer: 0
   m_Name: Point Light
   m_TagString: Untagged
@@ -9867,7 +10004,7 @@ Light:
   m_Cookie: {fileID: 0}
   m_DrawHalo: 0
   m_Flare: {fileID: 0}
-  m_RenderMode: 0
+  m_RenderMode: 1
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -9883,6 +10020,22 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &1116814797
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1116814794}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 897d44f341edd0842b6da0c31b502c6f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  torch: {fileID: 0}
+  minIntensity: 0.95
+  maxIntensity: 1.27
+  flickerRate: 0.1
 --- !u!1 &1133840963
 GameObject:
   m_ObjectHideFlags: 0
@@ -10163,7 +10316,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh43314
+  m_Name: pb_Mesh127296
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -11991,7 +12144,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemToSell: {fileID: 1141832128}
-  item: {fileID: 11400000, guid: 75513d07cc3bfe84aa55edea530e7548, type: 2}
   objectName: Boomerang
   objectDesc: Throw at targets to deal damage and stun. Can also break boxes.
   cost: 4
@@ -12796,7 +12948,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh44052
+  m_Name: pb_Mesh128034
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -12964,6 +13116,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1457696404}
   - component: {fileID: 1457696405}
+  - component: {fileID: 1457696406}
   m_Layer: 0
   m_Name: Point Light
   m_TagString: Untagged
@@ -13048,6 +13201,22 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &1457696406
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1457696403}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 897d44f341edd0842b6da0c31b502c6f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  torch: {fileID: 0}
+  minIntensity: 1.07
+  maxIntensity: 1.35
+  flickerRate: 0.1
 --- !u!1001 &1458084271
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15597,6 +15766,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1799502560}
   - component: {fileID: 1799502561}
+  - component: {fileID: 1799502562}
   m_Layer: 0
   m_Name: Point Light
   m_TagString: Untagged
@@ -15681,6 +15851,22 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &1799502562
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1799502559}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 897d44f341edd0842b6da0c31b502c6f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  torch: {fileID: 0}
+  minIntensity: 0.89
+  maxIntensity: 1.17
+  flickerRate: 0.1
 --- !u!1 &1801954823
 GameObject:
   m_ObjectHideFlags: 0
@@ -16238,6 +16424,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1869054056}
   - component: {fileID: 1869054057}
+  - component: {fileID: 1869054058}
   m_Layer: 0
   m_Name: Point Light
   m_TagString: Untagged
@@ -16322,6 +16509,22 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &1869054058
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1869054055}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 897d44f341edd0842b6da0c31b502c6f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  torch: {fileID: 0}
+  minIntensity: 0.95
+  maxIntensity: 1.05
+  flickerRate: 0.1
 --- !u!1 &1881686189
 GameObject:
   m_ObjectHideFlags: 0
@@ -17654,6 +17857,102 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 494881040225007848, guid: 896bea3ca28bfdc4abf6ad877300a29f, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 494881040225007848, guid: 896bea3ca28bfdc4abf6ad877300a29f, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 494881040225007848, guid: 896bea3ca28bfdc4abf6ad877300a29f, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 494881040225007848, guid: 896bea3ca28bfdc4abf6ad877300a29f, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1968557886573073096, guid: 896bea3ca28bfdc4abf6ad877300a29f, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1968557886573073096, guid: 896bea3ca28bfdc4abf6ad877300a29f, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1968557886573073096, guid: 896bea3ca28bfdc4abf6ad877300a29f, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1968557886573073096, guid: 896bea3ca28bfdc4abf6ad877300a29f, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2444298420880387917, guid: 896bea3ca28bfdc4abf6ad877300a29f, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2444298420880387917, guid: 896bea3ca28bfdc4abf6ad877300a29f, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2444298420880387917, guid: 896bea3ca28bfdc4abf6ad877300a29f, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2444298420880387917, guid: 896bea3ca28bfdc4abf6ad877300a29f, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2780277777148924345, guid: 896bea3ca28bfdc4abf6ad877300a29f, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2780277777148924345, guid: 896bea3ca28bfdc4abf6ad877300a29f, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2780277777148924345, guid: 896bea3ca28bfdc4abf6ad877300a29f, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2780277777148924345, guid: 896bea3ca28bfdc4abf6ad877300a29f, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3169884107401797233, guid: 896bea3ca28bfdc4abf6ad877300a29f, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3169884107401797233, guid: 896bea3ca28bfdc4abf6ad877300a29f, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3169884107401797233, guid: 896bea3ca28bfdc4abf6ad877300a29f, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3169884107401797233, guid: 896bea3ca28bfdc4abf6ad877300a29f, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4981163626114899635, guid: 896bea3ca28bfdc4abf6ad877300a29f, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4981163626114899635, guid: 896bea3ca28bfdc4abf6ad877300a29f, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4981163626114899635, guid: 896bea3ca28bfdc4abf6ad877300a29f, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4981163626114899635, guid: 896bea3ca28bfdc4abf6ad877300a29f, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5728582172284964681, guid: 896bea3ca28bfdc4abf6ad877300a29f, type: 3}
       propertyPath: m_RootOrder
       value: 7
@@ -17701,6 +18000,54 @@ PrefabInstance:
     - target: {fileID: 5728582172284964683, guid: 896bea3ca28bfdc4abf6ad877300a29f, type: 3}
       propertyPath: m_Name
       value: CameraHolder
+      objectReference: {fileID: 0}
+    - target: {fileID: 6559292566559768089, guid: 896bea3ca28bfdc4abf6ad877300a29f, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6559292566559768089, guid: 896bea3ca28bfdc4abf6ad877300a29f, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6559292566559768089, guid: 896bea3ca28bfdc4abf6ad877300a29f, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6559292566559768089, guid: 896bea3ca28bfdc4abf6ad877300a29f, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7398043061731093475, guid: 896bea3ca28bfdc4abf6ad877300a29f, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7398043061731093475, guid: 896bea3ca28bfdc4abf6ad877300a29f, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7398043061731093475, guid: 896bea3ca28bfdc4abf6ad877300a29f, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7398043061731093475, guid: 896bea3ca28bfdc4abf6ad877300a29f, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8288889297586313478, guid: 896bea3ca28bfdc4abf6ad877300a29f, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8288889297586313478, guid: 896bea3ca28bfdc4abf6ad877300a29f, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8288889297586313478, guid: 896bea3ca28bfdc4abf6ad877300a29f, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8288889297586313478, guid: 896bea3ca28bfdc4abf6ad877300a29f, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 896bea3ca28bfdc4abf6ad877300a29f, type: 3}
@@ -18044,6 +18391,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2074822130}
   - component: {fileID: 2074822131}
+  - component: {fileID: 2074822132}
   m_Layer: 0
   m_Name: Point Light
   m_TagString: Untagged
@@ -18128,6 +18476,22 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &2074822132
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2074822129}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 897d44f341edd0842b6da0c31b502c6f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  torch: {fileID: 0}
+  minIntensity: 0.83
+  maxIntensity: 1.11
+  flickerRate: 0.1
 --- !u!1 &2083820525
 GameObject:
   m_ObjectHideFlags: 0
@@ -18319,6 +18683,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2125843685}
   - component: {fileID: 2125843686}
+  - component: {fileID: 2125843687}
   m_Layer: 0
   m_Name: Point Light
   m_TagString: Untagged
@@ -18403,6 +18768,22 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &2125843687
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2125843684}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 897d44f341edd0842b6da0c31b502c6f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  torch: {fileID: 0}
+  minIntensity: 0.76
+  maxIntensity: 1.02
+  flickerRate: 0.1
 --- !u!33 &335710129076394755
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -19130,6 +19511,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6424823204786263592}
   - component: {fileID: 6424823204786263591}
+  - component: {fileID: 6424823204786263594}
   m_Layer: 0
   m_Name: Point Light
   m_TagString: Untagged
@@ -19137,6 +19519,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &6424823204786263594
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6424823204786263593}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 897d44f341edd0842b6da0c31b502c6f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  torch: {fileID: 0}
+  minIntensity: 0.83
+  maxIntensity: 1.05
+  flickerRate: 0.1
 --- !u!33 &6424823205885522450
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -19289,7 +19687,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemToSell: {fileID: 0}
-  item: {fileID: 0}
   objectName: Fireball
   objectDesc: 
   cost: 0
