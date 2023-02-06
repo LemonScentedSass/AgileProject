@@ -64,6 +64,8 @@ namespace MapGeneration
                 SpaceManager.instance.CalculateSpace();
                 finSpaceManagerFloat = 1f;
                 spaceManagerCalled = true;
+
+                Grid.instance.CreateGrid();
             }
 
             completionPercent = (finWFCPercent + finRoomGenFloat + finStartEndFloat + finSpaceManagerFloat) / 4f;

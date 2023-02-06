@@ -8,6 +8,7 @@ public class Grid : MonoBehaviour
 
     public bool onlyDrawPathGizmos;
     public LayerMask unwalkableMask;
+    public LayerMask obstacleMask;
     public Vector2 gridWorldSize;
     public float nodeRadius;
     Node[,] grid;
@@ -44,7 +45,8 @@ public class Grid : MonoBehaviour
             {
                 Vector3 worldPoint = worldBottomLeft + Vector3.right * (x * nodeDiameter + nodeRadius) + Vector3.forward * (y * nodeDiameter + nodeRadius);
                 bool walkable = !(Physics.CheckSphere(worldPoint, nodeRadius, unwalkableMask));
-                grid[x, y] = new Node(walkable, worldPoint, x, y);
+                bool hasObstacle = (Physics.CheckSphere(worldPoint, nodeRadius, obstacleMask));
+                grid[x, y] = new Node(walkable, hasObstacle, worldPoint, x, y);
             }
         }
     }
@@ -97,7 +99,9 @@ public class Grid : MonoBehaviour
             {
                 foreach (Node n in path)
                 {
+                    Debug.Log(n.hasObstacle);
                     Gizmos.color = Color.black;
+                    Gizmos.color = (n.hasObstacle) ? Color.cyan : Color.black;
                     Gizmos.DrawCube(n.worldPosition, Vector3.one * (nodeDiameter - 0.01f));
                 }
             }
@@ -109,9 +113,15 @@ public class Grid : MonoBehaviour
                 foreach (Node n in grid)
                 {
                     Gizmos.color = (n.walkable) ? Color.white : Color.red;
+                    
                     if (path != null)
                         if (path.Contains(n))
+                        {
                             Gizmos.color = Color.black;
+                            Gizmos.color = (n.hasObstacle) ? Color.black : Color.cyan;
+                        }
+                            
+
                     Gizmos.DrawCube(n.worldPosition, Vector3.one * (nodeDiameter - 0.01f));
                 }
             }
