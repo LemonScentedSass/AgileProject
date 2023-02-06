@@ -5916,7 +5916,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4198266699868045597}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.031, y: 2.583, z: 0.088}
+  m_LocalPosition: {x: -0.031, y: 0.165, z: 0.088}
   m_LocalScale: {x: 1.554349, y: 1.55435, z: 1.554349}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -10062,7 +10062,7 @@ GameObject:
   m_Layer: 0
   m_Name: CameraHolder
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -10128,7 +10128,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec11bf9b1dbf2fd40994e7261cd427dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HandsAnimator: {fileID: 0}
+  HandsAnimator: {fileID: 7731672248479909929}
   MenuBookAnimator: {fileID: 5565753857789190711}
   Mirrored: 1
 --- !u!1 &5765125925233230563
@@ -14928,7 +14928,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2464989648003183835}
   - component: {fileID: 3227273810474353214}
-  - component: {fileID: 268677935602302440}
   m_Layer: 0
   m_Name: FPSCam
   m_TagString: Untagged
@@ -14994,14 +14993,6 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!81 &268677935602302440
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8017383817340213963}
-  m_Enabled: 1
 --- !u!1 &8043952596219082979
 GameObject:
   m_ObjectHideFlags: 0
@@ -18143,7 +18134,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 3ddd4dde7a8daa54d94a5014f8fb4595, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.6524972
+      value: -1.081
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 3ddd4dde7a8daa54d94a5014f8fb4595, type: 3}
       propertyPath: m_LocalPosition.z
