@@ -11,6 +11,8 @@ public class Grid : MonoBehaviour
     public LayerMask obstacleMask;
     public Vector2 gridWorldSize;
     public float nodeRadius;
+    public TerrainType[] walkableRegions;
+
     Node[,] grid;
 
     float nodeDiameter;
@@ -46,7 +48,12 @@ public class Grid : MonoBehaviour
                 Vector3 worldPoint = worldBottomLeft + Vector3.right * (x * nodeDiameter + nodeRadius) + Vector3.forward * (y * nodeDiameter + nodeRadius);
                 bool walkable = !(Physics.CheckSphere(worldPoint, nodeRadius, unwalkableMask));
                 bool hasObstacle = (Physics.CheckSphere(worldPoint, nodeRadius, obstacleMask));
-                grid[x, y] = new Node(walkable, hasObstacle, worldPoint, x, y);
+
+                int movementPenalty = 0;
+
+                // raycast
+
+                grid[x, y] = new Node(walkable, hasObstacle, worldPoint, x, y, movementPenalty);
             }
         }
     }
@@ -126,5 +133,12 @@ public class Grid : MonoBehaviour
                 }
             }
         }        
+    }
+
+    [System.Serializable]
+    public class TerrainType
+    {
+        public LayerMask terrainMask;
+        public int terrainPenalty;
     }
 }
