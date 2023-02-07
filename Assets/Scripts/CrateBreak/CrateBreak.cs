@@ -23,7 +23,7 @@ public class CrateBreak : MonoBehaviour, IHittable
         }
     }
 
-    public void GetHit(int damage)
+    public void AdjustHealth(int damage)
     {
         Debug.Log("Crate Hit");
 

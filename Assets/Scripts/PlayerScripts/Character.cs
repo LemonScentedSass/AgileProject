@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using ItemSystemV2;
 
-public class Character : MonoBehaviour
+public class Character : MonoBehaviour, IHittable
 {
     public delegate void OnHit(Character source, Character target);
     public OnHit onHit;
@@ -16,7 +16,20 @@ public class Character : MonoBehaviour
     [Header("Transform Refs")]
     [SerializeField] protected Transform _rightHandWeaponMount;
 
+    [SerializeField] protected float _curHealth;
+    [SerializeField] protected float _maxHealth = 10f;
+
+    [SerializeField] public bool isDead;
+
+    protected Dictionary<EffectBase, List<Transform>> _visualEffectDictionary = new Dictionary<EffectBase, List<Transform>>();
+
     public Transform RightHandWeaponMount { get { return _rightHandWeaponMount; } }
+
+    private uint _tickCounter = 0;
+
+    public float MaxHealth { get { return _maxHealth; } set { _maxHealth = value; } }
+    public float CurrentHealth { get { return _curHealth; } set { _curHealth = value; } }
+
 
     protected virtual void Start()
     {
@@ -42,6 +55,33 @@ public class Character : MonoBehaviour
             {
                 obj.gameObject.SetActive(false);
             }
+        }
+    }
+
+    public void AdjustHealth(int damage)
+    {
+        Debug.Log("GetHit - PlayerManager");
+        if (isDead == false)                                               // If player is not dead,
+        {
+            _curHealth -= damage;                                     // Decrease health by 1
+
+            if (_curHealth <= 0)                                      // Check for health less than or equal to 0
+            {
+                isDead = true;                                         // dead bool = true
+            }
+        }
+    }
+
+    public void GetStunned(float length)
+    {
+        return;
+    }
+
+    protected virtual void Update()
+    {
+        if (_tickCounter > 0)
+        {
+            onTick(Time.deltaTime);
         }
     }
 
@@ -78,10 +118,40 @@ public class Character : MonoBehaviour
     {
         TimedEffectToken tet = effect.GenerateToken(this, this) as TimedEffectToken;
         onTick += tet.UpdateToken;
+        _tickCounter++;
     }
 
     public void UnsubscribeOnTick(TimedEffectToken effect)
     {
         onTick -= effect.UpdateToken;
+        _tickCounter--;
+    }
+
+    public void RegisterVisualEffect(EffectBase token, Transform visualObject)
+    {
+        if (_visualEffectDictionary.ContainsKey(token))
+        {
+            if (_visualEffectDictionary[token].Contains(visualObject) == false)
+            {
+                _visualEffectDictionary[token].Add(visualObject);
+            }
+        }
+        else
+        {
+            _visualEffectDictionary.Add(token, new List<Transform>());
+            _visualEffectDictionary[token].Add(visualObject);
+        }
+    }
+
+    public void UnregisterVisualEffect(EffectBase token)
+    {
+        if (_visualEffectDictionary.ContainsKey(token))
+        {
+            for (int i = _visualEffectDictionary[token].Count - 1; i >= 0; i--)
+            {
+                Destroy(_visualEffectDictionary[token][i].gameObject);
+                _visualEffectDictionary[token].RemoveAt(i);
+            }
+        }
     }
 }

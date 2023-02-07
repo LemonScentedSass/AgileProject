@@ -18,7 +18,7 @@ public class PlayerSword : MonoBehaviour
             var hittable = other.GetComponent<IHittable>();        // Grab the IHittable component
             if (hittable != null)
             {
-                hittable.GetHit(damageAmount);                         // Call GetHit function passing damageAmount
+                hittable.AdjustHealth(damageAmount);                         // Call GetHit function passing damageAmount
                 Debug.Log("Hit enemy");
             }
 

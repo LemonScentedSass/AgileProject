@@ -14,11 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   effectName: Burn
   effectDescription: Fire Burn
-  numberOfEffects: 0
+  onStart:
+  - {fileID: 11400000, guid: 82faf32f6d961eb408cf5cbfb87b72c3, type: 2}
+  onEnd:
+  - {fileID: 11400000, guid: 82faf32f6d961eb408cf5cbfb87b72c3, type: 2}
   onTick:
-  - {fileID: 11400000}
   - {fileID: 11400000, guid: aad97764ed6237e49ab6fea479b4f95f, type: 2}
   duration: 5
   damagePerTick: 0
-  tickRate: 0.25
-  effectParticles: {fileID: 8905209471822492220, guid: 1cfdbefbcbdd9564e921bd96b63b7bf3, type: 3}
+  tickRate: 0.1

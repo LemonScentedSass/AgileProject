@@ -9,17 +9,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4240ccc27a96b8543ba4b9f3f5e1566a, type: 3}
-  m_Name: LightDamage
+  m_Script: {fileID: 11500000, guid: 647808f37e4d3204a9310c36b49a8f60, type: 3}
+  m_Name: Burn VFX
   m_EditorClassIdentifier: 
-  effectName: 
+  effectName: BurnEffect
   effectDescription: 
   onStart: []
   onEnd: []
-  healAmount: 1
-  manaAmount: 0
-  strengthBuffAmount: 0
-  staminaBuffAmount: 0
-  defenseBuffAmount: 0
-  movementSpeedAmount: 0
-  statModType: 1
+  onTick: []
+  duration: 0
+  damagePerTick: 0
+  tickRate: 0.1
+  visualPrefab: {fileID: 1923961469473304784, guid: 1ee65c5a1603cf74abbd60c84dcfb631, type: 3}

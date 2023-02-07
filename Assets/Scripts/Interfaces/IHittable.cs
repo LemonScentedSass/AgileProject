@@ -4,7 +4,7 @@ using UnityEngine;
 
 public interface IHittable
 {
-      void GetHit(int damage);
+      void AdjustHealth(int damage);
 
       void GetStunned(float length);
 }

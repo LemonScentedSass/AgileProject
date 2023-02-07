@@ -21,7 +21,7 @@ namespace ItemSystemV2
 
             public void DealDamage(IHittable target)
             {
-                  target.GetHit(CalculateDamage());
+                  target.AdjustHealth(CalculateDamage());
             }
 
             public virtual int CalculateDamage()

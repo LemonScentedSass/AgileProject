@@ -75,7 +75,7 @@ public class GiveLightning : MonoBehaviour
             collision.gameObject.AddComponent<MSTLightning>();
             collision.gameObject.GetComponent<MSTLightning>().LightningLVL = LightningLevel;
             collision.gameObject.GetComponent<MSTLightning>().material = Lightning;
-            collision.gameObject.GetComponent<EnemyStats>().currentHealth -= InitialDamage;
+            collision.gameObject.GetComponent<EnemyStats>().CurrentHealth -= InitialDamage;
         }
 
     }

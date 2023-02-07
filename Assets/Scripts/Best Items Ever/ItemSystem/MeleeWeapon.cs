@@ -23,8 +23,11 @@ namespace ItemSystemV2
 
             owner.DealDamage(list.ToArray());
 
+            Debug.Log("Legnth: " + hitEffects.Length);
+
             for (int i = 0; i < hitEffects.Length; i++)
             {
+                Debug.Log("Should sub");
                 //Fix this later, not eveything is a timed effect
                 TimedEffect te = hitEffects[i] as TimedEffect;
 

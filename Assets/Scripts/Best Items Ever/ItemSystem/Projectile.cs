@@ -35,7 +35,7 @@ public class Projectile : MonoBehaviour
 
             if (other.gameObject.GetComponent<IHittable>() != null)
             {
-                  other.gameObject.GetComponent<IHittable>().GetHit(_projectileObject.DamageRange);
+                  other.gameObject.GetComponent<IHittable>().AdjustHealth(_projectileObject.DamageRange);
                   Debug.Log($"Projectile Damaged {other.gameObject.name}");
                   Destroy(gameObject);
             }

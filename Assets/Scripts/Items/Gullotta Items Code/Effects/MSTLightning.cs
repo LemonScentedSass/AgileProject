@@ -136,7 +136,7 @@ public class MSTLightning : MonoBehaviour
         {
             if (_hits[i].GetComponent<EnemyStats>() == true)
             {
-                _hits[i].GetComponent<EnemyStats>().currentHealth -= LightningDamage;
+                _hits[i].GetComponent<EnemyStats>().CurrentHealth -= LightningDamage;
             }
         }
         Destroy(this);

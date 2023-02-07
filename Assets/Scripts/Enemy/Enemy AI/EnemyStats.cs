@@ -6,10 +6,6 @@ using GameManager;
 
 public class EnemyStats : Character, IHittable
 {
-      [SerializeField] public int currentHealth;
-      [SerializeField] public int maxHealth = 5;
-
-      [SerializeField] public bool isDead;
 
       ResourceDropper resourceDropper;
       NavMeshAgent agent;
@@ -19,20 +15,20 @@ public class EnemyStats : Character, IHittable
 
       private new void Start()
       {
-            currentHealth = maxHealth;
+            _curHealth = _maxHealth;
             anim = GetComponent<Animator>();
             ai = GetComponent<AI>();
             agent = GetComponent<NavMeshAgent>();
             resourceDropper = GetComponentInChildren<ResourceDropper>();
       }
 
-      private void Update()
+      protected override void Update()
       {
-            
+            base.Update();
       }
 
       // Can be used later to scale enemy damage, health, or any other value decided.
-      public void GetHit(int damage)
+      public void AdjustHealth(int damage)
       {
             Debug.Log("GetHit - EnemyStats");
             if (isDead == false)
@@ -46,9 +42,9 @@ public class EnemyStats : Character, IHittable
 
                   GetComponent<EnemyHealthUI>().healthSlider.enabled = true;
 
-                  currentHealth -= damage;
+                  _curHealth -= damage;
 
-                  if (currentHealth <= 0)
+                  if (_curHealth <= 0)
                   {
                         GetComponent<EnemyHealthUI>().healthSlider.enabled = false;
                         isDead = true;

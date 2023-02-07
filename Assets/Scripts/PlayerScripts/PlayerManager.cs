@@ -6,7 +6,7 @@ using ItemSystemV2;
 
 namespace GameManager
 {
-    public class PlayerManager : Character, IHittable
+    public class PlayerManager : Character
     {
         public TimedEffect test;
 
@@ -16,8 +16,6 @@ namespace GameManager
         private AudioManager _am;
 
         [Header("Player Health / Stamina / Mana")]
-        [SerializeField] public float _curHealth;
-        [SerializeField] public float _maxHealth = 10f;
         [SerializeField] public float _curStamina;
         [SerializeField] public float _maxStamina = 100f;
         [SerializeField] public float _staminaRegenTime = 4f;
@@ -41,14 +39,10 @@ namespace GameManager
         [Header("Audio")]
         public AudioClip goldPickup, expPickup, bottlePickup;
 
-        private bool isDead = false;
         public bool usingItem = false;
         private float time;
         private float placeholder;
         public bool gameplayPaused;
-
-        public float MaxHealth { get { return _maxHealth; } set { _maxHealth = value; } }
-        public float CurrentHealth { get { return _curHealth; } set { _curHealth = value; } }
 
         public float MaxStamina { get { return _maxStamina; } set { _maxStamina = value; } }
         public float CurrentStamina { get { return _curStamina; } set { _curStamina = value; } }
@@ -109,14 +103,14 @@ namespace GameManager
         }
 
         // Update is called once per frame
-        void Update()
+        protected override void Update()
         {
+            base.Update();
+
             if (CurrentHealth <= 0)
             {
                 Die();
             }
-
-            onTick(Time.deltaTime);
 
             //Regens Stamina if taken stamina damage
             if (CurrentStamina != MaxStamina)
@@ -183,20 +177,6 @@ namespace GameManager
             }
         }
 
-        public void GetHit(int damage)
-        {
-            Debug.Log("GetHit - PlayerManager");
-            if (isDead == false)                                               // If player is not dead,
-            {
-                CurrentHealth -= damage;                                     // Decrease health by 1
-
-                if (CurrentHealth <= 0)                                      // Check for health less than or equal to 0
-                {
-                    isDead = true;                                         // dead bool = true
-                }
-            }
-        }
-
 
         public void Die()
         {
@@ -212,11 +192,6 @@ namespace GameManager
         {
             yield return new WaitForSeconds(2f);
             SceneManager.LoadSceneAsync(0);
-        }
-
-        public void GetStunned(float length)
-        {
-            return;
         }
 
         public void EnableCursor()

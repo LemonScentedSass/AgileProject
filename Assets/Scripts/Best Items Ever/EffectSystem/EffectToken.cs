@@ -47,6 +47,8 @@ public class TimedEffectToken : EffectToken
         _effect = effect as TimedEffect;
         _source = source;
         _target = target;
+
+        _effect.OnStart(_source, _target);
     }
 
     public override void UpdateToken(float time)
@@ -55,9 +57,7 @@ public class TimedEffectToken : EffectToken
         elapsedTime += time;
         currentTickBetweenEvents += time;
 
-        Debug.Log("On Tick Call");
-
-        if (currentTickBetweenEvents >= _effect.duration / _effect.tickRate)
+        if (currentTickBetweenEvents >= _effect.tickRate * _effect.duration)
         {
             _effect.OnTick(_source, _target);
             currentTickBetweenEvents = 0f;
@@ -65,6 +65,7 @@ public class TimedEffectToken : EffectToken
 
         if(elapsedTime >= _effect.duration)
         {
+            _effect.OnEnd(_source, _target);
             _source.UnsubscribeOnTick(this);
         }
     }

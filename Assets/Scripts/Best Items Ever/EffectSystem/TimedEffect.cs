@@ -10,19 +10,16 @@ public class TimedEffect : EffectBase
     public float duration;
     public int damagePerTick;
     [Range(0.1f ,1f)] public float tickRate;
-    [SerializeField] public ParticleSystem effectParticles;
 
     public override string GetEffectType { get { return "TimedEffect"; } }
 
     public override void OnTrigger(Character source, Character target)
     {
-        target.gameObject.GetComponent<EnemyStats>().GetHit(damagePerTick);
+        target.gameObject.GetComponent<EnemyStats>().AdjustHealth(damagePerTick);
     }
 
     public void OnTick(Character source, Character target)
     {
-        Debug.Log("Tick Yo!");
-
         for (int i = 0; i < onTick.Length; i++)
         {
             onTick[i].OnTrigger(source, target);

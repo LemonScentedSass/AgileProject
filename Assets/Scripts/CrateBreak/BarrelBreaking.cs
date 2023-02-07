@@ -6,7 +6,7 @@ public class BarrelBreaking : MonoBehaviour, IHittable
 {
       int barrelHealth = 1;
 
-      public void GetHit(int damage)
+      public void AdjustHealth(int damage)
       {
             barrelHealth -= damage;
             if(barrelHealth <= 0)
