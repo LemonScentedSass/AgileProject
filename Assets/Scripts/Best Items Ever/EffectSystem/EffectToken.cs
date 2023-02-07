@@ -38,6 +38,7 @@ public abstract class EffectToken
 public class TimedEffectToken : EffectToken
 {
     private float elapsedTime;
+    private float currentTickBetweenEvents = 0f;
 
     private TimedEffect _effect;
 
@@ -52,8 +53,15 @@ public class TimedEffectToken : EffectToken
     {
         base.UpdateToken(time);
         elapsedTime += time;
+        currentTickBetweenEvents += time;
 
-        _effect.OnTick(_source, _target);
+        Debug.Log("On Tick Call");
+
+        if (currentTickBetweenEvents >= _effect.duration / _effect.tickRate)
+        {
+            _effect.OnTick(_source, _target);
+            currentTickBetweenEvents = 0f;
+        }
 
         if(elapsedTime >= _effect.duration)
         {

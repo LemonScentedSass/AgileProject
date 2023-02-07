@@ -59,11 +59,8 @@ public class Character : MonoBehaviour
     {
         WeaponEquip we = equipItem as WeaponEquip;
 
-        Debug.Log("DealDamage - above loop");
-
         for (int i = 0; i < targets.Length; i++)
         {
-            Debug.Log("DealDamage - In For Loop");
             we.DealDamage((IHittable)targets[i]);
         }
     }

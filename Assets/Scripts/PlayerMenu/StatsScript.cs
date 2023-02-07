@@ -28,10 +28,10 @@ public class StatsScript : MonoBehaviour
         //    EXPtext.text = "EXP: " + LevelSystem.instance.experience + "/" + LevelSystem.instance.experienceToNextLevel;
         //}
 
-        foreach (var levelTXT in Level)
-        {
-            levelTXT.text = "Level: " + LevelSystem.instance.level;
-        }
+        //foreach (var levelTXT in Level)
+        //{
+        //    levelTXT.text = "Level: " + LevelSystem.instance.level;
+        //}
         Health.text = "Health: " + GameManager.PlayerManager.pm.CurrentHealth + "/" + GameManager.PlayerManager.pm.MaxHealth;
         Stamina.text = "Stamina: " + GameManager.PlayerManager.pm.CurrentStamina + "/" + GameManager.PlayerManager.pm.MaxStamina;
         Mana.text = "Mana: " + GameManager.PlayerManager.pm.CurrentMana + "/" + GameManager.PlayerManager.pm.MaxMana;

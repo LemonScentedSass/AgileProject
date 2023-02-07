@@ -17,6 +17,8 @@ MonoBehaviour:
   numberOfEffects: 0
   onTick:
   - {fileID: 11400000}
+  - {fileID: 11400000, guid: aad97764ed6237e49ab6fea479b4f95f, type: 2}
   duration: 5
   damagePerTick: 0
+  tickRate: 0.25
   effectParticles: {fileID: 8905209471822492220, guid: 1cfdbefbcbdd9564e921bd96b63b7bf3, type: 3}

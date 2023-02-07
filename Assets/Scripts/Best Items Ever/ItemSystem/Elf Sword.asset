@@ -17,9 +17,10 @@ MonoBehaviour:
   itemCost: 250
   itemImage: {fileID: 0}
   passiveEffects: []
-  minimumDamageRange: {x: 20, y: 25}
-  maximumDamageRange: {x: 30, y: 35}
+  minimumDamageRange: {x: 1, y: 1}
+  maximumDamageRange: {x: 2, y: 2}
   attackSpeed: 4
   damageTypes: 1
-  hitEffects: []
+  hitEffects:
+  - {fileID: 11400000, guid: 9a6e696cd02cd0f4d9d1f47c4050047c, type: 2}
   weaponModel: {fileID: 1962313793753824, guid: f48e4c51c5c648048b133fa216942e9f, type: 3}
