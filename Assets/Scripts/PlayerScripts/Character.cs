@@ -13,6 +13,7 @@ public class Character : MonoBehaviour, IHittable
 
     [SerializeField] public EquipItem equipItem;
     [SerializeField] private LayerMask _combatLayer;
+
     [Header("Transform Refs")]
     [SerializeField] protected Transform _rightHandWeaponMount;
 

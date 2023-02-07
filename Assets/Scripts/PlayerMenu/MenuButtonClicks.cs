@@ -31,7 +31,7 @@ public class MenuButtonClicks : MonoBehaviour
       public Button exitToMenuButton;
       public Button quitToDesktopButton;
 
-      private CurrentUpgrades inventory;
+      //private CurrentUpgrades inventory;
       public InputHandlerFirstPerson input;
 
       public GameObject ItemLock;
@@ -42,7 +42,7 @@ public class MenuButtonClicks : MonoBehaviour
       {
             BackgroundVolume.value = 1;
             SFXVolume.value = 1;
-            inventory = GameManager.PlayerManager.pm.GetComponent<CurrentUpgrades>();
+            //inventory = GameManager.PlayerManager.pm.GetComponent<CurrentUpgrades>();
             OptionMenu.SetActive(false);
             anim = GetComponent<Animator>();
             input = InputHandlerFirstPerson.instance;

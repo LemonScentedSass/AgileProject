@@ -57,8 +57,8 @@ namespace UIManager
         // Start is called before the first frame update
         void Start()
         {
-            itemLVLTXT.text = "Lvl: " + GameManager.PlayerManager.pm.GetComponent<CurrentUpgrades>().CurrentItemLVL;
-            magicLVLTXT.text = "Lvl: " + GameManager.PlayerManager.pm.GetComponent<CurrentUpgrades>().CurrentMagicLVL;
+            //itemLVLTXT.text = "Lvl: " + GameManager.PlayerManager.pm.GetComponent<CurrentUpgrades>().CurrentItemLVL;
+            //magicLVLTXT.text = "Lvl: " + GameManager.PlayerManager.pm.GetComponent<CurrentUpgrades>().CurrentMagicLVL;
 
             //sets the healthbar and staminabar to max
             foreach (Image bar in healthbar)
@@ -279,23 +279,23 @@ namespace UIManager
         private void SkillPointCheck()
         {
 
-            if (GameManager.PlayerManager.pm.GetComponent<CurrentUpgrades>().itemSkillRequirement <= LevelSystem.instance.skillPoints)
-            {
-                menuItemUpgrade.interactable = true;
-            }
-            else
-            {
-                menuItemUpgrade.interactable = false;
-            }
+            //if (GameManager.PlayerManager.pm.GetComponent<CurrentUpgrades>().itemSkillRequirement <= LevelSystem.instance.skillPoints)
+            //{
+            //    menuItemUpgrade.interactable = true;
+            //}
+            //else
+            //{
+            //    menuItemUpgrade.interactable = false;
+            //}
 
-            if (GameManager.PlayerManager.pm.GetComponent<CurrentUpgrades>().magicSkillRequirement <= LevelSystem.instance.skillPoints)
-            {
-                menuMagicUpgrade.interactable = true;
-            }
-            else
-            {
-                menuMagicUpgrade.interactable = false;
-            }
+            //if (GameManager.PlayerManager.pm.GetComponent<CurrentUpgrades>().magicSkillRequirement <= LevelSystem.instance.skillPoints)
+            //{
+            //    menuMagicUpgrade.interactable = true;
+            //}
+            //else
+            //{
+            //    menuMagicUpgrade.interactable = false;
+            //}
 
         }
 

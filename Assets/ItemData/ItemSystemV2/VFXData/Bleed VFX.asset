@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 647808f37e4d3204a9310c36b49a8f60, type: 3}
+  m_Name: Bleed VFX
+  m_EditorClassIdentifier: 
+  effectName: Bleed VFX
+  effectDescription: 'Spews blood downwards '
+  onStart: []
+  onEnd: []
+  onTick: []
+  duration: 0
+  damagePerTick: 0
+  tickRate: 0.1
+  visualPrefab: {fileID: 7848839226545546977, guid: 393f5110fefc12740b43ffe6b040ed40, type: 3}

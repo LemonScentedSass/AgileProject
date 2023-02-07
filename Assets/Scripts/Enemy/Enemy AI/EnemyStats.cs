@@ -28,32 +28,32 @@ public class EnemyStats : Character, IHittable
       }
 
       // Can be used later to scale enemy damage, health, or any other value decided.
-      public void AdjustHealth(int damage)
-      {
-            Debug.Log("GetHit - EnemyStats");
-            if (isDead == false)
-            {
-                  //switch (type)
-                  //{
-                  //      case DamageTypes.Fire:
-                  //            gameObject.GetComponentInChildren<ParticleSystem>().Play();
-                  //            break;
-                  //}
+      //public void AdjustHealth(int damage)
+      //{
+      //      Debug.Log("GetHit - EnemyStats");
+      //      if (isDead == false)
+      //      {
+      //            //switch (type)
+      //            //{
+      //            //      case DamageTypes.Fire:
+      //            //            gameObject.GetComponentInChildren<ParticleSystem>().Play();
+      //            //            break;
+      //            //}
 
-                  GetComponent<EnemyHealthUI>().healthSlider.enabled = true;
+      //            GetComponent<EnemyHealthUI>().healthSlider.enabled = true;
 
-                  _curHealth -= damage;
+      //            _curHealth -= damage;
 
-                  if (_curHealth <= 0)
-                  {
-                        GetComponent<EnemyHealthUI>().healthSlider.enabled = false;
-                        isDead = true;
-                        Die();
-                  }
-            }
-      }
+      //            if (_curHealth <= 0)
+      //            {
+      //                  GetComponent<EnemyHealthUI>().healthSlider.enabled = false;
+      //                  isDead = true;
+      //                  Die();
+      //            }
+      //      }
+      //}
 
-      void Die()
+      public void Die()
       {
             anim.SetBool("isDead", true);
             agent.isStopped = true;
@@ -62,22 +62,4 @@ public class EnemyStats : Character, IHittable
             Destroy(this.gameObject, 3f);
       }
 
-      public void GetStunned(float length)
-      {
-            if (length > 0)
-            {
-                  agent.speed = 0f;
-                  anim.ResetTrigger("isWalking");
-                  anim.ResetTrigger("isRunning");
-                  anim.ResetTrigger("isAttacking");
-                  anim.ResetTrigger("isIdle");
-                  length -= Time.deltaTime;
-            }
-
-            if (length <= 0)
-            {
-                  agent.speed = 2f;
-            }
-
-      }
 }
