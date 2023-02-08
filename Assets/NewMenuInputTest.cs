@@ -35,7 +35,7 @@ public class NewMenuInputTest : MonoBehaviour
         if (Mirrored == false && Input.GetKeyDown(KeyCode.Escape) == true)
         {
             MenuBookAnimator.Play("New State");
-            HandsAnimator.Play("LeftArmMagicIdle", 2);
+            HandsAnimator.Play("Nothing", 2);
         }
 
         if (Mirrored == false && Input.GetKeyDown(KeyCode.M))
@@ -61,13 +61,13 @@ public class NewMenuInputTest : MonoBehaviour
         if (Input.GetMouseButtonDown(0) == true && Mirrored == false)
         {
             //Checks to see if the player is in idle; Plays attack 1
-            if (HandsAnimator.GetCurrentAnimatorStateInfo(1).IsName("RightArmWeaponLeftNothing-Idle"))
+            if (HandsAnimator.GetCurrentAnimatorStateInfo(1).IsName("RightArmWeapon-Idle"))
             {
-                HandsAnimator.Play("RightArmWeaponLeftNothing-Attack1", 1);
+                HandsAnimator.Play("RightArmWeapon-Attack1", 1);
             }
 
             //Checks to see if player is in attack1 then activates next attack
-            if (HandsAnimator.GetCurrentAnimatorStateInfo(1).IsName("RightArmWeaponLeftNothing-Attack1"))
+            if (HandsAnimator.GetCurrentAnimatorStateInfo(1).IsName("RightArmWeapon-Attack1"))
             {
                 HandsAnimator.SetBool("isAttacking", true);
 
@@ -76,14 +76,14 @@ public class NewMenuInputTest : MonoBehaviour
             }
 
             //Checks to see if in attack2; Set bool to start final hit
-            if (HandsAnimator.GetCurrentAnimatorStateInfo(1).IsName("RightArmWeaponLeftNothing-Attack2"))
+            if (HandsAnimator.GetCurrentAnimatorStateInfo(1).IsName("RightArmWeapon-Attack2"))
             {
                 HandsAnimator.SetBool("Final", true);
             }
         }
 
         //Being in idle and attacking again makes final hit bool reset
-        if (HandsAnimator.GetCurrentAnimatorStateInfo(1).IsName("RightArmWeaponLeftNothing-Idle"))
+        if (HandsAnimator.GetCurrentAnimatorStateInfo(1).IsName("RightArmWeapon-Idle"))
         {
             HandsAnimator.SetBool("Final", false);
         }
@@ -92,13 +92,13 @@ public class NewMenuInputTest : MonoBehaviour
         if (Input.GetMouseButtonDown(1) == true && Mirrored == true)
         {
             //Checks to see if the player is in idle; Plays attack 1
-            if (HandsAnimator.GetCurrentAnimatorStateInfo(2).IsName("LeftArmWeaponRightNothing-Idle"))
+            if (HandsAnimator.GetCurrentAnimatorStateInfo(2).IsName("LeftArmWeapon-Idle"))
             {
-                HandsAnimator.Play("LeftArmWeaponRightNothing-Attack1", 2);
+                HandsAnimator.Play("LeftArmWeapon-Attack1", 2);
             }
 
             //Checks to see if player is in attack1 then activates next attack
-            if (HandsAnimator.GetCurrentAnimatorStateInfo(2).IsName("LeftArmWeaponRightNothing-Attack1"))
+            if (HandsAnimator.GetCurrentAnimatorStateInfo(2).IsName("LeftArmWeapon-Attack1"))
             {
                 HandsAnimator.SetBool("isAttacking", true);
 
@@ -107,7 +107,7 @@ public class NewMenuInputTest : MonoBehaviour
             }
 
             //Checks to see if in attack2; Set bool to start final hit
-            if (HandsAnimator.GetCurrentAnimatorStateInfo(2).IsName("LeftArmWeaponRightNothing-Attack2"))
+            if (HandsAnimator.GetCurrentAnimatorStateInfo(2).IsName("LeftArmWeapon-Attack2"))
             {
                 HandsAnimator.SetBool("Final", true);
             }
@@ -115,7 +115,7 @@ public class NewMenuInputTest : MonoBehaviour
         }
 
         //Being in idle and attacking again makes final hit bool reset
-        if (HandsAnimator.GetCurrentAnimatorStateInfo(2).IsName("LeftArmWeaponRightNothing-Attack3"))
+        if (HandsAnimator.GetCurrentAnimatorStateInfo(2).IsName("LeftArmWeapon-Attack3"))
         {
             HandsAnimator.SetBool("Final", false);
         }
