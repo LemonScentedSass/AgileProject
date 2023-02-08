@@ -15,7 +15,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Capstone Build Scenes/MerchantScene.unity
     guid: 54cadb8e61dacd54bbd26677384c1f15
   - enabled: 0
-    path: Assets/Scenes/Sprint 2 Build Scenes/Generation Scene.unity
+    path: Assets/Scenes/Capstone Build Scenes/Generation Scene.unity
     guid: 8c09ebb7f862a4442b3f953d23d294de
   - enabled: 0
     path: Assets/Scenes/Sprint 2 Build Scenes/ExampleLevel.unity
