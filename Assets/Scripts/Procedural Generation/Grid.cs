@@ -40,7 +40,7 @@ public class Grid : MonoBehaviour
             walkableRegionsDictionary.Add((int)Mathf.Log(region.terrainMask.value, 2), region.terrainPenalty);
         }
 
-        //CreateGrid();
+        //CreateGrid(); Called instead by GenerationStages in order to get the location of obstacles after they're generated
     }
 
     public int MaxSize { get { return gridSizeX * gridSizeY; } }
@@ -124,7 +124,7 @@ public class Grid : MonoBehaviour
             {
                 foreach (Node n in path)
                 {
-                    Debug.Log(n.hasObstacle);
+                    //Debug.Log(n.hasObstacle);
                     Gizmos.color = Color.black;
                     Gizmos.color = (n.hasObstacle) ? Color.cyan : Color.black;
                     Gizmos.DrawCube(n.worldPosition, Vector3.one * (nodeDiameter - 0.01f));
