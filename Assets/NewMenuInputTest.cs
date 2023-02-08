@@ -32,9 +32,9 @@ public class NewMenuInputTest : MonoBehaviour
             MenuBookAnimator.Play("BookOpening");
             HandsAnimator.Play("OpenBookMenu", 2);
         }
-        if (Mirrored == false && Input.GetKeyDown(KeyCode.Escape) == true)
+        if (MenuBookAnimator.GetCurrentAnimatorStateInfo(0).IsName("BookOpening") == true && Input.GetKeyDown(KeyCode.Escape) == true)
         {
-            MenuBookAnimator.Play("New State");
+            MenuBookAnimator.SetTrigger("close");
             HandsAnimator.Play("Nothing", 2);
         }
 
