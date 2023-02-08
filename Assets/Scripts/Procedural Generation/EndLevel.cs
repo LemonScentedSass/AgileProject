@@ -10,7 +10,7 @@ public class EndLevel : MonoBehaviour
         if (other.tag == "Player")
         {
             //Debug.Log("Loading...");
-            SceneManager.LoadSceneAsync(4);
+            SceneManager.LoadSceneAsync(2);
         }
     }
 }

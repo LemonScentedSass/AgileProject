@@ -1080,7 +1080,7 @@ MonoBehaviour:
     _maxValue: 15
   _roomSize:
     _minValue: 10
-    _maxValue: 62
+    _maxValue: 25
   _seperationRange:
     _minValue: 10
     _maxValue: 15
@@ -1571,7 +1571,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1bb44cc35cd94964bb0b6e5c0a837015, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  backgroundMusic: {fileID: 8300000, guid: 4481f9ff682822b418b10831fd34e705, type: 3}
+  backgroundMusic: {fileID: 8300000, guid: 8a1f5f0201dc2ae4db8a62e1fba37961, type: 3}
   _sfxAmount: 4
   _audioObject: {fileID: 0}
   backgroundVolume: 0.5
@@ -2357,7 +2357,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3505731539209293154, guid: 896bea3ca28bfdc4abf6ad877300a29f, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4198266699868045593, guid: 896bea3ca28bfdc4abf6ad877300a29f, type: 3}
       propertyPath: m_ClearFlags

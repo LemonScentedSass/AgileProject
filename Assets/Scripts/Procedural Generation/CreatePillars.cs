@@ -44,13 +44,24 @@ namespace LevelData
 
                     for (int x = 1; x < pillarsX; x++)
                     {
-                        pillarSpawner.transform.position = new Vector3(curRoomBottomLeft.x + (curRoomSpacingX * x), 2.3f, curRoomBottomLeft.y);
-                        pillarSpawner.transform.rotation = new Quaternion(0, 90, 0, 0);
-                        Instantiate(pillarPrefabNorth, pillarSpawner.transform.position, Quaternion.identity);
+                        pillarSpawner.transform.position = new Vector3(curRoomBottomLeft.x + (curRoomSpacingX * x), 2f, curRoomBottomLeft.y);
+                        pillarSpawner.transform.rotation = new Quaternion(0, 0, 0, 0);
+                        Instantiate(pillarPrefabSouth, pillarSpawner.transform.position, pillarSpawner.transform.rotation);
 
-                        pillarSpawner.transform.position = new Vector3(curRoomBottomLeft.x +  (curRoomSpacingX * x), 2.3f, (curRoomBottomLeft.y + curRoomSize.y));
-                        pillarSpawner.transform.rotation = new Quaternion(0, -90, 0, 0);
-                        Instantiate(pillarPrefabNorth, pillarSpawner.transform.position, Quaternion.identity);
+                        pillarSpawner.transform.position = new Vector3(curRoomBottomLeft.x +  (curRoomSpacingX * x), 2f, (curRoomBottomLeft.y + curRoomSize.y));
+                        pillarSpawner.transform.rotation = new Quaternion(0, 90, 0, 0);
+                        Instantiate(pillarPrefabSouth, pillarSpawner.transform.position, pillarSpawner.transform.rotation);
+                    }
+
+                    for (int y = 1; y < pillarsY; y++)
+                    {
+                        pillarSpawner.transform.position = new Vector3(curRoomBottomLeft.x, 2f, curRoomBottomLeft.y + (curRoomSpacingY * y));
+                        pillarSpawner.transform.rotation = new Quaternion(0, 270, 0, 0);
+                        Instantiate(pillarPrefabEast, pillarSpawner.transform.position, pillarSpawner.transform.rotation);
+
+                        pillarSpawner.transform.position = new Vector3((curRoomBottomLeft.x + curRoomSize.x), 2f, curRoomBottomLeft.y + (curRoomSpacingY * y));
+                        pillarSpawner.transform.rotation = new Quaternion(0, 360, 0, 0);
+                        Instantiate(pillarPrefabWest, pillarSpawner.transform.position, pillarSpawner.transform.rotation);
                     }
                     
                 }

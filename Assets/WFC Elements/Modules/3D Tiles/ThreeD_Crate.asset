@@ -16,7 +16,7 @@ MonoBehaviour:
   image: {fileID: 0}
   filledTile: {fileID: 0}
   uncoloredTwin: {fileID: 0}
-  chanceToSpawn: 78.1
+  chanceToSpawn: 100
   north: []
   east: []
   south: []
