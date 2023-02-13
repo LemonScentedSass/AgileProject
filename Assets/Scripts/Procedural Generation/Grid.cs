@@ -12,6 +12,8 @@ public class Grid : MonoBehaviour
     public Vector2 gridWorldSize;
     public float nodeRadius;
     public TerrainType[] walkableRegions;
+    LayerMask walkableMask;
+    [SerializeField] Dictionary<int, int> walkableRegionsDictionary = new Dictionary<int, int>();
 
     Node[,] grid;
 
@@ -31,7 +33,14 @@ public class Grid : MonoBehaviour
         nodeDiameter = nodeRadius * 2;
         gridSizeX = Mathf.RoundToInt(gridWorldSize.x / nodeDiameter);
         gridSizeY = Mathf.RoundToInt(gridWorldSize.y / nodeDiameter);
-        //CreateGrid();
+
+        foreach (TerrainType region in walkableRegions)
+        {
+            walkableMask.value = walkableMask | region.terrainMask.value;
+            walkableRegionsDictionary.Add((int)Mathf.Log(region.terrainMask.value, 2), region.terrainPenalty);
+        }
+
+        //CreateGrid(); Called instead by GenerationStages in order to get the location of obstacles after they're generated
     }
 
     public int MaxSize { get { return gridSizeX * gridSizeY; } }
@@ -51,7 +60,16 @@ public class Grid : MonoBehaviour
 
                 int movementPenalty = 0;
 
-                // raycast
+                if (walkable)
+                {
+                    Ray ray = new Ray(worldPoint + Vector3.up * 50, Vector3.down);
+                    RaycastHit hit;
+
+                    if (Physics.Raycast(ray, out hit, 100, walkableMask))
+                    {
+                        walkableRegionsDictionary.TryGetValue(hit.collider.gameObject.layer, out movementPenalty);
+                    }
+                }
 
                 grid[x, y] = new Node(walkable, hasObstacle, worldPoint, x, y, movementPenalty);
             }
@@ -106,7 +124,7 @@ public class Grid : MonoBehaviour
             {
                 foreach (Node n in path)
                 {
-                    Debug.Log(n.hasObstacle);
+                    //Debug.Log(n.hasObstacle);
                     Gizmos.color = Color.black;
                     Gizmos.color = (n.hasObstacle) ? Color.cyan : Color.black;
                     Gizmos.DrawCube(n.worldPosition, Vector3.one * (nodeDiameter - 0.01f));

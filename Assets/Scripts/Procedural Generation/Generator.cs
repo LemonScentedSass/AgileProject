@@ -214,6 +214,7 @@ namespace MapGeneration
             AddRandomEdges(edges, mst);                                                                                 // Not part of Prim's algorithm but used to add in more edges to hallways
             List<Edge> corridors = CalculateCorridors(mst, rooms);                                                      // Generate corridors using mst and rooms as parameters
             StartCoroutine(DrawContent(rooms, corridors));                                                              // Begin delaunay drawing
+            CreatePillars.instance.CreateRoomPillars(rooms);
             StartAndEnd.instance.FindStartAndEnd(rooms);                                                                // Idk
             _gizmoMST = mst;                                                                                            // Creates yellow gizmo representing mst pathing
         }
